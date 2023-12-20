@@ -19,25 +19,12 @@ I used the same approach to save content from Notifications created within my ap
 ```
 Set<String> sets = new HashSet<>();
 sets.add("notification title 1");
-```
 
-```
 mSharedPreferences.edit().putStringSet("keySet",sets).apply();
-```
 
-```
 //And to add another local notification:
-```
-
-```
 sets = mSharedPreferences.getStringSet("keySet",new HashSet<String>());
-```
-
-```
 sets.add("notification title 2");
-```
-
-```
 mSharedPreferences.edit().putStringSet("keySet",sets).apply();
 ```
 
@@ -45,7 +32,7 @@ It worked absolutely fine when I added and removed more such data from the Share
 
 **WHY SO?**
 
-As mentioned in the documentation:
+As mentioned in the [documentation](https://developer.android.com/reference/android/content/SharedPreferences#getStringSet(java.lang.String,%20java.util.Set%3Cjava.lang.String%3E)):
 
 > You *must not* modify the set instance returned by the **getStringSet** call. The consistency of the stored data is not guaranteed if you do, nor is your ability to modify the instance at all.
 
