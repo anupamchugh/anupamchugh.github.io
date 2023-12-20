@@ -1,6 +1,6 @@
-# A Nightmare with Shared Preferences and StringSet
+# A Nightmare with SharedPreferences and StringSet
 
-I love using Shared Preferences to cache data just about everywhere in my Android Applications. But little did I know that storing values in a Set of Strings would turn into a nightmare.
+I love using SharedPreferences to cache data in various parts of my Android applications. Little did I know that storing values in a Set of Strings would lead to inconsistencies in my app that are not immediately obvious from the code.
 
 To cut the story short — for saving strings and most of the other data types in Shared Preferences we use the following code:
 
