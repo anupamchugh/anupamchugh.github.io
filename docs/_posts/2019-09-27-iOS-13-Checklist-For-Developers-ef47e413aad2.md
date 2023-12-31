@@ -70,7 +70,7 @@ UINavigationBar.appearance().scrollEdgeAppearance = appearance
 
 The new UISegmentedControl has a 3d effect. But more importantly, `tintColor` property _no longer works_ in iOS 13. Instead, we need to use `selectedSegmentTintColor` to change the background color of the selected segments.
 
-![](/assets/scrrenshots/Revamped-UISegmentedControl.png)
+![](/assets/screenshots/Revamped-UISegmentedControl.png)
 
 ### SF Symbols
 
