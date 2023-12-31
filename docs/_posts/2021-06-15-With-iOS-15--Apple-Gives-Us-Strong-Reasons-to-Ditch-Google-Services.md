@@ -1,14 +1,14 @@
 ---
 title: 'With iOS 15, Apple Gives Us Strong Reasons to Ditch Google Services'
-description: >-
-  You don’t need Google Workspace on your iPhone and iPad anymore — Apple offers
-  10 better alternatives
 date: '2021-06-15T14:09:20.289Z'
 categories: []
 keywords: []
-slug: >-
-  /@anupamchugh/with-ios-15-apple-gave-us-strong-reasons-to-ditch-google-services-b43b369d6be9
+slug: /with-ios-15-apple-gives-us-strong-reasons-to-ditch-google-services
 ---
+
+##### You don’t need Google Workspace on your iPhone and iPad anymore — Apple offers 10 better alternatives
+
+![Illustration by me](/assets/screenshots/ios-15-google-alternatives-header-image-by-me.png)
 
 Google has charted its course towards a more privacy-focused web in the past year. They’ve also made Bluetooth-based location tracking an opt-out feature in Android 12.
 
@@ -64,7 +64,7 @@ Email tracking is a billion-dollar business right now. With just an invisible pi
 
 I think you already know what they’d do with your data. With good grace, Apple’s Mail app makes this no longer possible on iOS 15.
 
-You can choose if you wish to opt into the Mail Privacy Protection when the default Mail app launches for the first time. An opt-in by default would [block read receipts](https://medium.com/big-tech/apple-is-killing-email-read-receipts-like-entirely-14da5aa7fa75).
+You can choose if you wish to opt into the Mail Privacy Protection when the default Mail app launches for the first time. An opt-in by default would [block read receipts](https://thebigtech.substack.com/p/apple-just-killed-email-read-receipts).
 
 Given how Gmail is owned by Google, it’s obvious they already know your location and email behavior. No wonder, we get so many personalized product ads that are eerily similar to the information we get in the mail.
 
