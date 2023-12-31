@@ -22,19 +22,23 @@ Moving on from the popular frameworks that are making noise these days, let’s 
 
 With iOS 13, Apple has changed the default presentation style of View Controllers to a modal sheet from fullscreen in iOS 12. A modal sheet is a card like a form sheet which can be dismissed by pulling it down. This can break your app’s flow if you don’t intend to shut view controllers in this way.
 
-![](/assets/screenshots/modal-presentation-style-ios13.png)
+![View Controller Default Presentation Style](/assets/screenshots/modal-presentation-style-ios13.png?raw=true)
 
 #### **I want full-screen view controllers**
 
 Starting iOS 13, you’ll need to explicitly specify the presentation style if you want full screen as shown below:
 
+```
 vc.modalPresentationStyle = .fullScreen 
 
 let navigationController = UINavigationController(rootViewController: vc) navigationController.modalPresentationStyle = .fullScreen present(vc, animated: true)
+```
 
 To prevent the pull to dismiss gesture, add the following line of code:
 
+```
 vc.isModalInPresentation = true
+```
 
 You can even take more control over the swipe to dismiss on the modal sheets by using the newly added functions in `IAdaptivePresentationControllerDelegate` protocol:
 
@@ -49,7 +53,11 @@ Starting in iOS 13, UINavigationBar for large title style is no longer transluce
 
 We can change the style back to translucent like this:
 
-let appearance = UINavigationBarAppearance() appearance.configureWithDefaultBackground() UINavigationBar.appearance().scrollEdgeAppearance = appearance
+```
+let appearance = UINavigationBarAppearance() 
+appearance.configureWithDefaultBackground() 
+UINavigationBar.appearance().scrollEdgeAppearance = appearance
+```
 
 `UINavigationBarAppearance` is the new class to customize the appearance.  
 `UINavigationBar` consists of three built-in appearance types:
