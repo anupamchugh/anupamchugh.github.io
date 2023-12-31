@@ -7,7 +7,7 @@ keywords: []
 slug: /@anupamchugh/ios-13-checklist-for-developers-ef47e413aad2
 ---
 
-![](/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/1__fTWtsRRWS9LTUXAADNUtQg.jpeg)
+![](/assets/img/1__fTWtsRRWS9LTUXAADNUtQg.jpeg)
 
 [iOS 13](https://www.apple.com/ios/ios-13/features/) has finally been rolled out to the public, closely followed by 13.1. I’m sure you’ll be shipping your next app updates with it, but first, let’s go through a checklist of essential things.
 
@@ -24,7 +24,7 @@ Moving on from the popular frameworks that are making noise these days, let’s 
 
 With iOS 13, Apple has changed the default presentation style of View Controllers to a modal sheet from fullscreen in iOS 12. A modal sheet is a card like a form sheet which can be dismissed by pulling it down. This can break your app’s flow if you don’t intend to shut view controllers in this way.
 
-![](/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/0__E57pzpuyu8j1ruH5.png)
+![](/assets/img/0__E57pzpuyu8j1ruH5.png)
 
 #### **I want full-screen view controllers**
 
@@ -64,7 +64,7 @@ let appearance = UINavigationBarAppearance() appearance.configureWithDefaultBack
 
 The new UISegmentedControl has a 3d effect. But more importantly, `tintColor` property _no longer works_ in iOS 13. Instead, we need to use `selectedSegmentTintColor` to change the background color of the selected segments.
 
-![](/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/1__BW7cJztkYmKm9IJfvZeYSw.png)
+![](/assets/img/1__BW7cJztkYmKm9IJfvZeYSw.png)
 
 ### SF Symbols
 
@@ -72,7 +72,7 @@ Starting iOS 13, UIImage has got a new initializer, `systemName`. You can pass t
 
 UIImage(systemName: trash.fill)
 
-![](/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/0__fE8xWI1z7VXUPBWq.png)
+![](/assets/img/0__fE8xWI1z7VXUPBWq.png)
 
 ### SceneDelegate For Multi-Window Support
 
@@ -90,7 +90,7 @@ Context menus, on the other hand, work on all devices. We can set menus, submenu
 
 The menu is visible just above or below the preview.
 
-![](/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/0__YfR44VC0ZwtH5Vrk.png)
+![](/assets/img/0__YfR44VC0ZwtH5Vrk.png)
 
 To implement a context menu on collection/table view there’s a newly added function in the delegate that you need to override.
 
@@ -116,7 +116,7 @@ In order to opt-out of dark mode or lock the appearance to just one type we set 
 
 ### Sign In With Apple
 
-![](/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/1__sf2v52ZojwHLw__XVM4LDfQ.png)
+![](/assets/img/1__sf2v52ZojwHLw__XVM4LDfQ.png)
 
 Starting iOS 13, we can integrate Sign In With Apple button in our applications. It’s a secure and easy way to sign in and requires only the username and email address.
 
@@ -129,7 +129,7 @@ self.view.addSubview(button)
 
 You can then handle the authorization and verification part on the button click. Please note that this requires Xcode 11.
 
-![](/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/1__jLiiBU2A96DcxYfvjYUPOA.jpeg)
+![](/assets/img/1__jLiiBU2A96DcxYfvjYUPOA.jpeg)
 
 ### Vision API Gets a Core ML Boost
 
@@ -141,7 +141,7 @@ _Files App on iOS 13 now has a built-in PDF Scanner. Earlier only the notes app 
 
 ### Core ML 3 On Device Personalisation
 
-![](/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/1__2YZbW3tMvuGvFHBuZEN9jA.jpeg)
+![](/assets/img/1__2YZbW3tMvuGvFHBuZEN9jA.jpeg)
 
 On Device Training Of Models is a key development in Core ML this year. Now you can train ML Models on the device itself.
 
@@ -164,6 +164,3 @@ Here’s a list of resources containing the implementation of some of the featur
 *   [Multi Window Support in iPadOS](https://medium.com/better-programming/implementing-multiple-window-support-in-ipados-5b9a3ceeac6f)
 
 Stay tuned for more updates.
-
-[**iOS 14 Checklist For Developers**  
-_What you need to know to get your apps ready for iOS 14_medium.com](https://medium.com/@anupamchugh/ios-14-checklist-for-developers-372bd6d2507e "https://medium.com/@anupamchugh/ios-14-checklist-for-developers-372bd6d2507e")[](https://medium.com/@anupamchugh/ios-14-checklist-for-developers-372bd6d2507e)
