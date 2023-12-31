@@ -4,10 +4,8 @@ description: A checklist to refer to when shipping your next app for iOS 13
 date: '2019-09-27T17:55:20.000Z'
 categories: []
 keywords: []
-slug: /@anupamchugh/ios-13-checklist-for-developers-ef47e413aad2
+slug: //ios-13-checklist-for-developers-ef47e413aad2
 ---
-
-![](/assets/img/1__fTWtsRRWS9LTUXAADNUtQg.jpeg)
 
 [iOS 13](https://www.apple.com/ios/ios-13/features/) has finally been rolled out to the public, closely followed by 13.1. I’m sure you’ll be shipping your next app updates with it, but first, let’s go through a checklist of essential things.
 
@@ -24,7 +22,7 @@ Moving on from the popular frameworks that are making noise these days, let’s 
 
 With iOS 13, Apple has changed the default presentation style of View Controllers to a modal sheet from fullscreen in iOS 12. A modal sheet is a card like a form sheet which can be dismissed by pulling it down. This can break your app’s flow if you don’t intend to shut view controllers in this way.
 
-![](/assets/img/0__E57pzpuyu8j1ruH5.png)
+![](/assets/screenshots/modal-presentation-style-ios13.png)
 
 #### **I want full-screen view controllers**
 
@@ -64,15 +62,17 @@ let appearance = UINavigationBarAppearance() appearance.configureWithDefaultBack
 
 The new UISegmentedControl has a 3d effect. But more importantly, `tintColor` property _no longer works_ in iOS 13. Instead, we need to use `selectedSegmentTintColor` to change the background color of the selected segments.
 
-![](/assets/img/1__BW7cJztkYmKm9IJfvZeYSw.png)
+![](/assets/scrrenshots/Revamped-UISegmentedControl.png)
 
 ### SF Symbols
 
 Starting iOS 13, UIImage has got a new initializer, `systemName`. You can pass the system name as a string by looking up in the SF Symbols mac application, which contains more than 1000 system icons. You can download it [here](https://developer.apple.com/design/resources/).
 
+```
 UIImage(systemName: trash.fill)
+```
 
-![](/assets/img/0__fE8xWI1z7VXUPBWq.png)
+![](/assets/screenshots/sf-symbols-ios13-apple-docs.png)
 
 ### SceneDelegate For Multi-Window Support
 
@@ -90,22 +90,26 @@ Context menus, on the other hand, work on all devices. We can set menus, submenu
 
 The menu is visible just above or below the preview.
 
-![](/assets/img/0__YfR44VC0ZwtH5Vrk.png)
+![](/assets/screenshots/contextmenu-ios13-apple-docs.png)
 
 To implement a context menu on collection/table view there’s a newly added function in the delegate that you need to override.
 
 For collection view it is:
 
+```
 func collectionView(\_ collectionView: UICollectionView,   
 contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration?
+```
 
 We can define our own `UIMenu` and assign actions to them.
 
 To open the target view controller from the preview we need to implement the method:
 
+```
 func collectionView(\_ collectionView: UICollectionView,   
 willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration,   
 animator: UIContextMenuInteractionCommitAnimating)
+```
 
 ### Dark Mode And Dynamic Colors
 
@@ -116,7 +120,7 @@ In order to opt-out of dark mode or lock the appearance to just one type we set 
 
 ### Sign In With Apple
 
-![](/assets/img/1__sf2v52ZojwHLw__XVM4LDfQ.png)
+![](/assets/screenshots/screenshot-sign-in-with-apple.png)
 
 Starting iOS 13, we can integrate Sign In With Apple button in our applications. It’s a secure and easy way to sign in and requires only the username and email address.
 
@@ -124,12 +128,15 @@ Moreover, the user can choose to hide their email address in the app.
 
 To add a Sign In With Apple button in your app, just `import AuthenticationServices` and add the following code in your ViewController:
 
-let button = ASAuthorizationAppleIDButton()        button.addTarget(self, action: #selector(handleAuthorization), for: .touchUpInside)          
+```
+let button = ASAuthorizationAppleIDButton()
+button.addTarget(self, action: #selector(handleAuthorization), for: .touchUpInside)          
 self.view.addSubview(button)
+```
 
 You can then handle the authorization and verification part on the button click. Please note that this requires Xcode 11.
 
-![](/assets/img/1__jLiiBU2A96DcxYfvjYUPOA.jpeg)
+![](/assets/screenshots/sign-in-with-apple-ios-button-screenshot.png)
 
 ### Vision API Gets a Core ML Boost
 
@@ -141,7 +148,7 @@ _Files App on iOS 13 now has a built-in PDF Scanner. Earlier only the notes app 
 
 ### Core ML 3 On Device Personalisation
 
-![](/assets/img/1__2YZbW3tMvuGvFHBuZEN9jA.jpeg)
+![](/assets/screenshots/coreml-on-device-from-wwdc19-demo.png)
 
 On Device Training Of Models is a key development in Core ML this year. Now you can train ML Models on the device itself.
 
@@ -150,17 +157,3 @@ Typically, this is used for updating the model for specific use cases. An updata
 There are significant updates to the NLP frameworks such as word embedding and much more in Core ML 3 this year.
 
 That sums up most of the important points of iOS 13.
-
-#### Implementation Resources
-
-Here’s a list of resources containing the implementation of some of the features discussed above.
-
-*   [Context Menus and SF Symbols](https://medium.com/better-programming/ios-context-menu-collection-view-a03b032fe330)
-*   [Vision Text Recognition Using Document Camera](https://medium.com/@anupamchugh/ios-vision-text-document-scanner-effc0b7f4635)
-*   [Vision Animal Classifier Request](https://medium.com/@anupamchugh/ios-vision-cat-vs-dog-image-classifier-in-5-minutes-f9fd6f264762)
-*   [How To Create Updatable Models Using Core ML 3](https://medium.com/better-programming/how-to-create-updatable-models-using-core-ml-3-cc7decd517d5)
-*   [How To Train Your Model On Device](https://medium.com/better-programming/how-to-train-a-core-ml-model-on-your-device-cccd0bee19d)
-*   [PencilKit Introduction](https://medium.com/better-programming/an-introduction-to-pencilkit-in-ios-4d40aa62ba5b), [With Core ML](https://medium.com/better-programming/pencilkit-meets-core-ml-aefe3cde6a96), [With MapKit](https://medium.com/better-programming/cropping-ios-maps-with-pencilkit-da7f7dd7ec52)
-*   [Multi Window Support in iPadOS](https://medium.com/better-programming/implementing-multiple-window-support-in-ipados-5b9a3ceeac6f)
-
-Stay tuned for more updates.
