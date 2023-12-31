@@ -1,0 +1,45 @@
+<h1 id="a-nightmare-with-sharedpreferences-and-stringset">A Nightmare with SharedPreferences and StringSet</h1>
+
+<p>I love using SharedPreferences to cache data in various parts of my Android applications. Little did I know that storing values in a Set of Strings would lead to inconsistencies in my app that are not immediately obvious from the code.</p>
+
+<p>To cut the story short — for saving strings and most of the other data types in Shared Preferences we use the following code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mSharedPreferences.editor().putString(“Key”,”value”).apply();
+</code></pre></div></div>
+
+<p>And to retrieve we simply use the get methods:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mSharedPreferences.getString("key","defaultValue");
+</code></pre></div></div>
+
+<p>I used the same approach to save content from Notifications created within my application in order to build the Notifications again when the device is rebooted. It looked so simple:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set&lt;String&gt; sets = new HashSet&lt;&gt;();
+sets.add("notification title 1");
+
+mSharedPreferences.edit().putStringSet("keySet",sets).apply();
+
+//And to add another local notification:
+sets = mSharedPreferences.getStringSet("keySet",new HashSet&lt;String&gt;());
+sets.add("notification title 2");
+mSharedPreferences.edit().putStringSet("keySet",sets).apply();
+</code></pre></div></div>
+
+<p>It worked absolutely fine when I added and removed more such data from the Shared Preferences. As soon as I rebooted my testing device. <strong>BOOM!</strong> Just a single <code class="language-plaintext highlighter-rouge">String</code> value was present in the <code class="language-plaintext highlighter-rouge">SharedPreferences</code>.</p>
+
+<p><strong>WHY SO?</strong></p>
+
+<p>As mentioned in the <a href="https://developer.android.com/reference/android/content/SharedPreferences#getStringSet(java.lang.String,%20java.util.Set%3Cjava.lang.String%3E)">documentation</a>:</p>
+
+<blockquote>
+  <p>You <em>must not</em> modify the set instance returned by the <strong>getStringSet</strong> call. The consistency of the stored data is not guaranteed if you do, nor is your ability to modify the instance at all.</p>
+</blockquote>
+
+<h1 id="workaround">Workaround</h1>
+
+<p>Referring this <a href="https://stackoverflow.com/a/14034804/3849039">StackOverflow answer</a> tells us to create a copy of <code class="language-plaintext highlighter-rouge">Set&lt;String&gt;</code> every time the <code class="language-plaintext highlighter-rouge">getStringSet</code> returns that instance using:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set&lt;String&gt; newSet = new HashSet&lt;String&gt;(mSharedPrefs.getStringSet("keySet", new HashSet&lt;String&gt;()));
+</code></pre></div></div>
+
+<p>This can save you some precious hours which you’d otherwise spend scratching your head.</p>

@@ -8,7 +8,7 @@ slug: /apple-ios15-killing-email-read-receipts
 
 ##### The new Mail Privacy Protection feature ensures that email marketers can no longer track your activity
 
-![Screenshot by me](//assets/screenshots/apple-mail-privacy-protection-screenshot.png)
+![Screenshot by me](/assets/screenshots/apple-mail-privacy-protection-screenshot.png)
 
 A lot of people were bummed when Apple didn’t announce new hardware during WWDC 2021 Keynote event and Silicon chips hogged the limelight once again.
 
@@ -24,7 +24,7 @@ But Apple knows how to surprise us. And they did that in style!
 
 With just twelve words, Apple managed to freak the hell out of every email marketer and newsletter publisher:
 
-![Screenshot by me](//assets/screenshots/apple-email-privacy-wwdc-keynote-screenshot.png)
+![Screenshot](/assets/screenshots/apple-email-privacy-wwdc-keynote-screenshot.png)
 
 Such was the magnanimity of the new announcements that by the end of the security section in the Keynote, I’m sure plenty of marketers would’ve immediately set up a hands-on-deck meeting with their advertising teams.
 
