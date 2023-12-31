@@ -4,7 +4,7 @@ description: A checklist to refer to when shipping your next app for iOS 13
 date: '2019-09-27T17:55:20.000Z'
 categories: []
 keywords: []
-slug: //ios-13-checklist-for-developers-ef47e413aad2
+slug: /ios-13-checklist-for-developers-ef47e413aad2
 ---
 
 [iOS 13](https://www.apple.com/ios/ios-13/features/) has finally been rolled out to the public, closely followed by 13.1. I’m sure you’ll be shipping your next app updates with it, but first, let’s go through a checklist of essential things.
