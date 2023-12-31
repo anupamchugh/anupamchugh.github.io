@@ -1,0 +1,16 @@
+#Articles
+All the files inside gh-pages/docs/_posts are licensed under
+CC BY 4.0. The attribution requirement is only met when:
+
+The canonical link is directed towards the original article, e.g.
+<link rel="canonical" href="https://www.anupamchugh.github.io/ugly-truths-about-working-from-home.html" />
+
+The following message is displayed above and below the article:
+This article has been originally published on <a href="https://www.anupamchugh.github.io/">Anupam Chugh's website</a>.
+
+
+#Screenshots
+Most of the images in the assets/screenshots folder are either screenshotted, or belong to unsplash, etc. So, feel free to re-post those.
+
+Other files
+Files not mentioned in previous paragraphs are licensed under MIT License.
