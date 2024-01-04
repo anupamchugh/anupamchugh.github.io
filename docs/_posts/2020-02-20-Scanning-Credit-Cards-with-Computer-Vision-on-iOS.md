@@ -57,18 +57,15 @@ In the following code, we’ve set up our back camera, with the media type as vi
 ```
 private let captureSession = AVCaptureSession()
 
-private func **setCameraInput**() {
-
-guard let device = AVCaptureDevice.DiscoverySession(
-
-deviceTypes: \[.builtInWideAngleCamera, .builtInDualCamera, .builtInTrueDepthCamera\],mediaType: .video, position: .back).devices.first else {  
-fatalError("No back camera device found.")  
+private func setCameraInput() {
+	guard let device = AVCaptureDevice.DiscoverySession(
+	deviceTypes: [.builtInWideAngleCamera, .builtInDualCamera, .builtInTrueDepthCamera],mediaType: .video, position: .back).devices.first else {
+	
+	fatalError("No back camera device found.")
 }
 
 let cameraInput = try! AVCaptureDeviceInput(device: device)
-
 self.captureSession.addInput(cameraInput)
-
 }
 ```
 
@@ -79,31 +76,25 @@ Next up, we need to add the camera feed to the view of our `ViewController`.
 The following code contains the functions that display the live camera feed and sets up the output. The output video frames will eventually be fed to the Vision request:
 
 ```
-
 private lazy var previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
-
 private let videoDataOutput = AVCaptureVideoDataOutput()
-
-private func **showCameraFeed**() {  
-        self.previewLayer.videoGravity = .resizeAspectFill  
-        self.view.layer.addSublayer(self.previewLayer)  
-        self.previewLayer.frame = self.view.frame  
-    }  
+private func showCameraFeed() {
+        self.previewLayer.videoGravity = .resizeAspectFill
+        self.view.layer.addSublayer(self.previewLayer)
+        self.previewLayer.frame = self.view.frame
+}
     
+private func setCameraOutput() {
+    self.videoDataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_32BGRA)] as [String : Any]
+self.videoDataOutput.alwaysDiscardsLateVideoFrames = true
+    self.videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "camera_frame_processing_queue"))
 
-private func **setCameraOutput**() {  
-    self.videoDataOutput.videoSettings = \[(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType\_32BGRA)\] as \[String : Any\]
-
-self.videoDataOutput.alwaysDiscardsLateVideoFrames = true  
-    **self.videoDataOutput.setSampleBufferDelegate(self**, queue: DispatchQueue(label: "camera\_frame\_processing\_queue"))
-
-self.captureSession.addOutput(self.videoDataOutput)  
-    guard let connection = self.videoDataOutput.connection(with: AVMediaType.video),  
+self.captureSession.addOutput(self.videoDataOutput)
+    guard let connection = self.videoDataOutput.connection(with: AVMediaType.video),
         connection.isVideoOrientationSupported else { return }
 
-connection.videoOrientation = .portrait  
+connection.videoOrientation = .portrait
 }
-
 ```
 
 To receive the camera frames, we need to conform to the `AVCaptureVideoDataOutputSampleBufferDelegate` protocol and implement the `captureOutput` function.
@@ -119,7 +110,7 @@ super.viewDidLoad()
 self.setCameraInput()  
 self.showCameraFeed()  
 self.setCameraOutput()  
-**self.captureSession.startRunning()**
+self.captureSession.startRunning()
 
 }
 
@@ -129,26 +120,54 @@ self.setCameraOutput()
 
 Now it’s time to set up our Vision rectangle detection request. In the following function `detectRectangles`, we set up our `VNDetectRectanglesRequest` and pass it to the image request handler to start processing:
 
+```
+private func detectRectangle(in image: CVPixelBuffer) {
+
+        let request = VNDetectRectanglesRequest(completionHandler: { (request: VNRequest, error: Error?) in
+            DispatchQueue.main.async {
+                
+                guard let results = request.results as? [VNRectangleObservation] else { return }
+                self.removeMask()
+                
+                guard let rect = results.first else{return}
+                    self.drawBoundingBox(rect: rect)
+                
+                    if self.isTapped{
+                        self.isTapped = false
+                        self.doPerspectiveCorrection(rect, from: image)
+                    }
+            }
+        })
+        
+        request.minimumAspectRatio = VNAspectRatio(1.3)
+        request.maximumAspectRatio = VNAspectRatio(1.6)
+        request.minimumSize = Float(0.5)
+        request.maximumObservations = 1
+
+        
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: image, options: [:])
+        try? imageRequestHandler.perform([request])
+    }
+```
+
 A few things to note in the above code:
 
 *   We’ve set the `minimumAspectRatio` and `maximumAspectRatios` to 1.3 and 1.7. respectively, since most credit and business cards fall in that range.
 *   The above function is invoked in the following function:
 
 ```
-
-func captureOutput(  
-        \_ output: AVCaptureOutput,  
-        didOutput sampleBuffer: CMSampleBuffer,  
-        from connection: AVCaptureConnection) {  
-          
-        guard let frame = CMSampleBufferGetImageBuffer(sampleBuffer) else {  
-            debugPrint("unable to get image from sample buffer")  
-            return  
-        }  
-          
-        self.detectRectangle(in: frame)  
+func captureOutput(
+        _ output: AVCaptureOutput,
+        didOutput sampleBuffer: CMSampleBuffer,
+        from connection: AVCaptureConnection) {
+        
+        guard let frame = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+            debugPrint("unable to get image from sample buffer")
+            return
+        }
+        
+        self.detectRectangle(in: frame)
 }
-
 ```
 
 *   The result returned by the Vision request in the completion handler is of type `VNRectangleObservation`, which consists of the `boundingBox` and the `confidence` value.
@@ -194,7 +213,9 @@ private func createLayer(in rect: CGRect) {
 Instead of doing a `CGAffineTransform` to transform the bounding box into the image’s coordinate space, we can use the following built-in methods available with the Vision framework:
 
 ```
-func VNNormalizedRectForImageRect(_ imageRect: CGRect,                                 _ imageWidth: Int,                                 _ imageHeight: Int) -> CGRect
+func VNNormalizedRectForImageRect(_ imageRect: CGRect, 
+                                _ imageWidth: Int, 
+                                _ imageHeight: Int) -> CGRect
 ```
 
 When the `maskLayer` is set on the detected rectangle in the camera feed, you’ll end up with something like this:
@@ -206,6 +227,32 @@ The job is only half done! Our next step involves extracting the image within th
 ### Extracting the Image from the Bounding Box
 
 The function `doPerspectiveCorrection` takes the Core Image from the buffer, converts its corners from the normalized to the image space, and applies the perspective correction filter on them to give us the image. The code is given below:
+
+```
+func doPerspectiveCorrection(_ observation: VNRectangleObservation, from buffer: CVImageBuffer) {
+
+        var ciImage = CIImage(cvImageBuffer: buffer)
+
+        let topLeft = observation.topLeft.scaled(to: ciImage.extent.size)
+        let topRight = observation.topRight.scaled(to: ciImage.extent.size)
+        let bottomLeft = observation.bottomLeft.scaled(to: ciImage.extent.size)
+        let bottomRight = observation.bottomRight.scaled(to: ciImage.extent.size)
+
+        ciImage = ciImage.applyingFilter("CIPerspectiveCorrection", parameters: [
+            "inputTopLeft": CIVector(cgPoint: topLeft),
+            "inputTopRight": CIVector(cgPoint: topRight),
+            "inputBottomLeft": CIVector(cgPoint: bottomLeft),
+            "inputBottomRight": CIVector(cgPoint: bottomRight),
+        ])
+
+        let context = CIContext()
+        let cgImage = context.createCGImage(ciImage, from: ciImage.extent)
+        let output = UIImage(cgImage: cgImage!)
+        
+        UIImageWriteToSavedPhotosAlbum(output, nil, nil, nil)
+        
+}
+```
 
 The `UIImageWriteToSavedPhotosAlbum` function is used to save the image in the Photos library of a user’s device.
 

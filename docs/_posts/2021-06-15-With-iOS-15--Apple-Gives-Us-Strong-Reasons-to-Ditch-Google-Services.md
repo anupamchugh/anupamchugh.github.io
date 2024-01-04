@@ -6,7 +6,9 @@ keywords: []
 slug: /with-ios-15-apple-gives-us-strong-reasons-to-ditch-google-services
 ---
 
-##### You don’t need Google Workspace on your iPhone and iPad anymore — Apple offers 10 better alternatives
+#### You don’t need Google Workspace on your iPhone and iPad anymore — Apple offers 10 better alternatives
+
+------
 
 ![Illustration by me](/assets/screenshots/ios-15-google-alternatives-header-image-by-me.png)
 
