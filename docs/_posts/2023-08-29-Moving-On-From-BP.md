@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Moving on from Better Programming
-date: '2023-01-20T04:04:49.862Z'
+date: '2023-08-29T04:04:49.862Z'
 link: https://betterprogramming.pub/better-programming-has-a-new-editor-4f4ee04fa899
 ---
 
