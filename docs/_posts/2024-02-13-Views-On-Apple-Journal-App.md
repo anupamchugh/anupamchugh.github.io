@@ -1,5 +1,5 @@
 ---
-title: Journal App by Apple: A Foray Into AI, the Other Way Round
+title: "Journal App by Apple: A Foray Into AI, the Other Way Round"
 description: It’s more than just a journaling app.
 date: '2024-02-13T15:04:49.862Z'
 categories: []
