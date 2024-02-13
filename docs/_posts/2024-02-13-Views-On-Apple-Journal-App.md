@@ -1,10 +1,10 @@
 ---
-title: "Journal App by Apple: A Foray Into AI, the Other Way Round"
-description: It’s more than just a journaling app.
-date: '2024-02-13T15:04:49.862Z'
+title: Apple's Journal App - A Foray Into AI, the Other Way Round
+description: A reflection of our souls in code
+date: '2024-02-13T04:04:49.862Z'
 categories: []
 keywords: []
-slug: /apple-journal-app-a-foray-into-ai
+slug: /apple-journal-app-suggestions-ai
 ---
 
 Upon the announcement of Apple’s Journal app at WWDC 23, I found myself torn. Given the comparable functionality available within the [Shortcuts app for mood tracking journals](https://hachyderm.io/@chughanupam/111572011312067429), the introduction of a dedicated Journal app by Apple felt intriguing, and questions lingered.
