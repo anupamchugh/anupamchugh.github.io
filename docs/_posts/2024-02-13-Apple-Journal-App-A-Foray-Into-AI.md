@@ -1,7 +1,9 @@
 ---
-layout: post
 title: Apple’s Journal App: A Foray Into AI, the Other Way Round
+description: A reflection of our souls in code
 date: '2024-02-13T04:04:49.862Z'
+categories: []
+keywords: []
 slug: /apple-journal-app-a-foray-into-ai
 ---
 
