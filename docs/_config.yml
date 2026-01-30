@@ -31,6 +31,9 @@ theme: minima
 plugins:
   - jekyll-feed
 
+# Show future-dated posts
+future: true
+
 # Syntax Highlighting (Rouge)
 markdown: kramdown
 highlighter: rouge
