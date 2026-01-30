@@ -14,7 +14,7 @@ Now there's a second drift: **skills drift between agents.**
 
 You teach Claude Code a new skill. A validation gate. A debugging workflow. Something you'll need again.
 
-```
+```bash
 # Claude Code learns a skill
 ~/.claude/skills/validation-gates/SKILL.md
 ```
@@ -36,7 +36,7 @@ Those 2 might be the ones you need when Codex runs your CI workflow. It fails. Y
 
 Shadowbook already catches spec drift. Now it catches skill drift too.
 
-```
+```bash
 bd preflight --check
 ```
 
@@ -64,7 +64,7 @@ When skills drift:
 
 Fix it:
 
-```
+```bash
 bd preflight --check --auto-sync
 ```
 
@@ -74,7 +74,7 @@ Done. Skills mirrored. Both agents share the same knowledge.
 
 The skill-sync command supports CI-friendly flags:
 
-```
+```bash
 # In your CI pipeline
 /skill-sync audit --check-only    # Exit 0=synced, 1=drift
 /skill-sync audit --json          # Machine-readable output
