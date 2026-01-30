@@ -1,6 +1,6 @@
 ---
 title: "Skill Drift: 42 Skills in Claude. 40 in Codex."
-date: '2026-01-30T12:00:00.000Z'
+date: '2025-01-30T12:00:00.000Z'
 categories: [ai, tools]
 keywords: [claude-code, codex, multi-agent, shadowbook, drift-detection]
 slug: /skill-drift
