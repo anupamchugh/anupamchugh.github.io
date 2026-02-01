@@ -2,106 +2,60 @@
 title: "I Built a Tool That Became Obsolete in Four Days"
 date: '2026-02-01T18:00:00.000Z'
 categories: [satire, tools]
-keywords: [declutter, claude-code, memory-leak, indie-dev, github]
+keywords: [declutter, claude-code, claudeignore, indie-dev]
 slug: /i-built-a-tool-that-became-obsolete-in-four-days
 ---
 
-On January 27th, 2026, Claude Code kept freezing on my workspace.
+Claude Code froze on my workspace. Too many log files, too much node_modules bloat.
 
-938MB of log files. 1.2GB of node_modules. DerivedData the size of a small country.
+I built a tool to fix it. Four days later, the problem was [fixed upstream](https://status.claude.com/incidents/rl6pphjrc2r4).
 
-I did what any rational engineer does when their tools break: I built another tool.
+## What I Built
 
-## The Birth of Declutter
-
-Four hours later, `@declutter` was born.
+`@declutter` scanned workspaces and generated `.claudeignore` files—the ignore file that tells Claude Code which directories to skip.
 
 ```bash
-@declutter              # Scan workspace, show report
-@declutter --fix        # Auto-generate .claudeignore
+@declutter              # Scan, show bloat
+@declutter --fix        # Generate .claudeignore
 ```
 
-It detected bloat, calculated sizes, and generated ignore files. Tests passing. README polished. GitHub repo created.
+It worked. Tests passed. README written. Repo published.
 
-I was proud.
+## What Happened
 
-## The Death of Declutter
+Anthropic fixed the memory leak in version 2.1.29. One hour to fix what I spent four days building around.
 
-On January 31st, Anthropic posted this:
+The tool is now [archived on GitHub](https://github.com/anupamchugh/declutter).
 
-> **Claude Code Memory Leak**
->
-> Users encountered memory leaks in Claude Code version 2.1.27.
->
-> **Resolution:** Update to 2.1.29.
->
-> *Total incident duration: 1 hour.*
+## The `.claudeignore` File
 
-[status.claude.com/incidents/rl6pphjrc2r4](https://status.claude.com/incidents/rl6pphjrc2r4)
+The useful part: `.claudeignore` works like `.gitignore`. Add patterns for directories Claude Code should skip:
 
-One hour to fix. Four days after I started building my "solution."
-
-I had built a tool that solved a bug that was already being fixed upstream.
-
-## The Five Stages of Tool Grief
-
-**Denial**: "My tool is still useful! What about other use cases?"
-
-**Anger**: "Why didn't I check the GitHub issues first?"
-
-**Bargaining**: "Maybe I can pivot to something else?"
-
-**Depression**: *stares at 47 commits to a repo nobody will use*
-
-**Acceptance**: `gh repo archive anupamchugh/declutter --yes`
-
-## The Lesson: Check GitHub Issues First
-
-Before building a tool that fixes something broken:
-
-1. **Search GitHub Issues** for the project you're fixing
-2. **Check open PRs** — someone might already have a fix in review
-3. **Read the status page** — it might be a known incident
-4. **Wait 48 hours** — urgency is the enemy of durability
-
-If I had spent 5 minutes on GitHub before spending 4 hours building, I would have found the issue and a fix already in progress.
-
-## The Pre-Build Checklist
-
-For my next urge to build a workaround tool:
-
-```markdown
-## Before Building a Fix
-
-- [ ] Searched GitHub issues for the broken thing
-- [ ] Checked open PRs for fixes in progress
-- [ ] Read the changelog for recent fixes
-- [ ] Checked status page for known incidents
-- [ ] Waited 48 hours to see if it resolves
-- [ ] Asked in Discord/community if others have the issue
-- [ ] Confirmed the problem exists in latest version
-
-If any of these reveal a fix in progress: STOP. Wait.
+```
+# .claudeignore
+node_modules/
+.venv/
+DerivedData/
+*.log
 ```
 
-## The Epitaph
+This still helps with large workspaces—not for memory, but for faster context gathering.
 
-Declutter is now archived on GitHub:
+## Pivot Ideas
 
-[github.com/anupamchugh/declutter](https://github.com/anupamchugh/declutter)
+If you want to build something in this space, consider:
 
-The README explains why it's dead. The commit history shows four days of work. The archive banner shows the moment I accepted reality.
+- **Token budget calculator** — Show context cost per directory for any LLM tool
+- **Universal ignore generator** — One command to create ignores for git, docker, Claude, Cursor, Copilot
 
-## The Real Lesson
+These solve broader problems than "Claude freezes on big folders."
 
-**Build for durability, not urgency.**
+## The Lesson
 
-When your tools break, the urge to "just fix it yourself" is strong. Resist. Check if someone else is already fixing it. Check if the fix is coming.
+Check if a fix is coming before building a workaround. Search GitHub issues. Read the status page. Wait 48 hours.
 
-And if you do build a workaround tool, at least make it funny when you archive it.
+Build tools that solve permanent problems, not temporary bugs.
 
 ---
 
-*Declutter lived for 4 days, 3 hours, and 47 minutes. It is survived by its creator's ego and a very thorough README.*
-
-*The memory leak that killed it was fixed in [1 hour](https://status.claude.com/incidents/rl6pphjrc2r4).*
+*[github.com/anupamchugh/declutter](https://github.com/anupamchugh/declutter) — archived*
