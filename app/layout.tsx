@@ -4,6 +4,7 @@ import './globals.css';
 import { siteConfig } from '@/lib/content';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import { ThemeProvider } from '@/lib/theme-context';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -40,11 +41,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full scroll-smooth">
       <body
-        className={`${inter.variable} flex min-h-screen flex-col bg-slate-950 font-sans text-slate-100 antialiased`}
+        className={`${inter.variable} flex min-h-screen flex-col font-sans antialiased`}
       >
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
