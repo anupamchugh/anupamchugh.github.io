@@ -2,36 +2,21 @@
 title: "Check GitHub Issues Before Building"
 date: '2026-02-01T18:00:00.000Z'
 categories: [tools]
-keywords: [claude-code, claudeignore, github]
+keywords: [claude-code, github]
 slug: /check-github-issues-before-building
 ---
 
-My M4 Mac was eating battery faster than a cryptocurrency miner at a free electricity convention. Terminal kept freezing. Fans spinning. Claude Code 2.1.27 really didn't like my 938MB of log files.
+My M4 Mac was eating battery faster than a cryptocurrency miner at a free electricity convention. Terminal kept freezing. Fans spinning.
 
-I built a workaround. Four days later, [2.1.29 fixed it](https://status.claude.com/incidents/rl6pphjrc2r4).
+I assumed it was workspace bloat. Built a tool. Four days later, found the [actual cause](https://github.com/anthropics/claude-code/issues/22042): corrupted session files from a hook bug in 2.1.27.
 
-## The Tool
+The fix was to delete some JSONL files. Or just update to 2.1.29.
 
-`@declutter` scanned workspaces and generated `.claudeignore` files.
+## The Tool I Built
 
-```bash
-@declutter --fix    # Generate .claudeignore
-```
+`@declutter` scanned workspaces for bloat. Turns out the problem wasn't bloat at all.
 
 Now archived: [github.com/anupamchugh/declutter](https://github.com/anupamchugh/declutter)
-
-## `.claudeignore`
-
-Works like `.gitignore`. Tells Claude Code which directories to skip:
-
-```
-node_modules/
-.venv/
-DerivedData/
-*.log
-```
-
-Still useful for faster context gathering.
 
 ## Before Building a Workaround
 
@@ -42,4 +27,4 @@ Still useful for faster context gathering.
 
 ---
 
-*The bug was fixed in 1 hour. I spent 4 days building around it.*
+*The bug was fixed in [1 hour](https://status.claude.com/incidents/rl6pphjrc2r4). I spent 4 days building around a misdiagnosis.*
