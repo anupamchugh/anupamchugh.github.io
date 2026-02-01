@@ -104,9 +104,9 @@ export const timeline: TimelineItem[] = [
   },
   {
     year: "2025",
-    title: "Trading Platform & CLI Tools",
-    description: "Full-stack trading platform with FastAPI, WebSockets, and custom MCP servers. 100+ skills across workflows.",
-    tags: ["Python", "FastAPI", "MCP"],
+    title: "Open Source Tools",
+    description: "CLI tools, MCP servers, and developer utilities. Exploring what makes software survive.",
+    tags: ["CLI", "Open Source", "MCP"],
   },
   {
     year: "2024",
