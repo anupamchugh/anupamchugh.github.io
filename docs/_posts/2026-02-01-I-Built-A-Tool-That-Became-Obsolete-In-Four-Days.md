@@ -6,11 +6,13 @@ keywords: [claude-code, claudeignore, github]
 slug: /check-github-issues-before-building
 ---
 
-Claude Code 2.1.27 had a memory leak. I built a workaround. Four days later, [2.1.29 fixed it](https://status.claude.com/incidents/rl6pphjrc2r4).
+My M4 Mac was eating battery faster than a cryptocurrency miner at a free electricity convention. Terminal kept freezing. Fans spinning. Claude Code 2.1.27 really didn't like my 938MB of log files.
+
+I built a workaround. Four days later, [2.1.29 fixed it](https://status.claude.com/incidents/rl6pphjrc2r4).
 
 ## The Tool
 
-`@declutter` generated `.claudeignore` files for large workspaces.
+`@declutter` scanned workspaces and generated `.claudeignore` files.
 
 ```bash
 @declutter --fix    # Generate .claudeignore
