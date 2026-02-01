@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Anupam Chugh",
-  title: "Anupam Chugh - iOS Developer & Technical Writer",
-  description: "I build apps and write about them. Sometimes funny. iOS, SwiftUI, Core ML, and everything Apple.",
+  title: "Anupam Chugh - Software Engineer & Technical Writer",
+  description: "I ship code, then write about it. iOS, AI workflows, and occasionally tools that become obsolete in four days.",
   url: "https://anupamchugh.github.io",
   social: {
     twitter: "https://twitter.com/chughanupam",
@@ -22,18 +22,18 @@ export const navItems: NavItem[] = [
 export type Stat = { label: string; value: string; description?: string };
 
 export const heroStats: Stat[] = [
-  { label: "Blog Posts", value: "84+", description: "Technical tutorials & satire" },
-  { label: "Years iOS", value: "7+", description: "Building apps since Swift 2" },
-  { label: "Frameworks", value: "15+", description: "SwiftUI, Core ML, Vision, ARKit..." },
-  { label: "Apps Shipped", value: "10+", description: "App Store & enterprise" },
+  { label: "Blog Posts", value: "87+", description: "Tutorials, tools, & postmortems" },
+  { label: "Years Coding", value: "9+", description: "iOS, Python, TypeScript" },
+  { label: "Tools Built", value: "20+", description: "Some survived. Most didn't." },
+  { label: "Repos Archived", value: "3", description: "RIP Declutter (2026)" },
 ];
 
 export const heroContent = {
-  eyebrow: "iOS Developer • Technical Writer • Sometimes Comedian",
-  headline: "Building apps.",
-  headlineGradient: "Writing about them.",
-  headlineSuffix: "Sometimes funny.",
-  intro: "I explore Apple's latest frameworks and turn complex technical concepts into approachable tutorials. When I'm not coding, I write satirical takes on the tech industry.",
+  eyebrow: "Software Engineer • Technical Writer • Tool Archivist",
+  headline: "I ship code.",
+  headlineGradient: "Then write about it.",
+  headlineSuffix: "Sometimes it survives.",
+  intro: "Building iOS apps, AI-assisted workflows, and occasionally tools that become obsolete in four days. I turn debugging sessions into tutorials and postmortems into parodies.",
   primaryCta: { label: "Read the Blog", href: "/posts/" },
   secondaryCta: { label: "View Projects", href: "/projects/" },
 };
@@ -97,22 +97,28 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
+    year: "2026",
+    title: "AI-Assisted Workflows",
+    description: "Building tools for spec management, task tracking, and agent orchestration. Some survived. Some didn't.",
+    tags: ["Claude Code", "Beads", "Shadowbook"],
+  },
+  {
+    year: "2025",
+    title: "Trading Platform & CLI Tools",
+    description: "Full-stack trading platform with FastAPI, WebSockets, and custom MCP servers. 100+ skills across workflows.",
+    tags: ["Python", "FastAPI", "MCP"],
+  },
+  {
     year: "2024",
-    title: "SwiftUI Mastery",
-    description: "Deep diving into SwiftUI's evolution, App Intents, and visionOS development.",
+    title: "SwiftUI & visionOS",
+    description: "Deep diving into SwiftUI's evolution, App Intents, and spatial computing.",
     tags: ["SwiftUI", "visionOS"],
   },
   {
     year: "2023",
     title: "Core ML & Vision",
-    description: "Extensive work with on-device ML, object detection, and image classification.",
+    description: "On-device ML, object detection, and image classification tutorials.",
     tags: ["Core ML", "Vision"],
-  },
-  {
-    year: "2021",
-    title: "SwiftUI 3.0",
-    description: "Adopted async/await, new SwiftUI features, and architectural patterns.",
-    tags: ["Swift", "Concurrency"],
   },
   {
     year: "2019",
@@ -122,8 +128,8 @@ export const timeline: TimelineItem[] = [
   },
   {
     year: "2017",
-    title: "iOS Development Journey",
-    description: "Started building iOS apps professionally, learning Swift and the Apple ecosystem.",
+    title: "iOS Journey Begins",
+    description: "Started building iOS apps professionally with Swift.",
     tags: ["Swift", "iOS"],
   },
 ];
