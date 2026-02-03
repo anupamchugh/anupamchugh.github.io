@@ -1,10 +1,12 @@
 ---
+draft: true
 title: "Check GitHub Issues Before Building"
 date: '2026-02-01T18:00:00.000Z'
 categories: [tools]
 keywords: [claude-code, github]
 slug: /check-github-issues-before-building
 ---
+draft: true
 
 My M4 Mac was eating battery faster than a cryptocurrency miner at a free electricity convention. Terminal kept freezing. Fans spinning.
 
@@ -26,5 +28,6 @@ Now archived: [github.com/anupamchugh/declutter](https://github.com/anupamchugh/
 4. Wait 48 hours
 
 ---
+draft: true
 
 *The bug was fixed in [1 hour](https://status.claude.com/incidents/rl6pphjrc2r4). I spent 4 days building around a misdiagnosis.*

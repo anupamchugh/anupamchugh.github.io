@@ -1,10 +1,12 @@
 ---
+draft: true
 title: "Skill Drift: 42 Skills in Claude. 40 in Codex."
 date: '2026-01-30T12:00:00.000Z'
 categories: [ai, tools]
 keywords: [claude-code, codex, multi-agent, shadowbook, drift-detection]
 slug: /skill-drift
 ---
+draft: true
 
 Specs drift from code. That was [the vibe-clock problem](https://chughgpt.substack.com/p/the-vibe-clock-drift-problem)—you update the spec at 3am, but the code keeps building the old version.
 
@@ -109,11 +111,13 @@ These layers compound. Specs without issues mean nothing. Issues without skills 
 Shadowbook ties them together. One preflight check. Multiple drift types. Zero surprises.
 
 ---
+draft: true
 
 Specs drift from code. Skills drift between agents. Both cause the same failure mode: work that builds the wrong thing.
 
 Catch the drift. Fix it automatically. Ship code that matches what you intended.
 
 ---
+draft: true
 
 *This post extends [The Vibe-Clock Drift Problem](https://chughgpt.substack.com/p/the-vibe-clock-drift-problem). Shadowbook is built on [beads](https://github.com/steveyegge/beads). Try it: [github.com/anupamchugh/shadowbook](https://github.com/anupamchugh/shadowbook)*

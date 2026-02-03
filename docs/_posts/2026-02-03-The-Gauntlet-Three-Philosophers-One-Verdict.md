@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "The Gauntlet: Three Questions Before You Build"
 date: '2026-02-03T18:00:00.000Z'
 categories: [ai, software-engineering, decision-making]
@@ -6,6 +7,7 @@ keywords: [build-vs-buy, engineering-discipline, ai-era, skills, agentic-workflo
 slug: /the-gauntlet-three-questions-before-you-build
 published: false
 ---
+draft: true
 
 # The Gauntlet: Three Questions Before You Build
 
