@@ -16,6 +16,7 @@ export const navItems: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/about/", label: "About" },
   { href: "/posts/", label: "Writing" },
+  { href: "/notes/", label: "Notes" },
   { href: "/projects/", label: "Projects" },
 ];
 
@@ -44,9 +45,18 @@ export type Project = {
   tags: string[];
   href: string;
   featured?: boolean;
+  image?: string; // Preview image path (e.g., "/screenshots/takeout-tax.png")
 };
 
 export const projects: Project[] = [
+  {
+    name: "Takeout Tax Calculator",
+    description: "Calculate the cost of every Google product you loved that they killed. Privacy-first—runs entirely in your browser.",
+    tags: ["Interactive", "Satire", "Google"],
+    href: "/google-takeout-tax/",
+    featured: true,
+    image: "/screenshots/takeout-tax-preview.png",
+  },
   {
     name: "SwiftUI Tutorials",
     description: "Comprehensive tutorials covering SwiftUI fundamentals, animations, custom components, and integration with UIKit.",
