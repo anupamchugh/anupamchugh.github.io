@@ -1,111 +1,150 @@
 ---
-title: "The Gauntlet: Three Philosophies, One Verdict"
+title: "The Gauntlet: Three Questions Before You Build"
 date: '2026-02-03T18:00:00.000Z'
-categories: [ai, agentic-workflows, skills]
-keywords: [claude-code, skills, evaluation, build-vs-buy, software-longevity]
-slug: /the-gauntlet-three-philosophies-one-verdict
+categories: [ai, software-engineering, decision-making]
+keywords: [build-vs-buy, engineering-discipline, ai-era, skills, agentic-workflows]
+slug: /the-gauntlet-three-questions-before-you-build
 published: false
 ---
 
-# The Gauntlet: Three Philosophies, One Verdict
+# The Gauntlet: Three Questions Before You Build
 
 I kept building things I shouldn't have built.
 
-Not bad things. Just unnecessary ones. MCPs that should have been skills. Tools that reinvented wheels. Features that wouldn't survive the AI-dominated future we're hurtling toward.
+Not bad things. Just unnecessary ones. Tools that reinvented wheels. Code that should have been documentation. Features that won't matter in two years.
 
-So I built a gate. A gauntlet that every idea must pass through before I write a single line of code.
+So I built a gate. Three questions every idea must answer before I write a single line of code.
 
-## The Three Philosophies
+## The Old Decision: Build vs Buy
 
-The gauntlet runs three evaluations in parallel:
+For decades, engineering had a binary choice:
 
-### 1. The Survivalist (Will It Last?)
+- **Build** — write it yourself
+- **Buy** — use someone else's solution
 
-This philosophy asks: *Will this survive when AI agents do most of the work?*
+Simple. But incomplete.
 
-Think of software like species competing for resources. Six traits determine which ones thrive:
+## The New Decision: Build vs Buy vs Describe
 
-- **Encoded Wisdom** - Does it carry hard-won knowledge in its DNA?
-- **Native Habitat** - Is code its natural home, or could it live as prose?
-- **Range** - How many ecosystems can it inhabit?
-- **Visibility** - Will other species (agents) discover it?
-- **Worn Paths** - Are the desire paths already smooth?
-- **Symbiosis** - Does it need humans to survive?
+AI changed the equation. There's now a third option:
 
-Score below 0.4? Don't build it. It'll go extinct or be ignored.
+- **Build** — write code
+- **Buy** — use existing tools
+- **Describe** — write prose that an LLM executes
 
-### 2. The Minimalist (Prose or Code?)
+A skill file that says "scan for stale tasks, prioritize by recency" often beats a hand-rolled scanning tool. The LLM interprets intent. Code just follows instructions.
 
-This philosophy is brutal: *Prose first. Code only when prose fails.*
+This isn't laziness. It's recognizing that prose carries intent while code carries bugs.
+
+## The Three Questions
+
+Before building anything, answer these:
+
+### 1. Does this already exist?
+
+Most "new" ideas overlap 60%+ with existing tools. Session memory, similarity search, log analysis, parallel execution, task tracking—the ecosystem is larger than you think.
+
+**If it exists:** Use it. Extend it. Don't reinvent it.
+
+### 2. What's the minimum viable form?
 
 Three gates:
 1. Can prose describe this well enough for an LLM to execute?
-2. Must this run without an LLM (cron job, API, daemon)?
-3. Is friction unbearable at scale?
+2. Must this run without an LLM present (cron job, API, daemon)?
+3. Is the friction unbearable at prose-level scale?
 
 All three must say "need code" before you write code.
 
-I learned this the hard way. Built a TypeScript scoring framework. Found 6 bugs across severity levels. All would have been avoided with a skill that says "scan tasks, prioritize recent ones."
+**If prose works:** Write a skill, not a tool.
 
-Code has bugs. Prose has intent.
+### 3. Will this matter in two years?
 
-### 3. The Archivist (Does It Exist?)
+Software competes for survival. Ask:
+- Does it encode hard-won knowledge, or can an LLM regenerate it?
+- Is it broadly useful, or narrowly conditional?
+- Will agents discover it, or will it rot in obscurity?
 
-Before building, check if something already exists:
-- Does something already do this?
-- What's the overlap percentage?
-- What synergies are you missing?
+**If it won't survive:** Don't build it. Document the idea and move on.
 
-Most "new" ideas have 60%+ overlap with existing tools—session memory, similarity matching, log analysis, parallel execution, task tracking, safety guards. The ecosystem is larger than you think.
+## The Decision Tree
 
-## The Verdict Matrix
+```
+┌─────────────────────────────────────┐
+│ "I should build X"                  │
+└─────────────────┬───────────────────┘
+                  ▼
+        ┌─────────────────┐
+        │ Does it exist?  │
+        └────────┬────────┘
+                 │
+      YES ◄──────┴──────► NO
+       │                   │
+       ▼                   ▼
+    USE IT         ┌──────────────┐
+                   │ Can prose    │
+                   │ describe it? │
+                   └──────┬───────┘
+                          │
+               YES ◄──────┴──────► NO
+                │                   │
+                ▼                   ▼
+          WRITE SKILL      ┌──────────────┐
+                           │ Will it      │
+                           │ survive?     │
+                           └──────┬───────┘
+                                  │
+                       YES ◄──────┴──────► NO
+                        │                   │
+                        ▼                   ▼
+                   BUILD IT            DON'T BUILD
+```
 
-| Survivalist | Minimalist | Archivist Overlap | Verdict |
-|-------------|------------|-------------------|---------|
-| THRIVES | PROSE | None | GO - Create skill |
-| THRIVES | PROSE | Full | PAUSE - Use existing |
-| THRIVES | CODE | None | GO - Build tool |
-| AT RISK | Any | Any | PAUSE or NO-GO |
-| EXTINCT | Any | Any | NO-GO |
+## What Each Question Catches
 
-## Two Skills, Two Moments
+| Question | Failure Mode | What You Avoid |
+|----------|--------------|----------------|
+| Does it exist? | Discovery failure | Reinventing wheels |
+| Can prose do it? | Abstraction failure | Over-engineering |
+| Will it survive? | Temporal failure | Building dead ends |
 
-I split this into two skills:
-
-**`/gauntlet`** - Run BEFORE building. Evaluates ideas.
-**`/gauntlet-review`** - Run AFTER building. Reviews code through the same three lenses.
-
-The same philosophy that prevents bad ideas also catches bad implementations.
+Together, they form a complete filter. Every premature build fails at least one.
 
 ## Example: The Workspace Scanner
 
 Last week I wanted to build a workspace scanning tool. Ran it through the gauntlet:
 
-- **Survivalist**: Medium viability. Useful but not irreplaceable.
-- **Minimalist**: Could be prose. An LLM can Glob + Read + analyze.
-- **Archivist**: My task tracker already tracks work. Partial overlap.
+1. **Does it exist?** Partially. My task tracker already monitors work.
+2. **Can prose do it?** Yes. An LLM can Glob + Read + analyze.
+3. **Will it survive?** Maybe. But it's not irreplaceable.
 
-Verdict: **PAUSE**. Extended existing tooling instead of building something new. Saved hours.
+Verdict: **Don't build.** Extended existing tooling instead. Saved hours.
 
-## The Deeper Pattern
+## Example: The Trading Safety Validator
+
+Different outcome:
+
+1. **Does it exist?** No. My trading rules are scattered.
+2. **Can prose do it?** No. Must run as pre-trade middleware, no LLM in the loop.
+3. **Will it survive?** Yes. Encodes hard-won risk management knowledge.
+
+Verdict: **Build.** Now it catches position sizing errors before they cost money.
+
+## The Discipline
 
 The gauntlet isn't about preventing work. It's about directing energy.
 
-Every hour spent on a NO-GO idea is an hour not spent on something that thrives. Every tool that should be a skill is a maintenance burden with no upside.
+Every hour on a NO-GO idea is an hour not spent on something that matters. Every tool that should be prose is a maintenance burden with no upside. Every reinvention is energy someone already spent.
 
-The three philosophies catch different blind spots:
-- The Survivalist catches things that won't matter
-- The Minimalist catches over-engineering
-- The Archivist catches reinvention
-
-Together, they form a complete filter.
+Three questions. Ask them in order. Trust the answers.
 
 ## Try It
 
-Next time you think "I should build X", run the gauntlet:
+Next time you think "I should build X":
 
-1. Will it thrive? (6 traits)
-2. Should it be prose? (3 gates)
-3. Does it exist? (ecosystem check)
+1. Does it exist?
+2. Can prose do it?
+3. Will it survive?
 
-If all three say GO, build with confidence. If any say PAUSE or NO-GO, you just saved yourself from building something that shouldn't exist.
+If all three say BUILD, build with confidence.
+
+If any say STOP, you just saved yourself from building something that shouldn't exist.
