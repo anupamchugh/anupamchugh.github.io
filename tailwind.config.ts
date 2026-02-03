@@ -12,8 +12,17 @@ const config: Config = {
         serif: ['var(--font-source-serif)', 'Georgia', 'serif'],
       },
       colors: {
-        background: '#020617',
-        foreground: '#e2e8f0',
+        background: 'var(--bg)',
+        foreground: 'var(--fg)',
+        primary: 'var(--fg)',
+        secondary: 'var(--fg-muted)',
+        tertiary: 'var(--fg-subtle)',
+        border: 'var(--border)',
+      },
+      textColor: {
+        primary: 'var(--fg)',
+        secondary: 'var(--fg-muted)',
+        tertiary: 'var(--fg-subtle)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite alternate',

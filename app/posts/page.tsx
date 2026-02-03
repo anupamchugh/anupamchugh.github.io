@@ -11,9 +11,9 @@ export default function PostsPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-16 pt-32 sm:px-6">
-      <h1 className="text-3xl font-bold text-white">Writing</h1>
-      <p className="mt-2 text-slate-400">
+    <div className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
+      <h1 className="text-2xl font-semibold">Writing</h1>
+      <p className="mt-2 text-secondary">
         {posts.length} articles on iOS, SwiftUI, Core ML, and more.
       </p>
 
