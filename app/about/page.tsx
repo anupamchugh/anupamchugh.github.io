@@ -15,7 +15,7 @@ export default function AboutPage() {
       <div className="prose mt-8">
         <p>
           I build software and write about it. iOS since 2017. Now building
-          agent workflows for trading and writing.
+          agent workflows and tools.
         </p>
 
         <p>
@@ -25,9 +25,9 @@ export default function AboutPage() {
 
         <h2>Now</h2>
         <ul>
-          <li>Trading systems with real-time signals</li>
           <li>Agent orchestration for multi-step tasks</li>
           <li>Tools that extract insights from sessions</li>
+          <li>Experiments with AI-assisted development</li>
         </ul>
 
         <h2>Before</h2>

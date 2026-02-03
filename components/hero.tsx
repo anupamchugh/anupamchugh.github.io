@@ -11,7 +11,7 @@ export default function Hero() {
 
       {/* Bio - concise */}
       <p className="mt-4 text-lg leading-relaxed text-secondary">
-        I write code, then write about it. iOS apps, trading systems, agent workflows.
+        I write code, then write about it. iOS apps and agent workflows.
       </p>
 
       {/* Social links - subtle, inline */}
