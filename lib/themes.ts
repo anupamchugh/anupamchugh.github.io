@@ -1,4 +1,4 @@
-export type ThemeName = 'default' | 'minimal' | 'terminal' | 'neon' | 'brianlovin';
+export type ThemeName = 'default' | 'minimal' | 'terminal' | 'neon' | 'modern';
 
 export interface Theme {
   name: ThemeName;
@@ -28,8 +28,8 @@ export const themes: Theme[] = [
     description: 'Cyberpunk glow',
   },
   {
-    name: 'brianlovin',
-    label: 'Brian Lovin',
+    name: 'modern',
+    label: 'Modern',
     description: 'Inter + Source Serif, semantic text hierarchy',
   },
 ];
