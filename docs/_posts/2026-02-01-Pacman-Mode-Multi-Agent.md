@@ -1,12 +1,12 @@
 ---
-draft: true
+published: true
 title: "Pacman Mode in Beads: Eating Tasks Without a Server"
 date: '2026-02-01T18:00:00.000Z'
 categories: [ai, tools]
 keywords: [claude-code, codex, multi-agent, shadowbook, pacman, coordination]
 slug: /pacman-mode
 ---
-draft: true
+published: true
 
 [Part 1](/skill-drift): skill drift. [Part 2](/spec-drift): spec drift. [Part 3](/snap-streaks): volatility tracking.
 
@@ -223,6 +223,6 @@ No server. No registration. Files and git.
 **GitHub:** [anupamchugh/shadowbook](https://github.com/anupamchugh/shadowbook)
 
 ---
-draft: true
+published: true
 
 *Part 4 of the Shadowbook series. [Part 1: Skill Drift](/skill-drift) | [Part 2: Spec Drift](/spec-drift) | [Part 3: Snap Streaks](/snap-streaks)*

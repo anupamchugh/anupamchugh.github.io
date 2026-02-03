@@ -6,7 +6,7 @@ keywords: []
 slug: /growing-up-with-a-pansexual-brother
 ---
 
-![My younger brother and me, framed sometime around 2001.](/assets/photographs/anupam-vidit-childhood-pic.png)
+![My younger brother and me, framed sometime around 2001.](/photographs/anupam-vidit-childhood-pic.png)
 ###### My younger brother and me, framed sometime around 2001.
 
 In 2022, on Pride Day, my (29) younger brother (27), identified himself as pansexual and gender-fluid. Coming from South Asia, specifically India, LGBTQ+ individuals were (and, to some extent, still are) looked down upon in society, suppressed, and considered taboo. Fortunately, my parents and grandparents embraced his coming-out story as gracefully as I did, despite the sudden shock, trauma, and turmoil they went through.
@@ -23,7 +23,7 @@ This often led to my winning, not just because 7-year-old me ridiculed my brothe
 
 -------------
 
-![An action figure photograph](/assets/photographs/action-figures.png)
+![An action figure photograph](/photographs/action-figures.png)
 ###### A recent click from a toy store. Check the gender ratio! Sardonically, it’s just a reflection of the society we live in. There’s still a long way to go.
 
 Hmm… so almost every G.I. Joe vs. Barbie duel ended with my brother in tears. I would try to “fix him,” toughen him to behave like a boy, but this only fueled our sibling rivalries, leading to my parents intervening to calm things down and scolding me. Many times, the scolding involved a whack from Dad (that’s how Indian parents kept kids in line in the ‘90s), and in response, I would get mad and fight back against him and brother as a retaliation. Rinse and repeat this cycle for years, and it evolved into regular WWE-like fights that tested my parents’ temper. I faced the fury each time (except once, lol).
