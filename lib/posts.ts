@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 const postsDirectory = path.join(process.cwd(), 'docs/_posts');
+const privateNotesDirectory = path.join(process.cwd(), 'private-notes');
 
 export type Post = {
   slug: string;
@@ -17,8 +18,8 @@ export type Post = {
   type?: 'post' | 'note' | 'til';
 };
 
-function parsePost(fileName: string): Post | null {
-  const fullPath = path.join(postsDirectory, fileName);
+function parsePost(fileName: string, directory: string): Post | null {
+  const fullPath = path.join(directory, fileName);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
@@ -41,6 +42,9 @@ function parsePost(fileName: string): Post | null {
     type = 'note';
   }
 
+  // Notes from private-notes/ are always private
+  const isPrivate = directory === privateNotesDirectory ? true : (data.private || false);
+
   return {
     slug,
     title: data.title || slug.replace(/-/g, ' '),
@@ -50,28 +54,39 @@ function parsePost(fileName: string): Post | null {
     categories: data.categories || [],
     tags: data.keywords || data.tags || [],
     draft: data.draft || false,
-    private: data.private || false,
+    private: isPrivate,
     type,
   };
 }
 
-export function getAllPosts(includePrivate = false): Post[] {
-  if (!fs.existsSync(postsDirectory)) {
+function getPostsFromDirectory(directory: string): Post[] {
+  if (!fs.existsSync(directory)) {
     return [];
   }
 
-  const fileNames = fs.readdirSync(postsDirectory);
-  const posts = fileNames
+  const fileNames = fs.readdirSync(directory);
+  return fileNames
     .filter((name) => name.endsWith('.md'))
-    .map((fileName) => parsePost(fileName))
-    .filter((post): post is Post => post !== null)
+    .map((fileName) => parsePost(fileName, directory))
+    .filter((post): post is Post => post !== null);
+}
+
+export function getAllPosts(includePrivate = false): Post[] {
+  // Get posts from main directory
+  let posts = getPostsFromDirectory(postsDirectory);
+
+  // In development, also include private notes
+  if (process.env.NODE_ENV === 'development' && includePrivate) {
+    const privateNotes = getPostsFromDirectory(privateNotesDirectory);
+    posts = [...posts, ...privateNotes];
+  }
+
+  return posts
     // Filter out private posts unless explicitly requested
     .filter((post) => includePrivate || !post.private)
     // Filter out drafts in production
     .filter((post) => process.env.NODE_ENV === 'development' || !post.draft)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-  return posts;
 }
 
 export function getPublicPosts(): Post[] {
