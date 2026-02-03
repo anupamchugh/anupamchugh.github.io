@@ -13,24 +13,24 @@
   --transition: 0.2s ease;
 }
 
-/* Default Theme - Dark Slate with Sky Accents */
+/* Default Theme - Now uses Modern (true black) */
 :root,
 [data-theme="default"] {
   color-scheme: dark;
-  --bg: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
-  --fg: #e2e8f0;
-  --fg-muted: #94a3b8;
-  --fg-subtle: #64748b;
-  --accent: #38bdf8;
-  --accent-hover: #7dd3fc;
-  --border: #334155;
-  --selection-bg: rgba(56, 189, 248, 0.3);
-  --header-bg: rgba(15, 23, 42, 0.95);
-  --card-bg: #1e293b;
-  --code-bg: #1e293b;
-  --code-fg: #7dd3fc;
+  --bg: #0a0a0a;
+  --bg-secondary: #171717;
+  --bg-tertiary: #262626;
+  --fg: #fafafa;
+  --fg-muted: #a3a3a3;
+  --fg-subtle: #737373;
+  --accent: #fafafa;
+  --accent-hover: #a3a3a3;
+  --border: #262626;
+  --selection-bg: rgba(255, 255, 255, 0.1);
+  --header-bg: rgba(10, 10, 10, 0.9);
+  --card-bg: #171717;
+  --code-bg: #171717;
+  --code-fg: #fafafa;
 }
 
 /* Minimal Theme - HN-style Clean Typography (paulgraham/danluu inspired) */

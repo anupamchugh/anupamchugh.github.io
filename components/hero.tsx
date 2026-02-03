@@ -9,10 +9,9 @@ export default function Hero() {
         {siteConfig.name}
       </h1>
 
-      {/* Bio - conversational, like Brian Lovin */}
+      {/* Bio - concise */}
       <p className="mt-4 text-lg leading-relaxed text-secondary">
-        I'm a software engineer building iOS apps and AI-assisted workflows.
-        Currently exploring how agents can help with trading, writing, and tool orchestration.
+        I write code, then write about it. iOS apps, trading systems, agent workflows.
       </p>
 
       {/* Social links - subtle, inline */}
