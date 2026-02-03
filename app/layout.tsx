@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full scroll-smooth">
       <body
-        className={`${inter.variable} ${sourceSerif.variable} flex min-h-screen flex-col font-sans antialiased`}
+        className={`${inter.variable} ${sourceSerif.variable} flex min-h-screen flex-col font-sans subpixel-antialiased`}
       >
         <ThemeProvider>
           <Header />

@@ -34,4 +34,4 @@ export const themes: Theme[] = [
   },
 ];
 
-export const defaultTheme: ThemeName = 'default';
+export const defaultTheme: ThemeName = 'modern';
