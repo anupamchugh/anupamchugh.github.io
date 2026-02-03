@@ -37,8 +37,4 @@ Thumbs.db
 # Testing
 coverage/
 
-# Specs (private, not for public repo)
-specs/
-
-# Private notes (local only)
-private-notes/
+# Specs and private-notes now tracked (repo is private)
