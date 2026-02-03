@@ -94,6 +94,53 @@
   --glow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
+/* Brian Lovin Theme - Inter + Source Serif, semantic text hierarchy */
+[data-theme="brianlovin"] {
+  color-scheme: light dark;
+  /* Light mode defaults */
+  --bg: #ffffff;
+  --bg-secondary: #fafafa;
+  --bg-tertiary: #f5f5f5;
+  --fg: #171717;                    /* text-primary */
+  --fg-muted: #525252;              /* text-secondary */
+  --fg-subtle: #a3a3a3;             /* text-tertiary */
+  --fg-quaternary: #d4d4d4;         /* text-quaternary */
+  --accent: #171717;                /* Links same as text, underline on hover */
+  --accent-hover: #525252;
+  --border: #e5e5e5;
+  --selection-bg: rgba(0, 0, 0, 0.1);
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: #ffffff;
+  --code-bg: #f5f5f5;
+  --code-fg: #171717;
+  --font-override: var(--font-inter), system-ui, sans-serif;
+  --font-prose: var(--font-source-serif), Georgia, serif;
+  --max-width: 42rem;               /* max-w-2xl equivalent */
+  --section-gap: 4rem;              /* gap-16 */
+  --item-gap: 1rem;                 /* gap-4 */
+}
+
+/* Brian Lovin dark mode via prefers-color-scheme */
+@media (prefers-color-scheme: dark) {
+  [data-theme="brianlovin"] {
+    --bg: #0a0a0a;
+    --bg-secondary: #171717;
+    --bg-tertiary: #262626;
+    --fg: #fafafa;
+    --fg-muted: #a3a3a3;
+    --fg-subtle: #737373;
+    --fg-quaternary: #525252;
+    --accent: #fafafa;
+    --accent-hover: #a3a3a3;
+    --border: #262626;
+    --selection-bg: rgba(255, 255, 255, 0.1);
+    --header-bg: rgba(10, 10, 10, 0.9);
+    --card-bg: #171717;
+    --code-bg: #171717;
+    --code-fg: #fafafa;
+  }
+}
+
 /* ===========================================
    BASE STYLES - Use CSS Variables
    =========================================== */
@@ -456,4 +503,134 @@ a:hover {
 [data-theme="neon"] .bg-slate-800\/50 {
   background-color: rgba(74, 44, 138, 0.5);
   border: 1px solid var(--accent);
+}
+
+/* ===========================================
+   BRIAN LOVIN THEME - Specific Styles
+   =========================================== */
+
+/* Brian Lovin - Layout and spacing */
+[data-theme="brianlovin"] main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+[data-theme="brianlovin"] header {
+  backdrop-filter: blur(12px);
+  border-bottom: none;
+}
+
+/* Brian Lovin - Typography hierarchy */
+[data-theme="brianlovin"] body {
+  font-family: var(--font-override);
+  line-height: 1.6;
+}
+
+[data-theme="brianlovin"] .prose {
+  font-family: var(--font-prose);
+  font-size: 1.25rem;              /* text-xl */
+  max-width: var(--max-width);
+}
+
+[data-theme="brianlovin"] .prose h1,
+[data-theme="brianlovin"] .prose h2,
+[data-theme="brianlovin"] .prose h3 {
+  font-family: var(--font-override);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+[data-theme="brianlovin"] .prose h1 {
+  font-size: 1.875rem;             /* text-3xl */
+}
+
+[data-theme="brianlovin"] .prose h2 {
+  font-size: 1.5rem;               /* text-2xl */
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Brian Lovin - Links: subtle, underline on hover */
+[data-theme="brianlovin"] a {
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+[data-theme="brianlovin"] a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+[data-theme="brianlovin"] .prose a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Brian Lovin - Cards: minimal, clean borders */
+[data-theme="brianlovin"] .card {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+}
+
+[data-theme="brianlovin"] .card:hover {
+  border-color: var(--fg-subtle);
+}
+
+/* Brian Lovin - Code blocks */
+[data-theme="brianlovin"] .prose pre {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+[data-theme="brianlovin"] .prose code:not(pre code) {
+  font-size: 0.9em;
+  padding: 0.125em 0.375em;
+  border-radius: 4px;
+}
+
+/* Brian Lovin - Images: clean, rounded */
+[data-theme="brianlovin"] .prose img {
+  border-radius: 8px;
+  border: none;
+}
+
+/* Brian Lovin - Section spacing */
+[data-theme="brianlovin"] section {
+  margin-bottom: var(--section-gap);
+}
+
+/* Brian Lovin - List items spacing */
+[data-theme="brianlovin"] .prose ul,
+[data-theme="brianlovin"] .prose ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--item-gap);
+}
+
+[data-theme="brianlovin"] .prose li {
+  margin-bottom: 0;
+}
+
+/* Brian Lovin - Nav links with icon hover effect */
+[data-theme="brianlovin"] .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Brian Lovin - Theme toggle styling */
+[data-theme="brianlovin"] .bg-slate-800\/50 {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+}
+
+[data-theme="brianlovin"] .bg-slate-700 {
+  background-color: var(--fg);
+}
+
+[data-theme="brianlovin"] .text-slate-400 {
+  color: var(--fg-muted);
 }

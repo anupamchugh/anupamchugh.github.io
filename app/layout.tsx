@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Source_Serif_4 } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/lib/content';
 import Header from '@/components/header';
@@ -7,6 +7,7 @@ import Footer from '@/components/footer';
 import { ThemeProvider } from '@/lib/theme-context';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const sourceSerif = Source_Serif_4({ subsets: ['latin'], variable: '--font-source-serif' });
 
 export const metadata: Metadata = {
   title: {
@@ -41,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full scroll-smooth">
       <body
-        className={`${inter.variable} flex min-h-screen flex-col font-sans antialiased`}
+        className={`${inter.variable} ${sourceSerif.variable} flex min-h-screen flex-col font-sans antialiased`}
       >
         <ThemeProvider>
           <Header />
