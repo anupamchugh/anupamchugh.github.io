@@ -159,34 +159,6 @@ If incoherence dominates failures:
 
 ---
 
-## Design Patterns Observed (Top Blogger Analysis)
-
-### blog.fsck.com (Jesse Vincent)
-- Minimal, content-focused
-- TL;DR summaries at top
-- Archive by year
-- Tags for cross-linking
-
-### harper.blog
-- Reading time estimates
-- Translation links
-- Related posts section
-- Personal photography
-
-### zachwills.net
-- Dark mode toggle
-- Related posts grid (3-col)
-- Schema.org markup
-- Subscription block
-
-### buildermethods.com
-- Dual navigation (header + sidebar)
-- Problem-solution hero
-- Feature bullets
-- Progressive enhancement
-
----
-
 ## Action Items
 
 - [ ] Post Comment #1 (Overthinking Spiral) on Anthropic thread
