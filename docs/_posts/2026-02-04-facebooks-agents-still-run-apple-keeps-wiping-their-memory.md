@@ -97,10 +97,6 @@ That handshake is the guardrail. Deep links work again, but they can't smuggle i
 
 What they still have is scale, modeling, and probability. The agent still runs. The memory is gone.
 
-## The punchline
-
-If you squint, this is Apple's pattern for all modern privacy: keep the agent, delete the memory, and fence the skills. Ads can still exist. Surveillance can't.
-
-**Old agents hoarded memory. New agents run on constraints.**
+If you squint, this is Apple's pattern for modern privacy: keep the agent, delete the memory, and fence the skills. Ads can still exist. Surveillance can't. Old agents hoarded memory. New agents run on constraints.
 
 References: [ATT](https://developer.apple.com/documentation/apptrackingtransparency), [SKAdNetwork](https://developer.apple.com/documentation/storekit/skadnetwork), [AdAttributionKit](https://developer.apple.com/documentation/adattributionkit), [Universal Links](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)

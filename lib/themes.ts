@@ -15,6 +15,11 @@ export interface Theme {
 
 export const themes: Theme[] = [
   {
+    name: 'modern',
+    label: 'Dark',
+    description: 'Black modern with serif prose',
+  },
+  {
     name: 'hybrid-light',
     label: 'Light',
     description: 'Hybrid light mode with banteg-inspired typography',
@@ -23,11 +28,6 @@ export const themes: Theme[] = [
     name: 'hybrid-dark',
     label: 'Dark',
     description: 'Hybrid dark mode with banteg-inspired typography',
-  },
-  {
-    name: 'default',
-    label: 'Default',
-    description: 'Dark slate with sky accents',
   },
   {
     name: 'minimal',
@@ -45,14 +45,14 @@ export const themes: Theme[] = [
     description: 'Cyberpunk glow',
   },
   {
-    name: 'modern',
-    label: 'Modern',
-    description: 'Inter + Source Serif, semantic text hierarchy',
+    name: 'default',
+    label: 'Default',
+    description: 'Dark slate with sky accents',
   },
 ];
 
-export const defaultTheme: ThemeName = 'hybrid-light';
+export const defaultTheme: ThemeName = 'modern';
 
 export const themeToggleOptions = themes.filter(
-  (theme) => theme.name === 'hybrid-light' || theme.name === 'hybrid-dark'
+  (theme) => theme.name === 'modern' || theme.name === 'hybrid-light'
 );
