@@ -19,7 +19,7 @@ Start every run the same way. Keep it short, observable, and repeatable.
 
 ```bash
 bd pacman            # grid assignment: who owns what
-bd wobble            # speed sensor: skill drift
+bd wobble scan --from-sessions --days 7  # behavioral drift (misalignment)
 bd skills collisions # lane change: name collisions
 bd spec scan         # track moved: spec drift
 bd preflight --check # green flag: ship or stop
@@ -36,11 +36,13 @@ AGENT_NAME=codex bd pacman --join
 bd close bd-123
 ```
 
-**Wobble is the speed sensor.** If two agents run different playbooks, you slow down.
+**Wobble is the speed sensor.** It measures behavioral drift: the gap between what a skill says and what the agent actually does in real sessions.
 
 ```bash
-bd wobble
+bd wobble scan --from-sessions --days 7
 ```
+
+Software engineering philosophy: specs and skills are not truth; **behavior is**. When a tool claims “do X” but does “Y,” the system quietly diverges. Wobble makes that divergence measurable. It parses real session transcripts, extracts the invoked skill and the commands that actually ran, then computes bias/variance. If nothing scores STABLE, it is not a failure of intent. It is a failure of structure: unclear defaults, ambiguous options, or missing constraints.
 
 **Collisions are unsafe lane changes.** Two skills with one name is a crash waiting to happen.
 
@@ -90,7 +92,7 @@ This keeps the grid aligned without a long manual linking ritual.
 
 ```bash
 bd pacman                    # coordination
-bd wobble                    # skill drift
+bd wobble scan --from-sessions --days 7  # behavioral drift
 bd skills collisions         # collision detection
 bd spec scan                 # spec drift
 bd spec volatility --trend   # stability drift
@@ -103,7 +105,7 @@ Each command is small. Together, they form the control room.
 
 ## Interplay (One Example)
 
-A spec changes overnight. Pacman assigns the work. Wobble warns that Codex has older skills. Collisions catches a duplicate skill name before it overrides the new one. Spec scan shows the drift. Preflight blocks the release. You fix the map, then race.
+A spec changes overnight. Pacman assigns the work. Wobble flags behavioral drift in recent sessions. Collisions catches a duplicate skill name before it overrides the new one. Spec scan shows the drift. Preflight blocks the release. You fix the map, then race.
 
 That is the pit wall in practice.
 
