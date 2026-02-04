@@ -13,6 +13,11 @@ Most systems get pitched like air‑traffic control: static, centralized, and sl
 
 Shadowbook is the pit wall for multi‑agent, multi‑workflow software. It assumes drift, partial data, and operational chaos. It treats those as inputs, not bugs.
 
+This post does three things:
+1. It maps the system to the F1 model.
+2. It gives a feature guide tied to code you can read.
+3. It explains why it exists and how it got built.
+
 ## The Track: Environments, Boundaries, Constraints
 
 Every system runs on a track with rules.
@@ -94,6 +99,45 @@ Shadowbook is built to be operated by humans and LLMs. The tool layer uses a sma
 
 That is the pit wall radio: short, high‑signal instructions that hide complexity.
 
+## Feature Guide (Mapped to Code)
+
+Below is a short map from features to where they live in the code. This is a guide, not a full reference.
+
+1. **Spec drift scanning**
+   - Command: `bd spec scan`
+   - Code: `internal/spec/` (scanner, hashing, diffs)
+
+2. **Volatility and stability drift**
+   - Command: `bd spec volatility`, `bd ready`, `bd recent`
+   - Code: `internal/spec/risk.go`, `internal/spec/types.go`, `cmd/bd/spec_volatility*.go`
+
+3. **Drift summary over RPC**
+   - Command: `bd drift` (uses daemon when available)
+   - Code: `internal/rpc/server_drift.go`, `internal/rpc/server_spec.go`, `cmd/bd/drift.go`
+
+4. **Wobble (skill drift detector)**
+   - Command: `bd wobble`
+   - Code: `internal/wobble/`, `cmd/bd/wobble.go`
+   - Note: prefers real session data, falls back to simulation.
+
+5. **Skill collision detection**
+   - Command: `bd skills collisions`
+   - Code: `cmd/bd/skills.go` (collision logic), `_archived/` handling
+
+6. **Spec streaks and cadence**
+   - Command: `bd spec streaks` / `bd spec volatility --trend`
+   - Code: `internal/spec/`, `cmd/bd/spec_streaks.go`
+
+7. **Preflight and safety gates**
+   - Command: `bd preflight --check`
+   - Code: `cmd/bd/preflight.go` (delegates to drift, wobble, spec checks)
+
+8. **Workflow discovery and status**
+   - Command: `bd ready`, `bd list`, `bd recent`
+   - Code: `cmd/bd/ready.go`, `cmd/bd/list.go`, `cmd/bd/recent.go`
+
+If you want a deeper guide, I can add a full “feature → file → example” index.
+
 ## Why the F1 Metaphor Fits
 
 These systems are high‑velocity, high‑feedback loops. The metaphor is not decoration. It forces the right design choices.
@@ -104,6 +148,26 @@ These systems are high‑velocity, high‑feedback loops. The metaphor is not de
 - You need collision detection, not just naming rules.
 
 Shadowbook is a control room built for motion, not stasis.
+
+## Inspiration for the Post
+
+I kept bumping into the same failure mode across projects: things drift. Specs drift from code. Agents drift from each other. Workflows drift from reality. I could see the symptoms but not the system.
+
+F1 finally gave me the mental model: the pit wall is not a dashboard. It is a decision engine. It does not wait for failure; it predicts it. Once you see your system as a race, the architecture gets simpler. You build telemetry, a strategy loop, and drift detection because you cannot afford not to.
+
+## Founder’s Journey (HN Style)
+
+Shadowbook started as a nuisance. I was shipping code with a mental image of the system that no longer matched reality. The specs were right and wrong at the same time. The agents were smart and blind at the same time. I kept paying the same tax: time lost to reconciling drift.
+
+I tried solving it by writing better docs. That failed. I tried by adding checks. That failed. The problem was not more checks; it was a missing control plane.
+
+So I built the smallest version of one: a drift scanner, then a stability meter, then a skill sync check, then a way to see drift continuously. Each feature fixed a narrow pain, but it also widened the model. The tool became a system map.
+
+What I did not expect was how fast the failures compound. A tiny spec change can block weeks of work. A skill name collision can break an entire workflow silently. A stale data feed can make every downstream decision wrong and still look “green.”
+
+Shadowbook is my attempt to make those failures visible, measurable, and reversible. It is a pit wall, not a spreadsheet.
+
+If you are building a system with multiple agents, fast workflows, or frequent change, you already have the problem. Shadowbook is the control room I wanted when I could feel the drift but could not prove it.
 
 ## The Edge
 
