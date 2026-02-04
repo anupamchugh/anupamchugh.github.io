@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Anupam Chugh",
-  title: "Anupam Chugh - Software Engineer & Technical Writer",
+  title: "Anupam Chugh - software engineer and technical writer",
   description: "I ship code, then write about it. iOS, AI workflows, and occasionally tools that become obsolete in four days.",
   url: "https://anupamchugh.github.io",
   social: {
@@ -23,20 +23,20 @@ export const navItems: NavItem[] = [
 export type Stat = { label: string; value: string; description?: string };
 
 export const heroStats: Stat[] = [
-  { label: "Blog Posts", value: "87+", description: "Tutorials, tools, & postmortems" },
-  { label: "Years Coding", value: "9+", description: "iOS, Python, TypeScript" },
-  { label: "Tools Built", value: "20+", description: "Some survived. Most didn't." },
-  { label: "Repos Archived", value: "3", description: "RIP Declutter (2026)" },
+  { label: "Blog posts", value: "87+", description: "Tutorials, tools, and postmortems" },
+  { label: "Years coding", value: "9+", description: "iOS, Python, TypeScript" },
+  { label: "Tools built", value: "20+", description: "Some survived. Most didn't." },
+  { label: "Repos archived", value: "3", description: "RIP Declutter (2026)" },
 ];
 
 export const heroContent = {
-  eyebrow: "Software Engineer • Technical Writer • Tool Archivist",
+  eyebrow: "Software engineer • technical writer • tool archivist",
   headline: "I ship code.",
   headlineGradient: "Then write about it.",
   headlineSuffix: "Sometimes it survives.",
   intro: "Building iOS apps, AI-assisted workflows, and occasionally tools that become obsolete in four days. I turn debugging sessions into tutorials and postmortems into parodies.",
-  primaryCta: { label: "Read the Blog", href: "/posts/" },
-  secondaryCta: { label: "View Projects", href: "/projects/" },
+  primaryCta: { label: "Read the blog", href: "/posts/" },
+  secondaryCta: { label: "View projects", href: "/projects/" },
 };
 
 export type Project = {
@@ -108,25 +108,25 @@ export type TimelineItem = {
 export const timeline: TimelineItem[] = [
   {
     year: "2026",
-    title: "AI-Assisted Workflows",
+    title: "AI-assisted workflows",
     description: "Building tools for spec management, task tracking, and agent orchestration. Some survived. Some didn't.",
     tags: ["Claude Code", "Beads", "Shadowbook"],
   },
   {
     year: "2025",
-    title: "Open Source Tools",
+    title: "Open source tools",
     description: "CLI tools, MCP servers, and developer utilities. Exploring what makes software survive.",
     tags: ["CLI", "Open Source", "MCP"],
   },
   {
     year: "2024",
-    title: "SwiftUI & visionOS",
+    title: "SwiftUI and visionOS",
     description: "Deep diving into SwiftUI's evolution, App Intents, and spatial computing.",
     tags: ["SwiftUI", "visionOS"],
   },
   {
     year: "2023",
-    title: "Core ML & Vision",
+    title: "Core ML and Vision",
     description: "On-device ML, object detection, and image classification tutorials.",
     tags: ["Core ML", "Vision"],
   },
@@ -148,6 +148,6 @@ export const featuredTopics = [
   { name: "SwiftUI", count: 25, color: "from-blue-500 to-cyan-500" },
   { name: "Core ML", count: 12, color: "from-purple-500 to-pink-500" },
   { name: "Vision", count: 8, color: "from-green-500 to-emerald-500" },
-  { name: "iOS Tips", count: 20, color: "from-orange-500 to-amber-500" },
+  { name: "iOS tips", count: 20, color: "from-orange-500 to-amber-500" },
   { name: "Satire", count: 10, color: "from-rose-500 to-red-500" },
 ];

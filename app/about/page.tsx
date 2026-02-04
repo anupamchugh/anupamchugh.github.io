@@ -18,11 +18,11 @@ export default function AboutPage() {
           Now building agent workflows.
         </p>
         <p>
-          <a href={siteConfig.social.github}>github</a>
+          <a href={siteConfig.social.github}>GitHub</a>
           {' · '}
-          <a href={siteConfig.social.twitter}>x</a>
+          <a href={siteConfig.social.twitter}>X</a>
           {' · '}
-          <a href={siteConfig.social.linkedin}>linkedin</a>
+          <a href={siteConfig.social.linkedin}>LinkedIn</a>
         </p>
       </div>
     </div>

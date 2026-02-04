@@ -22,8 +22,8 @@ export default function NotesPage() {
       {/* TILs */}
       {tils.length > 0 && (
         <section className="mt-12">
-          <h2 className="text-sm font-medium text-tertiary uppercase tracking-wide">
-            Today I Learned
+          <h2 className="text-sm font-medium text-tertiary tracking-wide">
+            Today I learned
           </h2>
           <div className="mt-4 space-y-2">
             {tils.slice(0, 5).map((til) => (
@@ -45,7 +45,7 @@ export default function NotesPage() {
 
       {/* Notes */}
       <section className="mt-12">
-        <h2 className="text-sm font-medium text-tertiary uppercase tracking-wide">
+        <h2 className="text-sm font-medium text-tertiary tracking-wide">
           Notes
         </h2>
         <div className="mt-4 space-y-2">

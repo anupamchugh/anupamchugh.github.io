@@ -1,4 +1,11 @@
-export type ThemeName = 'default' | 'minimal' | 'terminal' | 'neon' | 'modern';
+export type ThemeName =
+  | 'default'
+  | 'minimal'
+  | 'terminal'
+  | 'neon'
+  | 'modern'
+  | 'hybrid-light'
+  | 'hybrid-dark';
 
 export interface Theme {
   name: ThemeName;
@@ -7,6 +14,16 @@ export interface Theme {
 }
 
 export const themes: Theme[] = [
+  {
+    name: 'hybrid-light',
+    label: 'Light',
+    description: 'Hybrid light mode with banteg-inspired typography',
+  },
+  {
+    name: 'hybrid-dark',
+    label: 'Dark',
+    description: 'Hybrid dark mode with banteg-inspired typography',
+  },
   {
     name: 'default',
     label: 'Default',
@@ -34,4 +51,8 @@ export const themes: Theme[] = [
   },
 ];
 
-export const defaultTheme: ThemeName = 'modern';
+export const defaultTheme: ThemeName = 'hybrid-light';
+
+export const themeToggleOptions = themes.filter(
+  (theme) => theme.name === 'hybrid-light' || theme.name === 'hybrid-dark'
+);

@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import { ThemeName, defaultTheme } from './themes';
+import { ThemeName, defaultTheme, themes } from './themes';
 
 interface ThemeContextValue {
   theme: ThemeName;
@@ -11,6 +11,7 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 const STORAGE_KEY = 'blog-theme';
+const ALLOWED_THEMES = new Set(themes.map((theme) => theme.name));
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<ThemeName>(defaultTheme);
@@ -19,7 +20,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     setMounted(true);
     const stored = localStorage.getItem(STORAGE_KEY) as ThemeName | null;
-    if (stored) {
+    if (stored && ALLOWED_THEMES.has(stored)) {
       setThemeState(stored);
       document.documentElement.dataset.theme = stored;
     }
@@ -39,6 +40,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
           __html: `
             (function() {
               var theme = localStorage.getItem('${STORAGE_KEY}') || '${defaultTheme}';
+              var allowed = ${JSON.stringify(themes.map((theme) => theme.name))};
+              if (!allowed.includes(theme)) theme = '${defaultTheme}';
               document.documentElement.dataset.theme = theme;
             })();
           `,

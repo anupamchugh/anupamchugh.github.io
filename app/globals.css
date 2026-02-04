@@ -54,6 +54,53 @@
   --max-width: 640px;         /* macwright pattern */
 }
 
+/* Hybrid Theme - Banteg-inspired restraint with existing system fonts */
+[data-theme="hybrid-light"] {
+  color-scheme: light;
+  --bg: #fdfbf7;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f2efe9;
+  --fg: #1a1a1a;
+  --fg-muted: #4b4b4b;
+  --fg-subtle: #7a7a7a;
+  --accent: #1a1a1a;
+  --accent-hover: #000000;
+  --border: #e3dfd6;
+  --selection-bg: rgba(26, 26, 26, 0.12);
+  --header-bg: rgba(253, 251, 247, 0.9);
+  --card-bg: #ffffff;
+  --code-bg: #f3f0e8;
+  --code-fg: #1a1a1a;
+  --font-override: var(--font-inter), system-ui, sans-serif;
+  --font-prose: var(--font-source-serif), var(--font-inter), serif;
+  --max-width: 40rem;
+  --section-gap: 3rem;
+  --item-gap: 0.75rem;
+}
+
+[data-theme="hybrid-dark"] {
+  color-scheme: dark;
+  --bg: #0e0f12;
+  --bg-secondary: #16181c;
+  --bg-tertiary: #22252b;
+  --fg: #f2f2f2;
+  --fg-muted: #b3b3b3;
+  --fg-subtle: #8a8a8a;
+  --accent: #f2f2f2;
+  --accent-hover: #ffffff;
+  --border: #2a2d33;
+  --selection-bg: rgba(242, 242, 242, 0.16);
+  --header-bg: rgba(14, 15, 18, 0.95);
+  --card-bg: #16181c;
+  --code-bg: #1b1e23;
+  --code-fg: #f2f2f2;
+  --font-override: var(--font-inter), system-ui, sans-serif;
+  --font-prose: var(--font-source-serif), var(--font-inter), serif;
+  --max-width: 40rem;
+  --section-gap: 3rem;
+  --item-gap: 0.75rem;
+}
+
 /* Terminal Theme - Green on Black Hacker */
 [data-theme="terminal"] {
   color-scheme: dark;
@@ -508,6 +555,127 @@ a:hover {
 /* ===========================================
    BRIAN LOVIN THEME - Specific Styles
    =========================================== */
+
+/* Hybrid - Layout and spacing */
+[data-theme="hybrid-light"] main,
+[data-theme="hybrid-dark"] main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+[data-theme="hybrid-light"] header,
+[data-theme="hybrid-dark"] header {
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Hybrid - Typography hierarchy */
+[data-theme="hybrid-light"] body,
+[data-theme="hybrid-dark"] body {
+  font-family: var(--font-override);
+  line-height: 1.75;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+[data-theme="hybrid-light"] .prose,
+[data-theme="hybrid-dark"] .prose {
+  font-family: var(--font-prose);
+  font-size: 1.125rem;
+  max-width: var(--max-width);
+}
+
+[data-theme="hybrid-light"] .prose h1,
+[data-theme="hybrid-dark"] .prose h1,
+[data-theme="hybrid-light"] .prose h2,
+[data-theme="hybrid-dark"] .prose h2,
+[data-theme="hybrid-light"] .prose h3,
+[data-theme="hybrid-dark"] .prose h3 {
+  font-family: var(--font-override);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+[data-theme="hybrid-light"] .prose h1,
+[data-theme="hybrid-dark"] .prose h1 {
+  font-size: 2rem;
+}
+
+[data-theme="hybrid-light"] .prose h2,
+[data-theme="hybrid-dark"] .prose h2 {
+  font-size: 1.5rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Hybrid - Links */
+[data-theme="hybrid-light"] a,
+[data-theme="hybrid-dark"] a {
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+[data-theme="hybrid-light"] a:hover,
+[data-theme="hybrid-dark"] a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+[data-theme="hybrid-light"] .prose a,
+[data-theme="hybrid-dark"] .prose a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Hybrid - Cards */
+[data-theme="hybrid-light"] .card,
+[data-theme="hybrid-dark"] .card {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+}
+
+[data-theme="hybrid-light"] .card:hover,
+[data-theme="hybrid-dark"] .card:hover {
+  border-color: var(--fg-subtle);
+}
+
+/* Hybrid - Code */
+[data-theme="hybrid-light"] .prose pre,
+[data-theme="hybrid-dark"] .prose pre {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+[data-theme="hybrid-light"] .prose code:not(pre code),
+[data-theme="hybrid-dark"] .prose code:not(pre code) {
+  font-size: 0.9em;
+  padding: 0.125em 0.375em;
+  border-radius: 4px;
+}
+
+/* Hybrid - Section spacing */
+[data-theme="hybrid-light"] section,
+[data-theme="hybrid-dark"] section {
+  margin-bottom: var(--section-gap);
+}
+
+/* Hybrid - List spacing */
+[data-theme="hybrid-light"] .prose ul,
+[data-theme="hybrid-dark"] .prose ul,
+[data-theme="hybrid-light"] .prose ol,
+[data-theme="hybrid-dark"] .prose ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--item-gap);
+}
+
+[data-theme="hybrid-light"] .prose li,
+[data-theme="hybrid-dark"] .prose li {
+  margin-bottom: 0;
+}
 
 /* Modern - Layout and spacing */
 [data-theme="modern"] main {
