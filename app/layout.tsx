@@ -1,13 +1,25 @@
 import type { Metadata } from 'next';
-import { Inter, Source_Serif_4 } from 'next/font/google';
+import {
+  Inter,
+  Source_Serif_4,
+  Space_Grotesk,
+  IBM_Plex_Sans,
+  IBM_Plex_Serif,
+  Work_Sans,
+} from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/lib/content';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { ThemeProvider } from '@/lib/theme-context';
+import { activeFontPreset } from '@/lib/font-presets';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const sourceSerif = Source_Serif_4({ subsets: ['latin'], variable: '--font-source-serif' });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
+const plexSans = IBM_Plex_Sans({ subsets: ['latin'], variable: '--font-plex-sans' });
+const plexSerif = IBM_Plex_Serif({ subsets: ['latin'], variable: '--font-plex-serif' });
+const workSans = Work_Sans({ subsets: ['latin'], variable: '--font-work-sans' });
 
 export const metadata: Metadata = {
   title: {
@@ -40,9 +52,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
+    <html lang="en" className="h-full scroll-smooth" data-font={activeFontPreset}>
       <body
-        className={`${inter.variable} ${sourceSerif.variable} flex min-h-screen flex-col font-sans subpixel-antialiased`}
+        className={`${inter.variable} ${sourceSerif.variable} ${spaceGrotesk.variable} ${plexSans.variable} ${plexSerif.variable} ${workSans.variable} flex min-h-screen flex-col font-sans subpixel-antialiased`}
       >
         <ThemeProvider>
           <Header />

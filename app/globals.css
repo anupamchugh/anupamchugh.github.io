@@ -11,6 +11,28 @@
   --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
   --max-width: 65ch;
   --transition: 0.2s ease;
+  --font-ui-base: var(--font-inter), system-ui, sans-serif;
+  --font-prose-base: var(--font-source-serif), Georgia, serif;
+}
+
+[data-font="brian"] {
+  --font-ui-base: var(--font-inter), system-ui, sans-serif;
+  --font-prose-base: var(--font-source-serif), Georgia, serif;
+}
+
+[data-font="space"] {
+  --font-ui-base: var(--font-space-grotesk), var(--font-inter), system-ui, sans-serif;
+  --font-prose-base: var(--font-source-serif), Georgia, serif;
+}
+
+[data-font="plex"] {
+  --font-ui-base: var(--font-plex-sans), var(--font-inter), system-ui, sans-serif;
+  --font-prose-base: var(--font-plex-serif), var(--font-source-serif), Georgia, serif;
+}
+
+[data-font="work"] {
+  --font-ui-base: var(--font-work-sans), var(--font-inter), system-ui, sans-serif;
+  --font-prose-base: var(--font-source-serif), Georgia, serif;
 }
 
 /* Default Theme - Now uses Modern (true black) */
@@ -50,7 +72,7 @@
   --card-bg: #ffffff;
   --code-bg: #f0f0f0;
   --code-fg: #111111;
-  --font-override: Georgia, "Times New Roman", serif;  /* Classic reading font */
+  --font-override: var(--font-prose-base);  /* Classic reading font */
   --max-width: 640px;         /* macwright pattern */
 }
 
@@ -71,8 +93,8 @@
   --card-bg: #ffffff;
   --code-bg: #f3f0e8;
   --code-fg: #1a1a1a;
-  --font-override: var(--font-inter), system-ui, sans-serif;
-  --font-prose: var(--font-source-serif), var(--font-inter), serif;
+  --font-override: var(--font-ui-base);
+  --font-prose: var(--font-prose-base);
   --max-width: 40rem;
   --section-gap: 3rem;
   --item-gap: 0.75rem;
@@ -94,8 +116,8 @@
   --card-bg: #16181c;
   --code-bg: #1b1e23;
   --code-fg: #f2f2f2;
-  --font-override: var(--font-inter), system-ui, sans-serif;
-  --font-prose: var(--font-source-serif), var(--font-inter), serif;
+  --font-override: var(--font-ui-base);
+  --font-prose: var(--font-prose-base);
   --max-width: 40rem;
   --section-gap: 3rem;
   --item-gap: 0.75rem;
@@ -159,8 +181,8 @@
   --card-bg: #171717;
   --code-bg: #171717;
   --code-fg: #fafafa;
-  --font-override: var(--font-inter), system-ui, sans-serif;
-  --font-prose: var(--font-source-serif), Georgia, serif;
+  --font-override: var(--font-ui-base);
+  --font-prose: var(--font-prose-base);
   --max-width: 42rem;               /* max-w-2xl equivalent */
   --section-gap: 4rem;              /* gap-16 */
   --item-gap: 1rem;                 /* gap-4 */
