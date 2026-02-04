@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Anupam Chugh",
-  title: "Anupam Chugh - software engineer and technical writer",
+  title: "anupam chugh - software engineer and technical writer",
   description: "I ship code, then write about it. iOS, AI workflows, and occasionally tools that become obsolete in four days.",
   url: "https://anupamchugh.github.io",
   social: {
@@ -13,11 +13,11 @@ export const siteConfig = {
 export type NavItem = { href: string; label: string };
 
 export const navItems: NavItem[] = [
-  { href: "/", label: "Home" },
-  { href: "/about/", label: "About" },
-  { href: "/posts/", label: "Writing" },
-  { href: "/notes/", label: "Notes" },
-  { href: "/projects/", label: "Projects" },
+  { href: "/", label: "home" },
+  { href: "/about/", label: "about" },
+  { href: "/posts/", label: "writing" },
+  { href: "/notes/", label: "notes" },
+  { href: "/projects/", label: "projects" },
 ];
 
 export type Stat = { label: string; value: string; description?: string };

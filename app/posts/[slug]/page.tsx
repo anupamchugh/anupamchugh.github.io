@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) return { title: 'Post not found' };
+  if (!post) return { title: 'post not found' };
 
   return {
     title: post.title,
@@ -44,7 +44,7 @@ export default async function PostPage({ params }: PageProps) {
         href="/posts/"
         className="text-sm text-tertiary hover:text-primary transition-colors"
       >
-        ← Writing
+        ← writing
       </Link>
 
       {/* Header */}
@@ -98,7 +98,7 @@ export default async function PostPage({ params }: PageProps) {
           href="/posts/"
           className="text-sm text-tertiary hover:text-primary transition-colors"
         >
-          ← Back to writing
+          ← back to writing
         </Link>
       </footer>
     </article>

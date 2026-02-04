@@ -6,7 +6,7 @@ export default function NotFound() {
       <div className="text-center">
         <h1 className="text-6xl font-semibold">404</h1>
         <p className="mt-4 text-secondary">
-          Page not found.
+          page not found.
         </p>
 
         <div className="mt-8 flex justify-center gap-4 text-sm">
@@ -14,13 +14,13 @@ export default function NotFound() {
             href="/"
             className="text-tertiary hover:text-primary transition-colors"
           >
-            Home
+            home
           </Link>
           <Link
             href="/posts/"
             className="text-tertiary hover:text-primary transition-colors"
           >
-            Writing
+            writing
           </Link>
         </div>
       </div>

@@ -7,11 +7,11 @@ export default function Hero() {
         {siteConfig.name} — I write code, then write about it.
       </p>
       <p className="mt-2 text-tertiary text-sm">
-        <a href={siteConfig.social.github} className="hover:text-primary">GitHub</a>
+        <a href={siteConfig.social.github} className="hover:text-primary">github</a>
         {' · '}
-        <a href={siteConfig.social.twitter} className="hover:text-primary">X</a>
+        <a href={siteConfig.social.twitter} className="hover:text-primary">x</a>
         {' · '}
-        <a href={siteConfig.social.linkedin} className="hover:text-primary">LinkedIn</a>
+        <a href={siteConfig.social.linkedin} className="hover:text-primary">linkedin</a>
       </p>
     </section>
   );

@@ -9,9 +9,9 @@ export default function Header() {
       <nav className="mx-auto max-w-2xl px-4 py-4 sm:px-6">
         <div className="flex items-center justify-between gap-4 text-sm text-tertiary">
           <div className="flex gap-4">
-            <Link href="/" className="hover:text-primary">Home</Link>
-            <Link href="/posts/" className="hover:text-primary">Writing</Link>
-            <Link href="/about/" className="hover:text-primary">About</Link>
+            <Link href="/" className="hover:text-primary">home</Link>
+            <Link href="/posts/" className="hover:text-primary">writing</Link>
+            <Link href="/about/" className="hover:text-primary">about</Link>
           </div>
           <ThemeToggle />
         </div>

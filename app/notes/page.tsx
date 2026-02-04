@@ -3,7 +3,7 @@ import { getNotes, getTILs } from '@/lib/posts';
 import { formatDate } from '@/lib/utils';
 
 export const metadata = {
-  title: 'Notes',
+  title: 'notes',
   description: 'Quick thoughts, TILs, and draft ideas',
 };
 
@@ -14,7 +14,7 @@ export default function NotesPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
-      <h1 className="text-2xl font-semibold">Notes</h1>
+      <h1 className="text-2xl font-semibold">notes</h1>
       <p className="mt-2 text-secondary">
         Quick thoughts and TILs. Less polished than blog posts.
       </p>
@@ -23,7 +23,7 @@ export default function NotesPage() {
       {tils.length > 0 && (
         <section className="mt-12">
           <h2 className="text-sm font-medium text-tertiary tracking-wide">
-            Today I learned
+            today i learned
           </h2>
           <div className="mt-4 space-y-2">
             {tils.slice(0, 5).map((til) => (
@@ -46,7 +46,7 @@ export default function NotesPage() {
       {/* Notes */}
       <section className="mt-12">
         <h2 className="text-sm font-medium text-tertiary tracking-wide">
-          Notes
+          notes
         </h2>
         <div className="mt-4 space-y-2">
           {notes.length > 0 ? (

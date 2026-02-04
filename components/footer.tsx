@@ -14,7 +14,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-primary"
             >
-              GitHub
+              github
             </a>
             <a
               href={siteConfig.social.twitter}
@@ -22,10 +22,10 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-primary"
             >
-              X
+              x
             </a>
             <Link href="/rss.xml" className="hover:text-primary">
-              RSS
+              rss
             </Link>
           </div>
         </div>

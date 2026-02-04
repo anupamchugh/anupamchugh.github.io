@@ -4,14 +4,14 @@ import Link from 'next/link';
 import { projects } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'Projects',
+  title: 'projects',
   description: 'Tutorial collections, tools, and explorations.',
 };
 
 export default function ProjectsPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 pb-16 pt-32 sm:px-6">
-      <h1 className="text-3xl font-semibold text-primary">Projects</h1>
+      <h1 className="text-3xl font-semibold text-primary">projects</h1>
       <p className="mt-2 text-secondary">
         Tools, tutorial collections, and explorations.
       </p>

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { siteConfig } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'about',
   description: 'Software engineer.',
 };
 

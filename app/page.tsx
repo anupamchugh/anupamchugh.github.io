@@ -29,7 +29,7 @@ export default function HomePage() {
             href="/posts/"
             className="text-tertiary text-sm hover:text-primary"
           >
-            All posts
+            all posts
           </Link>
         </div>
       </section>
