@@ -10,204 +10,142 @@ published: true
 
 [Part 1](/skill-drift): skill drift. [Part 2](/spec-drift): spec drift. [Part 3](/snap-streaks): volatility tracking.
 
-Part 4: **Coordinate multiple AI agents without a server.**
+Part 4: **coordination without a server.**
 
-## The Problem
+## The Problem (One Paragraph)
 
-Claude Code runs supervised. Codex CLI runs overnight. Gemini handles a parallel task.
+Multiple agents run in parallel. None knows what’s done, what’s blocked, or who owns what. Servers solve this but introduce a new failure: the server.
 
-Each agent works alone. None knows:
-- What's done
-- What's in progress
-- Who owns what
-- When to stop
+## The Solution (One Idea)
 
-Servers solve this—agent mail, message queues, coordination services. Servers also fail. Agents lose contact. Work duplicates or stalls.
-
-## The Solution: Files
-
-Coordination through files:
+Use files as the coordination layer.
 
 ```
 .beads/
-├── scoreboard.json    # Who closed what
-├── agents.json        # Who's playing
-└── pause.json         # Stop signal
+├── scoreboard.json
+├── agents.json
+└── pause.json
 ```
 
-Git syncs everything. No server to fail. Agent dies? Files persist. New agent? `git pull` and go.
+Git syncs them. No infra. No single point of failure.
 
-## Pacman Mode
+## The Skill: `bd pacman`
 
-Shadowbook calls this "Pacman Mode"—gamified task management.
+One command acts as a coordination surface.
 
 ```bash
-$ bd pacman
+bd pacman
+```
 
-╭──────────────────────────────────────────────────────────╮
-│  ᗧ····○ bd-abc····○ bd-xyz····○ bd-123 ····👻            │
-╰──────────────────────────────────────────────────────────╯
-
-YOU: claude
-SCORE: 3 dots
-
-DOTS NEARBY:
-  ○ bd-abc ● P1 "Implement login flow"
-  ○ bd-xyz ● P2 "Add retry logic"
-
-BLOCKERS:
-  ● bd-456 blocked by bd-789
-
-LEADERBOARD:
-  #1 codex   5 pts
-  #2 claude  3 pts
+```
+YOU: claude   SCORE: 3
+DOTS: bd-abc, bd-xyz
+BLOCKERS: bd-456 ← bd-789
+LEADERBOARD: codex 5, claude 3
 ```
 
 **ᗧ** = you. **○** = tasks. **👻** = blockers.
 
-All tasks done? Clear the maze:
+## The Workflow (Short and Repeatable)
 
+### 1) Join the board
 ```bash
-╭──────────────────────────────────────────────────────────╮
-│  ᗧ····················✓ CLEAR!                            │
-╰──────────────────────────────────────────────────────────╯
-```
-
-## Scenarios
-
-### Two Agents, Same Project
-
-Claude runs supervised. Codex works in the background.
-
-```bash
-# Codex joins
 AGENT_NAME=codex bd pacman --join
-bd pacman                    # See available dots
-bd close bd-123              # Close task, gain point
 ```
 
-You check progress:
-
+### 2) Take work
 ```bash
-bd pacman
-# LEADERBOARD:
-#   #1 codex   3 pts
-#   #2 claude  0 pts
+bd close bd-123
 ```
 
-### Emergency Stop
+### 3) Sync
+```bash
+git push
+```
 
-Production incident. All agents must stop.
+### 4) Hand off
+```bash
+git pull
+bd pacman
+```
+
+That’s the loop.
+
+## The Kill Switch
+
+Pause every agent with one file.
 
 ```bash
 bd pacman --pause "PRODUCTION DOWN"
 ```
 
-Every agent's next `bd` command:
+Every `bd` command checks:
 
-```
-⏸️ PAUSED by claude: PRODUCTION DOWN
+```go
+func checkPauseSignal() {
+    if paused() { fmt.Println("PAUSED") }
+}
 ```
 
-After the incident:
+Resume:
 
 ```bash
 bd pacman --resume
 ```
 
-### Parallel Work (3 Agents)
+## Short Use Cases Across Shadowbook
 
+Here’s what Pacman looks like alongside the rest of the system—small, repeatable snippets.
+
+### Pacman: Coordination Without a Server
 ```bash
-AGENT_NAME=claude bd pacman --join
 AGENT_NAME=codex bd pacman --join
-AGENT_NAME=gemini bd pacman --join
-
-# Each takes a task
-AGENT_NAME=claude bd close bd-p1
-AGENT_NAME=codex bd close bd-p2
-AGENT_NAME=gemini bd close bd-p3
-
-bd pacman
-# LEADERBOARD:
-#   #1 claude  1 pts
-#   #1 codex   1 pts
-#   #1 gemini  1 pts
+bd close bd-123
 ```
 
-## Commands
-
-| Command | Action |
-|---------|--------|
-| `bd pacman --join` | Register agent |
-| `bd pacman` | Show dashboard |
-| `bd assign bd-abc --to codex` | Hand off task |
-| `bd ready --mine` | See your assignments |
-| `bd pacman --pause "reason"` | Stop all agents |
-| `bd pacman --resume` | Continue |
-| `bd close bd-abc` | Close + score |
-
-## Why Files Beat Servers
-
-| Aspect | Server | Files |
-|--------|--------|-------|
-| Server down | Dead | N/A |
-| Agent dies | Inbox stuck | Files persist |
-| 10 projects | 10 registrations | Just `cd` |
-| Sync | API calls | Git |
-| Offline | Impossible | Works |
-
-## The Pause Pattern
-
-Key insight: every command checks for pause.
-
-```go
-func checkPauseSignal() {
-    data, _ := os.ReadFile(".beads/pause.json")
-    if data != nil {
-        fmt.Fprintf(os.Stderr, "⏸️ PAUSED: %s\n", reason)
-    }
-}
-```
-
-`bd ready`? Sees pause. `bd close`? Sees pause. The warning is unavoidable.
-
-## Session Handoff
-
-End of day:
+### Wobble: Find Skill Drift
 ```bash
-bd pacman    # Score: 5 pts
-git push
+bd wobble
+# drift detected between ~/.claude/skills and ~/.codex/skills
 ```
 
-Codex overnight:
+### Collisions: Stop Silent Skill Overrides
 ```bash
-git pull
-AGENT_NAME=codex bd pacman --join
-bd close bd-overnight-task
-git push
+bd skills collisions --quiet
+# collisions found in project + global registries
 ```
 
-Next morning:
+### Spec Drift: Catch “Specs Moved, Code Didn’t”
 ```bash
-git pull
-bd pacman
-# LEADERBOARD:
-#   #1 codex  8 pts
-#   #2 claude 5 pts
+bd spec scan
+# unacknowledged changes in specs/
 ```
 
-You see what happened while you slept.
-
-## When You Need More
-
-Pacman stays serverless. Add complexity only when necessary:
-
+### Stability Drift: Volatility Over Time
 ```bash
-bd pacman --lock backend/*.py    # File reservation
-bd pacman --discuss bd-abc       # Threaded discussion
+bd spec volatility --trend specs/auth.md
 ```
 
-Agent mail becomes a power-up, not a requirement.
+### Ready: See Work Without Blockers
+```bash
+bd ready
+```
+
+### Recent: Get a Fast Activity Pulse
+```bash
+bd recent
+```
+
+### Preflight: Gate Before You Ship
+```bash
+bd preflight --check
+```
+
+If you want a full “feature → file → command” index, I can add it.
+
+## Why Files Beat Servers (One Line)
+
+Servers die. Files persist.
 
 ## Try It
 
@@ -217,12 +155,3 @@ cd your-project && bd init
 bd pacman --join
 bd pacman
 ```
-
-No server. No registration. Files and git.
-
-**GitHub:** [anupamchugh/shadowbook](https://github.com/anupamchugh/shadowbook)
-
----
-published: true
-
-*Part 4 of the Shadowbook series. [Part 1: Skill Drift](/skill-drift) | [Part 2: Spec Drift](/spec-drift) | [Part 3: Snap Streaks](/snap-streaks)*
