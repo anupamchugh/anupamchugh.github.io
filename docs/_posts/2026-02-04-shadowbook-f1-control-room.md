@@ -65,6 +65,17 @@ If the pit wall does not know the car changed, the race is over. Shadowbook’s 
 
 Specbeads tracks specs, skills, and workflows as living assets. It scores volatility over time, weights recent changes, and classifies stability. The drift detector can run continuously via daemon RPC. It turns change into early warning.
 
+## The Archive: Specs That Move, Settle, and Freeze
+
+Specs are not static. They churn, then settle, then move to cold storage. Shadowbook makes that lifecycle explicit.
+
+```bash
+bd spec compact specs/auth.md --summary "OAuth flow stabilized; MFA added."
+bd spec show specs/auth.md --history
+```
+
+Compaction keeps the system fast without losing history. You can still recover the full spec when needed.
+
 ## The Garage: Skills and Collision Detection
 
 Skills are small executable behaviors. At scale, they collide. The same skill name can point to different logic across repos or agents. That is silent failure.
@@ -145,6 +156,21 @@ bd preflight --check
 5. **Preflight** gates the release when any of the above is red.
 
 The result: you catch drift before it becomes a crash.
+
+## What We Built (Short, Concrete)
+
+This is the core of the control room, translated into features and commands.
+
+```bash
+bd spec scan                 # Spec drift detection
+bd spec volatility --trend   # Stability drift over time
+bd wobble                    # Skill drift radar
+bd skills collisions         # Collision detection
+bd pacman                    # Serverless coordination
+bd preflight --check         # Gate before you ship
+```
+
+These are the pit‑wall tools. Each is small. Together, they keep the system aligned.
 
 ## Feature Guide (Mapped to Code)
 
