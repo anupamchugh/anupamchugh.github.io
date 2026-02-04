@@ -99,6 +99,53 @@ Shadowbook is built to be operated by humans and LLMs. The tool layer uses a sma
 
 That is the pit wall radio: short, high‑signal instructions that hide complexity.
 
+## Pit Wall Playbook (Short Commands, Real Use Cases)
+
+Here are the tight, repeatable calls that keep a race weekend clean.
+
+### Pacman: Coordination Without a Server
+```bash
+AGENT_NAME=codex bd pacman --join
+bd close bd-123
+```
+
+### Wobble: Skill Drift Radar
+```bash
+bd wobble
+# detects drift between agent skill registries
+```
+
+### Collisions: Stop Silent Overrides
+```bash
+bd skills collisions --quiet
+# reports duplicate skill names across registries
+```
+
+### Spec Drift: Did the Track Move?
+```bash
+bd spec scan
+```
+
+### Stability Drift: Is It Settling?
+```bash
+bd spec volatility --trend specs/auth.md
+```
+
+### Preflight: Gate Before You Ship
+```bash
+bd preflight --check
+```
+
+## How They Interplay (Race Weekend Flow)
+
+1. **Pacman** assigns work and shows blockers. No server, no dead inbox.
+2. **Wobble** catches skill drift before agents run different playbooks.
+3. **Collisions** prevents a silent override when two skills share a name.
+4. **Spec scan + volatility** show whether the spec moved or is still churning.
+5. **Preflight** gates the release when any of the above is red.
+
+The result: you catch drift before it becomes a crash.
+
 ## Feature Guide (Mapped to Code)
 
 Below is a short map from features to where they live in the code. This is a guide, not a full reference.
