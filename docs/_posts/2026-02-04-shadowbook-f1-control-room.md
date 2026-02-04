@@ -4,10 +4,9 @@ date: '2026-02-04'
 categories: [systems, tooling]
 keywords: [shadowbook, drift, observability, automation, f1, workflows, specs, skills, mcp]
 slug: /shadowbook-f1-control-room
-published: true
+draft: true
+published: false
 ---
-
-# Shadowbook: The F1 Control Room for Complex Systems
 
 Systems drift under load. Specs move, tools fork, and agents operate on different maps. You can feel it before you can prove it. Shadowbook is how I made it visible.
 
