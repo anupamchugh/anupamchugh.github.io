@@ -1,12 +1,12 @@
 ---
-draft: true
 title: "Snap Your Spec Streaks"
 date: '2026-02-01T12:00:00.000Z'
 categories: [ai, tools]
 keywords: [shadowbook, spec-volatility, stability-drift, ai-agents, beads, snap-streaks]
 slug: /snap-your-spec-streaks
+draft: false
+published: true
 ---
-draft: true
 
 Specs change. Sometimes too much.
 
@@ -215,8 +215,5 @@ Stability is a feature.
 A spec that doesn't change is a spec you can build against. A spec that changes constantly is a spec that wastes everyone's time.
 
 Track the streak. Let it die. Then ship.
-
----
-draft: true
 
 *Shadowbook is open source: [github.com/anupamchugh/shadowbook](https://github.com/anupamchugh/shadowbook)*
