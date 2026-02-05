@@ -16,10 +16,26 @@ import { activeFontPreset } from '@/lib/font-presets';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const sourceSerif = Source_Serif_4({ subsets: ['latin'], variable: '--font-source-serif' });
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
-const plexSans = IBM_Plex_Sans({ subsets: ['latin'], variable: '--font-plex-sans' });
-const plexSerif = IBM_Plex_Serif({ subsets: ['latin'], variable: '--font-plex-serif' });
-const workSans = Work_Sans({ subsets: ['latin'], variable: '--font-work-sans' });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+  weight: ['400', '600'],
+});
+const plexSans = IBM_Plex_Sans({
+  subsets: ['latin'],
+  variable: '--font-plex-sans',
+  weight: ['400', '600'],
+});
+const plexSerif = IBM_Plex_Serif({
+  subsets: ['latin'],
+  variable: '--font-plex-serif',
+  weight: ['400', '600'],
+});
+const workSans = Work_Sans({
+  subsets: ['latin'],
+  variable: '--font-work-sans',
+  weight: ['400', '600'],
+});
 
 export const metadata: Metadata = {
   title: {
