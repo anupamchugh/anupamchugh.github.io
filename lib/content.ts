@@ -3,6 +3,7 @@ export const siteConfig = {
   title: "anupam chugh - software engineer and technical writer",
   description: "I ship code, then write about it. iOS, AI workflows, and occasionally tools that become obsolete in four days.",
   url: "https://anupamchugh.github.io",
+  caseStyle: "lowercase",
   social: {
     twitter: "https://twitter.com/chughanupam",
     github: "https://github.com/anupamchugh",
