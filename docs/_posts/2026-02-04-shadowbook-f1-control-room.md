@@ -8,9 +8,9 @@ draft: false
 published: true
 ---
 
-Systems drift under load. Specs move, tools fork, and agents operate on different maps. You can feel it before you can prove it. Shadowbook is how I made it visible.
+Spec-driven workflows break in slow, expensive ways. The spec starts clean, then accretes edge cases, caveats, and context files. The code moves, the spec moves, and the two stop moving together. You feel the drift first; you confirm it much later.
 
-I use an F1 frame because it matches reality: grid assignments, pit‑wall calls, yellow flags, and the constant risk of unforced errors. The point is not the metaphor. The point is the workflow.
+That is why I use an F1 frame. In a race, the car can be perfect and still lose if the pit wall misses a yellow flag or reads the wrong map. Spec-driven work is the same: success depends on how fast you detect changes and how reliably you gate the next lap. Shadowbook is my pit wall for that problem.
 
 ## The race weekend loop
 
@@ -25,6 +25,29 @@ bd preflight --check             # green flag: ship or stop
 ```
 
 The loop works because each command can fail fast. No dashboards, no services. Just a pit wall that knows what changed.
+
+## How the journey solves spec drift
+
+Shadowbook turns specs into stateful artifacts. When a spec changes, you do not just hope someone noticed. You surface the change, flag linked work, and block release until a human acknowledges the drift. The workflow makes the invisible visible and forces the right pause before the next lap.
+
+## A concrete drift example
+
+```bash
+# Spec changes overnight
+bd spec scan
+
+# Linked beads get flagged
+bd list --spec-changed
+
+# Volatility warns you not to build on churn
+bd spec volatility --trend specs/auth.md
+
+# Preflight blocks the release until reviewed
+bd preflight --check
+
+# After review, clear the flag and proceed
+bd update bd-123 --ack-spec
+```
 
 ## The commands, mapped to the track
 
@@ -137,6 +160,12 @@ The loop is the pit wall. The pacman viewer is the grid. Wobble is the telemetry
 
 That is the point: compress the system into one glance, then enforce with gates.
 
+## What this is not
+
+The control room does not replace code quality. It is a guardrail for intent and coordination, not a substitute for tests or correctness.
+
+It also does not require a new language. The hard part is not syntax. The hard part is knowing when context changed and enforcing a stop until humans re‑align.
+
 ## What we built (short and concrete)
 
 ```bash
@@ -161,4 +190,3 @@ That is the pit wall in practice.
 ---
 
 If you want the deeper technical playbook, I will publish the specbeads and workflow design notes next.
-
