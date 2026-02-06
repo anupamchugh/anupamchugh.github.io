@@ -2,7 +2,7 @@
 title: "Shadowbook: The F1 Control Room for Complex Systems"
 date: '2026-02-04'
 categories: [systems, tooling]
-keywords: [shadowbook, drift, observability, automation, f1, workflows, specs, skills, mcp]
+keywords: [shadowbook, drift, observability, automation, f1, workflows, specs, skills, mcp, comments, ast, git-blame]
 slug: /shadowbook-f1-control-room
 draft: false
 published: true
@@ -214,6 +214,46 @@ The output is orchestrator‑agnostic JSON. Claude Code, Codex, or any orchestra
 | Manual bead closure | Auto‑close on task completion |
 | No quality check | `bd team wobble` scores fidelity |
 
+## Comment drift: the track signage nobody checks
+
+Every race circuit has signs: braking markers, corner names, distance boards. When the circuit is reprofiled and the braking zone moves from 100m to 80m, somebody has to update the signs. Nobody does.
+
+Code comments are the same. `// See auth.go:validateToken` points at a function that was renamed to `verifyJWT` three months ago. `// max 5 items per order` sits next to a constant that now says 10. `// TODO: remove after migration` has been there for 104 days. Nobody checks whether the signs still match the track.
+
+`bd codecomment` (alias: `bd cc`) surveys every sign on the circuit.
+
+```bash
+$ bd cc scan
+
+Scanning comments...
+  ├─ 15,816 comments found (3,389 doc, 35 todo, 9 invariant, 46 reference, 12,337 inline)
+  ├─ 50 cross-references detected
+  ├─ 22 broken references found
+  ├─ 538 files scanned
+  └─ Completed in 226ms
+```
+
+Three commands. **Scan** parses every Go file using `go/ast`, classifies each comment (doc, TODO, invariant, reference, inline), extracts cross-references, and stores the graph in SQLite. **Drift** uses batched `git blame` per-file to find stale comments where the code changed but the comment didn't, expired TODOs, and broken cross-references. **Links** shows the reference graph per-file and flags what's broken.
+
+```bash
+$ bd cc drift
+
+┌─ COMMENT DRIFT REPORT ─────────────────────────────────────┐
+│ BROKEN REFERENCES (8):                                      │
+│   🔴 sync_branch.go:178 → autoflush.go:findJSONLPath       │
+│ STALE COMMENTS (189):                                       │
+│   ⚠️  types.go:873 → code changed 76 days after comment     │
+│ EXPIRED TODOs (5):                                          │
+│   ⏰ beads.go:310 → TODO is 104 days old                   │
+└─────────────────────────────────────────────────────────────┘
+```
+
+The performance matters. The first implementation called `git log -L` per comment line — 15,000 subprocess spawns, hung forever. The fix: `git blame --porcelain` per file, batched. One subprocess per file, parse the porcelain output in memory. 538 files in 226ms.
+
+In a team context, this matters most. Agents produce comment drift *faster* than solo developers. The agent that renames `validateToken` to `verifyJWT` won't update the comment in `sync_branch.go` that says "See auth.go:validateToken" — it's outside its context window. Five agents refactoring in parallel can break dozens of cross-references in a single sprint. `bd cc drift --ci` catches it before merge.
+
+We dogfooded it. Ran `bd cc scan` on Shadowbook's own codebase. Found 22 broken references, fixed the scanner to filter false positives (GitHub issue shorthand like "See GH#804", common prose words), added basename matching for file references, and added test file declaration scanning. Result: 22 broken refs down to 8 — and those 8 are example patterns in our own regex comments.
+
 ## What we built (short and concrete)
 
 ```bash
@@ -224,6 +264,9 @@ bd spec scan                 # spec drift
 bd spec volatility --trend   # stability drift
 bd spec compact              # spec archive
 bd spec suggest              # auto spec matching
+bd cc scan                   # comment drift: build graph
+bd cc drift                  # comment drift: find rot
+bd cc links --broken         # comment drift: broken refs
 bd preflight --check         # release gate
 bd team plan <epic>          # multi-agent execution plan
 bd team gate <spec>          # volatility gate for teams
@@ -239,7 +282,7 @@ Each command is small. Together, they form the control room.
 
 A spec changes overnight. Pacman assigns the work. Wobble flags behavioral drift in recent sessions. Collisions catches a duplicate skill name before it overrides the new one. Spec scan shows the drift. Preflight blocks the release. You fix the map, then race.
 
-Now scale that to agent teams: `bd team gate` checks the spec is stable. `bd team plan` splits the epic into parallel waves with file‑disjoint tasks. Three agents spawn, each on their own piece of track. `bd team watch` shows live telemetry. When they finish, `bd team wobble` checks nobody freelanced, and `bd team report` gives you the full post‑mortem.
+Now scale that to agent teams: `bd team gate` checks the spec is stable. `bd team plan` splits the epic into parallel waves with file‑disjoint tasks. Three agents spawn, each on their own piece of track. `bd team watch` shows live telemetry. When they finish, `bd cc drift` catches the cross-references they broke while renaming things outside each other's context windows. `bd team wobble` checks nobody freelanced. `bd team report` gives you the full post‑mortem.
 
 That is the pit wall in practice — now coordinating the whole grid, not just one car.
 
