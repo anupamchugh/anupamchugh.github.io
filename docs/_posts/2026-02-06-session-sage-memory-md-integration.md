@@ -1,5 +1,5 @@
 ---
-title: "Claude Code ships auto-memory. here's how to make it smart."
+title: "claude code ships auto-memory. here's how to make it smart."
 date: '2026-02-06T18:00:00.000Z'
 categories: [notes]
 keywords: [claude-code, memory, session-sage, lem, confidence-scoring, open-source]

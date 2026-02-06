@@ -1,5 +1,5 @@
 ---
-title: "Death by a Thousand If-Statements"
+title: "death by a thousand if-statements"
 date: '2026-02-03T12:00:00.000Z'
 categories: [ai, software-engineering, patterns]
 keywords: [ai-agents, code-quality, design-patterns, guards, validation, mental-models, claude-code]
@@ -90,11 +90,11 @@ Same bug, same agent, different output. The mental model changes the fix from a 
 
 Why three layers? Because each one has blind spots the others cover.
 
-| Layer | What it catches | What it misses |
-|-------|----------------|----------------|
-| **Entry filter** | Invalid items in collections | Direct references bypassing collections |
-| **Composable wrapper** | Any decorated function | New functions missing the decorator |
-| **Source guard** | Final check before I/O | Data already in the system |
+| Layer | Catches | Misses |
+|-------|---------|--------|
+| **Entry** | Invalid items in collections | Direct references that bypass loader |
+| **Wrapper** | Any decorated function | Undecorated new functions |
+| **Source** | Last check before I/O | Data already in system |
 
 The full pattern in 30 lines:
 
