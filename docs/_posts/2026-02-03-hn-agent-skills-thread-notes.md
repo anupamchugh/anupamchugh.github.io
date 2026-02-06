@@ -1,11 +1,11 @@
 ---
-draft: false
+draft: true
 title: "agent skills are a temporary hack"
 date: '2026-02-03T18:00:00.000Z'
 categories: [agents, ai, tools]
 keywords: [skills, context-window, agents, claude-code, temporary-hack, hn]
 slug: /agent-skills-are-a-temporary-hack
-published: true
+published: false
 ---
 
 i have 42 skills in my claude code setup. watchlist management, order placement workflows, backend recovery procedures, data health checks, paper trading simulation control. each one is a markdown file with frontmatter, a description field, and prose instructions telling the agent how to handle a specific task type.

@@ -1,11 +1,11 @@
 ---
-draft: false
+draft: true
 title: "Death by a Thousand If-Statements"
 date: '2026-02-03T12:00:00.000Z'
 categories: [ai, software-engineering, patterns]
 keywords: [ai-agents, code-quality, design-patterns, guards, validation, mental-models]
 slug: /death-by-a-thousand-if-statements
-published: true
+published: false
 ---
 
 *A Mental Model to Stop Your AI From Scattering Guards*
