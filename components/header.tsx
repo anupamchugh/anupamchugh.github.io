@@ -11,6 +11,7 @@ export default function Header() {
           <div className="flex gap-4">
             <Link href="/" className="hover:text-primary">home</Link>
             <Link href="/posts/" className="hover:text-primary">writing</Link>
+            <Link href="/notes/" className="hover:text-primary">notes</Link>
             <Link href="/about/" className="hover:text-primary">about</Link>
           </div>
           <ThemeToggle />
