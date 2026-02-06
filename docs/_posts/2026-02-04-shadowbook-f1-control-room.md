@@ -168,9 +168,9 @@ It also does not require a new language. The hard part is not syntax. The hard p
 
 ## Agent teams: the pit wall goes multi‑car
 
-Claude Code shipped agent teams (Feb 2026) — parallel Claude instances with shared task lists. The problem: no bridge between where work is tracked (beads) and where work is executed (agent teams). Without coordination, multiple agents on the same codebase is a multi‑car pileup at Turn 4.
+Claude Code shipped agent teams (Feb 2026) — parallel Claude instances with shared task lists. The problem: no bridge between where work is tracked (beads) and where work is executed (agent teams). Without coordination, multiple agents on the same codebase is a multi‑car pileup at Turn 4. The primitives exist — `bd agent`, `bd slot`, `bd gate`, `bd assign` — but the orchestration layer is designed, not yet shipped.
 
-`bd team` is the bridge. Six commands, each mapped to a phase of race operations.
+`bd team` is the planned bridge. Six commands, each mapped to a phase of race operations. The design is locked; implementation follows the spec hygiene work.
 
 ```bash
 bd team plan beads-abc       # race strategy: DAG → parallel waves
@@ -286,6 +286,35 @@ Now scale that to agent teams: `bd team gate` checks the spec is stable. `bd tea
 
 That is the pit wall in practice — now coordinating the whole grid, not just one car.
 
+## Dogfooding: 683 specs, one command
+
+We ran Shadowbook on its own production codebase — a trading platform with 14 months of accumulated specs.
+
+```bash
+$ bd spec scan
+✓ Scanned 683 specs (missing=75)
+
+$ bd spec duplicates | grep "^1.00" | wc -l
+75
+
+$ bd spec coverage
+With beads: 13
+Without beads: 670
+```
+
+75 exact duplicates hiding in plain sight. Every `specs/active/X.md` had an identical copy in `specs/reference/X.md`. Every grep, every search, every scan was hitting both. Double the noise, zero extra signal.
+
+The cleanup: delete duplicates, delete specs older than seven days with no linked beads, purge ghost registry entries. Five minutes. 683 down to 365. 110,326 lines gone.
+
+| Before | After |
+|--------|-------|
+| 683 specs | 365 specs |
+| 75 duplicates | 0 |
+| 393 ghost registry entries | 0 |
+| 13 bead-linked specs | 13 (preserved) |
+
+The tool that finds drift had drift in its own project. That is the point: you cannot see what you do not measure.
+
 ---
 
-If you want the deeper technical playbook, I will publish the specbeads and workflow design notes next.
+If you want the deeper technical playbook, I will publish the shadowbook and workflow design notes next.
