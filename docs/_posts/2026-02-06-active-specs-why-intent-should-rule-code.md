@@ -1,5 +1,5 @@
 ---
-title: "active specs: why intent should rule code"
+title: "your agent isn't hallucinating. your specs are dead."
 date: '2026-02-06T21:00:00.000Z'
 categories: [notes]
 keywords: [agents, specs, drift, harness-engineering, active-specs, context-entropy]
@@ -30,6 +30,6 @@ six kinds of drift kill agent workflows:
 
 every one of these inflates the cost of supervising agents. and supervision cost is what kills adoption. not capability -- cost of checking the work.
 
-the framing matters: "code as spec" is backwards. code is implementation. the spec -- the intent -- should rule. active specs mean the intent has teeth. it doesn't just describe what should happen; it enforces coherence between what was planned and what got built.
+everyone keeps saying "code is the spec." no. code is the corpse of the spec. the spec is the intent — and if it can't enforce itself, it's just prose rotting in a docs folder.
 
 we don't need more generative tooling. we need homeostatic tooling that maintains alignment between intent and execution. less "write code for me," more "tell me when reality drifts from the plan."
