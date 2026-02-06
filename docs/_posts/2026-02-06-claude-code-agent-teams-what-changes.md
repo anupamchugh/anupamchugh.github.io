@@ -12,7 +12,7 @@ two days ago i submitted a [PR to MCP Agent Mail](https://github.com/Dickleswort
 
 today anthropic shipped [claude code agent teams](https://code.claude.com/docs/en/agent-teams) alongside [opus 4.6](https://www.anthropic.com/news/claude-opus-4-6). look at what agent teams includes: a mailbox for inter-agent messaging, a shared task list with dependency tracking, file locking to prevent double-claims. that's MCP Agent Mail built into the runtime. same problem, same primitives, native now.
 
-i enabled it and ran my first real session. here's what actually happened.
+i enabled it, spawned 4 agents on a Python/FastAPI codebase, and within 8 minutes the lead agent crashed with a React reconciler error. here's what actually happened.
 
 ## the session
 
@@ -76,7 +76,7 @@ i [forked MCP Agent Mail](https://github.com/anupamchugh/mcp_agent_mail) and add
 
 **heartbeat presence.** agents emit heartbeats. the system computes a status — alive, stale, offline, unknown — based on configurable thresholds. i built this because "is this agent still running?" was an unanswerable question. you'd send a message and wait. and wait. agent teams has idle notifications — but idle just means "turn ended, waiting for input." it doesn't distinguish between "waiting" and "crashed three minutes ago." there's no staleness threshold, no presence computation. my session crash proved the point — three agents were still running fine but i had no way to know from outside the dead lead.
 
-**lifecycle management.** `mark_agent_dead` and `revive_agent` MCP tools. dead agents are soft-blocked from receiving messages by default, with an `allow_dead_recipients` override for cases like audit trails. agent teams has shutdown requests — a teammate can approve or reject — but once they're gone, they're gone. no concept of marking an agent as dead while preserving its history and blocking new messages to it.
+**lifecycle management.** `mark_agent_dead` and `revive_agent` MCP tools. dead agents are soft-blocked from receiving messages by default, with an `allow_dead_recipients` override for cases like audit trails. agent teams has shutdown requests — a teammate can approve or reject — which is a good primitive. but once they're gone, they're gone. no concept of marking an agent as dead while preserving its history and blocking new messages to it. no revive. the shutdown protocol itself is clean (request → approve/reject is the right pattern), but there's no state after death.
 
 **soft-block messaging.** if an agent is dead, messages bounce by default. the caller knows immediately instead of silently dropping messages into a void. agent teams doesn't have this. if a teammate was shut down or crashed, messages to it just fail with no soft-block mechanism.
 
@@ -118,6 +118,8 @@ agent teams is experimental and it shows. the rough edges are real, not hypothet
 
 **no session resumption.** terminal disconnect = teammates gone. the lead doesn't know they're gone and tries to message them anyway.
 
+**tmux spawns agents into random panes.** this one caught me off guard. agent teams splits your current tmux pane to create each teammate. sounds reasonable — except it doesn't create new windows, it splits whatever pane has focus. spawn 4 agents and your terminal becomes a 4-way split where keystrokes interleave across panes. resize one agent's pane and you've corrupted another's output. the [fix is one line](https://github.com/anthropics/claude-code/issues/23615): `new-window` instead of `split-pane`. the irony of agentic coding being bottlenecked by terminal multiplexer semantics is not lost on me.
+
 **split panes need tmux or iTerm2.** no VS Code integrated terminal, no Windows Terminal, no Ghostty.
 
 these are early-release problems. but they explain why agent teams is best understood as burst parallelism — focused teams you actively watch. the 3x speedup (6 min vs 18-20 min) is real. the reliability for unattended work isn't there yet.
@@ -134,6 +136,10 @@ the features i built for agent-mail — heartbeat presence, lifecycle management
 
 the line is drawn. inside a claude code session, coordination is native. outside it, the frontier is wide open.
 
+but here's what i keep coming back to: the lead crash wiped out 6 minutes of coordinated work. the tmux bug means your agents corrupt each other's terminal. teammates crash without recovery. task status drifts. and it shipped anyway — because 3x parallelism on a real codebase is worth all of that.
+
+the rough edges tell you where this is going. anthropic didn't ship a polished feature. they shipped the minimum coordination primitive that makes multi-agent coding useful today, knowing practitioners will find every seam. the fact that my fork's lifecycle features solve problems that agent teams doesn't even acknowledge yet isn't a critique — it's a roadmap.
+
 ---
 
-*code: [anupamchugh/mcp_agent_mail](https://github.com/anupamchugh/mcp_agent_mail) (fork with lifecycle features) — [PR #77](https://github.com/Dicklesworthstone/mcp_agent_mail/pull/77) (upstream review)*
+*code: [anupamchugh/mcp_agent_mail](https://github.com/anupamchugh/mcp_agent_mail) (fork with lifecycle features) — [PR #77](https://github.com/Dicklesworthstone/mcp_agent_mail/pull/77) (upstream review) — [tmux bug](https://github.com/anthropics/claude-code/issues/23615)*
