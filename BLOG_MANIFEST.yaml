@@ -1,0 +1,330 @@
+# BLOG_MANIFEST.yaml
+# Generated: 2026-02-06
+# Purpose: Token-efficient blog review — read this instead of 90 files (~200 lines vs ~120k tokens)
+# Regenerate: Run @blog review --rebuild-manifest
+#
+# Fields:
+#   substance: STRONG | ADEQUATE | THIN
+#   hn_potential: HIGH | MEDIUM | LOW | NONE
+#   action: keep | improve | unlist | draft
+#   thesis: 1-line core argument (for substance review without re-reading)
+
+# ============================================================
+# TIER 1: STRONG — Publishable, HN-worthy with minor polish
+# ============================================================
+
+- file: 2026-02-06-claude-code-agent-teams-what-changes.md
+  title: "claude code agent teams — what changes for multi-agent coordination"
+  date: 2026-02-06
+  words: 2132
+  published: true
+  categories: [agents, mcp, claude]
+  substance: STRONG
+  hn_potential: HIGH
+  action: keep
+  thesis: "Agent teams sherlocks intra-session coordination but cross-session, cross-tool persistence is still open frontier."
+  strengths: ["crash narrative as hook", "quantified 3x speedup", "original fork comparison angle", "tmux bug filed"]
+  weaknesses: ["could add dollar cost of 4-agent session"]
+
+- file: 2026-02-04-facebooks-agents-still-run-apple-keeps-wiping-their-memory.md
+  title: "Facebook's agents still run. Apple keeps wiping their memory."
+  date: 2026-02-04
+  words: 1160
+  published: true
+  categories: [privacy, mobile, adtech]
+  substance: STRONG
+  hn_potential: HIGH
+  action: keep
+  thesis: "ATT killed IDFA but Facebook rebuilt tracking through deferred deep links and probabilistic matching — Apple's agents vs Facebook's agents."
+  strengths: ["agent metaphor is original", "code samples earn trust", "retrospective honesty"]
+  weaknesses: ["lowercase style may deter editors"]
+
+- file: 2026-02-03-Death-By-A-Thousand-If-Statements.md
+  title: "Death by a Thousand If-Statements"
+  date: 2026-02-03
+  words: 1659
+  published: false
+  categories: [ai, software-engineering, patterns]
+  substance: STRONG
+  hn_potential: HIGH
+  action: improve
+  thesis: "AI agents scatter guard clauses because they optimize locally — three-layer refactor (provider/transform/middleware) fixes it."
+  strengths: ["perfect title", "original concept", "timely for AI coding"]
+  weaknesses: ["draft:true leaks into body text", "needs before/after from real codebase"]
+
+- file: 2026-02-06-What-Building-A-C-Compiler-With-16-Claude-Agents-Teaches-About-Agent-Driven-Development.md
+  title: "What Building a C Compiler with 16 Claude Agents Teaches"
+  date: 2026-02-06
+  words: 1415
+  published: false
+  categories: [engineering, agents]
+  substance: STRONG
+  hn_potential: HIGH
+  action: improve
+  thesis: "Carlini's compiler project reveals 5 reusable patterns for agent-driven development — oracle verification, progressive disclosure, etc."
+  strengths: ["extracts generalizable patterns from real work"]
+  weaknesses: ["derivative without own data — needs 'I applied pattern X, here's what happened'"]
+
+- file: 2024-02-20-Growing-Up-With-A-Pansexual-Brother.md
+  title: "Growing Up With a Pansexual Brother"
+  date: 2024-02-20
+  words: 1000
+  published: true
+  categories: []
+  substance: STRONG
+  hn_potential: MEDIUM
+  action: keep
+  thesis: "Personal essay on growing up with a pansexual sibling in India — G.I. Joe vs Barbie detail, Kierkegaard ending."
+  strengths: ["most emotionally resonant piece", "vivid specific details", "strong ending"]
+  weaknesses: []
+
+# ============================================================
+# TIER 2: ADEQUATE — Decent but needs work to be HN-worthy
+# ============================================================
+
+- file: 2026-02-04-shadowbook-f1-control-room.md
+  title: "Shadowbook: The F1 Control Room for Complex Systems"
+  date: 2026-02-04
+  words: 2072
+  published: true
+  categories: [systems, tooling]
+  substance: ADEQUATE
+  hn_potential: MEDIUM
+  action: improve
+  thesis: "Observability dashboard for spec/skill/code drift detection across large codebases."
+  strengths: ["F1 metaphor carries well", "comment drift section is excellent"]
+  weaknesses: ["too long — 3 posts in one", "loses focus when pivoting to agent teams"]
+
+- file: 2026-02-01-Snap-Your-Spec-Streaks.md
+  title: "Snap Your Spec Streaks"
+  date: 2026-02-01
+  words: 800
+  published: true
+  categories: [ai, tools]
+  substance: ADEQUATE
+  hn_potential: MEDIUM
+  action: improve
+  thesis: "Track spec stability like Snapchat streaks — consecutive days without change = confidence signal."
+  strengths: ["clever Snapchat metaphor"]
+  weaknesses: ["too much CLI output", "Snapchat metaphor only gets one sentence"]
+
+- file: 2026-01-30-Skill-Drift.md
+  title: "Skill Drift: 42 Skills in Claude. 40 in Codex."
+  date: 2026-01-30
+  words: 452
+  published: true
+  categories: [ai, tools]
+  substance: ADEQUATE
+  hn_potential: MEDIUM
+  action: improve
+  thesis: "Skills diverge silently across runtimes — 42 in Claude, 40 in Codex, 2 missing."
+  strengths: ["clear problem statement", "great hook numbers"]
+  weaknesses: ["ending repeats intro"]
+
+- file: 2026-01-31-Where-Did-I-Leave-That-Spec.md
+  title: "Where Did I Leave That Spec?"
+  date: 2026-01-31
+  words: 441
+  published: true
+  categories: [ai, tools]
+  substance: ADEQUATE
+  hn_potential: LOW
+  action: improve
+  thesis: "Context amnesia across AI sessions — agents forget what was worked on."
+  strengths: ["'Context Amnesia' is a good coined term", "Monday morning frame"]
+  weaknesses: ["reads like product launch", "needs concrete war story of amnesia costing time"]
+
+- file: 2020-04-28-Don-t-Use-Boolean-Arguments--Use-Enums.md
+  title: "Don't Use Boolean Arguments, Use Enums"
+  date: 2020-04-28
+  words: 1263
+  published: true
+  categories: []
+  substance: ADEQUATE
+  hn_potential: MEDIUM
+  action: keep
+  thesis: "Boolean args are ambiguous at call sites — enums are self-documenting."
+  strengths: ["solid tutorial", "storytelling frame with dev group"]
+  weaknesses: ["ending deflates with 'Thanks for reading'", "needs a punchline"]
+
+- file: 2026-02-03-The-Gauntlet-Three-Philosophers-One-Verdict.md
+  title: "The Gauntlet: Three Questions Before You Build"
+  date: 2026-02-03
+  words: 719
+  published: false
+  categories: [ai, software-engineering]
+  substance: ADEQUATE
+  hn_potential: MEDIUM
+  action: improve
+  thesis: "Build vs Buy vs Describe trichotomy — three philosophy-inspired questions before writing code."
+  strengths: ["Build vs Buy vs Describe is the real insight"]
+  weaknesses: ["insight buried under mechanical tables", "needs the story behind workspace scanner failure"]
+
+- file: 2026-02-01-Pacman-Mode-Multi-Agent.md
+  title: "Pacman Mode in Beads"
+  date: 2026-02-01
+  words: 414
+  published: true
+  categories: [ai, tools]
+  substance: ADEQUATE
+  hn_potential: LOW
+  action: improve
+  thesis: "File-based task consumption without coordination servers."
+  strengths: ["'Servers die. Files persist.' is good"]
+  weaknesses: ["reads like README, no narrative, no failure story"]
+
+- file: 2020-07-07-Apple-Is-Killing-a-Billion-Dollar-Ad-Industry-With-One-Popup-2f83d182837f.md
+  title: "Apple Is Killing a Billion-Dollar Ad Industry With One Popup"
+  date: 2020-07-07
+  words: 767
+  published: true
+  categories: []
+  substance: STRONG
+  hn_potential: HIGH
+  action: keep
+  thesis: "iOS 14 ATT popup will devastate personalized ad industry."
+  strengths: ["proven HN #1 hit", "holds up years later"]
+  weaknesses: ["ending is generic"]
+
+- file: 2021-06-11-Apple-Is-Killing-Email-Read-Receipts-With-a-Single-Popup.md
+  title: "Apple Is Killing Email Read Receipts"
+  date: 2021-06-11
+  words: 1473
+  published: true
+  categories: []
+  substance: ADEQUATE
+  hn_potential: MEDIUM
+  action: keep
+  thesis: "Mail Privacy Protection kills email tracking pixels."
+  strengths: ["interesting topic"]
+  weaknesses: ["too long", "actual insight buried 75% through"]
+
+# ============================================================
+# TIER 3: THIN — Needs major rework or should be unlisted
+# ============================================================
+
+- file: 2026-02-01-I-Built-A-Tool-That-Became-Obsolete-In-Four-Days.md
+  title: "Check GitHub Issues Before Building"
+  date: 2026-02-01
+  words: 141
+  published: true
+  categories: [tools]
+  substance: THIN
+  hn_potential: MEDIUM
+  action: improve
+  thesis: "Misdiagnosed battery drain as workspace bloat, built tool, real cause was session file corruption."
+  strengths: ["great hook concept"]
+  weaknesses: ["34 lines — a tweet not a post", "needs 5x more detail"]
+
+- file: 2026-02-06-agent-lifecycle-mcp-agent-mail.md
+  title: "agent lifecycle for MCP Agent Mail"
+  date: 2026-02-06
+  words: 183
+  published: false
+  categories: [notes]
+  substance: THIN
+  hn_potential: NONE
+  action: unlist
+  thesis: "Changelog for agent mail lifecycle features."
+  weaknesses: ["no argument, no insight, changelog not a post"]
+
+- file: 2026-02-03-hn-agent-skills-thread-notes.md
+  title: "HN Agent Skills Thread Notes"
+  date: 2026-02-03
+  words: 572
+  published: false
+  categories: []
+  substance: THIN
+  hn_potential: LOW
+  action: improve
+  thesis: "Raw session notes from HN thread — buried insight: 'skills are temporary hack that decays as context windows expand.'"
+  weaknesses: ["raw notes, not a post", "could transform into 'Agent Skills Are a Temporary Hack' essay"]
+
+- file: 2024-02-15-Satire-On-Loyal-Employee-and-CEO.md
+  title: "I, a Loyal Employee..."
+  date: 2024-02-15
+  words: 580
+  published: true
+  categories: []
+  substance: THIN
+  hn_potential: NONE
+  action: unlist
+  thesis: "Startup CEO screws loyal employee (satire)."
+  weaknesses: ["toothless satire", "well-trodden trope", "no fresh angle"]
+
+- file: 2023-01-20-AI-dentity-Crisis.md
+  title: "AI-dentity Crisis"
+  date: 2023-01-20
+  words: 744
+  published: true
+  categories: []
+  substance: THIN
+  hn_potential: NONE
+  action: unlist
+  thesis: "AI-generated poetry experiment."
+  weaknesses: ["structurally confusing", "reader needs 3 paragraphs to understand what's happening"]
+
+# ============================================================
+# TIER 4: ARCHIVE — iOS tutorials + humor listicles (2019-2021)
+# ============================================================
+# ~45 iOS tutorials: competent but commodity content in 2026.
+# ~10 humor posts: Medium-era clicks, no lasting value.
+# Action: keep published but don't promote. Consider archive section.
+
+- file: "2019-2020 iOS tutorials (45 posts)"
+  substance: ADEQUATE
+  hn_potential: NONE
+  action: archive
+  thesis: "Competent iOS/SwiftUI/CoreML tutorials. Commodity in 2026."
+
+- file: "2020 humor/satire (10 posts)"
+  substance: THIN
+  hn_potential: NONE
+  action: archive
+  thesis: "Medium-era listicles. No lasting value."
+
+- file: "2020-2021 Apple privacy (5 posts)"
+  substance: ADEQUATE
+  hn_potential: LOW
+  action: keep
+  thesis: "Apple privacy opinion pieces. Historical value, dated analysis."
+
+# ============================================================
+# NOTES (docs/_notes/ equivalent — type: note in frontmatter)
+# ============================================================
+
+- file: 2026-02-06-memory-sync-feedback-loop.md
+  title: "memory-sync: the missing feedback loop"
+  date: 2026-02-06
+  words: 285
+  published: true
+  categories: [notes]
+  substance: ADEQUATE
+  action: keep
+  thesis: "Confidence-score-as-curation-policy idea for memory sync."
+
+- file: 2026-02-06-tmux-split-pane-race-condition.md
+  title: "tmux split-pane race condition bottlenecks agent teams"
+  date: 2026-02-06
+  words: 245
+  published: true
+  categories: [notes]
+  substance: ADEQUATE
+  action: keep
+  thesis: "Agent teams split panes instead of creating windows — keystroke interleaving bug."
+
+# ============================================================
+# BLOG-LEVEL ASSESSMENT
+# ============================================================
+
+meta:
+  total_posts: ~90
+  total_words: ~85000
+  strongest_theme: "agent engineering (2026) — practitioner trenches of multi-agent coordination"
+  previous_identity: "iOS tutorials (2019-2020) → privacy opinion (2020-2021) → practitioner journal (2026)"
+  hn_candidates: ["agent-teams", "death-by-if-statements", "facebooks-agents", "carlini-compiler"]
+  biggest_gap: "numbers — posts assert patterns but rarely prove them quantitatively"
+  second_gap: "editing discipline — several posts are 2-3 posts smashed into one"
+  recommendation: "pick top 5, invest editing time, kill/archive the rest"
+  draft_leak_bug: "draft:true and published:true/false appear as visible text after frontmatter in several 2026 posts"
+  last_reviewed: 2026-02-06
