@@ -16,7 +16,7 @@ i enabled it and ran my first real session. here's what actually happened.
 
 ## the session
 
-6 tasks from two plan documents on a Python/FastAPI codebase (~50k LOC). IST timestamp normalization across 4 API endpoints. a missing auth guard on a trade endpoint. sequential resim calls that should be parallel. a new watchlist snapshot API with an MCP tool. infra health checks. created a team with 4 agents, each owning a different set of files.
+6 tasks from two plan documents on a Python/FastAPI codebase (~50k LOC). timestamp normalization across 4 API endpoints. a missing auth guard on an endpoint. sequential API calls that should be parallel. a new snapshot API with an MCP tool. infra health checks. created a team with 4 agents, each owning a different set of files.
 
 results:
 
