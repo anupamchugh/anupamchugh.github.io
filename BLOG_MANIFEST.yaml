@@ -204,17 +204,18 @@
 # ============================================================
 
 - file: 2026-02-01-I-Built-A-Tool-That-Became-Obsolete-In-Four-Days.md
-  title: "Check GitHub Issues Before Building"
+  title: "i built a tool that became obsolete in four days"
   date: 2026-02-01
-  words: 141
+  words: 1000
   published: true
-  categories: [tools]
-  substance: THIN
+  categories: [tools, claude]
+  substance: ADEQUATE
   hn_potential: MEDIUM
-  action: improve
-  thesis: "Misdiagnosed battery drain as workspace bloat, built tool, real cause was session file corruption."
-  strengths: ["great hook concept"]
-  weaknesses: ["34 lines — a tweet not a post", "needs 5x more detail"]
+  action: keep
+  thesis: "Misdiagnosed battery drain as workspace bloat, built tool, real cause was session file corruption. Agents amplify misdiagnosis."
+  strengths: ["great hook", "specific details", "general pattern about agent misdiagnosis"]
+  weaknesses: ["could add more quantified cost of wasted time"]
+  last_action: "2026-02-06 expanded from 34 lines to ~1000 words"
 
 - file: 2026-02-06-agent-lifecycle-mcp-agent-mail.md
   title: "agent lifecycle for MCP Agent Mail"
@@ -229,16 +230,18 @@
   weaknesses: ["no argument, no insight, changelog not a post"]
 
 - file: 2026-02-03-hn-agent-skills-thread-notes.md
-  title: "HN Agent Skills Thread Notes"
+  title: "agent skills are a temporary hack"
   date: 2026-02-03
-  words: 572
-  published: false
-  categories: []
-  substance: THIN
-  hn_potential: LOW
-  action: improve
-  thesis: "Raw session notes from HN thread — buried insight: 'skills are temporary hack that decays as context windows expand.'"
-  weaknesses: ["raw notes, not a post", "could transform into 'Agent Skills Are a Temporary Hack' essay"]
+  words: 1100
+  published: true
+  categories: [agents, ai, tools]
+  substance: STRONG
+  hn_potential: HIGH
+  action: keep
+  thesis: "Skills solve a context-window budget problem. When windows expand 10x, the discovery overhead disappears. The format dies, the judgment survives."
+  strengths: ["clear thesis", "Vercel eval data", "counterargument addressed", "practitioner examples", "strong resolution"]
+  weaknesses: []
+  last_action: "2026-02-06 transformed from raw notes into structured essay"
 
 - file: 2024-02-15-Satire-On-Loyal-Employee-and-CEO.md
   title: "I, a Loyal Employee..."
@@ -326,5 +329,11 @@ meta:
   biggest_gap: "numbers — posts assert patterns but rarely prove them quantitatively"
   second_gap: "editing discipline — several posts are 2-3 posts smashed into one"
   recommendation: "pick top 5, invest editing time, kill/archive the rest"
-  draft_leak_bug: "draft:true and published:true/false appear as visible text after frontmatter in several 2026 posts"
+  draft_leak_bug: "FIXED 2026-02-06 — removed from all 6 affected posts"
   last_reviewed: 2026-02-06
+  actions_taken_2026_02_06:
+    - "Fixed draft/published text leaking in 6 posts (Skill-Drift, Where-Did-I-Leave, I-Built-A-Tool, Pacman, Death-By-If, Gauntlet)"
+    - "Expanded I-Built-A-Tool from 141 to ~1000 words"
+    - "Transformed HN-thread-notes into 'agent skills are a temporary hack' essay (1100 words)"
+    - "Published Death-By-If-Statements (draft→published)"
+    - "Published Gauntlet (draft→published via frontmatter fix)"
