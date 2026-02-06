@@ -7,7 +7,6 @@ keywords: [build-vs-buy, engineering-discipline, ai-era, skills, agentic-workflo
 slug: /the-gauntlet-three-questions-before-you-build
 published: false
 ---
-draft: true
 
 # The Gauntlet: Three Questions Before You Build
 
