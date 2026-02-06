@@ -1,18 +1,16 @@
 ---
-draft: true
+draft: false
 title: "Death by a Thousand If-Statements"
 date: '2026-02-03T12:00:00.000Z'
 categories: [ai, software-engineering, patterns]
 keywords: [ai-agents, code-quality, design-patterns, guards, validation, mental-models]
 slug: /death-by-a-thousand-if-statements
-published: false
+published: true
 ---
-draft: true
 
 *A Mental Model to Stop Your AI From Scattering Guards*
 
 ---
-draft: true
 
 You ask your AI coding agent to fix a bug. Invalid data is reaching the database. The agent traces the call stack, finds the insertion point, adds a validation check. The fix is correct. The tests pass.
 
@@ -35,7 +33,6 @@ Each strategy has theoretical justification. Each, applied in isolation, still l
 The insight isn't choosing the right strategy. It's recognizing that these three strategies operate at different layers—and a robust system needs all of them.
 
 ---
-draft: true
 
 ## The Three Layers
 
@@ -59,7 +56,6 @@ The principle: **every code path that fetches data flows through this function**
 Why it's incomplete: What about data that's already in the system? What about resources that were valid yesterday but aren't today? The source guard only protects new fetches—it doesn't filter what's already inside.
 
 ---
-draft: true
 
 ### Layer 2: Filter at Entry
 
@@ -92,7 +88,6 @@ The principle: **invalid resources never appear in working sets**. Downstream co
 Why it's incomplete: You can't pre-filter everything. Some resources become invalid after loading. Some code paths bypass the collection loader. Entry filtering reduces surface area but doesn't eliminate it.
 
 ---
-draft: true
 
 ### Layer 3: Composable Wrappers
 
@@ -129,7 +124,6 @@ The principle: **the guard is a composable primitive**, not copy-pasted code. Ne
 Why it's incomplete: Decorators are opt-in. Someone writes a new function, forgets the decorator, bug reappears. Composability reduces friction but requires discipline.
 
 ---
-draft: true
 
 ## The Synthesis
 
@@ -144,7 +138,6 @@ draft: true
 Each layer has blind spots. The bug resurfaces through whichever layer you didn't protect.
 
 ---
-draft: true
 
 ### The Three-Layer Defense
 
@@ -186,7 +179,6 @@ Apply all three:
 Invalid data must pass three independent checks. A single failure mode no longer compromises the system.
 
 ---
-draft: true
 
 ### Why AI Agents Can't Discover This
 
@@ -201,7 +193,6 @@ The agent lacks two things:
 The result is scattered guards—locally correct, globally incoherent.
 
 ---
-draft: true
 
 ### The Human's Job: Provide the Mental Model
 
@@ -227,7 +218,6 @@ Do NOT add inline if-statements. Use the existing guards.
 Put this in your project's contributing guidelines, architecture docs, or AI context file. The agent reads it, follows it, and stops scattering guards.
 
 ---
-draft: true
 
 ## Practical Takeaways
 
@@ -258,7 +248,6 @@ async def fetch(resource_id: str) -> Data | None:
 Thirty lines. The entire pattern.
 
 ---
-draft: true
 
 ### When You Need This
 
@@ -271,7 +260,6 @@ Not every system does. The pattern applies when:
 3. **You're working with AI coding agents.** Agents add guards where they find bugs. Without architectural guidance, they'll scatter. Give them the mental model or accept the mess.
 
 ---
-draft: true
 
 ### What Changes in Your Codebase
 
@@ -308,7 +296,6 @@ Use the three-layer pattern. Do not add inline if-statements.
 This is the part AI agents read. Make it explicit.
 
 ---
-draft: true
 
 ### The Cost
 
@@ -323,7 +310,6 @@ Nothing is free.
 The tradeoff is worth it when scattered guards cost more than structured ones. In my experience, that threshold is around five guards. Below five, inline checks are fine. Above five, you're building a distributed validation system whether you intended to or not. Better to design it.
 
 ---
-draft: true
 
 ## Closing
 

@@ -6,7 +6,6 @@ categories: [ai, tools]
 keywords: [shadowbook, activity-dashboard, context-amnesia, ai-agents, productivity]
 slug: /where-did-i-leave-that-spec
 ---
-published: true
 
 Monday morning. Coffee. Terminal open. And the question that haunts every fast-moving codebase:
 
@@ -89,7 +88,6 @@ Now when I sit down, I don't grep. I don't open five files. I run one command an
 **The codebase is still chaotic. But now I can see the chaos.**
 
 ---
-published: true
 
 ```bash
 # Install

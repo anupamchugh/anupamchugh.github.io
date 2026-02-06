@@ -6,7 +6,6 @@ categories: [ai, tools]
 keywords: [claude-code, codex, multi-agent, shadowbook, pacman, coordination]
 slug: /pacman-mode
 ---
-published: true
 
 [Part 1](/skill-drift): skill drift. [Part 2](/spec-drift): spec drift. [Part 3](/snap-streaks): volatility tracking.
 
