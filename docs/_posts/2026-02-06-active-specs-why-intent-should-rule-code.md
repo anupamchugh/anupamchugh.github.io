@@ -9,9 +9,11 @@ type: note
 
 we keep blaming agents for hallucinating. the real problem is context entropy -- the world drifts away from the prompt while the agent keeps building.
 
+mitchell hashimoto's [AI adoption journey](https://mitchellh.com/writing/my-ai-adoption-journey) nails the first level of this. but i think there are two more levels most people haven't built yet.
+
 three levels of agent harness maturity:
 
-**level 1: the static harness.** a markdown file that says "don't do X." prevents known mistakes. rots the moment your environment changes. the checklist that nobody updates.
+**level 1: the static harness.** hashimoto's `AGENTS.md` -- a markdown file that says "don't do X." prevents known mistakes. rots the moment your environment changes. the checklist that nobody updates.
 
 **level 2: the immune system.** every agent failure produces a rule file. agent duplicates a utility function? write a rule: "grep utils before writing new helpers." agent ignores a broken build? write a rule: "fix blockers before features." each rule is an antibody against a specific failure class. reactive, but it compounds.
 
