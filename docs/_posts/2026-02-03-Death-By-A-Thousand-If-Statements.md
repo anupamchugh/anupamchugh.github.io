@@ -4,7 +4,8 @@ date: '2026-02-03T12:00:00.000Z'
 categories: [ai, software-engineering, patterns]
 keywords: [ai-agents, code-quality, design-patterns, guards, validation, mental-models, claude-code]
 slug: /death-by-a-thousand-if-statements
-published: true
+draft: true
+published: false
 ---
 
 You ask your AI coding agent to fix a bug. Invalid data reaching the database. The agent traces the stack, finds the gap, adds a validation check. Correct. Tests pass.
