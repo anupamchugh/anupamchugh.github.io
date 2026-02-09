@@ -1,12 +1,11 @@
 ---
-draft: true
 title: "Cross-pollinating open source: what a trust system can learn from an issue tracker"
 date: '2026-02-09T09:00:00.000Z'
 categories: [open-source]
 keywords: [open-source, vouch, beads, shadowbook, trust, drift-detection, git]
 slug: /cross-pollinating-open-source-vouch-meets-beads
 type: note
-published: false
+published: true
 ---
 
 Mitchell Hashimoto's [vouch](https://github.com/mitchellh/vouch) is a trust system for open source: maintainers vouch for contributors, unvouched PRs get auto-closed. Built for Ghostty to combat AI-generated slop contributions.
