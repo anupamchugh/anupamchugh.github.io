@@ -13,7 +13,7 @@ I run Claude Code and Codex CLI on the same codebase. Claude Code is interactive
 
 Last week Codex ran overnight and generated 23,000 lines of TypeScript. It was following a skill that says "edit src/*.ts files ONLY, never js/*.js (legacy)." That rule exists because I'm migrating from vanilla JS to TypeScript incrementally, and in Claude Code's interactive context, it works — I guide which files to touch and verify the build pipeline.
 
-Codex, running headless, followed the instruction literally. It created 22 TypeScript source files with imports from `@/socket/SocketClient` and a full module system. The problem: every HTML page in the app loads from `js/`, not `dist/`. Zero pages reference the compiled output. Twenty-three thousand lines of dead code, generated in good faith.
+Codex, running headless, followed the instruction literally. It created 80 TypeScript source files with imports from `@/socket/SocketClient` and a full module system. The problem: every HTML page in the app loads from `js/`, not `dist/`. Zero pages reference the compiled output. Twenty-three thousand lines of dead code, generated in good faith.
 
 **The instruction was correct for one tool and wrong for another.**
 
