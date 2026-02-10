@@ -9,59 +9,56 @@ slug: /dont-tell-your-agent-what-not-to-do
 type: note
 ---
 
-I run Claude Code and Codex CLI on the same codebase. Claude Code is interactive — I'm present, we iterate. Codex is headless — I delegate overnight and review in the morning. Both spawn sub-agents with limited tool access.
+I run Claude Code and Codex CLI on the same codebase. Claude Code is interactive — I'm present, we iterate. Codex runs headless — I delegate overnight and review in the morning.
 
-Last week Codex ran overnight and generated 23,000 lines of TypeScript. It was following a skill that says "edit src/*.ts files ONLY, never js/*.js (legacy)." That rule exists because I'm migrating from vanilla JS to TypeScript incrementally, and in Claude Code's interactive context, it works — I guide which files to touch and verify the build pipeline.
+Both tools read `CLAUDE.md` at the project root. One file, two runtimes with different capabilities. This broke in ways I didn't expect.
 
-Codex, running headless, followed the instruction literally. It created 80 TypeScript source files with imports from `@/socket/SocketClient` and a full module system. The problem: every HTML page in the app loads from `js/`, not `dist/`. Zero pages reference the compiled output. Twenty-three thousand lines of dead code, generated in good faith.
+**What CLAUDE.md told Codex to do**
 
-**The instruction was correct for one tool and wrong for another.**
+My `CLAUDE.md` said: "Route every prompt through the agent-routing skill. Everything routes through the trading agent team." These instructions work in Claude Code, which has `Task`, `SendMessage`, and `TeamCreate` tools for spawning agent teams.
+
+Codex has none of these. It runs single-pass, no sub-agents, no team primitives. But it read the same file.
+
+Codex's response: build the infrastructure to make it work. It created a 59-line JSON schema defining agent enums, phases, and task structures for "trading team plans." It wrote a conditional section *into CLAUDE.md itself* explaining how to "simulate the team in a single run by reading agent spec files and executing modes sequentially." It archived a 398-line bash swarm orchestrator with heartbeat monitoring and auto-recovery.
+
+All dead code. Codex can't run parallel agents. But the instructions told it to, so it tried.
+
+Two hours later, doing an unrelated board UI task, Codex deleted `CLAUDE.md` and `.claude/settings.json` entirely. Neither deletion appeared in the commit message. The file that tried to serve two masters ended up serving neither.
+
+**The cascading damage**
+
+The same shared file also said the stack was "TypeScript 5.x" and the boundary rules said "NEVER: Edit js/*.js." The frontend is actually vanilla JS — every HTML page loads from `js/`, not `dist/`. That rule exists for Claude Code's incremental migration workflow, where I guide which files to touch.
+
+Codex followed the instruction literally. It generated 23,000 lines of TypeScript across 80 source files with imports from `@/socket/SocketClient` and a full module system. Zero pages reference the compiled output. Dead code, generated in good faith, from an instruction that was correct for one tool and backwards for another.
 
 **The natural fix that doesn't work**
 
 The instinct is to add conditional sections:
 
 ```
-## All Agents
-Use absolute paths. Run tests before committing.
-
 ## Interactive Only
 Guide TypeScript migration incrementally. Edit src/*.ts.
 
 ## Headless Only
-Only touch files that are already wired into the app. No speculative migrations.
+Only touch files already wired into the app.
 ```
 
-I tried this. It doesn't work. Here's why.
+This is what Codex itself tried — it wrote the conditional section. It doesn't work.
 
-**Surface problem: shared files drift and die**
+A shared file creates a third surface to maintain. Nothing keeps it in sync. Within weeks it becomes cargo cult documentation. Worse: when you write "IF headless, don't do X," you're confessing that your system hands agents instructions they shouldn't have. The instruction shouldn't reach them in the first place.
 
-My Claude Code config has 58 granular rule files. Codex has 62. They overlap 80%. The 20% difference is load-bearing — it reflects genuinely different execution contexts. A shared file creates a third surface to maintain. No enforcement keeps them in sync. Within weeks it becomes cargo cult documentation.
-
-**Deeper problem: instructions are doing access control's job**
-
-When I wrote "Sub-agent: do NOT invoke skills," I was documenting a system failure. The sub-agent tries to invoke skills because it reads rules that reference skills. When I wrote "headless: don't migrate speculatively," I was patching an instruction that shouldn't have reached Codex in the first place.
-
-This is the pattern: when you write "IF role X, don't do Y," you're confessing that your system hands agents capabilities or instructions they shouldn't have.
-
-**What actually works**
+**What works instead**
 
 Tool-specific instruction files with a sync mechanism.
 
-- `.claude/rules/` for Claude Code (58 files, auto-loaded)
-- `~/.codex/rules/` for Codex CLI (62 files, separate location)
-- `.cursorrules` for Cursor
-- `.github/copilot-instructions.md` for Copilot
+- `CLAUDE.md` for Claude Code: "route every prompt through agent-routing" (requires Skill tool)
+- `AGENTS.md` for Codex: "frontend is vanilla JS, do not create TypeScript files, max 15 files per commit, stage files by name" (headless-specific constraints)
+- `.claude/rules/` (58 files, auto-loaded by Claude Code)
+- `~/.codex/rules/` (62 files, loaded by Codex)
 
-Each natively loaded by its tool. Shared rules (safety constraints, code style, testing) synced by a diff-and-reconcile mechanism. The 20% that diverges is allowed to diverge — that's not drift, that's design.
+Each natively loaded by its tool. Shared rules — safety constraints, code style, testing — synced by a diff-and-reconcile mechanism. The 20% that diverges stays diverged. That's design, not drift.
 
-**The concrete fix**
-
-I split one shared instruction file into two purpose-built ones. Claude Code's file (`CLAUDE.md`) says "route every prompt through the agent-routing skill" — something only an interactive session with Skill tool access can do. Codex's file (`AGENTS.md`) says "frontend is vanilla JS, do not create TypeScript files, max 15 files per commit, stage files by name not `git add .`" — headless-specific constraints that would be meaningless clutter in an interactive session.
-
-The TypeScript migration skill stays in `.claude/rules/` where it belongs. Codex never sees it. No conditional branching needed. No 23K lines of dead code.
-
-For sub-agents: the orchestrator filters context before delegation. The runtime enforces tool boundaries. Instructions handle judgment calls only — everything else is the system's job to enforce.
+The TypeScript migration skill stays in `.claude/rules/` where it belongs. Codex never sees it. No conditional branching. No 23K lines of dead code. No 59-line JSON schemas for capabilities that don't exist.
 
 **The principle**
 
