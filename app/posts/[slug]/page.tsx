@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import { getAllPosts, getPostBySlug } from '@/lib/posts';
 import { formatDate } from '@/lib/utils';
@@ -64,6 +65,7 @@ export default async function PostPage({ params }: PageProps) {
       <div className="prose mt-8">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeHighlight]}
           components={{
             img: ({ src, alt }) => {
               const imgSrc = src?.startsWith('/') ? src : `/assets/${src}`;

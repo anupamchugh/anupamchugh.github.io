@@ -418,8 +418,20 @@ a:hover {
   padding-left: 1.5em;
 }
 
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
 .prose li {
   margin-bottom: 0.5em;
+}
+
+.prose li::marker {
+  color: var(--fg-subtle);
 }
 
 /* ===========================================
@@ -667,8 +679,7 @@ a:hover {
 [data-theme="hybrid-dark"] .prose ul,
 [data-theme="hybrid-light"] .prose ol,
 [data-theme="hybrid-dark"] .prose ol {
-  display: flex;
-  flex-direction: column;
+  display: block;
   gap: var(--item-gap);
 }
 
@@ -775,8 +786,7 @@ a:hover {
 /* Modern - List items spacing */
 [data-theme="modern"] .prose ul,
 [data-theme="modern"] .prose ol {
-  display: flex;
-  flex-direction: column;
+  display: block;
   gap: var(--item-gap);
 }
 
@@ -803,4 +813,89 @@ a:hover {
 
 [data-theme="modern"] .text-slate-400 {
   color: var(--fg-muted);
+}
+
+/* ===========================================
+   SYNTAX HIGHLIGHTING - highlight.js classes
+   =========================================== */
+
+.hljs {
+  background: var(--code-bg);
+  color: var(--code-fg);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--fg-subtle);
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type {
+  color: #ff7b72;
+}
+
+.hljs-string,
+.hljs-template-variable,
+.hljs-addition {
+  color: #a5d6ff;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-tag {
+  color: #79c0ff;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-name {
+  color: #d2a8ff;
+}
+
+.hljs-attr,
+.hljs-attribute {
+  color: #ffa657;
+}
+
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #f0883e;
+}
+
+.hljs-deletion {
+  color: #ffa198;
+  background: rgba(255, 123, 114, 0.15);
+}
+
+.hljs-addition {
+  background: rgba(63, 185, 80, 0.15);
+}
+
+/* Light themes override */
+[data-theme="minimal"] .hljs-keyword,
+[data-theme="hybrid-light"] .hljs-keyword {
+  color: #d73a49;
+}
+
+[data-theme="minimal"] .hljs-string,
+[data-theme="hybrid-light"] .hljs-string {
+  color: #032f62;
+}
+
+[data-theme="minimal"] .hljs-number,
+[data-theme="hybrid-light"] .hljs-number {
+  color: #005cc5;
+}
+
+[data-theme="minimal"] .hljs-title,
+[data-theme="hybrid-light"] .hljs-title {
+  color: #6f42c1;
+}
+
+[data-theme="minimal"] .hljs-comment,
+[data-theme="hybrid-light"] .hljs-comment {
+  color: #6a737d;
 }
