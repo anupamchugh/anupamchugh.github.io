@@ -55,9 +55,13 @@ Tool-specific instruction files with a sync mechanism.
 
 Each natively loaded by its tool. Shared rules (safety constraints, code style, testing) synced by a diff-and-reconcile mechanism. The 20% that diverges is allowed to diverge — that's not drift, that's design.
 
+**The concrete fix**
+
+I split one shared instruction file into two purpose-built ones. Claude Code's file (`CLAUDE.md`) says "route every prompt through the agent-routing skill" — something only an interactive session with Skill tool access can do. Codex's file (`AGENTS.md`) says "frontend is vanilla JS, do not create TypeScript files, max 15 files per commit, stage files by name not `git add .`" — headless-specific constraints that would be meaningless clutter in an interactive session.
+
 The TypeScript migration skill stays in `.claude/rules/` where it belongs. Codex never sees it. No conditional branching needed. No 23K lines of dead code.
 
-For sub-agents: the orchestrator filters context before delegation. The runtime enforces tool boundaries. Instructions handle the irreducible semantic core — judgment calls only a model can make.
+For sub-agents: the orchestrator filters context before delegation. The runtime enforces tool boundaries. Instructions handle judgment calls only — everything else is the system's job to enforce.
 
 **The principle**
 
