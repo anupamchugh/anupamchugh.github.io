@@ -50,23 +50,35 @@ rm -rf ~/.config/@anthropic-ai/
 
 Four separate locations. Miss one and the stale token comes back.
 
-**5. Restart terminal completely**
+**5. Clear tmux environment (if applicable)**
+
+Tmux maintains its own environment that survives terminal restarts. If you use tmux: `tmux set-environment -gu CLAUDE_CODE_OAUTH_TOKEN` or just `tmux kill-server` before reopening.
+
+**6. Restart terminal completely**
 
 Close the terminal app entirely and reopen. `source ~/.zshrc` is not enough — some env vars get inherited from the parent process.
 
-**6. Update Claude Code**
+**7. Update Claude Code**
 
 ```bash
 npm update -g @anthropic-ai/claude-code
 ```
 
-**7. Login fresh**
+**8. Login fresh**
 
 ```bash
 claude
 ```
 
 When the OAuth page opens, use an incognito browser window. This prevents your browser's cached Google/Anthropic session from auto-selecting the wrong account. Pick the correct Max plan email explicitly.
+
+**If you use multiple accounts permanently**, isolate their configs to prevent the Keychain collision entirely:
+
+```bash
+alias claude2='CLAUDE_CONFIG_DIR=~/.claude-account2 claude'
+```
+
+Now `claude` uses your primary account and `claude2` uses the second. Separate config dirs, separate Keychain entries, no overwrites.
 
 ---
 
