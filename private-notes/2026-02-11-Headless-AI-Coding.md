@@ -103,22 +103,59 @@ READY=$(bd ready --json | jq -r '.[0:3][] | .id + ": " + .title')
 claude -p "here are 3 open tasks:\n$READY\nfor each: read the bead, implement the fix, run tests, commit with the bead id in the message, close the bead with bd close."
 ```
 
-## existing tools doing this
+## fire-and-forget from telegram (takopi)
 
-- [myclaude](https://github.com/cexll/myclaude) — multi-agent orchestration across Claude, Codex, Gemini. uses a wrapper to abstract CLI differences
-- [claude-flow](https://github.com/ruvnet/claude-flow) — swarm orchestration for Claude Code. autopilot, ultrapilot (3-5x parallel), pipeline modes
-- [ccswarm](https://github.com/nwiizo/ccswarm) — git worktree isolation per agent. each agent works on its own branch
-- [cli-agent-orchestrator](https://aws.amazon.com/blogs/opensource/introducing-cli-agent-orchestrator-transforming-developer-cli-tools-into-a-multi-agent-powerhouse/) — AWS's take. routes tasks to the best available CLI agent
-- [codex github action](https://developers.openai.com/codex/github-action/) — run codex exec in CI on every push
-- banteg's [takopi](https://banteg.xyz/posts/takopi/) — not headless coding, but the dispatch pattern (workflows + voice notes + background polling) maps directly to headless agent orchestration
+this is the missing piece. [takopi](https://banteg.xyz/posts/takopi/) bridges Telegram to coding agents. you text or voice-note from your phone, it runs the agent in your repo, streams progress back.
+
+```bash
+# takopi supports multiple engines out of the box
+takopi claude    # runs claude code as the backend
+takopi codex     # runs codex as the backend
+takopi opencode  # runs opencode as the backend
+```
+
+three modes:
+- **assistant** — ongoing conversation. `/new` resets context
+- **workspace** — telegram forum topics bound to repos/branches. each topic = isolated worktree
+- **handoff** — reply-to-continue with resume lines you can paste into terminal
+
+the flow:
+1. takopi polls Telegram for new messages (runs as a daemon via launchd)
+2. you send "fix the failing test in test_binance_state.py" from your phone
+3. takopi dispatches to `claude` or `codex` engine in your repo
+4. agent reads code, writes fix, runs tests
+5. result streams back to your Telegram chat
+
+voice notes work too — takopi transcribes and runs it like any text message.
+
+```bash
+# setup (one time)
+takopi init                    # register repo
+takopi --onboard               # connect telegram bot
+takopi claude                  # start polling
+
+# keep it alive across terminal closes
+# (launchd daemon — see takopi docs)
+```
+
+**why this matters for headless coding:** you're on the train, you voice-note "add type hints to the trading module", your laptop at home runs the agent, you get the diff back on Telegram before your stop. no terminal needed.
+
+## existing tools
+
+- [myclaude](https://github.com/cexll/myclaude) — multi-agent orchestration across Claude, Codex, Gemini
+- [claude-flow](https://github.com/ruvnet/claude-flow) — swarm orchestration. autopilot, ultrapilot (3-5x parallel), pipeline modes
+- [ccswarm](https://github.com/nwiizo/ccswarm) — git worktree isolation per agent. each agent = own branch
+- [cli-agent-orchestrator](https://aws.amazon.com/blogs/opensource/introducing-cli-agent-orchestrator-transforming-developer-cli-tools-into-a-multi-agent-powerhouse/) — AWS's take. routes to best available agent
+- [codex github action](https://developers.openai.com/codex/github-action/) — codex exec in CI on every push
 
 ## what's missing
 
-- **no native plan file support** — you can't `codex exec --plan plan.md`. you pass the plan as part of the prompt and hope it reads it
-- **no cross-agent memory** — claude doesn't know what codex did last run. you'd need shared files or a DB
-- **no built-in fan-out** — you're writing bash loops. a `swarmer` tool that parallelizes across files would be 50 lines of bash and immediately useful
-- **laptop-bound** — codex automations only run while your laptop is on. cloud execution is coming but not here yet
+- **no native plan file support** — `codex exec --plan plan.md` doesn't exist. you embed the plan in the prompt
+- **no cross-agent memory** — claude doesn't know what codex did. shared files or DB needed
+- **no built-in fan-out** — bash loops work but a 50-line `swarmer` tool would be cleaner
+- **laptop-bound** — agents run locally. cloud execution coming but not here yet
+- **no takopi multi-engine** — can't say "send this to claude AND codex". one engine per session
 
 ## the real insight
 
-everyone demos the chat interface. nobody shows the cron job that closes 3 issues overnight. headless mode is undersold. the boring automation is where the compound returns live.
+everyone demos the chat interface. nobody shows the voice note from the train that closes 3 issues by the time you get home. headless + telegram is the actual compound return.
