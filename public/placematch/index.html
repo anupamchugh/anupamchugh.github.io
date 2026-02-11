@@ -388,28 +388,42 @@ code{background:var(--bg2);padding:2px 6px;border-radius:4px;font-size:.72rem;fo
       <div class="phone-frame"><img src="ios/01-welcome.png" alt="Welcome screen" loading="lazy"><span class="frame-label">Welcome</span></div>
       <div class="phone-frame"><img src="ios/02-swipe-deck.png" alt="Swipe deck" loading="lazy"><span class="frame-label">Swipe</span></div>
       <div class="phone-frame"><img src="ios/03-match-reveal.png" alt="Match reveal" loading="lazy"><span class="frame-label">Match</span></div>
+      <div class="phone-frame"><img src="ios/04-url-input.png" alt="URL input" loading="lazy"><span class="frame-label">Import</span></div>
+      <div class="phone-frame">
+        <div class="phone-mockup">
+          <div class="mock-header">My Places</div>
+          <div class="mock-row"><span class="mock-dot red"></span><span class="mock-text">Dishoom <span class="mock-days">87d ago</span></span></div>
+          <div class="mock-row"><span class="mock-dot yellow"></span><span class="mock-text">Padella <span class="mock-days">34d ago</span></span></div>
+          <div class="mock-row"><span class="mock-dot green"></span><span class="mock-text">Borough Market <span class="mock-days">5d ago</span></span></div>
+          <div class="mock-row"><span class="mock-dot green"></span><span class="mock-text">Koya <span class="mock-days">12d ago</span></span></div>
+          <div class="mock-taste">East London &middot; Asian Fusion &middot; Mid-Range</div>
+          <div class="mock-tag-row"><span class="mock-tag">Coming</span></div>
+        </div>
+        <span class="frame-label">My Places</span>
+      </div>
+      <div class="phone-frame">
+        <div class="phone-mockup">
+          <div class="mock-header">Discover</div>
+          <div class="mock-card blue-card">New Thai place near Borough Market</div>
+          <div class="mock-card orange-card">Sunny &mdash; 3 outdoor spots saved</div>
+          <div class="mock-card purple-card">Padella: 4 months since last visit</div>
+          <div class="mock-card green-card">Free tonight &mdash; Dishoom has space</div>
+          <div class="mock-tag-row"><span class="mock-tag">Coming</span></div>
+        </div>
+        <span class="frame-label">Discover</span>
+      </div>
     </div>
 
     <div class="ios-pitch">
-      <p class="pitch-lead">The vision is absurd and I love it.</p>
+      <p class="pitch-lead">Your phone knows where you go. This app makes it useful.</p>
 
-      <p>An agent that knows you haven't been to Dishoom since August. Another that notices a new ramen place opened near your office and texts your partner. A third that books a table for Friday because you're both free and it's been a while.</p>
+      <p>It auto-tracks your visits, learns your taste, and nudges you when you're forgetting spots you loved. <em>"You haven't been to Dishoom in 87 days."</em> New place opened near your usual coffee spot? It tells you. Sunny day? It surfaces your outdoor saves. Free tonight? It checks.</p>
 
-      <p>Taste graphs that track how your food preferences evolve together. <em>Staleness detection</em> for relationships disguised as restaurant recommendations. Siri suggestions feeding places you visit but never save. Apple Maps guides as a first-class input. A "rediscover together" category for mutual favorites gathering dust.</p>
+      <p>Then &mdash; optionally &mdash; compare your map with someone else's. <span class="cat-inline green">Both been here</span>, <span class="cat-inline blue">both want to go</span>, <span class="cat-inline purple">you can show them</span>, <span class="cat-inline pink">they can show you</span>, <span class="cat-inline orange">nearby vibes</span>. That's the insight no other app gives you.</p>
 
-      <p>Five agents working in the background: <strong>Place Scout</strong> finds new spots matching your combined taste profile. <strong>Revisit Agent</strong> nudges you when patterns break. <strong>Date Planner</strong> cross-references your calendars, the weather, and what's open. <strong>Group Agent</strong> handles the combinatorial nightmare of "where should 6 people eat in Barcelona." <strong>Taste Evolution</strong> tracks whether your palates are converging or diverging over months &mdash; a relationship signal hidden inside food data.</p>
+      <p>Single-user first. Social second. Built with CLVisit, MapKit, SwiftData, WidgetKit, App Intents. Zero Google dependency. Share from Apple Maps, search with MapKit, or just let it watch where you go.</p>
 
-      <div class="pitch-break"></div>
-
-      <p class="pitch-but">Will I ship it?</p>
-
-      <p>Probably not. Hinge already knows where you eat. Bumble has date-spot suggestions. Uber Eats could add "order what your partner orders" tomorrow. Every food delivery app has your location history. Every dating app has your taste profile baked into their algorithm.</p>
-
-      <p>This is the app that doesn't need to exist &mdash; except that none of them built the one thing it actually does: take two people's saved places and tell them something new about each other.</p>
-
-      <p>The five categories &mdash; <span class="cat-inline green">both been here</span>, <span class="cat-inline blue">both want to go</span>, <span class="cat-inline purple">you can show them</span>, <span class="cat-inline pink">they can show you</span>, <span class="cat-inline orange">nearby vibes</span> &mdash; that's the part that matters. That's the actual insight. The rest is just confetti.</p>
-
-      <p class="pitch-punchline">Literally. I added confetti.</p>
+      <p class="pitch-punchline">Also: confetti.</p>
     </div>
 
     <div class="ios-cta">
@@ -447,7 +461,24 @@ code{background:var(--bg2);padding:2px 6px;border-radius:4px;font-size:.72rem;fo
 .ios-gh-btn{display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--bg3);color:var(--fg);padding:9px 18px;border-radius:10px;font-size:.82rem;font-weight:600;transition:all .2s;text-decoration:none}
 .ios-gh-btn:hover{border-color:var(--accent);background:var(--bg3);text-decoration:none}
 .ios-private{font-size:.68rem;color:var(--fg3);font-style:italic}
-@media(max-width:480px){.phone-frame{width:150px}}
+@media(max-width:480px){.phone-frame{width:150px}.phone-mockup{height:326px;padding:14px}}
+
+/* Phone mockup frames for upcoming screens */
+.phone-mockup{width:100%;height:390px;border-radius:16px;border:2px solid var(--bg3);background:var(--bg);box-shadow:0 8px 32px rgba(0,0,0,.4);padding:18px 14px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.mock-header{font-size:.85rem;font-weight:700;color:var(--fg);text-align:center;padding-bottom:8px;border-bottom:1px solid var(--bg3)}
+.mock-row{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:.7rem}
+.mock-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.mock-dot.red{background:#ef4444}.mock-dot.yellow{background:#eab308}.mock-dot.green{background:#22c55e}
+.mock-text{color:var(--fg2);flex:1}
+.mock-days{color:var(--fg3);font-size:.6rem}
+.mock-taste{font-size:.6rem;color:var(--accent);background:rgba(168,85,247,.1);padding:6px 10px;border-radius:8px;text-align:center;margin-top:auto}
+.mock-tag-row{text-align:center;margin-top:6px}
+.mock-tag{font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);background:rgba(168,85,247,.15);padding:3px 10px;border-radius:6px}
+.mock-card{font-size:.65rem;padding:10px;border-radius:10px;color:var(--fg);font-weight:500;line-height:1.3}
+.blue-card{background:linear-gradient(135deg,rgba(59,130,246,.2),rgba(59,130,246,.05));border:1px solid rgba(59,130,246,.2)}
+.orange-card{background:linear-gradient(135deg,rgba(249,115,22,.2),rgba(249,115,22,.05));border:1px solid rgba(249,115,22,.2)}
+.purple-card{background:linear-gradient(135deg,rgba(168,85,247,.2),rgba(168,85,247,.05));border:1px solid rgba(168,85,247,.2)}
+.green-card{background:linear-gradient(135deg,rgba(34,197,94,.2),rgba(34,197,94,.05));border:1px solid rgba(34,197,94,.2)}
 </style>
 
 <div class="footer">
