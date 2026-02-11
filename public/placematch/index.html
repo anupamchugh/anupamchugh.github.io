@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PlaceMatch — Are your saved places compatible?</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#09090b;--bg2:#18181b;--bg3:#27272a;
+  --fg:#fafafa;--fg2:#a1a1aa;--fg3:#71717a;
+  --accent:#a855f7;--accent2:#ec4899;
+  --match:#22c55e;--gradient:linear-gradient(135deg,#a855f7 0%,#ec4899 50%,#f97316 100%);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--fg);min-height:100vh;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+
+/* Header */
+.hero{text-align:center;padding:48px 24px 32px;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(168,85,247,.12) 0%,transparent 70%);pointer-events:none}
+.logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.logo svg{width:36px;height:36px}
+.logo h1{font-size:1.5rem;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tagline{color:var(--fg2);font-size:.95rem;max-width:440px;margin:0 auto;line-height:1.5}
+
+/* Layout */
+.container{max-width:900px;margin:0 auto;padding:0 20px 60px}
+
+/* Input Section */
+.inputs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0}
+@media(max-width:640px){.inputs{grid-template-columns:1fr}}
+.input-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:16px;padding:20px;transition:border-color .2s}
+.input-card:focus-within{border-color:var(--accent)}
+.input-card label{display:flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--fg2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.input-card label svg{width:18px;height:18px;opacity:.6}
+.input-card textarea{width:100%;height:160px;background:var(--bg);border:1px solid var(--bg3);border-radius:10px;padding:12px;color:var(--fg);font-family:'SF Mono',Monaco,Consolas,monospace;font-size:.75rem;resize:vertical;outline:none;transition:border-color .2s}
+.input-card textarea:focus{border-color:var(--accent)}
+.input-card textarea::placeholder{color:var(--fg3)}
+.input-card .count{font-size:.7rem;color:var(--fg3);margin-top:6px;text-align:right;min-height:1em}
+
+/* Compare Button */
+.compare-wrap{text-align:center;margin:8px 0 32px}
+.compare-btn{background:var(--gradient);color:#fff;border:none;padding:14px 40px;border-radius:50px;font-size:1rem;font-weight:600;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 24px rgba(168,85,247,.3)}
+.compare-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(168,85,247,.4)}
+.compare-btn:active{transform:translateY(0)}
+.compare-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+/* Results */
+.results{display:none}
+.results.show{display:block;animation:fadeUp .5s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Score Ring */
+.score-section{text-align:center;margin:0 0 40px;position:relative}
+.score-ring-wrap{position:relative;width:200px;height:200px;margin:0 auto 16px}
+.score-ring{width:200px;height:200px;transform:rotate(-90deg)}
+.score-ring-bg{fill:none;stroke:var(--bg3);stroke-width:8}
+.score-ring-fill{fill:none;stroke:url(#scoreGrad);stroke-width:8;stroke-linecap:round;stroke-dasharray:565.48;stroke-dashoffset:565.48;transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1)}
+.score-number{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:3rem;font-weight:800}
+.score-number span{font-size:1.2rem;font-weight:400;color:var(--fg2)}
+.score-label{font-size:.85rem;color:var(--fg2)}
+.match-badge{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:6px 16px;border-radius:20px;font-size:.8rem;font-weight:600}
+.match-badge.high{background:rgba(34,197,94,.15);color:#22c55e}
+.match-badge.med{background:rgba(234,179,8,.15);color:#eab308}
+.match-badge.low{background:rgba(239,68,68,.15);color:#ef4444}
+.match-badge svg{width:16px;height:16px}
+
+/* Breakdown */
+.breakdown{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:400px;margin:24px auto 0}
+.breakdown-item{background:var(--bg2);border-radius:12px;padding:14px;text-align:center}
+.breakdown-item .val{font-size:1.3rem;font-weight:700}
+.breakdown-item .lbl{font-size:.7rem;color:var(--fg3);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
+
+/* Shared Places */
+.shared-section{margin:40px 0}
+.section-header{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.section-header svg{width:22px;height:22px}
+.section-header h2{font-size:1.1rem;font-weight:600}
+.section-header .badge{background:var(--accent);color:#fff;font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:10px;margin-left:4px}
+.shared-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.shared-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:12px;padding:14px;position:relative;overflow:hidden;transition:border-color .2s}
+.shared-card:hover{border-color:var(--accent)}
+.shared-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient)}
+.shared-card .name{font-size:.85rem;font-weight:600;margin-bottom:2px}
+.shared-card .addr{font-size:.72rem;color:var(--fg3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Side by Side */
+.lists-section{margin:40px 0}
+.lists-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.lists-grid{grid-template-columns:1fr}}
+.list-col h3{font-size:.85rem;font-weight:600;color:var(--fg2);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.list-col h3 svg{width:16px;height:16px;opacity:.5}
+.place-row{font-size:.78rem;padding:6px 0;border-bottom:1px solid var(--bg3);display:flex;align-items:center;gap:6px}
+.place-row:last-child{border:none}
+.place-row.is-shared{color:var(--match);font-weight:600}
+.place-row.is-shared::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--match);flex-shrink:0}
+.place-row:not(.is-shared){color:var(--fg3);padding-left:12px}
+
+/* Footer */
+.footer{text-align:center;padding:40px 20px;color:var(--fg3);font-size:.75rem;border-top:1px solid var(--bg3)}
+.footer a{color:var(--fg2)}
+
+/* Error */
+.error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:12px 16px;border-radius:10px;font-size:.82rem;margin:16px 0;display:none}
+.error.show{display:block}
+</style>
+</head>
+<body>
+
+<!-- SVG Defs -->
+<svg style="display:none">
+  <defs>
+    <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="pinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<div class="hero">
+  <div class="logo">
+    <svg viewBox="0 0 36 36" fill="none">
+      <circle cx="12" cy="14" r="10" stroke="url(#pinGrad)" stroke-width="2.5" fill="none"/>
+      <circle cx="12" cy="14" r="3.5" fill="url(#pinGrad)"/>
+      <path d="M12 24 L12 33" stroke="url(#pinGrad)" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="26" cy="14" r="10" stroke="#ec4899" stroke-width="2.5" fill="none" opacity=".5"/>
+      <circle cx="26" cy="14" r="3.5" fill="#ec4899" opacity=".5"/>
+      <path d="M26 24 L26 33" stroke="#ec4899" stroke-width="2.5" stroke-linecap="round" opacity=".5"/>
+      <path d="M16 10 C18 6,20 6,22 10" stroke="var(--fg)" stroke-width="1.5" stroke-linecap="round" opacity=".3"/>
+      <path d="M16 14 C18 10,20 10,22 14" stroke="var(--fg)" stroke-width="1.5" stroke-linecap="round" opacity=".2"/>
+      <path d="M16 18 C18 14,20 14,22 18" stroke="var(--fg)" stroke-width="1.5" stroke-linecap="round" opacity=".15"/>
+    </svg>
+    <h1>PlaceMatch</h1>
+  </div>
+  <p class="tagline">Compare your Google Maps saved places with someone else's. See what you have in common.</p>
+</div>
+
+<div class="container">
+  <!-- How it works -->
+  <div style="text-align:center;margin-bottom:24px">
+    <p style="color:var(--fg3);font-size:.78rem">Run <code style="background:var(--bg2);padding:2px 6px;border-radius:4px;font-size:.72rem">gmaps-list "your-maps-url"</code> to get JSON, then paste below. <a href="https://github.com/anupamchugh/gmaps-list" target="_blank">Get gmaps-list &rarr;</a></p>
+  </div>
+
+  <!-- Inputs -->
+  <div class="inputs">
+    <div class="input-card">
+      <label>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+        Your Places
+      </label>
+      <textarea id="jsonA" placeholder='Paste your gmaps-list JSON output here...
+
+[
+  {"name": "Cafe Alpha", "latitude": 28.45, ...},
+  ...
+]'></textarea>
+      <div class="count" id="countA"></div>
+    </div>
+    <div class="input-card">
+      <label>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+        Their Places
+      </label>
+      <textarea id="jsonB" placeholder='Paste their gmaps-list JSON output here...
+
+[
+  {"name": "Pizza Beta", "latitude": 37.77, ...},
+  ...
+]'></textarea>
+      <div class="count" id="countB"></div>
+    </div>
+  </div>
+
+  <div class="error" id="error"></div>
+
+  <div class="compare-wrap">
+    <button class="compare-btn" id="compareBtn" onclick="runCompare()">
+      Compare Places
+    </button>
+  </div>
+
+  <!-- Results -->
+  <div class="results" id="results">
+
+    <!-- Score -->
+    <div class="score-section">
+      <div class="score-ring-wrap">
+        <svg class="score-ring" viewBox="0 0 200 200">
+          <circle class="score-ring-bg" cx="100" cy="100" r="90"/>
+          <circle class="score-ring-fill" id="scoreRing" cx="100" cy="100" r="90"/>
+        </svg>
+        <div class="score-number" id="scoreNumber">0<span>%</span></div>
+      </div>
+      <div class="score-label">compatibility score</div>
+      <div class="match-badge" id="matchBadge"></div>
+    </div>
+
+    <!-- Breakdown -->
+    <div class="breakdown">
+      <div class="breakdown-item">
+        <div class="val" id="nameVal">0%</div>
+        <div class="lbl">Name Overlap</div>
+      </div>
+      <div class="breakdown-item">
+        <div class="val" id="geoVal">0%</div>
+        <div class="lbl">Geo Overlap</div>
+      </div>
+    </div>
+
+    <!-- Shared Places -->
+    <div class="shared-section" id="sharedSection">
+      <div class="section-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="url(#pinGrad)" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <h2>Shared Spots</h2>
+        <span class="badge" id="sharedCount">0</span>
+      </div>
+      <div class="shared-grid" id="sharedGrid"></div>
+    </div>
+
+    <!-- Side by Side -->
+    <div class="lists-section">
+      <div class="section-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h2>All Places</h2>
+      </div>
+      <div class="lists-grid">
+        <div class="list-col">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+            <span id="listALabel">Your Places</span>
+          </h3>
+          <div id="listAItems"></div>
+        </div>
+        <div class="list-col">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+            <span id="listBLabel">Their Places</span>
+          </h3>
+          <div id="listBItems"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Data never leaves your browser. No server, no tracking. &middot;
+  <a href="https://github.com/anupamchugh/gmaps-list">gmaps-list</a> &middot;
+  <a href="https://anupamchugh.github.io">anupamchugh</a>
+</div>
+
+<script>
+// --- Live count ---
+document.getElementById('jsonA').addEventListener('input', function() {
+  updateCount('jsonA', 'countA');
+});
+document.getElementById('jsonB').addEventListener('input', function() {
+  updateCount('jsonB', 'countB');
+});
+
+function updateCount(textareaId, countId) {
+  const el = document.getElementById(countId);
+  try {
+    const arr = JSON.parse(document.getElementById(textareaId).value.trim());
+    if (Array.isArray(arr)) {
+      el.textContent = arr.length + ' place' + (arr.length !== 1 ? 's' : '');
+      el.style.color = 'var(--match)';
+      return;
+    }
+  } catch {}
+  const val = document.getElementById(textareaId).value.trim();
+  el.textContent = val ? 'Invalid JSON' : '';
+  el.style.color = val ? '#ef4444' : 'var(--fg3)';
+}
+
+// --- Haversine ---
+function haversine(lat1, lon1, lat2, lon2) {
+  const R = 6371000;
+  const toRad = d => d * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+// --- Normalize ---
+function norm(s) {
+  return (s || '').trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+// --- Geo overlap fraction ---
+function geoOverlap(from, to, threshold) {
+  const fWith = from.filter(p => p.latitude != null && p.longitude != null);
+  const tWith = to.filter(p => p.latitude != null && p.longitude != null);
+  if (!fWith.length || !tWith.length) return 0;
+  let matches = 0;
+  for (const a of fWith) {
+    for (const b of tWith) {
+      if (haversine(a.latitude, a.longitude, b.latitude, b.longitude) <= threshold) {
+        matches++;
+        break;
+      }
+    }
+  }
+  return matches / fWith.length;
+}
+
+// --- Compare ---
+function compare(placesA, placesB) {
+  const namesA = new Set(placesA.map(p => norm(p.name)));
+  const namesB = new Set(placesB.map(p => norm(p.name)));
+
+  const shared = [...namesA].filter(n => n && namesB.has(n));
+  const union = new Set([...namesA, ...namesB]);
+  union.delete('');
+  const nameScore = union.size === 0 ? 0 : shared.length / union.size;
+
+  const geoAB = geoOverlap(placesA, placesB, 500);
+  const geoBA = geoOverlap(placesB, placesA, 500);
+  const geoScore = (geoAB + geoBA) / 2;
+
+  const compatibility = nameScore * 60 + geoScore * 40;
+
+  // Get original-cased names for shared places
+  const sharedNorm = new Set(shared);
+  const sharedPlaces = placesA.filter(p => sharedNorm.has(norm(p.name)));
+
+  return { nameScore, geoScore, compatibility, shared, sharedPlaces };
+}
+
+// --- Run ---
+function runCompare() {
+  const errEl = document.getElementById('error');
+  errEl.classList.remove('show');
+
+  let placesA, placesB;
+  try {
+    placesA = JSON.parse(document.getElementById('jsonA').value.trim());
+    if (!Array.isArray(placesA)) throw new Error('Not an array');
+  } catch {
+    errEl.textContent = 'Could not parse "Your Places" JSON. Make sure it\'s valid JSON array from gmaps-list.';
+    errEl.classList.add('show');
+    return;
+  }
+  try {
+    placesB = JSON.parse(document.getElementById('jsonB').value.trim());
+    if (!Array.isArray(placesB)) throw new Error('Not an array');
+  } catch {
+    errEl.textContent = 'Could not parse "Their Places" JSON. Make sure it\'s valid JSON array from gmaps-list.';
+    errEl.classList.add('show');
+    return;
+  }
+
+  if (!placesA.length || !placesB.length) {
+    errEl.textContent = 'Both lists need at least one place.';
+    errEl.classList.add('show');
+    return;
+  }
+
+  const result = compare(placesA, placesB);
+  showResults(result, placesA, placesB);
+}
+
+// --- Render ---
+function showResults(r, placesA, placesB) {
+  const el = document.getElementById('results');
+  el.classList.add('show');
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Animate score ring
+  const ring = document.getElementById('scoreRing');
+  const circumference = 2 * Math.PI * 90; // r=90
+  const offset = circumference - (r.compatibility / 100) * circumference;
+  requestAnimationFrame(() => {
+    ring.style.strokeDashoffset = offset;
+  });
+
+  // Animate score number
+  animateNumber('scoreNumber', r.compatibility);
+
+  // Breakdown
+  document.getElementById('nameVal').textContent = (r.nameScore * 100).toFixed(1) + '%';
+  document.getElementById('geoVal').textContent = (r.geoScore * 100).toFixed(1) + '%';
+
+  // Match badge
+  const badge = document.getElementById('matchBadge');
+  const score = r.compatibility;
+  if (score >= 50) {
+    badge.className = 'match-badge high';
+    badge.innerHTML = heartSVG() + " It's a match!";
+  } else if (score >= 20) {
+    badge.className = 'match-badge med';
+    badge.innerHTML = sparkSVG() + ' Some overlap';
+  } else {
+    badge.className = 'match-badge low';
+    badge.innerHTML = xSVG() + ' Different tastes';
+  }
+
+  // Shared places
+  const sharedSection = document.getElementById('sharedSection');
+  const sharedGrid = document.getElementById('sharedGrid');
+  document.getElementById('sharedCount').textContent = r.sharedPlaces.length;
+  sharedGrid.innerHTML = '';
+  if (r.sharedPlaces.length === 0) {
+    sharedSection.style.display = 'none';
+  } else {
+    sharedSection.style.display = 'block';
+    for (const p of r.sharedPlaces) {
+      const card = document.createElement('div');
+      card.className = 'shared-card';
+      card.innerHTML = '<div class="name">' + esc(p.name) + '</div>' +
+        '<div class="addr">' + esc(p.address || '') + '</div>';
+      sharedGrid.appendChild(card);
+    }
+  }
+
+  // Side by side
+  const sharedNorm = new Set(r.shared);
+  document.getElementById('listALabel').textContent = 'Your Places (' + placesA.length + ')';
+  document.getElementById('listBLabel').textContent = 'Their Places (' + placesB.length + ')';
+
+  renderList('listAItems', placesA, sharedNorm);
+  renderList('listBItems', placesB, sharedNorm);
+}
+
+function renderList(containerId, places, sharedNorm) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  // Show shared first, then the rest
+  const sorted = [...places].sort((a, b) => {
+    const aShared = sharedNorm.has(norm(a.name)) ? 0 : 1;
+    const bShared = sharedNorm.has(norm(b.name)) ? 0 : 1;
+    return aShared - bShared;
+  });
+  for (const p of sorted) {
+    const isShared = sharedNorm.has(norm(p.name));
+    const row = document.createElement('div');
+    row.className = 'place-row' + (isShared ? ' is-shared' : '');
+    row.textContent = p.name;
+    el.appendChild(row);
+  }
+}
+
+function animateNumber(id, target) {
+  const el = document.getElementById(id);
+  const duration = 1500;
+  const start = performance.now();
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const current = Math.round(eased * target);
+    el.innerHTML = current + '<span>%</span>';
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function heartSVG() {
+  return '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+}
+function sparkSVG() {
+  return '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>';
+}
+function xSVG() {
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>';
+}
+</script>
+</body>
+</html>
