@@ -22,7 +22,6 @@ gmaps-list "https://maps.app.goo.gl/..." --format table
 
 The array indices are positional (no keys): `item[1][5][2]` is latitude, `item[1][7]` is the Google Place ID. Mapped empirically by diffing responses from different list sizes.
 
-Also built a Swift CLI ([PlaceVault](https://github.com/anupamchugh/PlaceVault)) on top of this that does scoring, visit tracking, and place-to-place comparison between two lists.
+Also built a Swift CLI on top of this that does scoring, visit tracking, and place-to-place comparison between two lists.
 
-- [gmaps-list](https://github.com/anupamchugh/gmaps-list)
-- [PlaceVault](https://github.com/anupamchugh/PlaceVault)
+[gmaps-list on GitHub](https://github.com/anupamchugh/gmaps-list)
