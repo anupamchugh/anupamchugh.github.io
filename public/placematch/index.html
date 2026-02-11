@@ -2,183 +2,192 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>PlaceMatch — Are your saved places compatible?</title>
-<meta name="description" content="Compare Google Maps saved places with someone else. Paste list links, see what you have in common.">
+<meta name="description" content="Swipe through your saved places, compare with someone, discover what you have in common.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --bg:#09090b;--bg2:#18181b;--bg3:#27272a;--bg4:#3f3f46;
   --fg:#fafafa;--fg2:#a1a1aa;--fg3:#71717a;
   --accent:#a855f7;--accent2:#ec4899;
-  --match:#22c55e;--warn:#eab308;--danger:#ef4444;
+  --match:#22c55e;--want:#3b82f6;--skip:#71717a;
   --gradient:linear-gradient(135deg,#a855f7 0%,#ec4899 50%,#f97316 100%);
   --radius:16px;
 }
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--fg);min-height:100vh;overflow-x:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--fg);min-height:100vh;overflow-x:hidden;-webkit-user-select:none;user-select:none}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 code{background:var(--bg2);padding:2px 6px;border-radius:4px;font-size:.72rem;font-family:'SF Mono',Monaco,Consolas,monospace}
 
-/* Hero */
-.hero{text-align:center;padding:48px 24px 24px;position:relative}
+.hero{text-align:center;padding:40px 24px 16px;position:relative}
 .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(168,85,247,.1) 0%,transparent 70%);pointer-events:none}
-.logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px}
-.logo svg{width:36px;height:36px}
-.logo h1{font-size:1.5rem;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.tagline{color:var(--fg2);font-size:.92rem;max-width:460px;margin:0 auto;line-height:1.5}
+.logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:8px}
+.logo svg{width:32px;height:32px}
+.logo h1{font-size:1.3rem;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tagline{color:var(--fg2);font-size:.85rem;max-width:400px;margin:0 auto;line-height:1.4}
+.punchline{color:var(--fg3);font-size:.72rem;max-width:340px;margin:6px auto 0;font-style:italic}
 
-/* Container */
-.container{max-width:900px;margin:0 auto;padding:0 20px 60px}
+.container{max-width:480px;margin:0 auto;padding:0 20px 60px}
 
 /* Steps */
-.step{display:none;animation:fadeUp .4s ease}
+.step{display:none;animation:fadeUp .35s ease}
 .step.active{display:block}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
-/* Step indicator */
-.steps-bar{display:flex;justify-content:center;gap:8px;margin:24px 0 32px}
-.step-dot{width:8px;height:8px;border-radius:50%;background:var(--bg3);transition:all .3s}
-.step-dot.done{background:var(--accent)}
-.step-dot.current{background:var(--accent);width:24px;border-radius:4px}
+/* Progress bar */
+.progress{display:flex;justify-content:center;gap:6px;margin:16px 0 24px}
+.prog-dot{width:8px;height:8px;border-radius:50%;background:var(--bg3);transition:all .3s}
+.prog-dot.done{background:var(--accent)}
+.prog-dot.current{background:var(--accent);width:24px;border-radius:4px}
 
-/* URL Input Card */
-.url-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius);padding:28px;max-width:560px;margin:0 auto;transition:border-color .2s}
+/* URL Input */
+.url-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius);padding:24px;transition:border-color .2s}
 .url-card:focus-within{border-color:var(--accent)}
-.url-card label{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--fg2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
-.url-card label svg{width:18px;height:18px;opacity:.6}
-.url-input-wrap{display:flex;gap:8px}
-.url-input-wrap input{flex:1;background:var(--bg);border:1px solid var(--bg3);border-radius:10px;padding:12px 14px;color:var(--fg);font-size:.88rem;outline:none;transition:border-color .2s}
-.url-input-wrap input:focus{border-color:var(--accent)}
-.url-input-wrap input::placeholder{color:var(--fg3)}
-.paste-btn{background:var(--bg3);border:1px solid var(--bg4);color:var(--fg2);padding:0 14px;border-radius:10px;cursor:pointer;font-size:.75rem;font-weight:500;display:flex;align-items:center;gap:5px;transition:all .15s;white-space:nowrap}
+.url-card label{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;color:var(--fg2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.url-card label svg{width:16px;height:16px;opacity:.6}
+.url-row{display:flex;gap:8px}
+.url-row input{flex:1;background:var(--bg);border:1px solid var(--bg3);border-radius:10px;padding:11px 12px;color:var(--fg);font-size:.85rem;outline:none;transition:border-color .2s}
+.url-row input:focus{border-color:var(--accent)}
+.url-row input::placeholder{color:var(--fg3)}
+.paste-btn{background:var(--bg3);border:1px solid var(--bg4);color:var(--fg2);padding:0 12px;border-radius:10px;cursor:pointer;font-size:.72rem;font-weight:500;display:flex;align-items:center;gap:4px;transition:all .15s;white-space:nowrap}
 .paste-btn:hover{background:var(--bg4);color:var(--fg)}
-.paste-btn svg{width:14px;height:14px}
-.url-card .hint{font-size:.72rem;color:var(--fg3);margin-top:8px}
-.url-card .status{font-size:.78rem;margin-top:10px;min-height:1.2em}
-.status-ok{color:var(--match)}
-.status-err{color:var(--danger)}
+.paste-btn svg{width:13px;height:13px}
+.url-card .hint{font-size:.68rem;color:var(--fg3);margin-top:6px}
+.error-msg{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:10px 14px;border-radius:10px;font-size:.78rem;margin-top:12px;display:none}
+.error-msg.show{display:block}
 
-/* Load Button */
-.load-wrap{text-align:center;margin-top:20px}
-.load-btn{background:var(--gradient);color:#fff;border:none;padding:12px 36px;border-radius:50px;font-size:.92rem;font-weight:600;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 20px rgba(168,85,247,.25)}
-.load-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(168,85,247,.35)}
-.load-btn:active{transform:translateY(0)}
-.load-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.action-wrap{text-align:center;margin-top:18px}
+.action-btn{background:var(--gradient);color:#fff;border:none;padding:11px 32px;border-radius:50px;font-size:.88rem;font-weight:600;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 18px rgba(168,85,247,.25)}
+.action-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(168,85,247,.35)}
+.action-btn:active{transform:translateY(0)}
+.action-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.secondary-btn{background:var(--bg2);border:2px solid var(--accent);color:var(--accent);padding:11px 32px;border-radius:50px;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s}
+.secondary-btn:hover{background:var(--accent);color:#fff}
 
-/* Toggle for JSON mode */
-.toggle-mode{text-align:center;margin-top:16px;font-size:.75rem;color:var(--fg3)}
-.toggle-mode button{background:none;border:none;color:var(--accent);cursor:pointer;font-size:.75rem;text-decoration:underline}
-
-/* JSON textarea (hidden by default) */
-.json-input{display:none;margin-top:12px}
-.json-input textarea{width:100%;height:140px;background:var(--bg);border:1px solid var(--bg3);border-radius:10px;padding:12px;color:var(--fg);font-family:'SF Mono',Monaco,Consolas,monospace;font-size:.72rem;resize:vertical;outline:none}
-.json-input textarea:focus{border-color:var(--accent)}
-.json-input.show{display:block}
-
-/* Loading Spinner */
-.loading{display:none;text-align:center;padding:48px 0}
+/* Spinner */
+.loading{display:none;text-align:center;padding:40px 0}
 .loading.show{display:block}
-.spinner{width:48px;height:48px;border:3px solid var(--bg3);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+.spinner{width:40px;height:40px;border:3px solid var(--bg3);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.loading-text{color:var(--fg2);font-size:.88rem}
-.loading-sub{color:var(--fg3);font-size:.75rem;margin-top:4px}
+.loading-text{color:var(--fg2);font-size:.85rem}
 
-/* Places Preview */
-.places-preview{margin-top:24px;max-width:560px;margin-left:auto;margin-right:auto}
-.preview-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.preview-header h3{font-size:.95rem;font-weight:600;display:flex;align-items:center;gap:6px}
-.preview-header h3 .count-badge{background:var(--accent);color:#fff;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:10px}
-.preview-header .list-meta{font-size:.72rem;color:var(--fg3)}
-.places-scroll{max-height:200px;overflow-y:auto;background:var(--bg2);border:1px solid var(--bg3);border-radius:12px;padding:4px 0}
-.places-scroll::-webkit-scrollbar{width:4px}
-.places-scroll::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:2px}
-.preview-row{padding:8px 14px;font-size:.8rem;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--bg3)}
-.preview-row:last-child{border:none}
-.preview-row .pin{color:var(--accent);flex-shrink:0;width:14px;height:14px}
-.preview-row .pname{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.preview-row .paddr{color:var(--fg3);font-size:.7rem;flex-shrink:0;max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ============= SWIPE CARDS ============= */
+.swipe-header{text-align:center;margin-bottom:16px}
+.swipe-header h2{font-size:1rem;font-weight:600;margin-bottom:4px}
+.swipe-counter{font-size:.75rem;color:var(--fg3)}
+.swipe-legend{display:flex;justify-content:center;gap:16px;margin-top:8px;font-size:.68rem;color:var(--fg3)}
+.swipe-legend span{display:flex;align-items:center;gap:4px}
+.swipe-legend .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 
-/* Continue button */
-.continue-wrap{text-align:center;margin-top:20px}
-.continue-btn{background:var(--bg2);border:2px solid var(--accent);color:var(--accent);padding:12px 36px;border-radius:50px;font-size:.92rem;font-weight:600;cursor:pointer;transition:all .2s}
-.continue-btn:hover{background:var(--accent);color:#fff}
+.card-area{position:relative;width:100%;height:340px;margin:0 auto;perspective:1000px}
+.card-stack{position:relative;width:100%;height:100%}
+.swipe-card{position:absolute;top:0;left:0;width:100%;height:100%;background:var(--bg2);border:1px solid var(--bg3);border-radius:20px;padding:24px;cursor:grab;touch-action:none;transform-origin:center center;transition:transform .08s ease,box-shadow .08s ease;will-change:transform;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.swipe-card:active{cursor:grabbing}
+.swipe-card.animating{transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .35s ease;pointer-events:none}
+.swipe-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gradient);opacity:.5}
 
-/* Score Ring */
-.score-section{text-align:center;margin:0 0 40px;position:relative}
-.score-ring-wrap{position:relative;width:200px;height:200px;margin:0 auto 16px}
-.score-ring{width:200px;height:200px;transform:rotate(-90deg)}
+.card-top{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.card-name{font-size:1.2rem;font-weight:700;margin-bottom:8px;line-height:1.3}
+.card-addr{font-size:.78rem;color:var(--fg3);line-height:1.4;max-width:90%}
+.card-coords{font-size:.65rem;color:var(--fg3);margin-top:8px;opacity:.5;font-family:'SF Mono',Monaco,monospace}
+
+.card-bottom{display:flex;justify-content:center;gap:10px}
+.card-action{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;border:2px solid var(--bg3)}
+.card-action:hover{transform:scale(1.1)}
+.card-action svg{width:24px;height:24px}
+.card-action.skip-btn{border-color:var(--skip);color:var(--skip)}
+.card-action.skip-btn:hover{background:var(--skip);color:var(--bg)}
+.card-action.want-btn{border-color:var(--want);color:var(--want)}
+.card-action.want-btn:hover{background:var(--want);color:#fff}
+.card-action.been-btn{border-color:var(--match);color:var(--match)}
+.card-action.been-btn:hover{background:var(--match);color:#fff}
+
+/* Swipe overlays */
+.card-overlay{position:absolute;top:0;left:0;right:0;bottom:0;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;opacity:0;transition:opacity .1s;pointer-events:none}
+.card-overlay.been{background:rgba(34,197,94,.15);color:var(--match);border:3px solid var(--match)}
+.card-overlay.want{background:rgba(59,130,246,.15);color:var(--want);border:3px solid var(--want)}
+.card-overlay.skip-o{background:rgba(113,113,122,.1);color:var(--skip);border:3px solid var(--skip)}
+
+/* Done swiping summary */
+.swipe-done{text-align:center;padding:20px 0}
+.swipe-done h3{font-size:1rem;font-weight:600;margin-bottom:12px}
+.swipe-stats{display:flex;justify-content:center;gap:16px;margin-bottom:20px}
+.swipe-stat{background:var(--bg2);border-radius:12px;padding:12px 18px;text-align:center}
+.swipe-stat .num{font-size:1.4rem;font-weight:700}
+.swipe-stat .lbl{font-size:.65rem;color:var(--fg3);text-transform:uppercase;margin-top:2px}
+.swipe-stat.been-s .num{color:var(--match)}
+.swipe-stat.want-s .num{color:var(--want)}
+.swipe-stat.skip-s .num{color:var(--skip)}
+
+/* ============= RESULTS ============= */
+.score-section{text-align:center;margin:0 0 32px;position:relative}
+.score-ring-wrap{position:relative;width:180px;height:180px;margin:0 auto 12px}
+.score-ring{width:180px;height:180px;transform:rotate(-90deg)}
 .score-ring-bg{fill:none;stroke:var(--bg3);stroke-width:8}
-.score-ring-fill{fill:none;stroke:url(#scoreGrad);stroke-width:8;stroke-linecap:round;stroke-dasharray:565.48;stroke-dashoffset:565.48;transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1)}
-.score-number{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:3rem;font-weight:800}
-.score-number span{font-size:1.2rem;font-weight:400;color:var(--fg2)}
-.score-label{font-size:.85rem;color:var(--fg2)}
-.match-badge{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:6px 16px;border-radius:20px;font-size:.8rem;font-weight:600;opacity:0;transform:scale(.8);transition:all .4s .8s}
+.score-ring-fill{fill:none;stroke:url(#scoreGrad);stroke-width:8;stroke-linecap:round;stroke-dasharray:502.65;stroke-dashoffset:502.65;transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1)}
+.score-number{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.6rem;font-weight:800}
+.score-number span{font-size:1rem;font-weight:400;color:var(--fg2)}
+.score-label{font-size:.82rem;color:var(--fg2)}
+.match-badge{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:5px 14px;border-radius:20px;font-size:.78rem;font-weight:600;opacity:0;transform:scale(.8);transition:all .4s .8s}
 .match-badge.reveal{opacity:1;transform:scale(1)}
 .match-badge.high{background:rgba(34,197,94,.15);color:#22c55e}
 .match-badge.med{background:rgba(234,179,8,.15);color:#eab308}
 .match-badge.low{background:rgba(239,68,68,.15);color:#ef4444}
-.match-badge svg{width:16px;height:16px}
+.match-badge svg{width:14px;height:14px}
 
-/* Breakdown */
-.breakdown{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:400px;margin:24px auto 0;opacity:0;transform:translateY(10px);transition:all .4s 1.2s}
-.breakdown.reveal{opacity:1;transform:translateY(0)}
-.breakdown-item{background:var(--bg2);border-radius:12px;padding:14px;text-align:center}
-.breakdown-item .val{font-size:1.3rem;font-weight:700}
-.breakdown-item .lbl{font-size:.7rem;color:var(--fg3);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Shared Places */
-.shared-section{margin:40px 0;opacity:0;transform:translateY(10px);transition:all .4s 1.6s}
-.shared-section.reveal{opacity:1;transform:translateY(0)}
-.section-header{display:flex;align-items:center;gap:8px;margin-bottom:16px}
-.section-header svg{width:22px;height:22px}
-.section-header h2{font-size:1.1rem;font-weight:600}
-.section-header .badge{background:var(--accent);color:#fff;font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:10px;margin-left:4px}
-.shared-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.shared-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:12px;padding:14px;position:relative;overflow:hidden;transition:border-color .2s;opacity:0;transform:translateY(8px);animation:cardIn .3s ease forwards}
-.shared-card:hover{border-color:var(--accent)}
-.shared-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient)}
-.shared-card .name{font-size:.85rem;font-weight:600;margin-bottom:2px}
-.shared-card .addr{font-size:.72rem;color:var(--fg3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Match categories */
+.match-cats{margin:28px 0;opacity:0;transform:translateY(10px);transition:all .4s 1s}
+.match-cats.reveal{opacity:1;transform:translateY(0)}
+.match-cat{margin-bottom:20px}
+.match-cat-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.match-cat-header svg{width:20px;height:20px;flex-shrink:0}
+.match-cat-header h3{font-size:.9rem;font-weight:600}
+.match-cat-header .cnt{background:var(--accent);color:#fff;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:4px}
+.match-cat-header .desc{font-size:.7rem;color:var(--fg3);margin-left:auto}
+.match-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.match-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:12px;padding:12px;position:relative;overflow:hidden;transition:border-color .2s;opacity:0;transform:translateY(6px);animation:cardIn .3s ease forwards}
+.match-card:hover{border-color:var(--accent)}
+.match-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.match-card.both-been::before{background:var(--match)}
+.match-card.both-want::before{background:var(--want)}
+.match-card.you-show::before{background:linear-gradient(90deg,var(--match),var(--want))}
+.match-card.they-show::before{background:linear-gradient(90deg,var(--want),var(--match))}
+.match-card .mc-name{font-size:.82rem;font-weight:600;margin-bottom:2px}
+.match-card .mc-addr{font-size:.68rem;color:var(--fg3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @keyframes cardIn{to{opacity:1;transform:translateY(0)}}
 
-/* Side by Side */
-.lists-section{margin:40px 0;opacity:0;transform:translateY(10px);transition:all .4s 2s}
+/* Side by side */
+.lists-section{margin:32px 0;opacity:0;transform:translateY(10px);transition:all .4s 1.8s}
 .lists-section.reveal{opacity:1;transform:translateY(0)}
-.lists-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:640px){.lists-grid{grid-template-columns:1fr}}
-.list-col h3{font-size:.85rem;font-weight:600;color:var(--fg2);margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.list-col h3 svg{width:16px;height:16px;opacity:.5}
-.place-row{font-size:.78rem;padding:6px 0;border-bottom:1px solid var(--bg3);display:flex;align-items:center;gap:6px}
+.lists-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.lists-grid{grid-template-columns:1fr}}
+.list-col h3{font-size:.82rem;font-weight:600;color:var(--fg2);margin-bottom:8px}
+.place-row{font-size:.75rem;padding:5px 0;border-bottom:1px solid var(--bg3);display:flex;align-items:center;gap:5px}
 .place-row:last-child{border:none}
 .place-row.is-shared{color:var(--match);font-weight:600}
 .place-row.is-shared::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--match);flex-shrink:0}
-.place-row:not(.is-shared){color:var(--fg3);padding-left:12px}
+.place-row:not(.is-shared){color:var(--fg3);padding-left:11px}
 
-/* Try Again */
-.again-wrap{text-align:center;margin:40px 0 0}
-.again-btn{background:var(--bg2);border:2px solid var(--bg3);color:var(--fg2);padding:12px 32px;border-radius:50px;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s}
-.again-btn:hover{border-color:var(--accent);color:var(--accent)}
+.again-wrap{text-align:center;margin:32px 0 0}
 
 /* Confetti */
 .confetti-wrap{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999;overflow:hidden}
 .confetti{position:absolute;width:8px;height:8px;border-radius:2px;animation:confettiFall linear forwards}
-@keyframes confettiFall{
-  0%{transform:translateY(-10px) rotate(0deg);opacity:1}
-  100%{transform:translateY(100vh) rotate(720deg);opacity:0}
-}
+@keyframes confettiFall{0%{transform:translateY(-10px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
 
-/* Footer */
-.footer{text-align:center;padding:40px 20px;color:var(--fg3);font-size:.75rem;border-top:1px solid var(--bg3)}
+.footer{text-align:center;padding:32px 20px;color:var(--fg3);font-size:.7rem;border-top:1px solid var(--bg3)}
 .footer a{color:var(--fg2)}
 
-/* Error */
-.error-msg{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:12px 16px;border-radius:10px;font-size:.82rem;margin:16px auto;max-width:560px;display:none}
-.error-msg.show{display:block}
+/* Toggle */
+.toggle-link{text-align:center;margin-top:12px;font-size:.72rem;color:var(--fg3)}
+.toggle-link button{background:none;border:none;color:var(--accent);cursor:pointer;font-size:.72rem;text-decoration:underline}
+.json-box{display:none;margin-top:10px}
+.json-box.show{display:block}
+.json-box textarea{width:100%;height:120px;background:var(--bg);border:1px solid var(--bg3);border-radius:10px;padding:10px;color:var(--fg);font-family:'SF Mono',Monaco,monospace;font-size:.7rem;resize:vertical;outline:none}
 </style>
 </head>
 <body>
 
-<!-- SVG Defs -->
 <svg style="display:none">
   <defs>
     <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -202,563 +211,557 @@ code{background:var(--bg2);padding:2px 6px;border-radius:4px;font-size:.72rem;fo
       <circle cx="26" cy="14" r="10" stroke="#ec4899" stroke-width="2.5" fill="none" opacity=".5"/>
       <circle cx="26" cy="14" r="3.5" fill="#ec4899" opacity=".5"/>
       <path d="M26 24 L26 33" stroke="#ec4899" stroke-width="2.5" stroke-linecap="round" opacity=".5"/>
-      <path d="M16 10 C18 6,20 6,22 10" stroke="var(--fg)" stroke-width="1.5" stroke-linecap="round" opacity=".3"/>
-      <path d="M16 14 C18 10,20 10,22 14" stroke="var(--fg)" stroke-width="1.5" stroke-linecap="round" opacity=".2"/>
-      <path d="M16 18 C18 14,20 14,22 18" stroke="var(--fg)" stroke-width="1.5" stroke-linecap="round" opacity=".15"/>
     </svg>
     <h1>PlaceMatch</h1>
   </div>
-  <p class="tagline">Paste your Google Maps list links. See what you have in common.</p>
+  <p class="tagline">Swipe your saved places. See if you match.</p>
+  <p class="punchline">Dating apps need a million users. This needs two people and a Google Maps list.</p>
 </div>
 
 <div class="container">
-  <!-- Step dots -->
-  <div class="steps-bar">
-    <div class="step-dot current" id="dot0"></div>
-    <div class="step-dot" id="dot1"></div>
-    <div class="step-dot" id="dot2"></div>
+  <div class="progress" id="progress">
+    <div class="prog-dot current" id="pd0"></div>
+    <div class="prog-dot" id="pd1"></div>
+    <div class="prog-dot" id="pd2"></div>
+    <div class="prog-dot" id="pd3"></div>
+    <div class="prog-dot" id="pd4"></div>
   </div>
 
-  <!-- ==================== STEP 0: Your List ==================== -->
+  <!-- ===== STEP 0: Your URL ===== -->
   <div class="step active" id="step0">
     <div class="url-card">
       <label>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
-        Your List
+        Your Google Maps List
       </label>
-      <div class="url-input-wrap">
+      <div class="url-row">
         <input type="text" id="urlA" placeholder="https://maps.app.goo.gl/..." autocomplete="off">
         <button class="paste-btn" onclick="pasteInto('urlA')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           Paste
         </button>
       </div>
-      <div class="hint">Share a list in Google Maps &rarr; copy the link &rarr; paste here</div>
-      <div class="status" id="statusA"></div>
-      <div class="json-input" id="jsonWrapA">
-        <textarea id="jsonA" placeholder='Or paste gmaps-list JSON output...'></textarea>
-      </div>
+      <div class="hint">Open Google Maps &rarr; Your Lists &rarr; Share &rarr; Copy link</div>
+      <div class="json-box" id="jsonWrapA"><textarea id="jsonA" placeholder="Or paste gmaps-list JSON..."></textarea></div>
     </div>
-
     <div class="error-msg" id="errorA"></div>
+    <div class="toggle-link"><button onclick="toggleJson('A')">Have JSON from <code>gmaps-list</code> CLI?</button></div>
+    <div class="action-wrap"><button class="action-btn" id="loadA" onclick="loadPlaces('A')">Load My Places</button></div>
+    <div class="loading" id="loadingA"><div class="spinner"></div><div class="loading-text">Fetching your places...</div></div>
+  </div>
 
-    <div class="toggle-mode">
-      <button onclick="toggleJson('A')">Have JSON from <code>gmaps-list</code>?</button>
-    </div>
-
-    <div class="load-wrap">
-      <button class="load-btn" id="loadBtnA" onclick="loadList('A')">Load My Places</button>
-    </div>
-
-    <!-- Loading -->
-    <div class="loading" id="loadingA">
-      <div class="spinner"></div>
-      <div class="loading-text">Fetching your places...</div>
-      <div class="loading-sub">Following redirects, parsing list data</div>
-    </div>
-
-    <!-- Preview -->
-    <div class="places-preview" id="previewA" style="display:none">
-      <div class="preview-header">
-        <h3 id="previewTitleA">Your Places <span class="count-badge" id="previewCountA">0</span></h3>
-        <span class="list-meta" id="previewMetaA"></span>
+  <!-- ===== STEP 1: Swipe YOUR places ===== -->
+  <div class="step" id="step1">
+    <div class="swipe-header">
+      <h2>Your Places</h2>
+      <div class="swipe-counter"><span id="swipeCountA">0</span> / <span id="swipeTotalA">0</span></div>
+      <div class="swipe-legend">
+        <span><span class="dot" style="background:var(--match)"></span> Been here</span>
+        <span><span class="dot" style="background:var(--want)"></span> Want to go</span>
+        <span><span class="dot" style="background:var(--skip)"></span> Skip</span>
       </div>
-      <div class="places-scroll" id="previewListA"></div>
-      <div class="continue-wrap">
-        <button class="continue-btn" onclick="goToStep(1)">Next: Their List &rarr;</button>
+    </div>
+    <div class="card-area" id="cardAreaA"></div>
+    <div class="swipe-done" id="doneA" style="display:none">
+      <h3>Done!</h3>
+      <div class="swipe-stats">
+        <div class="swipe-stat been-s"><div class="num" id="beenCountA">0</div><div class="lbl">Been</div></div>
+        <div class="swipe-stat want-s"><div class="num" id="wantCountA">0</div><div class="lbl">Want</div></div>
+        <div class="swipe-stat skip-s"><div class="num" id="skipCountA">0</div><div class="lbl">Skip</div></div>
       </div>
+      <button class="action-btn" onclick="goStep(2)">Now Their Turn &rarr;</button>
     </div>
   </div>
 
-  <!-- ==================== STEP 1: Their List ==================== -->
-  <div class="step" id="step1">
+  <!-- ===== STEP 2: Their URL ===== -->
+  <div class="step" id="step2">
     <div class="url-card">
       <label>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
-        Their List
+        Their Google Maps List
       </label>
-      <div class="url-input-wrap">
+      <div class="url-row">
         <input type="text" id="urlB" placeholder="https://maps.app.goo.gl/..." autocomplete="off">
         <button class="paste-btn" onclick="pasteInto('urlB')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           Paste
         </button>
       </div>
-      <div class="hint">Ask them to share their Google Maps list &rarr; paste the link</div>
-      <div class="status" id="statusB"></div>
-      <div class="json-input" id="jsonWrapB">
-        <textarea id="jsonB" placeholder='Or paste gmaps-list JSON output...'></textarea>
-      </div>
+      <div class="hint">Hand them your phone or ask for their list link</div>
+      <div class="json-box" id="jsonWrapB"><textarea id="jsonB" placeholder="Or paste gmaps-list JSON..."></textarea></div>
     </div>
-
     <div class="error-msg" id="errorB"></div>
+    <div class="toggle-link"><button onclick="toggleJson('B')">Have JSON?</button></div>
+    <div class="action-wrap"><button class="action-btn" id="loadB" onclick="loadPlaces('B')">Load Their Places</button></div>
+    <div class="loading" id="loadingB"><div class="spinner"></div><div class="loading-text">Fetching their places...</div></div>
+  </div>
 
-    <div class="toggle-mode">
-      <button onclick="toggleJson('B')">Have JSON from <code>gmaps-list</code>?</button>
-    </div>
-
-    <div class="load-wrap">
-      <button class="load-btn" id="loadBtnB" onclick="loadList('B')">Load Their Places</button>
-    </div>
-
-    <div class="loading" id="loadingB">
-      <div class="spinner"></div>
-      <div class="loading-text">Fetching their places...</div>
-      <div class="loading-sub">Following redirects, parsing list data</div>
-    </div>
-
-    <div class="places-preview" id="previewB" style="display:none">
-      <div class="preview-header">
-        <h3 id="previewTitleB">Their Places <span class="count-badge" id="previewCountB">0</span></h3>
-        <span class="list-meta" id="previewMetaB"></span>
+  <!-- ===== STEP 3: Swipe THEIR places ===== -->
+  <div class="step" id="step3">
+    <div class="swipe-header">
+      <h2>Their Places</h2>
+      <div class="swipe-counter"><span id="swipeCountB">0</span> / <span id="swipeTotalB">0</span></div>
+      <div class="swipe-legend">
+        <span><span class="dot" style="background:var(--match)"></span> Been here</span>
+        <span><span class="dot" style="background:var(--want)"></span> Want to go</span>
+        <span><span class="dot" style="background:var(--skip)"></span> Skip</span>
       </div>
-      <div class="places-scroll" id="previewListB"></div>
-      <div class="continue-wrap">
-        <button class="load-btn" onclick="runMatch()">See the Match &hearts;</button>
+    </div>
+    <div class="card-area" id="cardAreaB"></div>
+    <div class="swipe-done" id="doneB" style="display:none">
+      <h3>Done!</h3>
+      <div class="swipe-stats">
+        <div class="swipe-stat been-s"><div class="num" id="beenCountB">0</div><div class="lbl">Been</div></div>
+        <div class="swipe-stat want-s"><div class="num" id="wantCountB">0</div><div class="lbl">Want</div></div>
+        <div class="swipe-stat skip-s"><div class="num" id="skipCountB">0</div><div class="lbl">Skip</div></div>
       </div>
+      <button class="action-btn" onclick="revealMatch()">See the Match &hearts;</button>
     </div>
   </div>
 
-  <!-- ==================== STEP 2: Results ==================== -->
-  <div class="step" id="step2">
-    <!-- Score -->
+  <!-- ===== STEP 4: Results ===== -->
+  <div class="step" id="step4">
     <div class="score-section">
       <div class="score-ring-wrap">
         <svg class="score-ring" viewBox="0 0 200 200">
-          <circle class="score-ring-bg" cx="100" cy="100" r="90"/>
-          <circle class="score-ring-fill" id="scoreRing" cx="100" cy="100" r="90"/>
+          <circle class="score-ring-bg" cx="100" cy="100" r="80"/>
+          <circle class="score-ring-fill" id="scoreRing" cx="100" cy="100" r="80"/>
         </svg>
         <div class="score-number" id="scoreNumber">0<span>%</span></div>
       </div>
-      <div class="score-label">compatibility score</div>
+      <div class="score-label">compatibility</div>
       <div class="match-badge" id="matchBadge"></div>
     </div>
 
-    <!-- Breakdown -->
-    <div class="breakdown" id="breakdown">
-      <div class="breakdown-item">
-        <div class="val" id="nameVal">0%</div>
-        <div class="lbl">Name Overlap</div>
-      </div>
-      <div class="breakdown-item">
-        <div class="val" id="geoVal">0%</div>
-        <div class="lbl">Geo Overlap</div>
-      </div>
-    </div>
+    <div class="match-cats" id="matchCats"></div>
 
-    <!-- Shared Places -->
-    <div class="shared-section" id="sharedSection">
-      <div class="section-header">
-        <svg viewBox="0 0 24 24" fill="none" stroke="url(#pinGrad)" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        <h2>Shared Spots</h2>
-        <span class="badge" id="sharedCount">0</span>
-      </div>
-      <div class="shared-grid" id="sharedGrid"></div>
-    </div>
-
-    <!-- Side by Side -->
     <div class="lists-section" id="listsSection">
-      <div class="section-header">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <h2>All Places</h2>
-      </div>
       <div class="lists-grid">
-        <div class="list-col">
-          <h3>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
-            <span id="listALabel">Your Places</span>
-          </h3>
-          <div id="listAItems"></div>
-        </div>
-        <div class="list-col">
-          <h3>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
-            <span id="listBLabel">Their Places</span>
-          </h3>
-          <div id="listBItems"></div>
-        </div>
+        <div class="list-col"><h3 id="listALabel">You</h3><div id="listAItems"></div></div>
+        <div class="list-col"><h3 id="listBLabel">Them</h3><div id="listBItems"></div></div>
       </div>
     </div>
 
-    <!-- Try Again -->
     <div class="again-wrap">
-      <button class="again-btn" onclick="resetAll()">Try Another Match</button>
+      <button class="secondary-btn" onclick="resetAll()">Try Another Match</button>
     </div>
   </div>
 </div>
 
-<!-- Confetti container -->
 <div class="confetti-wrap" id="confetti"></div>
 
 <div class="footer">
-  Data never leaves your browser. No tracking, no accounts. &middot;
+  No server sees your places. Everything runs in your browser. &middot;
   <a href="https://github.com/anupamchugh/gmaps-list">gmaps-list</a> &middot;
   <a href="https://anupamchugh.github.io">anupamchugh</a>
 </div>
 
 <script>
-// ====== CONFIG ======
-const API_BASE = "https://placematch-api.vercel.app";
+const API = "https://placematch-api.vercel.app";
 
 // ====== STATE ======
-let placesA = null;
-let placesB = null;
-let metaA = {};
-let metaB = {};
+let rawA = [], rawB = [];
+let swipesA = {}, swipesB = {}; // name -> 'been'|'want'|'skip'
+let metaA = {}, metaB = {};
+let currentDeck = null;
 
-// ====== STEP NAVIGATION ======
-function goToStep(n) {
+// ====== NAVIGATION ======
+function goStep(n) {
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
   document.getElementById('step' + n).classList.add('active');
-  document.querySelectorAll('.step-dot').forEach((d, i) => {
-    d.className = 'step-dot';
+  document.querySelectorAll('.prog-dot').forEach((d, i) => {
+    d.className = 'prog-dot';
     if (i < n) d.classList.add('done');
     if (i === n) d.classList.add('current');
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Start swipe deck if entering swipe step
+  if (n === 1) buildDeck('A', rawA);
+  if (n === 3) buildDeck('B', rawB);
 }
 
-// ====== PASTE BUTTON ======
-async function pasteInto(inputId) {
-  try {
-    const text = await navigator.clipboard.readText();
-    document.getElementById(inputId).value = text;
-    document.getElementById(inputId).dispatchEvent(new Event('input'));
-  } catch {
-    document.getElementById(inputId).focus();
-  }
+// ====== PASTE / JSON TOGGLE ======
+async function pasteInto(id) {
+  try { document.getElementById(id).value = await navigator.clipboard.readText(); } catch { document.getElementById(id).focus(); }
 }
+function toggleJson(side) { document.getElementById('jsonWrap' + side).classList.toggle('show'); }
 
-// ====== TOGGLE JSON MODE ======
-function toggleJson(side) {
-  const wrap = document.getElementById('jsonWrap' + side);
-  wrap.classList.toggle('show');
-}
-
-// ====== LOAD LIST ======
-async function loadList(side) {
-  const urlInput = document.getElementById('url' + side);
-  const jsonInput = document.getElementById('json' + side);
-  const errorEl = document.getElementById('error' + side);
-  const loadingEl = document.getElementById('loading' + side);
-  const previewEl = document.getElementById('preview' + side);
-  const loadBtn = document.getElementById('loadBtn' + side);
-  const urlCard = urlInput.closest('.url-card');
-
-  errorEl.classList.remove('show');
-  errorEl.textContent = '';
-
-  // Determine input mode: JSON textarea or URL
+// ====== LOAD PLACES ======
+async function loadPlaces(side) {
+  const urlEl = document.getElementById('url' + side);
+  const jsonEl = document.getElementById('json' + side);
+  const errEl = document.getElementById('error' + side);
+  const loadEl = document.getElementById('loading' + side);
+  const btnEl = document.getElementById('load' + side);
   const jsonWrap = document.getElementById('jsonWrap' + side);
-  const useJson = jsonWrap.classList.contains('show') && jsonInput.value.trim();
-  const url = urlInput.value.trim();
 
-  if (!useJson && !url) {
-    errorEl.textContent = 'Paste a Google Maps list URL or switch to JSON mode.';
-    errorEl.classList.add('show');
-    return;
-  }
+  errEl.classList.remove('show');
+  const useJson = jsonWrap.classList.contains('show') && jsonEl.value.trim();
+  const url = urlEl.value.trim();
+
+  if (!useJson && !url) { errEl.textContent = 'Paste a Google Maps list URL.'; errEl.classList.add('show'); return; }
 
   if (useJson) {
-    // Parse JSON directly
     try {
-      const parsed = JSON.parse(jsonInput.value.trim());
-      if (!Array.isArray(parsed) || parsed.length === 0) throw new Error('Empty or not an array');
-      if (side === 'A') { placesA = parsed; metaA = { list_name: 'Your List', owner: null }; }
-      else { placesB = parsed; metaB = { list_name: 'Their List', owner: null }; }
-      showPreview(side, parsed, side === 'A' ? metaA : metaB);
+      const arr = JSON.parse(jsonEl.value.trim());
+      if (!Array.isArray(arr) || !arr.length) throw new Error('Not a valid array');
+      if (side === 'A') { rawA = arr; metaA = { list_name: 'Your List' }; }
+      else { rawB = arr; metaB = { list_name: 'Their List' }; }
+      goStep(side === 'A' ? 1 : 3);
       return;
-    } catch (e) {
-      errorEl.textContent = 'Invalid JSON: ' + e.message;
-      errorEl.classList.add('show');
-      return;
-    }
+    } catch (e) { errEl.textContent = 'Invalid JSON: ' + e.message; errEl.classList.add('show'); return; }
   }
 
-  // URL mode — fetch via proxy
-  loadBtn.disabled = true;
-  urlCard.style.display = 'none';
-  document.querySelector('#step' + (side === 'A' ? '0' : '1') + ' .toggle-mode').style.display = 'none';
-  loadingEl.classList.add('show');
-
+  btnEl.disabled = true;
+  loadEl.classList.add('show');
   try {
-    const resp = await fetch(API_BASE + '/api/fetch?url=' + encodeURIComponent(url));
-    const data = await resp.json();
-
-    if (!resp.ok || data.error) {
-      throw new Error(data.error || 'Failed to fetch');
-    }
-
-    if (!data.places || data.places.length === 0) {
-      throw new Error('No places found in this list');
-    }
-
-    const meta = { list_name: data.list_name, owner: data.owner };
-    if (side === 'A') { placesA = data.places; metaA = meta; }
-    else { placesB = data.places; metaB = meta; }
-
-    loadingEl.classList.remove('show');
-    showPreview(side, data.places, meta);
+    const r = await fetch(API + '/api/fetch?url=' + encodeURIComponent(url));
+    const d = await r.json();
+    if (!r.ok || d.error) throw new Error(d.error || 'Failed');
+    if (!d.places?.length) throw new Error('No places found');
+    if (side === 'A') { rawA = d.places; metaA = { list_name: d.list_name, owner: d.owner }; }
+    else { rawB = d.places; metaB = { list_name: d.list_name, owner: d.owner }; }
+    loadEl.classList.remove('show');
+    goStep(side === 'A' ? 1 : 3);
   } catch (e) {
-    loadingEl.classList.remove('show');
-    urlCard.style.display = '';
-    document.querySelector('#step' + (side === 'A' ? '0' : '1') + ' .toggle-mode').style.display = '';
-    loadBtn.disabled = false;
-    errorEl.textContent = e.message || 'Failed to load. Try pasting JSON instead.';
-    errorEl.classList.add('show');
+    loadEl.classList.remove('show');
+    btnEl.disabled = false;
+    errEl.textContent = e.message; errEl.classList.add('show');
   }
 }
 
-// ====== SHOW PREVIEW ======
-function showPreview(side, places, meta) {
-  const previewEl = document.getElementById('preview' + side);
-  const countEl = document.getElementById('previewCount' + side);
-  const metaEl = document.getElementById('previewMeta' + side);
-  const listEl = document.getElementById('previewList' + side);
+// ====== SWIPE DECK ======
+function buildDeck(side, places) {
+  const area = document.getElementById('cardArea' + side);
+  const counterEl = document.getElementById('swipeCount' + side);
+  const totalEl = document.getElementById('swipeTotal' + side);
+  const doneEl = document.getElementById('done' + side);
+  const swipes = side === 'A' ? swipesA : swipesB;
 
-  countEl.textContent = places.length;
-  metaEl.textContent = meta.list_name + (meta.owner ? ' by ' + meta.owner : '');
+  area.innerHTML = '';
+  doneEl.style.display = 'none';
+  totalEl.textContent = places.length;
+  counterEl.textContent = '0';
+  let idx = 0;
 
-  listEl.innerHTML = '';
-  for (const p of places) {
-    const row = document.createElement('div');
-    row.className = 'preview-row';
-    row.innerHTML =
-      '<svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>' +
-      '<span class="pname">' + esc(p.name) + '</span>' +
-      (p.address ? '<span class="paddr">' + esc(p.address) + '</span>' : '');
-    listEl.appendChild(row);
+  // Show top 3 cards (stacked)
+  function renderStack() {
+    area.innerHTML = '';
+    for (let i = Math.min(idx + 2, places.length - 1); i >= idx; i--) {
+      if (i >= places.length) continue;
+      const p = places[i];
+      const depth = i - idx;
+      const card = document.createElement('div');
+      card.className = 'swipe-card';
+      card.style.zIndex = 10 - depth;
+      card.style.transform = `scale(${1 - depth * 0.04}) translateY(${depth * 8}px)`;
+      card.style.opacity = depth === 0 ? 1 : 0.6 - depth * 0.2;
+
+      card.innerHTML = `
+        <div class="card-overlay been">Been here</div>
+        <div class="card-overlay want">Want to go</div>
+        <div class="card-overlay skip-o">Skip</div>
+        <div class="card-top">
+          <div class="card-name">${esc(p.name)}</div>
+          <div class="card-addr">${esc(p.address || '')}</div>
+          ${p.latitude ? `<div class="card-coords">${p.latitude.toFixed(4)}, ${p.longitude.toFixed(4)}</div>` : ''}
+        </div>
+        <div class="card-bottom">
+          <div class="card-action skip-btn" onclick="event.stopPropagation();swipeAction('skip')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </div>
+          <div class="card-action want-btn" onclick="event.stopPropagation();swipeAction('want')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>
+          </div>
+          <div class="card-action been-btn" onclick="event.stopPropagation();swipeAction('been')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+        </div>
+      `;
+
+      // Touch/drag on top card only
+      if (depth === 0) setupDrag(card);
+      area.appendChild(card);
+    }
   }
 
-  previewEl.style.display = 'block';
-  previewEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-// ====== RUN MATCH ======
-function runMatch() {
-  if (!placesA || !placesB) return;
-  goToStep(2);
-
-  const result = compare(placesA, placesB);
-
-  // Reset animations
-  document.getElementById('scoreRing').style.strokeDashoffset = '565.48';
-  document.getElementById('matchBadge').classList.remove('reveal');
-  document.getElementById('breakdown').classList.remove('reveal');
-  document.getElementById('sharedSection').classList.remove('reveal');
-  document.getElementById('listsSection').classList.remove('reveal');
-
-  // Trigger animations after a beat
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      // Score ring
-      const circumference = 2 * Math.PI * 90;
-      const offset = circumference - (result.compatibility / 100) * circumference;
-      document.getElementById('scoreRing').style.strokeDashoffset = offset;
-
-      // Animate number
-      animateNumber('scoreNumber', result.compatibility);
-
-      // Breakdown
-      document.getElementById('nameVal').textContent = (result.nameScore * 100).toFixed(1) + '%';
-      document.getElementById('geoVal').textContent = (result.geoScore * 100).toFixed(1) + '%';
-
-      // Match badge
-      const badge = document.getElementById('matchBadge');
-      const score = result.compatibility;
-      if (score >= 50) {
-        badge.className = 'match-badge high';
-        badge.innerHTML = heartSVG() + " It's a match!";
-      } else if (score >= 20) {
-        badge.className = 'match-badge med';
-        badge.innerHTML = sparkSVG() + ' Some overlap';
+  function swipeAction(type) {
+    if (idx >= places.length) return;
+    const name = norm(places[idx].name);
+    swipes[name] = type;
+    const topCard = area.querySelector('.swipe-card[style*="z-index: 10"]') || area.lastElementChild;
+    if (topCard) {
+      topCard.classList.add('animating');
+      if (type === 'been') topCard.style.transform = 'translateX(120%) rotate(15deg)';
+      else if (type === 'want') topCard.style.transform = 'translateX(-120%) rotate(-15deg)';
+      else topCard.style.transform = 'translateY(-120%)';
+      topCard.style.opacity = '0';
+    }
+    idx++;
+    counterEl.textContent = idx;
+    setTimeout(() => {
+      if (idx >= places.length) {
+        area.innerHTML = '';
+        showSwipeSummary(side, swipes);
       } else {
-        badge.className = 'match-badge low';
-        badge.innerHTML = xSVG() + ' Different tastes';
+        renderStack();
       }
-      setTimeout(() => badge.classList.add('reveal'), 50);
-      setTimeout(() => document.getElementById('breakdown').classList.add('reveal'), 50);
+    }, 300);
+  }
 
-      // Shared places
-      const sharedSection = document.getElementById('sharedSection');
-      const sharedGrid = document.getElementById('sharedGrid');
-      document.getElementById('sharedCount').textContent = result.sharedPlaces.length;
-      sharedGrid.innerHTML = '';
-      if (result.sharedPlaces.length === 0) {
-        sharedSection.style.display = 'none';
-      } else {
-        sharedSection.style.display = '';
-        result.sharedPlaces.forEach((p, i) => {
-          const card = document.createElement('div');
-          card.className = 'shared-card';
-          card.style.animationDelay = (1.6 + i * 0.08) + 's';
-          card.innerHTML = '<div class="name">' + esc(p.name) + '</div>' +
-            '<div class="addr">' + esc(p.address || '') + '</div>';
-          if (p.google_maps_url) {
-            card.style.cursor = 'pointer';
-            card.onclick = () => window.open(p.google_maps_url, '_blank');
-          }
-          sharedGrid.appendChild(card);
-        });
-      }
-      setTimeout(() => sharedSection.classList.add('reveal'), 50);
+  // Make swipeAction accessible
+  window.swipeAction = swipeAction;
 
-      // Side by side
-      const sharedNorm = new Set(result.shared);
-      document.getElementById('listALabel').textContent = (metaA.list_name || 'Your Places') + ' (' + placesA.length + ')';
-      document.getElementById('listBLabel').textContent = (metaB.list_name || 'Their Places') + ' (' + placesB.length + ')';
-      renderList('listAItems', placesA, sharedNorm);
-      renderList('listBItems', placesB, sharedNorm);
-      setTimeout(() => document.getElementById('listsSection').classList.add('reveal'), 50);
+  function setupDrag(card) {
+    let startX = 0, startY = 0, dx = 0, dy = 0, dragging = false;
+    const overlayBeen = card.querySelector('.card-overlay.been');
+    const overlayWant = card.querySelector('.card-overlay.want');
+    const overlaySkip = card.querySelector('.card-overlay.skip-o');
 
-      // Confetti on high match
-      if (score >= 50) {
-        setTimeout(fireConfetti, 1200);
-      }
-    });
-  });
+    function onStart(e) {
+      dragging = true;
+      const t = e.touches ? e.touches[0] : e;
+      startX = t.clientX; startY = t.clientY;
+      card.style.transition = 'none';
+    }
+    function onMove(e) {
+      if (!dragging) return;
+      e.preventDefault();
+      const t = e.touches ? e.touches[0] : e;
+      dx = t.clientX - startX;
+      dy = t.clientY - startY;
+      const rotate = dx * 0.08;
+      card.style.transform = `translateX(${dx}px) translateY(${dy}px) rotate(${rotate}deg)`;
+      const absDx = Math.abs(dx), absDy = Math.abs(dy);
+      overlayBeen.style.opacity = dx > 30 ? Math.min((dx - 30) / 80, 1) : 0;
+      overlayWant.style.opacity = dx < -30 ? Math.min((-dx - 30) / 80, 1) : 0;
+      overlaySkip.style.opacity = (dy < -30 && absDx < 60) ? Math.min((-dy - 30) / 80, 1) : 0;
+    }
+    function onEnd() {
+      if (!dragging) return;
+      dragging = false;
+      card.style.transition = '';
+      if (dx > 80) { swipeAction('been'); return; }
+      if (dx < -80) { swipeAction('want'); return; }
+      if (dy < -80 && Math.abs(dx) < 60) { swipeAction('skip'); return; }
+      // Snap back
+      card.style.transform = 'scale(1) translateY(0)';
+      overlayBeen.style.opacity = 0;
+      overlayWant.style.opacity = 0;
+      overlaySkip.style.opacity = 0;
+    }
+    card.addEventListener('mousedown', onStart);
+    card.addEventListener('touchstart', onStart, { passive: false });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onEnd);
+    window.addEventListener('touchend', onEnd);
+  }
+
+  renderStack();
 }
 
-// ====== RESET ======
-function resetAll() {
-  placesA = null;
-  placesB = null;
-  metaA = {};
-  metaB = {};
-
-  // Reset inputs
-  ['A', 'B'].forEach(side => {
-    document.getElementById('url' + side).value = '';
-    document.getElementById('json' + side).value = '';
-    document.getElementById('error' + side).classList.remove('show');
-    document.getElementById('loading' + side).classList.remove('show');
-    document.getElementById('preview' + side).style.display = 'none';
-    document.getElementById('loadBtn' + side).disabled = false;
-    document.getElementById('jsonWrap' + side).classList.remove('show');
-
-    const urlCard = document.getElementById('url' + side).closest('.url-card');
-    urlCard.style.display = '';
-    const stepIdx = side === 'A' ? 0 : 1;
-    const toggleEl = document.querySelector('#step' + stepIdx + ' .toggle-mode');
-    if (toggleEl) toggleEl.style.display = '';
-  });
-
-  // Reset score ring
-  document.getElementById('scoreRing').style.strokeDashoffset = '565.48';
-  document.getElementById('scoreNumber').innerHTML = '0<span>%</span>';
-
-  goToStep(0);
+function showSwipeSummary(side, swipes) {
+  const doneEl = document.getElementById('done' + side);
+  let been = 0, want = 0, skip = 0;
+  for (const v of Object.values(swipes)) {
+    if (v === 'been') been++;
+    else if (v === 'want') want++;
+    else skip++;
+  }
+  document.getElementById('beenCount' + side).textContent = been;
+  document.getElementById('wantCount' + side).textContent = want;
+  document.getElementById('skipCount' + side).textContent = skip;
+  doneEl.style.display = 'block';
 }
 
-// ====== COMPARISON ALGORITHM ======
-function haversine(lat1, lon1, lat2, lon2) {
-  const R = 6371000;
-  const toRad = d => d * Math.PI / 180;
-  const dLat = toRad(lat2 - lat1);
-  const dLon = toRad(lon2 - lon1);
-  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon/2)**2;
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
+// ====== MATCH REVEAL ======
+function revealMatch() {
+  goStep(4);
 
-function norm(s) {
-  return (s || '').trim().toLowerCase().replace(/\s+/g, ' ');
-}
+  // Categorize matches
+  const bothBeen = [], bothWant = [], youShowThem = [], theyShowYou = [], geoNear = [];
 
-function geoOverlap(from, to, threshold) {
-  const fWith = from.filter(p => p.latitude != null && p.longitude != null);
-  const tWith = to.filter(p => p.latitude != null && p.longitude != null);
-  if (!fWith.length || !tWith.length) return 0;
-  let matches = 0;
-  for (const a of fWith) {
-    for (const b of tWith) {
-      if (haversine(a.latitude, a.longitude, b.latitude, b.longitude) <= threshold) {
-        matches++;
+  const allNamesA = new Set(rawA.map(p => norm(p.name)));
+  const allNamesB = new Set(rawB.map(p => norm(p.name)));
+  const placeMapA = {}; rawA.forEach(p => placeMapA[norm(p.name)] = p);
+  const placeMapB = {}; rawB.forEach(p => placeMapB[norm(p.name)] = p);
+
+  // Check every combination
+  for (const [name, typeA] of Object.entries(swipesA)) {
+    const typeB = swipesB[name];
+    if (typeB) {
+      // Both swiped this place
+      if (typeA === 'been' && typeB === 'been') bothBeen.push(placeMapA[name] || { name });
+      else if (typeA === 'want' && typeB === 'want') bothWant.push(placeMapA[name] || { name });
+      else if (typeA === 'been' && typeB === 'want') youShowThem.push(placeMapA[name] || { name });
+      else if (typeA === 'want' && typeB === 'been') theyShowYou.push(placeMapB[name] || { name });
+    }
+  }
+
+  // Geo-nearby: places within 500m that aren't name-matched
+  const matchedNames = new Set([...bothBeen, ...bothWant, ...youShowThem, ...theyShowYou].map(p => norm(p.name)));
+  for (const a of rawA) {
+    if (!a.latitude || matchedNames.has(norm(a.name))) continue;
+    for (const b of rawB) {
+      if (!b.latitude || matchedNames.has(norm(b.name)) || norm(a.name) === norm(b.name)) continue;
+      if (haversine(a.latitude, a.longitude, b.latitude, b.longitude) <= 500) {
+        geoNear.push({ a, b });
         break;
       }
     }
   }
-  return matches / fWith.length;
-}
 
-function compare(pA, pB) {
-  const namesA = new Set(pA.map(p => norm(p.name)));
-  const namesB = new Set(pB.map(p => norm(p.name)));
-  const shared = [...namesA].filter(n => n && namesB.has(n));
-  const union = new Set([...namesA, ...namesB]);
-  union.delete('');
-  const nameScore = union.size === 0 ? 0 : shared.length / union.size;
-  const geoAB = geoOverlap(pA, pB, 500);
-  const geoBA = geoOverlap(pB, pA, 500);
+  // Score: weighted by swipe categories
+  const totalUnique = new Set([...Object.keys(swipesA), ...Object.keys(swipesB)]).size || 1;
+  const strongMatches = bothBeen.length * 3 + bothWant.length * 2 + youShowThem.length + theyShowYou.length;
+  const maxPossible = totalUnique * 3;
+  const categoryScore = Math.min((strongMatches / maxPossible) * 100, 100);
+
+  // Geo overlap
+  const geoAB = geoOverlap(rawA, rawB, 500);
+  const geoBA = geoOverlap(rawB, rawA, 500);
   const geoScore = (geoAB + geoBA) / 2;
-  const compatibility = nameScore * 60 + geoScore * 40;
-  const sharedNorm = new Set(shared);
-  const sharedPlaces = pA.filter(p => sharedNorm.has(norm(p.name)));
-  return { nameScore, geoScore, compatibility, shared, sharedPlaces };
+
+  const compatibility = categoryScore * 0.65 + geoScore * 100 * 0.35;
+
+  // Render score
+  const circumference = 2 * Math.PI * 80;
+  document.getElementById('scoreRing').style.strokeDasharray = circumference;
+  document.getElementById('scoreRing').style.strokeDashoffset = circumference;
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    const offset = circumference - (compatibility / 100) * circumference;
+    document.getElementById('scoreRing').style.strokeDashoffset = offset;
+    animateNumber('scoreNumber', compatibility);
+
+    const badge = document.getElementById('matchBadge');
+    if (compatibility >= 40) {
+      badge.className = 'match-badge high';
+      badge.innerHTML = heartSVG() + " It's a match!";
+    } else if (compatibility >= 15) {
+      badge.className = 'match-badge med';
+      badge.innerHTML = sparkSVG() + ' Some overlap';
+    } else {
+      badge.className = 'match-badge low';
+      badge.innerHTML = xSVG() + ' Different tastes';
+    }
+    setTimeout(() => badge.classList.add('reveal'), 50);
+
+    // Render match categories
+    const catsEl = document.getElementById('matchCats');
+    catsEl.innerHTML = '';
+    if (bothBeen.length) catsEl.appendChild(makeCatSection('both-been', 'Both been here', 'Your shared history', bothBeen, '#22c55e', heartSVG()));
+    if (bothWant.length) catsEl.appendChild(makeCatSection('both-want', 'Both want to go', 'Date idea!', bothWant, '#3b82f6', sparkSVG()));
+    if (youShowThem.length) catsEl.appendChild(makeCatSection('you-show', 'You can show them', "You've been, they want to go", youShowThem, '#a855f7', arrowSVG()));
+    if (theyShowYou.length) catsEl.appendChild(makeCatSection('they-show', 'They can show you', "They've been, you want to go", theyShowYou, '#ec4899', arrowSVG()));
+    if (geoNear.length) {
+      const nearPlaces = geoNear.map(g => ({ name: g.a.name + ' \u2194 ' + g.b.name, address: 'Within 500m of each other' }));
+      catsEl.appendChild(makeCatSection('geo', 'Nearby vibes', 'Different places, same neighborhood', nearPlaces, '#f97316', pinSVG()));
+    }
+    setTimeout(() => catsEl.classList.add('reveal'), 50);
+
+    // Side by side (name overlap)
+    const sharedNames = new Set([...bothBeen, ...bothWant, ...youShowThem, ...theyShowYou].map(p => norm(p.name)));
+    document.getElementById('listALabel').textContent = (metaA.list_name || 'You') + ' (' + rawA.length + ')';
+    document.getElementById('listBLabel').textContent = (metaB.list_name || 'Them') + ' (' + rawB.length + ')';
+    renderList('listAItems', rawA, sharedNames);
+    renderList('listBItems', rawB, sharedNames);
+    setTimeout(() => document.getElementById('listsSection').classList.add('reveal'), 50);
+
+    if (compatibility >= 40) setTimeout(fireConfetti, 1200);
+  }));
 }
 
-// ====== RENDER HELPERS ======
-function renderList(containerId, places, sharedNorm) {
-  const el = document.getElementById(containerId);
-  el.innerHTML = '';
-  const sorted = [...places].sort((a, b) => {
-    const aS = sharedNorm.has(norm(a.name)) ? 0 : 1;
-    const bS = sharedNorm.has(norm(b.name)) ? 0 : 1;
-    return aS - bS;
+function makeCatSection(cls, title, desc, places, color, icon) {
+  const sec = document.createElement('div');
+  sec.className = 'match-cat';
+  sec.innerHTML = `
+    <div class="match-cat-header">
+      <span style="color:${color}">${icon}</span>
+      <h3>${title}</h3>
+      <span class="cnt">${places.length}</span>
+      <span class="desc">${desc}</span>
+    </div>
+    <div class="match-cards">${places.map((p, i) =>
+      `<div class="match-card ${cls}" style="animation-delay:${1 + i * 0.06}s">
+        <div class="mc-name">${esc(p.name)}</div>
+        <div class="mc-addr">${esc(p.address || '')}</div>
+      </div>`
+    ).join('')}</div>
+  `;
+  return sec;
+}
+
+// ====== RESET ======
+function resetAll() {
+  rawA = []; rawB = []; swipesA = {}; swipesB = {}; metaA = {}; metaB = {};
+  ['A', 'B'].forEach(s => {
+    document.getElementById('url' + s).value = '';
+    document.getElementById('json' + s).value = '';
+    document.getElementById('error' + s).classList.remove('show');
+    document.getElementById('loading' + s).classList.remove('show');
+    document.getElementById('load' + s).disabled = false;
+    document.getElementById('jsonWrap' + s).classList.remove('show');
   });
-  for (const p of sorted) {
-    const isShared = sharedNorm.has(norm(p.name));
-    const row = document.createElement('div');
-    row.className = 'place-row' + (isShared ? ' is-shared' : '');
-    row.textContent = p.name;
-    el.appendChild(row);
-  }
+  document.getElementById('scoreRing').style.strokeDashoffset = '502.65';
+  document.getElementById('scoreNumber').innerHTML = '0<span>%</span>';
+  document.getElementById('matchBadge').classList.remove('reveal');
+  document.getElementById('matchCats').classList.remove('reveal');
+  document.getElementById('listsSection').classList.remove('reveal');
+  goStep(0);
 }
 
+// ====== UTILS ======
+function haversine(lat1, lon1, lat2, lon2) {
+  const R = 6371000, toRad = d => d * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1), dLon = toRad(lon2 - lon1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+function norm(s) { return (s || '').trim().toLowerCase().replace(/\s+/g, ' '); }
+function geoOverlap(from, to, t) {
+  const f = from.filter(p => p.latitude), tw = to.filter(p => p.latitude);
+  if (!f.length || !tw.length) return 0;
+  let m = 0;
+  for (const a of f) { for (const b of tw) { if (haversine(a.latitude, a.longitude, b.latitude, b.longitude) <= t) { m++; break; } } }
+  return m / f.length;
+}
+function renderList(id, places, shared) {
+  const el = document.getElementById(id); el.innerHTML = '';
+  [...places].sort((a, b) => (shared.has(norm(a.name)) ? 0 : 1) - (shared.has(norm(b.name)) ? 0 : 1))
+    .forEach(p => {
+      const r = document.createElement('div');
+      r.className = 'place-row' + (shared.has(norm(p.name)) ? ' is-shared' : '');
+      r.textContent = p.name; el.appendChild(r);
+    });
+}
 function animateNumber(id, target) {
-  const el = document.getElementById(id);
-  const duration = 1500;
-  const start = performance.now();
-  function step(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(eased * target);
-    el.innerHTML = current + '<span>%</span>';
-    if (progress < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
+  const el = document.getElementById(id), dur = 1500, start = performance.now();
+  (function step(now) {
+    const p = Math.min((now - start) / dur, 1), e = 1 - (1 - p) ** 3;
+    el.innerHTML = Math.round(e * target) + '<span>%</span>';
+    if (p < 1) requestAnimationFrame(step);
+  })(performance.now());
 }
-
 function fireConfetti() {
-  const wrap = document.getElementById('confetti');
-  wrap.innerHTML = '';
-  const colors = ['#a855f7', '#ec4899', '#f97316', '#22c55e', '#eab308', '#3b82f6'];
+  const w = document.getElementById('confetti'); w.innerHTML = '';
+  const colors = ['#a855f7','#ec4899','#f97316','#22c55e','#eab308','#3b82f6'];
   for (let i = 0; i < 60; i++) {
-    const c = document.createElement('div');
-    c.className = 'confetti';
-    c.style.left = Math.random() * 100 + '%';
-    c.style.background = colors[Math.floor(Math.random() * colors.length)];
-    c.style.width = (4 + Math.random() * 6) + 'px';
-    c.style.height = (4 + Math.random() * 6) + 'px';
-    c.style.animationDuration = (2 + Math.random() * 2) + 's';
-    c.style.animationDelay = Math.random() * 0.5 + 's';
-    wrap.appendChild(c);
+    const c = document.createElement('div'); c.className = 'confetti';
+    c.style.left = Math.random()*100+'%'; c.style.background = colors[~~(Math.random()*colors.length)];
+    c.style.width = (4+Math.random()*6)+'px'; c.style.height = (4+Math.random()*6)+'px';
+    c.style.animationDuration = (2+Math.random()*2)+'s'; c.style.animationDelay = Math.random()*.5+'s';
+    w.appendChild(c);
   }
-  setTimeout(() => wrap.innerHTML = '', 5000);
+  setTimeout(() => w.innerHTML = '', 5000);
 }
-
-function esc(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-function heartSVG() {
-  return '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
-}
-function sparkSVG() {
-  return '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>';
-}
-function xSVG() {
-  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>';
-}
+function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function heartSVG() { return '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'; }
+function sparkSVG() { return '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>'; }
+function xSVG() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20"><path d="M18 6L6 18M6 6l12 12"/></svg>'; }
+function arrowSVG() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'; }
+function pinSVG() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'; }
 </script>
 </body>
 </html>
