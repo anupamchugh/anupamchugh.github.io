@@ -1,6 +1,21 @@
-# Rules as Infrastructure: The Hidden Cost of Teaching AI How to Code
+# I Wrote 40 Rules for My AI. They Cost More Than My Bugs.
 
 Source: Dogfooding Session Sage on 27 Claude Code sessions (Feb 11, 2026)
+
+## Titles
+
+- **Blog title**: "I Wrote 40 Rules for My AI. They Cost More Than My Bugs."
+- **HN submission title**: "Rules Files Are the New node_modules"
+
+Scored by Yegge (viral potential) and Hashimoto (technical credibility):
+
+| Title | Yegge | Hashimoto | Notes |
+|-------|-------|-----------|-------|
+| I Wrote 40 Rules... Cost More Than My Bugs | 9/10 | 7/10 | Personal, specific number, surprising claim |
+| Rules Files Are the New node_modules | 10/10 | 6/10 | Perfect HN bait — everyone hates node_modules |
+| Silent Success: Why Your Hooks Cost More Than Bugs | 7/10 | 9/10 | Most technically precise, less viral |
+| The Invisible 30%: Structural Waste in Automated Systems | 5/10 | 8/10 | Enterprise-y, low click rate |
+| You Instrument Your Servers. Why Not Your AI Sessions? | 8/10 | 7/10 | Good question format, but "AI sessions" narrows audience |
 
 ## The Gap on HN
 
@@ -22,13 +37,19 @@ A new category of engineering infrastructure has emerged: prose instructions tha
 ### 1. Boot Tax
 Every AI coding session loads all rules at start. 40 rule files = 13K tokens before any work happens. 27 sessions/day = 351K tokens just booting. Same economics as Lambda cold starts or Docker image pulls — fixed cost per invocation, proportionally brutal for short operations.
 
+**CI parallel**: Your CI pipeline runs `npm install` before every job. Even the one that just checks a typo in a README. The install step takes 90 seconds whether the test takes 2 seconds or 20 minutes. That's boot tax. The AI version is identical — rules load whether the session needs them or not.
+
 ### 2. Validation Tax
 Hooks/checks that fire on every operation. 6 hooks x every bash command = 1,811 invocations/day. Each injects "system-reminder" text into context even when the check passes. The principle: success should be invisible. Only failure should generate signal.
+
+**CI parallel**: Scroll past 500 green checkmarks in your CI output. Each "OK" line was logged, transmitted, rendered, and ignored. Multiply by every PR, every day. Green output is structural waste — it exists for debugging failures that haven't happened.
 
 ### 3. Re-read Tax
 Rules and reference files loaded repeatedly across sessions with no caching layer. A 600-line routing skill read 28 times in one day, never edited. An 8,000-line UI file read 96 times, edited 15 times.
 
-## The Data (anonymized for the post)
+**CI parallel**: Your CI re-downloads the same Docker base image for every build. The image hasn't changed in 3 months. Layer caching exists but you haven't set it up. Same pattern — repeated reads of unchanged content because the system doesn't track freshness.
+
+## The Data
 
 ```
 27 automated coding sessions in one day
@@ -44,6 +65,8 @@ Rules and reference files loaded repeatedly across sessions with no caching laye
   Exploration waste:      16K (1.0%)
 ```
 
+Don't need to anonymize this — it's my own project, my own sessions. The specific numbers matter because they're real, not theoretical.
+
 ## Key Insight: Rules Are the New Dependencies
 
 | Aspect | Code Dependencies | Prose Rules |
@@ -56,7 +79,7 @@ Rules and reference files loaded repeatedly across sessions with no caching laye
 | Consolidation | Tree shaking | ??? (nobody trims prose rules) |
 | Measurement | Bundle analyzers | ??? (nobody measures rule cost) |
 
-The "???" column is the blog post. We built tools to fill those gaps. The pattern is general.
+The "???" column is the blog post. The pattern is general.
 
 ## Principles to Extract (framework-agnostic)
 
@@ -69,11 +92,43 @@ Fixed cost per operation means short operations are proportionally more expensiv
 ### Rules Decay Like Code
 Rules written for a codebase that changed 6 months ago are worse than no rules — they give false confidence. Rules need the same lifecycle as code: write, test, measure, deprecate, delete.
 
+### Rules Contradict Silently
+Two ESLint rules that contradict each other throw an error. Two prose rules that contradict each other both get followed — partially, incorrectly, or alternately. You get inconsistent behavior with no stack trace. This is worse than no rules at all, because you can't debug "sometimes the AI does X and sometimes Y" without reading all 40 rule files and spotting the contradiction manually.
+
+### The New Hire Handbook Problem
+Each session starts by loading all context — every rule, every hook, every reference file. It's like handing a new hire a 200-page company handbook on day one and saying "read all of this before you touch anything." A new hire skims or ignores most of it. AI sessions can't skim — they process every token. But they also can't prioritize — a rule about JSON serialization gets the same weight as a rule about not losing money. The handbook gets thicker every week. Nobody removes pages. The new hire orientation takes longer every month.
+
 ### Measure the Ratio
 For any repeated automated operation: measure the work-to-overhead ratio. If overhead exceeds 20%, you have structural waste. The tools to measure this don't exist yet for most systems. Build them.
 
-### Line Passing
-Each session starts by loading all context into the runner (model/agent/pipeline). It's a relay race where the baton is an instruction set. The baton gets heavier every time you add a rule, and nobody notices until the runner is too slow. This is the rules equivalent of dependency bloat.
+## Counterarguments to Address
+
+### "Just use fewer rules"
+Yes, but you also "just" use fewer npm packages. The incentive structure works against you — each rule is individually reasonable, each package solves a real problem. The waste is emergent, not intentional. You need measurement to see it.
+
+### "This is an AI-specific problem"
+It isn't. CI pipelines, Docker builds, Kubernetes configs, ESLint rulesets, Terraform modules — all have the same boot tax, staleness, and contradiction problems. The AI case just makes the cost visible because tokens have a dollar price.
+
+### "Rules are cheap compared to model inference"
+Rules are cheap per-token. But they compound: 40 rules x 27 sessions x 365 days = overhead that dwarfs any single inference call. The same argument was made about logging ("disk is cheap") until someone measured their Datadog bill.
+
+### "My rules are all necessary"
+Audit them. We found rules about features deleted months ago, rules that contradicted each other, and rules that the AI couldn't follow anyway (too vague). Of our 40 rules, roughly 8 were actively useful. The rest were legacy, aspirational, or redundant.
+
+## Try This Yourself
+
+Two commands to find your own waste:
+
+```bash
+# Count your rules (Claude Code / Cursor / Windsurf)
+find . -name "*.md" -path "*rules*" -o -name ".cursorrules" | wc -l
+
+# Estimate boot tax (rough: ~250 tokens per rule file)
+find . -name "*.md" -path "*rules*" -exec wc -w {} + | tail -1
+# Divide total words by 0.75 for approximate tokens
+```
+
+If you have more than 15 rule files, you probably have contradictions. If more than 25, you almost certainly have rules about code that no longer exists.
 
 ## Angles for Expansion
 
@@ -97,15 +152,43 @@ Everyone who's waited 20 minutes for CI knows boot tax. Everyone who's scrolled 
 
 The AI coding assistant case is just the most visible instance because the cost is measured in dollars-per-token, not seconds-per-build. But the engineering principles are the same.
 
-## Title Candidates
+## Suggested Post Structure
 
-1. "Rules as Infrastructure: The Hidden Cost of Teaching AI How to Code"
-2. "The Invisible 30%: Structural Waste in Automated Systems"
-3. "Silent Success: Why Your Validation Hooks Cost More Than Your Bugs"
-4. "Boot Tax, Rule Bloat, and the New Dependency Problem"
-5. "You Instrument Your Servers. Why Don't You Instrument Your AI Sessions?"
+1. **Hook**: "I wrote 40 rules for my AI coding assistant. They cost more than my bugs."
+2. **The measurement**: What we found, with numbers (the data table)
+3. **The three taxes**: Boot, validation, re-read — with CI parallels for each
+4. **The dependency analogy**: The comparison table (rules = new node_modules)
+5. **The principles**: Silent success, boot tax curve, rules decay, contradictions, new hire handbook
+6. **Try this yourself**: The 2-command grep script readers can run right now
+7. **Counterarguments**: Address the 4 obvious objections
+8. **The "???" column**: What's missing and what to build
 
-Recommendation: #1 for the full post, #5 as the HN submission title (question format performs well on HN).
+## Yegge Survival Review
+
+**VERDICT: SURVIVES (4 High, 2 Medium)**
+
+| Lever | Score | Reason |
+|-------|-------|--------|
+| Insight Compression | HIGH | "30% structural waste" with data — can't re-derive this from first principles |
+| Substrate Efficiency | HIGH | Text analysis, no model calls needed to reproduce |
+| Broad Utility | HIGH | Anyone with .cursorrules, CLAUDE.md, or similar has this problem |
+| Publicity/Awareness | MED | node_modules analogy will land on HN, but needs the CI angle to go broader |
+| Friction | MED | "Try this yourself" section needed — readers must be able to reproduce |
+| Human Coefficient | HIGH | Rules are written BY humans FOR automated systems — irreducibly human |
+
+**What Yegge would cut**: Any mention of specific tools you built. The post is about the problem, not the solution. One line at most: "we built tools to measure this." Link to repo. Done.
+
+**What Yegge would add**: The non-AI example FIRST. Open with CI boot tax or ESLint bloat, then pivot to "and here's where it costs actual money." Broader entry point = broader audience.
+
+## Hashimoto Review
+
+**What Hashimoto approves**: Real data, specific numbers, reproducible methodology.
+
+**What Hashimoto would demand**:
+1. **"Try this yourself" section** — the 2-line grep command. Readers must be able to check their own waste in 30 seconds.
+2. **Show the methodology** — how did you measure? Not just "we analyzed transcripts" but "we parsed JSONL session logs for tool_use events and counted tokens by category."
+3. **Reproduce twice** — did you run the analysis twice on different days? If 27 sessions on day 1 showed 30% waste, what did day 2 show? Reproducibility is credibility.
+4. **One mention of your tool, max** — the post is about the discovery, not the product. If readers smell a product launch, they'll dismiss the data.
 
 ## Prior Art to Reference
 
@@ -118,5 +201,5 @@ Recommendation: #1 for the full post, #5 as the HN submission title (question fo
 
 ---
 Date: 2026-02-11
-Status: Notes captured, HN researched, no prior art found
-Next: Expand to full post, review with @blog refine, publish
+Status: Notes captured, HN researched, reviews done, ready for expansion
+Next: Expand to full post using suggested structure, @blog refine, publish
