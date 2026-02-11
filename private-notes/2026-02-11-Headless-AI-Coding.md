@@ -1,83 +1,124 @@
-# Headless AI Coding: codex exec vs claude -p
+# Headless AI Coding
 
-Source: Discovery while queuing overnight tasks (Feb 11, 2026)
+i was queuing a codex task from inside claude code and realized both CLIs have fire-and-forget modes. almost nobody talks about them.
 
-## The Two Headless Modes
+## the two commands
 
-Both major AI coding CLIs have fire-and-forget modes. Almost nobody uses them.
-
-**Codex CLI:**
 ```bash
-codex exec "refactor auth module"       # headless, autonomous
-codex exec --json "fix all lint errors" # structured output
+# codex — openai's cli
+codex exec "refactor the auth module"
+codex exec --json "fix lint errors"        # structured output for scripts
+
+# claude code — anthropic's cli
+claude -p "refactor the auth module"
+claude -p --output-format json "fix lint"  # same idea, different flag
+claude -p --max-turns 20 --allowedTools "Bash,Read,Write,Edit" "prompt"
 ```
 
-**Claude Code:**
+both give you an autonomous coding agent that reads files, writes code, runs tests, and commits. no chat UI. just a prompt in, code changes out.
+
+codex has a [github action](https://developers.openai.com/codex/github-action/). claude has `--allowedTools` for fine-grained permissions. cursor is building one too.
+
+## why this matters
+
+- these aren't chat completions. they have **full filesystem + git + tool access**
+- they can run for 20+ turns autonomously — read code, write fixes, run tests, iterate
+- they work in CI, cron jobs, pre-commit hooks, or just a background terminal tab
+- you can run 10 of them in parallel on different files
+
+## orchestration patterns
+
+this is where it gets interesting. you can **mix models**:
+
 ```bash
-claude -p "refactor auth module"                          # headless
-claude -p --output-format json --max-turns 20 "prompt"    # structured + bounded
+# pattern 1: claude plans, codex executes
+claude -p "analyze this codebase and write a refactoring plan" > plan.md
+codex exec "follow plan.md step by step, commit after each step"
+
+# pattern 2: parallel fan-out (one agent per file)
+for f in backend/api/*.py; do
+  claude -p "add type hints to $f" &
+done
+wait
+
+# pattern 3: implement + review (different model catches different bugs)
+codex exec "implement the feature in SPEC.md"
+claude -p "review the last 3 commits for bugs and security issues"
+
+# pattern 4: escalation (if one fails, try the other)
+claude -p --max-turns 5 "fix the failing test" || codex exec "fix the failing test"
+
+# pattern 5: overnight cron
+# crontab: 0 2 * * * /path/to/nightshift.sh
+claude -p "read beads with bd ready, pick top 3 by priority, fix them, commit each"
 ```
 
-Same idea, different ecosystems. Codex has a GitHub Action. Claude has `--allowedTools` for permission control.
+## mini demos
 
-## What Makes This Interesting
-
-These aren't chat. They're **autonomous execution runtimes** with full filesystem access, git, and tool use. The implications:
-
-1. **Overnight workers** — Queue 5 tasks before bed, wake up to PRs
-2. **CI/CD agents** — Not just linting. Actual code changes on every push
-3. **Pipeline composition** — Chain them: Claude analyzes, Codex implements, Claude reviews
-4. **Fan-out parallelism** — 10 `claude -p` processes on 10 different files simultaneously
-
-## Brainstorm: Mixing Them Together
-
-| Pattern | How | Why |
-|---|---|---|
-| **Claude plans, Codex executes** | `claude -p "write a plan for X" > plan.md && codex exec "follow plan.md"` | Claude is better at architecture, Codex at grunt work |
-| **Parallel fan-out** | `for f in src/*.py; do claude -p "fix types in $f" & done` | 10x throughput on independent files |
-| **Review loop** | `codex exec "implement feature" && claude -p "review the last commit"` | Different model catches different bugs |
-| **Nightly maintenance** | Cron job: `claude -p "run bd ready, pick top 3, fix them"` | Wake up to closed beads |
-| **A/B model comparison** | Run same prompt on both, diff the outputs | Find which model handles which task better |
-| **Escalation chain** | `claude -p --max-turns 5 "fix X" || codex exec "fix X"` | If one fails, try the other |
-
-## MVP Ideas
-
-### 1. `nightshift` — Overnight Task Runner
-A wrapper that reads your beads/issues, generates prompts, fans out to N headless agents, commits results, and sends a morning summary to Telegram.
-
-### 2. `arena` — Model A/B Testing for Code
-Run the same coding task on Claude + Codex + Gemini in parallel. Diff outputs. Score by: compiles? tests pass? lines changed? Human picks winner. Builds a dataset of "which model for which task."
-
-### 3. `pipeliner` — Composable AI Coding Pipelines
-YAML-defined pipelines:
-```yaml
-steps:
-  - agent: claude -p
-    prompt: "analyze {file} for security issues"
-    output: findings.json
-  - agent: codex exec
-    prompt: "fix issues in findings.json"
-  - agent: claude -p
-    prompt: "review the fix commit"
-```
-
-### 4. `swarmer` — Parallel File Processor
+### demo 1: add ABOUTME headers to every python file
 ```bash
-swarmer --agent "claude -p" --pattern "backend/**/*.py" --prompt "add type hints to {file}"
+for f in $(find backend/core -name "*.py"); do
+  claude -p "read $f, add a 2-line ABOUTME comment at the top describing what this file does. don't change anything else." &
+done
+wait
+git add -A && git commit -m "docs: add ABOUTME headers to core modules"
 ```
-Fans out one agent per file. Collects results. Auto-commits.
 
-## Yegge Survival Check
+### demo 2: nightly test fixer
+```bash
+#!/bin/bash
+# run at 2am via cron
+cd /path/to/project
+FAILS=$(cd backend && uv run pytest tests/ -x --tb=short 2>&1 | tail -20)
+if echo "$FAILS" | grep -q "FAILED"; then
+  claude -p "these tests are failing:\n$FAILS\nfix them. run tests after to verify."
+  git push
+fi
+```
 
-| Idea | Survives? | Why |
-|---|---|---|
-| nightshift | YES (28/30) | Solves real pain (overnight idle). One user (me) uses it tomorrow. Compounds. |
-| arena | MAYBE (20/30) | Fun but who needs it daily? Research tool, not workflow tool. |
-| pipeliner | NO (15/30) | YAML pipeline = framework. Frameworks die. Shell scripts + `&&` already work. |
-| swarmer | YES (26/30) | Dead simple. One command. Immediate value. Could be a 50-line bash script. |
+### demo 3: multi-model code review
+```bash
+# get two opinions
+claude -p "review the diff in this PR for bugs" > review-claude.md &
+codex exec "review the diff in this PR for bugs" > review-codex.md &
+wait
+claude -p "synthesize these two reviews into one: $(cat review-claude.md review-codex.md)"
+```
 
-**Verdict:** nightshift and swarmer survive. Arena is a weekend project. Pipeliner is over-engineered.
+### demo 4: fan-out refactor with takopi-style dispatch
+```bash
+# like banteg's takopi but for coding tasks
+SYMBOLS=("NIFTY" "BANKNIFTY" "SBIN" "RELIANCE")
+for sym in "${SYMBOLS[@]}"; do
+  claude -p "scan backend/ for hardcoded references to $sym, replace with instruments cache lookup" &
+done
+wait
+```
 
-## The Real Insight
+### demo 5: overnight beads worker
+```bash
+#!/bin/bash
+# reads your issue tracker, picks work, does it
+READY=$(bd ready --json | jq -r '.[0:3][] | .id + ": " + .title')
+claude -p "here are 3 open tasks:\n$READY\nfor each: read the bead, implement the fix, run tests, commit with the bead id in the message, close the bead with bd close."
+```
 
-The interesting thing isn't the tools — it's that **headless AI coding is undersold**. Everyone demos the chat interface. Nobody shows the cron job that fixes 10 beads overnight. The boring automation is where the compound returns live.
+## existing tools doing this
+
+- [myclaude](https://github.com/cexll/myclaude) — multi-agent orchestration across Claude, Codex, Gemini. uses a wrapper to abstract CLI differences
+- [claude-flow](https://github.com/ruvnet/claude-flow) — swarm orchestration for Claude Code. autopilot, ultrapilot (3-5x parallel), pipeline modes
+- [ccswarm](https://github.com/nwiizo/ccswarm) — git worktree isolation per agent. each agent works on its own branch
+- [cli-agent-orchestrator](https://aws.amazon.com/blogs/opensource/introducing-cli-agent-orchestrator-transforming-developer-cli-tools-into-a-multi-agent-powerhouse/) — AWS's take. routes tasks to the best available CLI agent
+- [codex github action](https://developers.openai.com/codex/github-action/) — run codex exec in CI on every push
+- banteg's [takopi](https://banteg.xyz/posts/takopi/) — not headless coding, but the dispatch pattern (workflows + voice notes + background polling) maps directly to headless agent orchestration
+
+## what's missing
+
+- **no native plan file support** — you can't `codex exec --plan plan.md`. you pass the plan as part of the prompt and hope it reads it
+- **no cross-agent memory** — claude doesn't know what codex did last run. you'd need shared files or a DB
+- **no built-in fan-out** — you're writing bash loops. a `swarmer` tool that parallelizes across files would be 50 lines of bash and immediately useful
+- **laptop-bound** — codex automations only run while your laptop is on. cloud execution is coming but not here yet
+
+## the real insight
+
+everyone demos the chat interface. nobody shows the cron job that closes 3 issues overnight. headless mode is undersold. the boring automation is where the compound returns live.
