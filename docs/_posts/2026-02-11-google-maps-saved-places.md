@@ -4,6 +4,7 @@ date: '2026-02-11T12:00:00.000Z'
 categories: ['tools', 'reverse-engineering']
 keywords: ['google-maps', 'cli', 'python', 'places', 'export']
 slug: /google-maps-saved-places
+private: true
 ---
 
 I have 95 saved restaurants in Google Maps. I've visited 3 of them.
