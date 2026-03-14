@@ -46,7 +46,7 @@ A freelance contract with a Gold Coast company led to one of my more interesting
 
 ## Agricx and the iOS Pivot (2018-2019)
 
-My JournalDev presence led to Agricx, an agri-tech startup using computer vision for crop quality assessment. I managed their Android team, integrating OpenCV and ArUco marker detection to bridge the gap between mobile and AI.
+My JournalDev presence led to Agricx, an agri-tech startup using computer vision for crop quality assessment. I managed their Android team and coordinated across the ML and web teams -- part developer, part orchestrator, bridging the gap between mobile and AI. The work involved integrating OpenCV and ArUco marker detection into the mobile pipeline.
 
 More importantly, I taught myself iOS development here and shipped their first enterprise iPad app solo. That single decision reshaped my career. I went from Android developer to mobile developer to, eventually, a SwiftUI early adopter who'd go on to write some of the framework's most-read tutorials.
 
