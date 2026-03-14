@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ten Years of Building: From $2 Apps to Algorithmic Trading"
+title: "Ten Years of Doing Stuff: From $2 Apps to Algorithmic Trading"
 date: 2026-03-14
 categories: [career, reflection]
 tags: [indie-dev, ios, trading, career, open-source]
@@ -46,7 +46,7 @@ A freelance contract with a Gold Coast company led to one of my more interesting
 
 ## Agricx and the iOS Pivot (2018-2019)
 
-My JournalDev presence led to Agricx, an agri-tech startup using computer vision for crop quality assessment. I led their Android team, integrating OpenCV and ArUco marker detection to bridge the gap between mobile and AI.
+My JournalDev presence led to Agricx, an agri-tech startup using computer vision for crop quality assessment. I managed their Android team, integrating OpenCV and ArUco marker detection to bridge the gap between mobile and AI.
 
 More importantly, I taught myself iOS development here and shipped their first enterprise iPad app solo. That single decision reshaped my career. I went from Android developer to mobile developer to, eventually, a SwiftUI early adopter who'd go on to write some of the framework's most-read tutorials.
 
@@ -74,7 +74,7 @@ Three newsletters, three modes of thinking: teach, analyze, laugh. It turns out 
 
 Alongside the writing, I built open-source iOS projects that became reference material for the community:
 
-- [**iowncode**](https://github.com/anupamchugh/iowncode) (900+ stars) -- A curated collection of iOS, ML, and AR projects: SwiftUI Tinder swipe cards, Vision credit card scanning, CoreML emoji detection, PencilKit + MapKit experiments
+- [**iowncode**](https://github.com/anupamchugh/iowncode) (900+ stars) -- A curated collection of iOS, ML, and AR projects: on-device CoreML classifiers (cat vs. dog, emoji detection), SwiftUI Tinder swipe cards, Vision credit card scanning, PencilKit + MapKit experiments
 - [**iOS14VisionHandPose**](https://github.com/anupamchugh/iOS14VisionHandPose) -- A Tinder-style card stack controlled entirely by hand gestures. Thumbs up to swipe right. No touching the screen
 - [**VisionCreditScan**](https://github.com/anupamchugh/VisionCreditScan) -- Real-time credit card scanning using Vision framework's rectangle detection and OCR
 - [**SwiftUIDallEAPI**](https://github.com/anupamchugh/SwiftUIDallEAPI) -- Edit faces using the DALL-E API with Vision face detection
