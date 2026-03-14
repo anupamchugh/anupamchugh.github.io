@@ -77,7 +77,6 @@ Alongside the writing, I built open-source iOS projects that became reference ma
 - [**iowncode**](https://github.com/anupamchugh/iowncode) (900+ stars) -- A curated collection of iOS, ML, and AR projects: on-device CoreML classifiers (cat vs. dog, emoji detection), SwiftUI Tinder swipe cards, Vision credit card scanning, PencilKit + MapKit experiments
 - [**iOS14VisionHandPose**](https://github.com/anupamchugh/iOS14VisionHandPose) -- A Tinder-style card stack controlled entirely by hand gestures. Thumbs up to swipe right. No touching the screen
 - [**VisionCreditScan**](https://github.com/anupamchugh/VisionCreditScan) -- Real-time credit card scanning using Vision framework's rectangle detection and OCR
-- [**SwiftUIDallEAPI**](https://github.com/anupamchugh/SwiftUIDallEAPI) -- Edit faces using the DALL-E API with Vision face detection
 
 These weren't portfolio projects. They started as questions -- "can I make an app that swipes Tinder cards with hand gestures?" -- and ended up as something others could learn from.
 
