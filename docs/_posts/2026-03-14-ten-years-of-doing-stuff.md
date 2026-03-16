@@ -18,6 +18,12 @@ I graduated without a job. Turned down a PPO from Syniverse during placement sea
 
 My first app was a movie review RSS feed reader. Lifetime earnings: $2. The minimum payout threshold was $100. My second was a Unity game with Harry Potter themes and graphics that looked like they were drawn during a turbulent flight. Both eventually vanished from the Play Store.
 
+<div style="display: flex; gap: 16px; justify-content: center; margin: 24px 0;">
+  <img src="/screenshots/career-journey/movie-reviews-app.png" alt="Movie Reviews app" style="max-width: 400px; border-radius: 8px;" />
+  <img src="/screenshots/career-journey/gimics-app.png" alt="Gimics game" style="width: 180px; border-radius: 8px;" />
+</div>
+*The last remaining screenshots of Movie Reviews and Gimics. For the archives.*
+
 **What I learned:** Shipping is easy. Shipping something people want is the actual job.
 
 ## The 30-Day Challenge (2015-2016)
@@ -27,6 +33,9 @@ After a costly DigitalOcean billing mistake, my father gave me an ultimatum: ear
 I started bidding on Android freelance projects at rates low enough to win bids against everyone. It worked. I landed contract after contract, eventually building a geolocation messaging app and writing tutorials for JournalDev.com.
 
 Over three years, I wrote **350+ Android tutorials**. The JournalDev Android app crossed 10,000 downloads. Writing taught me as much as coding: how to break down complexity, how to think from a reader's perspective, how to build an audience one useful post at a time.
+
+![JournalDev app on the Play Store](/screenshots/career-journey/journaldev-playstore.png)
+*The JournalDev app on the Play Store. For the archives.*
 
 ## Dourier (2016)
 
@@ -62,6 +71,8 @@ The ML/AI knowledge from Agricx, combined with early SwiftUI expertise, led me t
 
 Multiple articles hit the Hacker News front page. The satirical pieces traveled furthest.
 
+![Articles on the Hacker News front page](/screenshots/career-journey/hacker-news-frontpage.png)
+
 The writing eventually split into three Substacks, each covering a different voice:
 
 - [**iOSDevie**](https://iosdevie.substack.com) -- SwiftUI, CoreML, Vision, ARKit tutorials. The technical stuff: how to build things with Apple's frameworks, explained step by step
@@ -82,6 +93,8 @@ These weren't portfolio projects. They started as questions -- "can I make an ap
 
 ## Better Programming (2020-2023)
 
+![Better Programming](/screenshots/career-journey/better-programming-logo.png)
+
 In 2020, [Zack Shapiro](https://twitter.com/ZackShapiro) invited me to manage [Better Programming](https://betterprogramming.pub), one of Medium's largest tech publications, while he was on paternity leave. I filled in, and then stayed. [Tony Stubblebine](https://twitter.com/tonystubblebine), who later became CEO of Medium, offered me the full-time managing editor role.
 
 What followed was a three-year crash course in the creator economy -- from the inside. I wasn't just writing anymore. I was curating, moderating, recruiting writers, running newsletters, debugging the relationship between content and distribution. The role was part editor, part growth marketer, part therapist for writers whose traffic had mysteriously vanished overnight.
@@ -89,6 +102,9 @@ What followed was a three-year crash course in the creator economy -- from the i
 I started [**Coffee Bytes**](https://medium.com/@coffee_bytes), a newsletter designed to cheerlead for developer writers -- spotlighting their work, driving readers their way, building a community around the craft. It worked, for a while. But Medium's content factory system rewarded volume over curation, and the model I'd built couldn't survive the incentive structure it sat inside.
 
 The publication scaled from 50 million to 150 million lifetime pageviews during my time. Monthly views peaked near 6 million.
+
+![Medium stats](/screenshots/career-journey/medium-stats.png)
+*That mandatory screenshot of my Medium stats.*
 
 But the real education was watching the machine from behind the curtain. I learned how platform algorithms actually decide what surfaces and what gets buried -- and how little of it correlates with quality. I learned the psychology of creators (why they write, what makes them stay, what breaks them) and of consumers (what they click vs. what they read vs. what they share -- three very different things). I saw how the creator economy pulls you in: you start as a writer, become a curator, then a moderator, then suddenly you're spending more time managing the platform's incentives than doing the work that brought you there.
 
