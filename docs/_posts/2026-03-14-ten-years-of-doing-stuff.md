@@ -18,10 +18,10 @@ I graduated without a job. Turned down a PPO from Syniverse during placement sea
 
 My first app was a movie review RSS feed reader. Lifetime earnings: $2. The minimum payout threshold was $100. My second was a Unity game with Harry Potter themes and graphics that looked like they were drawn during a turbulent flight. Both eventually vanished from the Play Store.
 
-<div style="display: flex; gap: 16px; justify-content: center; margin: 24px 0;">
-  <img src="/screenshots/career-journey/movie-reviews-app.png" alt="Movie Reviews app" style="max-width: 400px; border-radius: 8px;" />
-  <img src="/screenshots/career-journey/gimics-app.png" alt="Gimics game" style="width: 180px; border-radius: 8px;" />
-</div>
+![Movie Reviews app](/screenshots/career-journey/movie-reviews-app.png)
+
+![Gimics game](/screenshots/career-journey/gimics-app.png)
+
 *The last remaining screenshots of Movie Reviews and Gimics. For the archives.*
 
 **What I learned:** Shipping is easy. Shipping something people want is the actual job.
@@ -133,10 +133,9 @@ A question I kept asking friends: "Where should we eat?" Not "what's rated highe
 
 [**Find Common Ground**](https://apps.apple.com/us/app/find-common-ground/id6759101340) is an iOS app where two people swipe through saved places -- restaurants, parks, landmarks -- and discover where their tastes match. Built with SwiftUI, SwiftData, and MapKit. The matching algorithm was the fun part; getting two people to actually complete the swipe flow was the hard part.
 
-<div style="display: flex; gap: 16px; justify-content: center; margin: 24px 0;">
-  <img src="/screenshots/career-journey/common-ground-welcome.png" alt="Common Ground Welcome" style="width: 240px; border-radius: 12px;" />
-  <img src="/screenshots/career-journey/common-ground-match.png" alt="Common Ground Match Results" style="width: 240px; border-radius: 12px;" />
-</div>
+![Common Ground Welcome](/screenshots/career-journey/common-ground-welcome.png)
+
+![Common Ground Match Results](/screenshots/career-journey/common-ground-match.png)
 
 On the [App Store](https://apps.apple.com/us/app/find-common-ground/id6759101340) now.
 
@@ -146,10 +145,9 @@ I kept describing playlists to friends in vibes -- "late night drive through the
 
 Playlist Hunter uses AI to generate Apple Music playlists from a text prompt. Room Mode lets multiple people contribute to the same playlist -- useful when everyone in the room has opinions about the aux.
 
-<div style="display: flex; gap: 16px; justify-content: center; margin: 24px 0;">
-  <img src="/screenshots/career-journey/playlist-hunter-login.png" alt="Playlist Hunter" style="width: 240px; border-radius: 12px;" />
-  <img src="/screenshots/career-journey/playlist-hunter-ai.png" alt="Playlist Hunter AI" style="width: 240px; border-radius: 12px;" />
-</div>
+![Playlist Hunter](/screenshots/career-journey/playlist-hunter-login.png)
+
+![Playlist Hunter AI](/screenshots/career-journey/playlist-hunter-ai.png)
 
 ### Shadowbook
 
