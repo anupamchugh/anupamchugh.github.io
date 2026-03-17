@@ -24,23 +24,6 @@ const apps = [
     price: 'Free',
     platform: 'iOS 17+',
   },
-  {
-    name: 'Playlist Hunter',
-    tagline: 'Describe a vibe. Get a playlist.',
-    description:
-      'Uses AI to generate Apple Music playlists from a text prompt. Room Mode lets multiple people contribute to the same playlist in real time.',
-    features: [
-      'AI-powered playlist generation from text prompts',
-      'Room Mode — collaborative playlists with friends',
-      'Apple Music integration',
-      'Save and share generated playlists',
-    ],
-    privacy: 'Your music taste stays on your device. Prompts are processed for playlist generation only.',
-    appStoreUrl: 'https://apps.apple.com/app/playlist-hunter/id6740211916',
-    category: 'Music',
-    price: 'Free',
-    platform: 'iOS 17+',
-  },
 ];
 
 export default function AppsPage() {
