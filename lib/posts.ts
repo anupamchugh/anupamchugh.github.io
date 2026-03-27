@@ -15,7 +15,7 @@ export type Post = {
   tags?: string[];
   draft?: boolean;
   private?: boolean;
-  type?: 'post' | 'note' | 'til';
+  type?: 'post' | 'note' | 'til' | 'review';
 };
 
 function parsePost(fileName: string, directory: string): Post | null {
@@ -33,13 +33,15 @@ function parsePost(fileName: string, directory: string): Post | null {
   const excerpt = data.excerpt || content.slice(0, 200).replace(/[#*_\[\]]/g, '').trim() + '...';
 
   // Determine type from categories or explicit type field
-  let type: 'post' | 'note' | 'til' = 'post';
+  let type: 'post' | 'note' | 'til' | 'review' = 'post';
   if (data.type) {
     type = data.type;
   } else if (data.categories?.includes('til')) {
     type = 'til';
   } else if (data.categories?.includes('notes') || data.tags?.includes('hn')) {
     type = 'note';
+  } else if (data.categories?.includes('reviews') || data.type === 'review') {
+    type = 'review';
   }
 
   // Notes from private-notes/ are always private
@@ -102,6 +104,12 @@ export function getNotes(includePrivate = false): Post[] {
 export function getTILs(): Post[] {
   return getAllPosts(false).filter(
     (post) => post.type === 'til' || post.categories?.includes('til')
+  );
+}
+
+export function getReviews(): Post[] {
+  return getAllPosts(false).filter(
+    (post) => post.type === 'review' || post.categories?.includes('reviews')
   );
 }
 
