@@ -18,11 +18,11 @@ I graduated without a job. Turned down a PPO from Syniverse during placement sea
 
 My first app was a movie review RSS feed reader. Lifetime earnings: $2. The minimum payout threshold was $100. My second was a Unity game with Harry Potter themes and graphics that looked like they were drawn during a turbulent flight. Both eventually vanished from the Play Store.
 
-![Movie Reviews app](/screenshots/career-journey/movie-reviews-app.png)
-
-![Gimics game](/screenshots/career-journey/gimics-app.png)
-
-*The last remaining screenshots of Movie Reviews and Gimics. For the archives.*
+<div class="image-grid">
+  <img src="/screenshots/career-journey/movie-reviews-app.png" alt="Movie Reviews app" />
+  <img src="/screenshots/career-journey/gimics-app.png" alt="Gimics game" />
+  <figcaption>The last remaining screenshots of Movie Reviews and Gimics. For the archives.</figcaption>
+</div>
 
 **What I learned:** Shipping is easy. Shipping something people want is the actual job.
 
@@ -131,11 +131,12 @@ I went deep into quantitative trading. Built a full-stack trading system from sc
 
 A question I kept asking friends: "Where should we eat?" Not "what's rated highest on Google Maps" but "where do *we* actually overlap?" Every group dinner started with twenty minutes of negotiation. I wanted to skip straight to the answer.
 
-[**Find Common Ground**](https://apps.apple.com/us/app/find-common-ground/id6759101340) is an iOS app where two people swipe through saved places -- restaurants, parks, landmarks -- and discover where their tastes match. Built with SwiftUI, SwiftData, and MapKit. The matching algorithm was the fun part; getting two people to actually complete the swipe flow was the hard part.
+[**Find Common Ground**](https://apps.apple.com/us/app/find-common-ground/id6759101340) is an iOS app that started as a place-matching experiment and kept growing. SwiftUI, SwiftData, MapKit, CloudKit, Multipeer Connectivity -- I kept finding excuses to wire in more frameworks. It now does route planning with timed timelines, trip journals with photo export, nearby discovery via MapKit search, and an async "vibe check" feature where two people react to each other's planned routes over CloudKit. The matching algorithm was the fun part; getting two people to actually complete any flow was the hard part. The one thing I got right: every shared route is a link that only opens in the app -- so the product spreads every time someone plans a Saturday with a friend.
 
-![Common Ground Welcome](/screenshots/career-journey/common-ground-welcome.png)
-
-![Common Ground Match Results](/screenshots/career-journey/common-ground-match.png)
+<div class="image-grid">
+  <img src="/screenshots/career-journey/common-ground-welcome.png" alt="Common Ground Welcome" />
+  <img src="/screenshots/career-journey/common-ground-match.png" alt="Common Ground Match Results" />
+</div>
 
 On the [App Store](https://apps.apple.com/us/app/find-common-ground/id6759101340) now.
 
@@ -143,11 +144,12 @@ On the [App Store](https://apps.apple.com/us/app/find-common-ground/id6759101340
 
 I kept describing playlists to friends in vibes -- "late night drive through the city," "Sunday morning coffee" -- and then spending thirty minutes manually searching for songs. So I built an app that takes the vibe and does the rest.
 
-Playlist Hunter uses AI to generate Apple Music playlists from a text prompt. Room Mode lets multiple people contribute to the same playlist -- useful when everyone in the room has opinions about the aux.
+**[Playlist Hunter](https://apps.apple.com/in/app/playlist-hunter/id6756028972)** uses AI to generate Apple Music playlists from a text prompt. Room Mode lets multiple people contribute to the same playlist -- useful when everyone in the room has opinions about the aux.
 
-![Playlist Hunter](/screenshots/career-journey/playlist-hunter-login.png)
-
-![Playlist Hunter AI](/screenshots/career-journey/playlist-hunter-ai.png)
+<div class="image-grid">
+  <img src="/screenshots/career-journey/playlist-hunter-login.png" alt="Playlist Hunter" />
+  <img src="/screenshots/career-journey/playlist-hunter-ai.png" alt="Playlist Hunter AI" />
+</div>
 
 ### Shadowbook
 
@@ -157,20 +159,12 @@ A project management tool for the era where your team includes three AI agents a
 
 ## What I've Learned
 
-Ten years distilled into four things:
+Most of it is obvious in hindsight.
 
-**Ship before you're ready.** My $2 app taught me more than any course. The MOBEY app shipped without onboarding and still got users. Perfectionism is procrastination wearing a lab coat.
+I spent years building on platforms that eventually changed the rules or disappeared. JournalDev got acquired, 350 articles gone overnight. Better Programming went on hiatus. Medium shifted focus. Every time, the work survived only if I'd kept a copy. The lesson took three rounds to stick: if you don't own the ground, you're just decorating someone else's house.
 
-**Own the ground you build on.** JournalDev, Medium, Better Programming -- every platform I built on eventually changed the rules or disappeared. Your own site, your own newsletter, your own audience. Everything else is rented land, and the landlord doesn't need your permission to demolish it.
+I also learned that the things I built out of curiosity taught me more than the things I built for a paycheck. Nobody asked me to make an app that swipes Tinder cards with hand gestures. Nobody needed a restaurant-matching app for indecisive friend groups. But those projects forced me into corners of the SDK I'd never have found otherwise, and the solutions I improvised there showed up later in real work.
 
-**Follow curiosity, not the market.** Hand-gesture Tinder swiping. Credit card scanning with computer vision. An app that matches friends by restaurants. None of these came from market research. All of them taught me things I couldn't have planned to learn.
+The filmmaking thing turned out to matter. I think about user flows the way I used to think about scenes -- setup, tension, payoff. My parents spent years worrying I was spread too thin. Turns out the scattered interests weren't a liability. They were the curriculum.
 
-**Build across disciplines.** Filmmaking gave me an eye for UX -- I think about user flows the way I used to think about scenes. The "jack of all trades" worry my parents had turned out to be the thing that set me apart.
-
----
-
-I don't know what the next ten years look like. I know I'll keep building, keep writing, keep following whatever curiosity won't let me sleep.
-
----
-
-*The code is on [GitHub](https://github.com/anupamchugh). The apps are on the App Store. The tutorials are on [iOSDevie](https://iosdevie.substack.com), the commentary on [Big Tech](https://thebigtech.substack.com), and the satire on [Humor Bytes](https://humorbytes.substack.com).*
+And the biggest one: shipping a bad thing teaches you more than planning a good one. My $2 app, the MOBEY launch with no onboarding, the Unity game with graphics drawn during a turbulent flight -- none of them were good. All of them were necessary.
