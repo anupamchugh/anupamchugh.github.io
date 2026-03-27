@@ -101,3 +101,7 @@ The prompt appears:
 `[Don't Allow]     [Allow]`
 
 You tapped Allow years ago. The maze wasn't meant for you. But you're in it now.
+
+---
+
+*[Full prose version on Substack](https://thebigtech.substack.com/p/observable-you)*
