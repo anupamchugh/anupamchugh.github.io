@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'photos',
-  description: 'Four photos. The ones that hold up after I\'ve forgotten the trip.',
+  description: 'Five photos. The ones that hold up after I\'ve forgotten the trip.',
 };
 
 type Photo = {
@@ -16,7 +16,7 @@ type Photo = {
   height: number;
 };
 
-// Four photos. Pinterest-style masonry via CSS columns so each tile keeps
+// Five photos. Pinterest-style masonry via CSS columns so each tile keeps
 // its real aspect ratio. Real pixel dimensions go to next/image so nothing
 // is upscaled and there's no layout shift.
 const photos: Photo[] = [
@@ -28,6 +28,15 @@ const photos: Photo[] = [
     year: 2022,
     width: 1152,
     height: 1440,
+  },
+  {
+    src: '/photographs/best-picks/mawsmai-cave-2022.jpg',
+    alt: 'A figure wedged in a narrow stalactite passage inside Mawsmai Cave, Cherrapunji',
+    caption: 'mawsmai cave',
+    location: 'Meghalaya',
+    year: 2022,
+    width: 1440,
+    height: 1538,
   },
   {
     src: '/photographs/best-picks/hoi-an-lantern-lady-2023.jpg',
@@ -69,7 +78,7 @@ export default function PhotosPage() {
           photos
         </h1>
         <p className="mt-6 text-base leading-relaxed text-secondary">
-          Four frames. Mostly iPhone. The ones I keep coming back to after
+          Five frames. Mostly iPhone. The ones I keep coming back to after
           I&apos;ve forgotten the trip.
         </p>
       </header>
@@ -106,7 +115,7 @@ export default function PhotosPage() {
       <footer className="mx-auto mt-24 max-w-2xl border-t border-border pt-8 text-xs leading-relaxed text-tertiary">
         All shot by me. iPhone SE → iPhone 15 Pro. Pulled out of ~20k frames
         with a small Vision-based script (aesthetics + face quality +
-        composition bonus, per-day dedup), then cut down to these four by
+        composition bonus, per-day dedup), then cut down to these five by
         eye. The Hoi An frame was re-graded in{' '}
         <a
           href="https://github.com/anupamchugh/emulsion"
