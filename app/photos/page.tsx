@@ -40,14 +40,14 @@ const photos: Photo[] = [
       'Hoi An during the full-moon lantern festival. I wasn\'t trying to shoot this — I walked past an empty cafe, saw the light, stopped. Red paper lanterns along the top, a single candle on the back table, ochre wall washed in the lanterns, and her looking off-frame in a white shirt. The kind of scene that only holds together if nobody notices you. Re-graded later in Emulsion; the raw frame was close enough that the grade is basically exposure and contrast.',
   },
   {
-    src: '/photographs/best-picks/surfers-walking-sri-lanka-2026.jpg',
-    alt: 'Two surfers walking up the beach in Sri Lanka with boards under their arms',
-    caption: 'Sri Lanka · 2026',
-    location: 'Weligama',
+    src: '/photographs/best-picks/surfers-walking-varkala-2026.jpg',
+    alt: 'Two surfers walking up the beach in Varkala with boards under their arms',
+    caption: 'Varkala, Kerala · 2026',
+    location: 'Varkala',
     year: 2026,
     aspect: 'landscape',
     note:
-      'Coming in after a morning session. The shot is mostly sand in the bottom half and sky in the top half; the two surfers are just the line that connects them. I like that neither of us is looking at the camera — you can read it as the session starting or ending and it doesn\'t matter. Shot handheld, no crop.',
+      'Coming in after a morning session at Varkala. The shot is mostly sand in the bottom half and sky in the top half; the two surfers are just the line that connects them. I like that neither of us is looking at the camera — you can read it as the session starting or ending and it doesn\'t matter. Shot handheld, no crop.',
   },
 ];
 
