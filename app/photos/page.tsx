@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'photos',
-  description: 'Three photos. The ones that hold up after I\'ve forgotten the trip.',
+  description: 'Four photos. The ones that hold up after I\'ve forgotten the trip.',
 };
 
 type Photo = {
@@ -17,7 +17,7 @@ type Photo = {
   note: string;
 };
 
-// Three photos. Not a travel archive. The ones that hold up after I've
+// Four photos. Not a travel archive. The ones that hold up after I've
 // forgotten the trip. Real pixel dimensions are passed to next/image so
 // nothing is upscaled and nothing is cropped.
 const photos: Photo[] = [
@@ -44,15 +44,26 @@ const photos: Photo[] = [
       'Hoi An during the full-moon lantern festival. Walked past an empty cafe, saw the light, stopped. Red lanterns along the top, a single candle on the back table, ochre wall washed in the lanterns, her in white looking off-frame. Re-graded later in Emulsion; the raw frame was close enough that the grade is basically exposure and contrast.',
   },
   {
-    src: '/photographs/best-picks/surfers-walking-varkala-2026.jpg',
-    alt: 'Two surfers walking up the beach in Varkala with boards under their arms',
-    caption: 'varkala',
+    src: '/photographs/best-picks/varkala-trio-2026.jpg',
+    alt: 'Three surfers in black and white raising boards above their heads next to a thatched beach hut in Varkala',
+    caption: 'varkala — i',
     location: 'Varkala, Kerala',
     year: 2026,
-    width: 4032,
+    width: 2870,
+    height: 4018,
+    note:
+      'Morning session, Varkala, April. Walked up from the cliff path and the three of them were lifting boards over a thatched beach hut. Tree trunk on the left, two surfboards forming a V over the hut, sea behind. Four planes of depth in one frame. Converted to B&W because the golden light would\'ve made the hut compete with the people; mono lets the boards do the talking.',
+  },
+  {
+    src: '/photographs/best-picks/varkala-couple-2026.jpg',
+    alt: 'Two surfers standing at the water\'s edge in Varkala carrying longboards on their heads, dusty pink late-afternoon light',
+    caption: 'varkala — ii',
+    location: 'Varkala, Kerala',
+    year: 2026,
+    width: 3024,
     height: 3024,
     note:
-      'Coming in after a morning session at Varkala. Mostly sand below, sky above, two surfers as the line that connects them. Neither of us is looking at the camera — could be the start of the session or the end and it doesn\'t matter.',
+      'Same trip, two days earlier. The light went weird halfway through the morning — silver-grey sky, magenta sand, green sea — like someone had pulled the saturation slider in three directions at once. I left it. Two surfers paused at the shorebreak, boards on their heads, mid-conversation. The frame is square because cropping a horizon out of it killed the mood.',
   },
 ];
 
@@ -67,33 +78,36 @@ export default function PhotosPage() {
           photos
         </h1>
         <p className="mt-6 text-base leading-relaxed text-secondary">
-          Three frames. Mostly iPhone. The ones I keep coming back to after
+          Four frames. Mostly iPhone. The ones I keep coming back to after
           I&apos;ve forgotten the trip.
         </p>
       </header>
 
       <div className="space-y-32">
         {photos.map((photo, idx) => {
-          const isPortrait = photo.height > photo.width;
+          const ratio = photo.width / photo.height;
+          // Three buckets so squares don't get blown up to landscape size.
+          const containerClass =
+            ratio < 0.95
+              ? 'mx-auto w-full max-w-xl'
+              : ratio > 1.05
+                ? 'mx-auto w-full max-w-5xl'
+                : 'mx-auto w-full max-w-2xl';
+          const sizesAttr =
+            ratio < 0.95
+              ? '(max-width: 640px) 100vw, 576px'
+              : ratio > 1.05
+                ? '(max-width: 1024px) 100vw, 1024px'
+                : '(max-width: 768px) 100vw, 672px';
           return (
             <figure key={photo.src} className="space-y-6">
-              <div
-                className={
-                  isPortrait
-                    ? 'mx-auto w-full max-w-xl'
-                    : 'mx-auto w-full max-w-5xl'
-                }
-              >
+              <div className={containerClass}>
                 <Image
                   src={photo.src}
                   alt={photo.alt}
                   width={photo.width}
                   height={photo.height}
-                  sizes={
-                    isPortrait
-                      ? '(max-width: 640px) 100vw, 576px'
-                      : '(max-width: 1024px) 100vw, 1024px'
-                  }
+                  sizes={sizesAttr}
                   className="h-auto w-full"
                   priority={idx === 0}
                   quality={92}
@@ -128,7 +142,7 @@ export default function PhotosPage() {
           small Vision-based script
         </a>{' '}
         (aesthetics + face quality + composition bonus, per-day dedup), then
-        cut down to these three by eye. The Hoi An frame was re-graded in{' '}
+        cut down to these four by eye. The Hoi An frame was re-graded in{' '}
         <a
           href="https://github.com/anupamchugh/emulsion"
           className="underline decoration-tertiary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
