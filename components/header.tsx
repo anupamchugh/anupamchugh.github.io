@@ -14,6 +14,7 @@ export default function Header() {
             <Link href="/notes/" className="hover:text-primary">notes</Link>
             <Link href="/reviews/" className="hover:text-primary">reviews</Link>
             <Link href="/apps/" className="hover:text-primary">apps</Link>
+            <Link href="/photos/" className="hover:text-primary">photos</Link>
             <Link href="/about/" className="hover:text-primary">about</Link>
           </div>
           <ThemeToggle />

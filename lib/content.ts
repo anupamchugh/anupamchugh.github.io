@@ -20,6 +20,7 @@ export const navItems: NavItem[] = [
   { href: "/notes/", label: "notes" },
   { href: "/reviews/", label: "reviews" },
   { href: "/apps/", label: "apps" },
+  { href: "/photos/", label: "photos" },
   { href: "/projects/", label: "projects" },
 ];
 
