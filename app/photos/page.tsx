@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'photos',
-  description: 'Five photos. The ones that hold up after I\'ve forgotten the trip.',
+  description: 'Six photos. The ones that hold up after I\'ve forgotten the trip.',
 };
 
 type Photo = {
@@ -16,10 +16,19 @@ type Photo = {
   height: number;
 };
 
-// Five photos. Pinterest-style masonry via CSS columns so each tile keeps
+// Six photos. Pinterest-style masonry via CSS columns so each tile keeps
 // its real aspect ratio. Real pixel dimensions go to next/image so nothing
 // is upscaled and there's no layout shift.
 const photos: Photo[] = [
+  {
+    src: '/photographs/best-picks/diwali-lights-2018.jpg',
+    alt: 'Silhouette of a man in profile with a red fairy-light bulb held at his eye, surrounded by coloured Diwali bokeh in the dark',
+    caption: 'diwali',
+    location: 'India',
+    year: 2018,
+    width: 4898,
+    height: 2755,
+  },
   {
     src: '/photographs/career-journey/misty-dog-kodaikanal.jpg',
     alt: 'A street dog walking out of the mist on a forest trail in Kodaikanal',
@@ -78,8 +87,8 @@ export default function PhotosPage() {
           photos
         </h1>
         <p className="mt-6 text-base leading-relaxed text-secondary">
-          Five frames. Mostly iPhone. The ones I keep coming back to after
-          I&apos;ve forgotten the trip.
+          Six frames. The ones I keep coming back to after I&apos;ve
+          forgotten the trip.
         </p>
       </header>
 
@@ -113,10 +122,11 @@ export default function PhotosPage() {
       </div>
 
       <footer className="mx-auto mt-24 max-w-2xl border-t border-border pt-8 text-xs leading-relaxed text-tertiary">
-        All shot by me. iPhone SE → iPhone 15 Pro. Pulled out of ~20k frames
-        with a small Vision-based script (aesthetics + face quality +
-        composition bonus, per-day dedup), then cut down to these five by
-        eye. The Hoi An frame was re-graded in{' '}
+        All shot by me. iPhone SE → iPhone 15 Pro (plus one DSLR night
+        in 2018). Pulled out of ~20k frames with a small Vision-based
+        script (aesthetics + face quality + composition bonus, per-day
+        dedup), then cut down to these six by eye. The Hoi An frame was
+        re-graded in{' '}
         <a
           href="https://github.com/anupamchugh/emulsion"
           className="underline decoration-tertiary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
