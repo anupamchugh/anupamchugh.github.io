@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'photos',
-  description: 'Six photos. The ones that hold up after I\'ve forgotten the trip.',
+  description: 'Eight photos. The ones that hold up after I\'ve forgotten the trip.',
 };
 
 type Photo = {
@@ -16,9 +16,9 @@ type Photo = {
   height: number;
 };
 
-// Six photos. Pinterest-style masonry via CSS columns so each tile keeps
-// its real aspect ratio. Real pixel dimensions go to next/image so nothing
-// is upscaled and there's no layout shift.
+// Pinterest-style masonry via CSS columns so each tile keeps its real
+// aspect ratio. Real pixel dimensions go to next/image so nothing is
+// upscaled and there's no layout shift.
 const photos: Photo[] = [
   {
     src: '/photographs/best-picks/diwali-lights-2018.jpg',
@@ -28,6 +28,15 @@ const photos: Photo[] = [
     year: 2018,
     width: 4898,
     height: 2755,
+  },
+  {
+    src: '/photographs/best-picks/peacock-2019.jpg',
+    alt: 'A peacock in profile against a dark forest backdrop, iridescent blue neck and crest in sharp focus',
+    caption: 'peacock',
+    location: 'Kanha',
+    year: 2019,
+    width: 1080,
+    height: 722,
   },
   {
     src: '/photographs/career-journey/misty-dog-kodaikanal.jpg',
@@ -46,6 +55,15 @@ const photos: Photo[] = [
     year: 2022,
     width: 1440,
     height: 1538,
+  },
+  {
+    src: '/photographs/best-picks/halong-bay-boats-2023.jpg',
+    alt: 'Two small wooden tour boats motoring between karst islands under an overcast sky in Ha Long Bay',
+    caption: 'ha long bay',
+    location: 'Vietnam',
+    year: 2023,
+    width: 3854,
+    height: 3024,
   },
   {
     src: '/photographs/best-picks/hoi-an-lantern-lady-2023.jpg',
@@ -87,7 +105,7 @@ export default function PhotosPage() {
           photos
         </h1>
         <p className="mt-6 text-base leading-relaxed text-secondary">
-          Six frames. The ones I keep coming back to after I&apos;ve
+          Eight frames. The ones I keep coming back to after I&apos;ve
           forgotten the trip.
         </p>
       </header>
@@ -122,11 +140,11 @@ export default function PhotosPage() {
       </div>
 
       <footer className="mx-auto mt-24 max-w-2xl border-t border-border pt-8 text-xs leading-relaxed text-tertiary">
-        All shot by me. iPhone SE → iPhone 15 Pro (plus one DSLR night
-        in 2018). Pulled out of ~20k frames with a small Vision-based
-        script (aesthetics + face quality + composition bonus, per-day
-        dedup), then cut down to these six by eye. The Hoi An frame was
-        re-graded in{' '}
+        All shot by me. iPhone SE → iPhone 15 Pro (plus a couple of DSLR
+        nights in 2018–19). Pulled out of ~20k frames with a small
+        Vision-based script (aesthetics + face quality + composition
+        bonus, per-day dedup), then cut down to these eight by eye. The
+        Hoi An frame was re-graded in{' '}
         <a
           href="https://github.com/anupamchugh/emulsion"
           className="underline decoration-tertiary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
