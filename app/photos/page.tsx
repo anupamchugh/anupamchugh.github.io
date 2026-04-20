@@ -1,19 +1,9 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
+import PhotoGrid, { type Photo } from '@/components/photo-grid';
 
 export const metadata: Metadata = {
   title: 'photos',
   description: 'Eight photos. The ones that hold up after I\'ve forgotten the trip.',
-};
-
-type Photo = {
-  src: string;
-  alt: string;
-  caption: string;
-  location: string;
-  year: number;
-  width: number;
-  height: number;
 };
 
 // Pinterest-style masonry via CSS columns so each tile keeps its real
@@ -110,34 +100,7 @@ export default function PhotosPage() {
         </p>
       </header>
 
-      {/* Pinterest-style masonry via CSS columns. No JS, no CLS. Items flow
-          top→bottom, then into the next column, so array order = reading
-          order on wide screens. */}
-      <div className="columns-1 gap-6 sm:columns-2 sm:gap-8">
-        {photos.map((photo, idx) => (
-          <figure
-            key={photo.src}
-            className="mb-6 break-inside-avoid sm:mb-8"
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              width={photo.width}
-              height={photo.height}
-              sizes="(max-width: 640px) 100vw, 50vw"
-              className="h-auto w-full"
-              priority={idx < 2}
-              quality={90}
-            />
-            <figcaption className="mt-3 flex items-baseline justify-between gap-3 font-mono text-[11px] uppercase tracking-[0.12em]">
-              <span className="text-primary">{photo.caption}</span>
-              <span className="text-tertiary">
-                {photo.location} · {photo.year}
-              </span>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+      <PhotoGrid photos={photos} />
 
       <footer className="mx-auto mt-24 max-w-2xl border-t border-border pt-8 text-xs leading-relaxed text-tertiary">
         All shot by me. iPhone SE → iPhone 15 Pro (plus a couple of DSLR
