@@ -48,6 +48,12 @@ export default function BestFaceForwardPrivacyPage() {
           service. The app does not include analytics SDKs, advertising SDKs, or
           third-party tracking SDKs.
         </p>
+        <p>
+          The app may optionally use an on-device Core ML model to explain why the
+          selected frame looks strongest. That model runs locally on your device.
+          Photos, videos, face analysis values, and prompts are not sent to the model
+          provider or to any server.
+        </p>
 
         <h2>Photo Library Access</h2>
         <p>
