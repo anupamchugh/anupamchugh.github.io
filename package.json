@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "blog-editor": "node scripts/blog-editor-server.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

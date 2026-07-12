@@ -165,22 +165,22 @@
 
 /* Modern Theme - black-first, serif prose */
 [data-theme="modern"] {
-  color-scheme: dark;
-  --bg: #0a0a0a;
-  --bg-secondary: #171717;
-  --bg-tertiary: #262626;
-  --fg: #fafafa;                    /* text-primary */
-  --fg-muted: #a3a3a3;              /* text-secondary */
-  --fg-subtle: #737373;             /* text-tertiary */
-  --fg-quaternary: #525252;         /* text-quaternary */
-  --accent: #fafafa;                /* Links same as text, underline on hover */
-  --accent-hover: #a3a3a3;
-  --border: #262626;
-  --selection-bg: rgba(255, 255, 255, 0.1);
-  --header-bg: rgba(10, 10, 10, 0.9);
-  --card-bg: #171717;
-  --code-bg: #171717;
-  --code-fg: #fafafa;
+  color-scheme: light;
+  --bg: #fbfaf7;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f2f0ea;
+  --fg: #151515;                    /* text-primary */
+  --fg-muted: #4a4a45;              /* text-secondary */
+  --fg-subtle: #77736a;             /* text-tertiary */
+  --fg-quaternary: #a8a298;         /* text-quaternary */
+  --accent: #151515;                /* Links same as text, underline on hover */
+  --accent-hover: #000000;
+  --border: #e4e0d7;
+  --selection-bg: rgba(21, 21, 21, 0.12);
+  --header-bg: rgba(251, 250, 247, 0.86);
+  --card-bg: #ffffff;
+  --code-bg: #f2f0ea;
+  --code-fg: #151515;
   --font-override: var(--font-ui-base);
   --font-prose: var(--font-prose-base);
   --max-width: 42rem;               /* max-w-2xl equivalent */
@@ -690,14 +690,14 @@ a:hover {
 
 /* Modern - Layout and spacing */
 [data-theme="modern"] main {
-  max-width: var(--max-width);
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: 0 1rem;
 }
 
 [data-theme="modern"] header {
   backdrop-filter: blur(12px);
-  border-bottom: none;
+  border-bottom: 1px solid var(--border);
 }
 
 /* Modern - Typography hierarchy */

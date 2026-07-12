@@ -1,18 +1,33 @@
-import { siteConfig } from '@/lib/content';
+import Link from 'next/link';
+import { EditModeToggle, EditableCopy } from '@/components/editable-copy';
 
 export default function Hero() {
   return (
-    <section className="mx-auto max-w-2xl px-4 pt-32 sm:px-6">
-      <p className="text-secondary">
-        {siteConfig.name} — I write code, then write about it.
-      </p>
-      <p className="mt-2 text-tertiary text-sm">
-        <a href={siteConfig.social.github} className="hover:text-primary">github</a>
-        {' · '}
-        <a href={siteConfig.social.twitter} className="hover:text-primary">x</a>
-        {' · '}
-        <a href={siteConfig.social.linkedin} className="hover:text-primary">linkedin</a>
-      </p>
+    <section className="mx-auto max-w-6xl px-4 pt-28 sm:px-6">
+      <div className="flex justify-end border-b border-border pb-4">
+        <EditModeToggle />
+      </div>
+
+      <div className="border-b border-border py-12">
+        <div>
+          <h1 className="mt-6 max-w-2xl text-5xl font-semibold leading-tight tracking-normal text-primary sm:text-6xl">
+            <EditableCopy
+              storageKey="home.headline"
+              placeholder="i build small apps, write essays, and trade."
+              multiline
+              textareaClassName="min-h-40 text-4xl leading-tight sm:text-5xl"
+            />
+          </h1>
+          <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <Link href="/work/" className="text-primary hover:underline underline-offset-4">
+              see my work
+            </Link>
+            <Link href="/posts/" className="text-primary hover:underline underline-offset-4">
+              read writing →
+            </Link>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

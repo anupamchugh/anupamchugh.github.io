@@ -24,6 +24,14 @@ export default function Footer() {
             >
               x
             </a>
+            <a
+              href={siteConfig.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary"
+            >
+              linkedin
+            </a>
             <Link href="/rss.xml" className="hover:text-primary">
               rss
             </Link>

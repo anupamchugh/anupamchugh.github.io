@@ -4,12 +4,12 @@ import { useTheme } from '@/lib/theme-context';
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const isDark = theme === 'modern';
+  const isDark = theme === 'hybrid-dark';
   const iconLabel = isDark ? 'Switch to light mode' : 'Switch to dark mode';
   return (
     <button
       type="button"
-      onClick={() => setTheme(isDark ? 'hybrid-light' : 'modern')}
+      onClick={() => setTheme(isDark ? 'modern' : 'hybrid-dark')}
       className="flex h-8 w-8 items-center justify-center rounded-full border transition-colors"
       style={{
         backgroundColor: 'var(--bg-secondary)',

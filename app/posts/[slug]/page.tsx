@@ -1,9 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import ReactMarkdown from 'react-markdown';
-import rehypeHighlight from 'rehype-highlight';
-import remarkGfm from 'remark-gfm';
+import PostBody from '@/components/post-body';
 import { getAllPosts, getPostBySlug } from '@/lib/posts';
 import { formatDate } from '@/lib/utils';
 
@@ -59,39 +57,18 @@ export default async function PostPage({ params }: PageProps) {
         <h1 className="mt-4 text-2xl font-semibold">
           {post.title}
         </h1>
+
+        {process.env.NODE_ENV === 'development' && (
+          <div className="mt-5 border-t border-border pt-4 text-xs leading-6 text-tertiary">
+            <p>edit source</p>
+            <code className="break-all text-primary">{post.sourcePath}</code>
+          </div>
+        )}
       </header>
 
       {/* Content */}
       <div className="prose mt-8">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeHighlight]}
-          components={{
-            img: ({ src, alt }) => {
-              const imgSrc = src?.startsWith('/') ? src : `/assets/${src}`;
-              return (
-                <img
-                  src={imgSrc}
-                  alt={alt || ''}
-                  loading="lazy"
-                />
-              );
-            },
-            code: ({ className, children, ...props }) => {
-              const isInline = !className;
-              if (isInline) {
-                return <code {...props}>{children}</code>;
-              }
-              return (
-                <code className={className} {...props}>
-                  {children}
-                </code>
-              );
-            },
-          }}
-        >
-          {post.content}
-        </ReactMarkdown>
+        <PostBody content={post.content} />
       </div>
 
       {/* Footer */}

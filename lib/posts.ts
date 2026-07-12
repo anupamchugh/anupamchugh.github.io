@@ -9,12 +9,16 @@ export type Post = {
   slug: string;
   title: string;
   date: string;
+  sourcePath: string;
   excerpt: string;
   content: string;
   categories?: string[];
   tags?: string[];
   draft?: boolean;
   private?: boolean;
+  source?: string;
+  sourceFile?: string;
+  canonicalUrl?: string;
   type?: 'post' | 'note' | 'til' | 'review';
 };
 
@@ -51,12 +55,16 @@ function parsePost(fileName: string, directory: string): Post | null {
     slug,
     title: data.title || slug.replace(/-/g, ' '),
     date: typeof date === 'string' ? date : date.toISOString(),
+    sourcePath: path.relative(process.cwd(), fullPath),
     excerpt,
     content,
     categories: data.categories || [],
     tags: data.keywords || data.tags || [],
     draft: data.draft || false,
     private: isPrivate,
+    source: data.source,
+    sourceFile: data.source_file,
+    canonicalUrl: data.canonical_url,
     type,
   };
 }
@@ -92,7 +100,13 @@ export function getAllPosts(includePrivate = false): Post[] {
 }
 
 export function getPublicPosts(): Post[] {
-  return getAllPosts(false).filter((post) => post.type === 'post');
+  return getAllPosts(false).filter((post) => post.type === 'post' && !post.draft && !post.private);
+}
+
+export function getDraftPosts(): Post[] {
+  return getPostsFromDirectory(postsDirectory)
+    .filter((post) => post.draft && !post.private)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getNotes(includePrivate = false): Post[] {

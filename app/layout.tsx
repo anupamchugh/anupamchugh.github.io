@@ -68,7 +68,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full scroll-smooth" data-font={activeFontPreset}>
+    <html
+      lang="en"
+      className="h-full scroll-smooth"
+      data-font={activeFontPreset}
+      data-theme="modern"
+      suppressHydrationWarning
+    >
       <body
         className={`${inter.variable} ${sourceSerif.variable} ${spaceGrotesk.variable} ${plexSans.variable} ${plexSerif.variable} ${workSans.variable} flex min-h-screen flex-col font-sans subpixel-antialiased`}
       >
