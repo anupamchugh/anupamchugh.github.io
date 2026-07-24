@@ -38,3 +38,9 @@ Thumbs.db
 coverage/
 
 # Specs and private-notes now tracked (repo is private)
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
+.beads/proxieddb/
