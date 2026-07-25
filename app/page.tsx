@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Hero from '@/components/hero';
-import { apps, selectedWork } from '@/lib/content';
+import HomeWorkTabs from '@/components/home-work-tabs';
 import { curatedPhotos } from '@/lib/photos';
 import { getRecentPosts } from '@/lib/posts';
 import { formatDate } from '@/lib/utils';
@@ -42,64 +42,16 @@ export default function HomePage() {
           </div>
 
           <div className="border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-            <div className="flex items-center justify-between gap-4">
-              <h2 className="text-xl font-semibold text-primary">selected work</h2>
-              <Link href="/work/" className="text-sm text-secondary hover:text-primary">
-                view all →
-              </Link>
-            </div>
-
-            <div className="mt-6 space-y-5">
-              {selectedWork.slice(0, 4).map((item) => (
-                <Link key={item.name} href={item.href} className="group block">
-                  <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-medium text-primary group-hover:underline underline-offset-4">
-                      {item.name.toLowerCase()}
-                    </h3>
-                    <span className="text-xs text-tertiary">{item.status}</span>
-                  </div>
-                  <p className="mt-1 text-sm leading-6 text-secondary">{item.description}</p>
-                </Link>
-              ))}
-            </div>
+            <HomeWorkTabs />
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-12 sm:px-6">
         <div className="grid gap-12 border-b border-border pb-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <div className="flex items-center justify-between gap-4">
-              <h2 className="text-xl font-semibold text-primary">shipped apps</h2>
-              <Link href="/apps/" className="text-sm text-secondary hover:text-primary">
-                view all →
-              </Link>
-            </div>
-
-            <div className="mt-6 space-y-4">
-              {apps.slice(0, 5).map((app) => (
-                <Link key={app.slug} href={app.href} className="group flex gap-4">
-                  {app.icon && (
-                    <Image
-                      src={app.icon}
-                      alt=""
-                      width={44}
-                      height={44}
-                      className="h-11 w-11 shrink-0 rounded-lg border border-border"
-                    />
-                  )}
-                  <div>
-                    <div className="flex items-baseline gap-3">
-                      <h3 className="font-medium text-primary group-hover:underline underline-offset-4">
-                        {app.name}
-                      </h3>
-                      <span className="text-xs text-tertiary">{app.status}</span>
-                    </div>
-                    <p className="mt-1 text-sm leading-6 text-secondary">{app.description}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+          <div className="flex items-center justify-between gap-4">
+            <p className="max-w-md text-sm leading-6 text-secondary">the work directory is intentionally small: reviewed projects first, shipped apps next, and older experiments in the archive.</p>
+            <Link href="/apps/" className="shrink-0 text-sm text-secondary hover:text-primary">apps →</Link>
           </div>
 
           <div className="border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
