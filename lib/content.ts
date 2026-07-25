@@ -57,6 +57,15 @@ export type AppItem = {
 
 export const apps: AppItem[] = [
   {
+    name: "Pastport",
+    slug: "pastport",
+    description: "on-device Safari history intelligence for macOS: movements, bookings, threads, and grounded local answers.",
+    status: "live",
+    href: "https://github.com/anupamchugh/pastport/releases/latest",
+    icon: "/app-icons/pastport.png",
+    tags: ["macOS", "on-device", "Foundation Models"],
+  },
+  {
     name: "Flickpot",
     slug: "flickpot",
     description: "a small iOS flicking game, live on the app store.",

@@ -1,11 +1,11 @@
 ---
-draft: true
+draft: false
 title: "Pastport: What Safari Remembers"
 date: '2026-07-25'
 categories: [building, privacy, ai]
 keywords: [Safari, macOS, Foundation Models, privacy, local AI]
 slug: /pastport-what-safari-remembers
-published: false
+published: true
 ---
 
 # Pastport: What Safari Remembers
