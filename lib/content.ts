@@ -179,14 +179,6 @@ export const selectedWork: WorkItem[] = [
     status: "archive",
     tags: ["core ml", "game"],
   },
-  {
-    name: "stockshots",
-    description:
-      "a trading signal surface still being built. not presented as live until the product is actually ready.",
-    href: "https://github.com/anupamchugh/kite-trading-platform",
-    status: "building",
-    tags: ["trading", "ios"],
-  },
 ];
 
 // This is intentionally a hand-maintained shelf. Public does not mean reviewed;
