@@ -47,6 +47,8 @@ An Australian startup originally called MUBER hired me to build their delivery a
 
 I was the lead Android developer, working alongside Nishant on iOS. We shipped an app without onboarding -- nobody stopped us. I set the order notification sound to "Here Comes The Money." It somehow made it into their advertising.
 
+[The MOBEY notification video](https://www.youtube.com/watch?v=-VCwMGz0Zvw)
+
 The company shut down in August 2017. But I'd learned what it felt like to own a product end-to-end -- from architecture decisions to last-minute rebrands to the sound a driver hears when an order lands.
 
 ## Aged Care Decisions (2017-2018)
