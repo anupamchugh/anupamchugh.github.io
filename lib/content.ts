@@ -189,6 +189,27 @@ export const selectedWork: WorkItem[] = [
   },
 ];
 
+// This is intentionally a hand-maintained shelf. Public does not mean reviewed;
+// only projects explicitly checked for ownership and presentation belong here.
+export const recentlyReviewedProjects: WorkItem[] = [
+  {
+    name: "pastport",
+    description:
+      "on-device Safari history intelligence for macOS, with local answers grounded in your own browsing history.",
+    href: "https://github.com/anupamchugh/pastport/releases/latest",
+    status: "live",
+    tags: ["macOS", "Foundation Models", "reviewed 2026"],
+  },
+  {
+    name: "takeout tax",
+    description:
+      "a local CLI that turns a Google Takeout export into an invoice for the migration cost of products that disappeared.",
+    href: "/work/takeout-tax/",
+    status: "archive",
+    tags: ["javascript", "privacy", "reviewed 2026"],
+  },
+];
+
 export type TimelineItem = {
   year: string;
   title: string;
