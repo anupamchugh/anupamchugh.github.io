@@ -247,6 +247,56 @@ header {
   text-decoration: none;
 }
 
+/* Homepage work tabs remain visible in the initial HTML and work without JavaScript. */
+.home-work-tab-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.home-work-tab-label {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  padding: 0.5rem 0.75rem;
+  color: var(--fg-subtle);
+  font-size: 0.875rem;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.home-work-tab-label:hover {
+  color: var(--fg);
+}
+
+.home-work-tab-input:focus-visible + .home-work-tab-label {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
+.home-work-tab-input:checked + .home-work-tab-label {
+  border-color: var(--fg);
+  color: var(--fg);
+}
+
+.home-work-panel-apps,
+.home-work-panel-archive {
+  display: none;
+}
+
+.home-work-tabs:has(#home-work-apps:checked) .home-work-panel-apps,
+.home-work-tabs:has(#home-work-archive:checked) .home-work-panel-archive {
+  display: block;
+}
+
+.home-work-tabs:has(#home-work-apps:checked) .home-work-panel-projects,
+.home-work-tabs:has(#home-work-archive:checked) .home-work-panel-projects,
+.home-work-tabs:has(#home-work-projects:checked) .home-work-panel-apps,
+.home-work-tabs:has(#home-work-projects:checked) .home-work-panel-archive {
+  display: none;
+}
+
 /* Mobile menu */
 .mobile-menu-btn {
   color: var(--fg-muted);
