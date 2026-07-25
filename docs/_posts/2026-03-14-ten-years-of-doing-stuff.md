@@ -8,106 +8,163 @@ tags: [indie-dev, ios, trading, career, open-source]
 
 *First published in February 2024. Expanded and updated for this blog.*
 
-I didn't choose engineering. My family did.
+I didn't choose engineering. My family did. I wanted to make films, play cricket professionally, compete in chess and table tennis tournaments. Instead, I got a B.Tech in Computer Science from BITS Pilani (2011-2015) with a CGPA that told you exactly how much attention I was paying.
 
-I wanted to make films, play cricket professionally, compete in chess and table tennis tournaments. Instead, I got a B.Tech in Computer Science from BITS Pilani, with a CGPA that made my priorities obvious.
+But reluctant engineers have one advantage: when they finally find problems worth solving, they don't approach them like everyone else.
 
-Reluctant engineers have one advantage. When they finally find a problem worth solving, they don't approach it like everyone else.
+## The $2 Lesson (2015)
 
-## The $2 lesson
+I graduated without a job. Turned down a PPO from Syniverse during placement season because I was convinced I'd build something better. Classic.
 
-My first app was a movie-review RSS reader. It made $2. The minimum payout threshold was $100.
+My first app was a movie review RSS feed reader. Lifetime earnings: $2. The minimum payout threshold was $100. My second was a Unity game with Harry Potter themes and graphics that looked like they were drawn during a turbulent flight. Both eventually vanished from the Play Store.
 
-My second was a Unity game with Harry Potter themes and graphics that looked like they had been drawn during a turbulent flight. Both eventually disappeared from the Play Store.
+<div class="image-grid">
+  <img src="/screenshots/career-journey/movie-reviews-app.png" alt="Movie Reviews app" />
+  <img src="/screenshots/career-journey/gimics-app.png" alt="Gimics game" />
+  <figcaption>The last remaining screenshots of Movie Reviews and Gimics. For the archives.</figcaption>
+</div>
 
-Shipping is easy. Shipping something people want is the actual job.
+**What I learned:** Shipping is easy. Shipping something people want is the actual job.
 
-I learned that before I had anything worth shipping.
+## The 30-Day Challenge (2015-2016)
 
-After a costly DigitalOcean billing mistake, my father gave me thirty days to earn money online or find a real job. I started bidding on Android freelance projects at rates low enough to win against everyone.
+After a costly DigitalOcean billing mistake, my father gave me an ultimatum: earn money online within 30 days or find a real job.
 
-It worked.
+I started bidding on Android freelance projects at rates low enough to win bids against everyone. It worked. I landed contract after contract, eventually building a geolocation messaging app and writing tutorials for JournalDev.com.
 
-I built a geolocation messaging app, wrote tutorials for JournalDev, and spent three years publishing more than 350 Android articles. The JournalDev Android app crossed 10,000 downloads.
+Over three years, I wrote **350+ Android tutorials**. The JournalDev Android app crossed 10,000 downloads. Writing taught me as much as coding: how to break down complexity, how to think from a reader's perspective, how to build an audience one useful post at a time.
 
-Writing taught me how to break down complexity. It also taught me that readers can feel the difference between an explanation written to help them and one written to show off.
+![JournalDev app on the Play Store](/screenshots/career-journey/journaldev-playstore.png)
+*The JournalDev app on the Play Store. For the archives.*
 
-## The projects that taught me
+## Dourier (2016)
 
-I kept taking jobs that put me close to the whole product.
+Before joining a startup, I wanted to build one to see how it breaks. Dourier was a courier and print delivery service I built with a few friends -- purely to get my hands dirty with a real product. We shipped it, learned what we needed to learn, and let it go. Not everything has to become a company. Sometimes a project's job is just to teach you how to build one.
 
-For MOBEY, an Australian delivery startup, I had to rename an entire Android codebase after a legal notice arrived a week before launch. Every string, asset, and reference had to change. The order notification sound became “Here Comes The Money.” It somehow made it into the advertising.
+## MOBEY (2016-2017)
 
-At Aged Care Decisions, I worked on server-driven iOS and Android apps for multiple vendors from one codebase. At Agricx, I managed an Android team, worked with OpenCV and ArUco markers, and taught myself iOS well enough to ship the company’s first enterprise iPad app.
+An Australian startup originally called MUBER hired me to build their delivery app. A week before launch, an official legal notice arrived from Uber about the name. I spent the next few days refactoring the entire Android codebase -- every string, every asset, every reference -- to rebrand as MOBEY.
 
-Agricx shut down during COVID. MOBEY shut down earlier. The code was useful. The companies were temporary.
+I was the lead Android developer, working alongside Nishant on iOS. We shipped an app without onboarding -- nobody stopped us. I set the order notification sound to "Here Comes The Money." It somehow made it into their advertising.
 
-That distinction stayed with me.
+The company shut down in August 2017. But I'd learned what it felt like to own a product end-to-end -- from architecture decisions to last-minute rebrands to the sound a driver hears when an order lands.
 
-In 2019, I moved deeper into iOS, SwiftUI, Vision, Core ML, and ARKit. I built projects because I wanted answers to questions nobody had asked me to solve:
+## Aged Care Decisions (2017-2018)
 
-- Could a camera scan a credit card using rectangle detection and OCR?
-- Could a Tinder-style card stack respond to hand gestures?
-- Could a phone find the best expression inside a Live Photo?
+A freelance contract with a Gold Coast company led to one of my more interesting projects: building server-driven iOS and Android apps for [Aged Care Decisions](https://agedcaredecisions.com.au), Australia's largest aged care placement service. The architecture was white-labelled -- one codebase, multiple vendor apps deployed from the same platform. It was my first exposure to shipping apps at scale for a non-tech industry, and to the discipline of building systems that other businesses depend on.
 
-[**iowncode**](https://github.com/anupamchugh/iowncode) became a collection of those experiments. Some of them became reference material for other developers. They started as curiosity and ended up as something people could learn from.
+## Agricx and the iOS Pivot (2018-2019)
 
-## Writing reached further
+My JournalDev presence led to Agricx, an agri-tech startup using computer vision for crop quality assessment. I managed their Android team and coordinated across the ML and web teams -- part developer, part orchestrator, bridging the gap between mobile and AI. The work involved integrating OpenCV and ArUco marker detection into the mobile pipeline.
 
-The iOS work gave me things to write about. A few pieces traveled much further than I expected.
+More importantly, I taught myself iOS development here and shipped their first enterprise iPad app solo. That single decision reshaped my career. I went from Android developer to mobile developer to, eventually, a SwiftUI early adopter who'd go on to write some of the framework's most-read tutorials.
 
-“Apple Is Killing a Billion Dollar Industry” passed 500,000 views and reached the front page of Hacker News. “If Programming Languages Had Honest Slogans” passed 150,000. A few others crossed 100,000.
+Agricx shut down during COVID.
 
-The satirical pieces traveled fastest. The tutorials built deeper trust.
+## Writing That Reached Millions (2019-2021)
 
-That was the first time I understood that writing had its own product logic. A good headline gets someone in. A useful explanation gives them a reason to stay. A voice gives them a reason to return.
+The ML/AI knowledge from Agricx, combined with early SwiftUI expertise, led me to write regularly on Medium. A few pieces broke through:
 
-## Behind the platform
+- **"Apple Is Killing a Billion Dollar Industry"** -- 500K+ views, front page of Hacker News
+- **"If Programming Languages Had Honest Slogans"** -- 150K views
+- **"Ugly Truths About Working From Home"** -- 120K views, written months before the world found out for themselves
 
-In 2020, I joined Better Programming as managing editor. It began as a temporary role while Zack Shapiro was on paternity leave. Then it became three years inside the creator economy.
+Multiple articles hit the Hacker News front page. The satirical pieces traveled furthest.
 
-I curated, moderated, recruited writers, ran newsletters, and watched the distance between quality and distribution grow wider.
+![Articles on the Hacker News front page](/screenshots/career-journey/hacker-news-frontpage.png)
 
-The publication scaled from 50 million to 150 million lifetime pageviews. Monthly views reached nearly 6 million. Those numbers look impressive until you remember that a platform can change one rule and make the whole machine behave differently.
+The writing eventually split into three Substacks, each covering a different voice:
 
-I had seen it before. JournalDev was acquired by DigitalOcean, and I lost control of 350 articles overnight. Better Programming was later placed on hiatus. Medium shifted its focus.
+- [**iOSDevie**](https://iosdevie.substack.com) -- SwiftUI, CoreML, Vision, ARKit tutorials. The technical stuff: how to build things with Apple's frameworks, explained step by step
+- [**Big Tech**](https://thebigtech.substack.com) -- Thoughts on technology and privacy. How Apple and Google's privacy moves reshaped Facebook's ad empire, and what that means for the rest of us
+- [**Humor Bytes**](https://humorbytes.substack.com) -- My stabs at tech satire. "If Apps Were People You Knew," "10 Films That Clearly Influenced ChatGPT" -- the kind of writing where you take something developers live with daily and hold it at a slightly absurd angle
 
-The real lesson wasn't about any one company. It was about platform dependency.
+Three newsletters, three modes of thinking: teach, analyze, laugh. It turns out humor travels fastest, but the tutorials built the deepest trust.
 
-If you don't own the ground, you're decorating someone else's house.
+### Open Source
 
-That is why I publish on my own site now. The platforms can still have copies. They don't get to be the only home.
+Alongside the writing, I built open-source iOS projects that became reference material for the community:
 
-## Building again
+- [**iowncode**](https://github.com/anupamchugh/iowncode) (900+ stars) -- A curated collection of iOS, ML, and AR projects: on-device CoreML classifiers (cat vs. dog, emoji detection), SwiftUI Tinder swipe cards, Vision credit card scanning, PencilKit + MapKit experiments
+- [**iOS14VisionHandPose**](https://github.com/anupamchugh/iOS14VisionHandPose) -- A Tinder-style card stack controlled entirely by hand gestures. Thumbs up to swipe right. No touching the screen
+- [**VisionCreditScan**](https://github.com/anupamchugh/VisionCreditScan) -- Real-time credit card scanning using Vision framework's rectangle detection and OCR
 
-After Better Programming, I took time off. I traveled through Vietnam, watched too many films, and kept using the camera in my pocket.
+These weren't portfolio projects. They started as questions -- "can I make an app that swipes Tinder cards with hand gestures?" -- and ended up as something others could learn from.
 
-Then I started building again, but with less interest in proving that every project could become a company.
+## Better Programming (2020-2023)
 
-Find Common Ground began with a question friends kept asking: where should we eat? It became a place-matching app using SwiftUI, SwiftData, MapKit, CloudKit, and Multipeer Connectivity. The matching algorithm was fun. Getting two people to finish a flow was harder.
+![Better Programming](/screenshots/career-journey/better-programming-logo.png)
 
-Playlist Hunter began with another small irritation. I could describe a playlist by its mood—late-night drive, Sunday morning coffee—but still spend half an hour finding the songs. So I built the version that starts with the vibe.
+In 2020, [Zack Shapiro](https://twitter.com/ZackShapiro) invited me to manage [Better Programming](https://betterprogramming.pub), one of Medium's largest tech publications, while he was on paternity leave. I filled in, and then stayed. [Tony Stubblebine](https://twitter.com/tonystubblebine), who later became CEO of Medium, offered me the full-time managing editor role.
 
-I built ClocktowerTable for social deduction nights. Checkmate Academy for chess lessons and puzzles. Flyleaf for writing from folders and archives. Feedloom for reading links. Pastport for the patterns Safari had been keeping quietly on my Mac.
+What followed was a three-year crash course in the creator economy -- from the inside. I wasn't just writing anymore. I was curating, moderating, recruiting writers, running newsletters, debugging the relationship between content and distribution. The role was part editor, part growth marketer, part therapist for writers whose traffic had mysteriously vanished overnight.
 
-Some are live. Some are experiments. A few are still waiting for me to decide what they are.
+I started [**Coffee Bytes**](https://medium.com/@coffee_bytes), a newsletter designed to cheerlead for developer writers -- spotlighting their work, driving readers their way, building a community around the craft. It worked, for a while. But Medium's content factory system rewarded volume over curation, and the model I'd built couldn't survive the incentive structure it sat inside.
 
-The labels matter less than the reason they exist. Each one began with an irritation, a question, or a strange thing I wanted to try.
+The publication scaled from 50 million to 150 million lifetime pageviews during my time. Monthly views peaked near 6 million.
 
-## The current lesson
+![Medium stats](/screenshots/career-journey/medium-stats.png)
+*That mandatory screenshot of my Medium stats.*
 
-I spent years building on platforms that changed the rules or disappeared. I spent other years building things nobody asked for.
+But the real education was watching the machine from behind the curtain. I learned how platform algorithms actually decide what surfaces and what gets buried -- and how little of it correlates with quality. I learned the psychology of creators (why they write, what makes them stay, what breaks them) and of consumers (what they click vs. what they read vs. what they share -- three very different things). I saw how the creator economy pulls you in: you start as a writer, become a curator, then a moderator, then suddenly you're spending more time managing the platform's incentives than doing the work that brought you there.
 
-Both taught me more than the projects that looked sensible on paper.
+I resigned in September 2023. Medium had pivoted away from tech -- the acquisition spree under new leadership shifted focus, and Better Programming was placed on hiatus.
 
-The hand-gesture Tinder stack taught me more about an SDK than a careful tutorial ever could. The $2 app taught me that shipping is not demand. The Better Programming years taught me that reach is not ownership.
+**The real lesson wasn't about Medium.** It was about platform dependency. When JournalDev was acquired by DigitalOcean, I lost control of 350 articles overnight. When Better Programming paused, years of curation went with it. This is why I now publish on my own site first and syndicate elsewhere. You're reading this on my blog for a reason.
 
-The filmmaking thing turned out to matter too. I think about user flows like scenes: setup, tension, payoff. My parents thought the scattered interests were a liability.
+## The New Chapter (2024-2026)
 
-They were the curriculum.
+After Better Programming, I took time off. Traveled through Vietnam. Read voraciously. Watched more films than I'd like to admit. Picked up a camera -- or rather, kept using the one in my pocket.
 
-The biggest lesson is still the simplest one: shipping a bad thing teaches you more than planning a good one.
+![A street dog on a misty Kodaikanal forest trail](/photographs/career-journey/misty-dog-kodaikanal.jpg)
+*Kodaikanal, 2022. iPhone SE. Sometimes the best photos find you on a morning hike.*
 
-My $2 app, the MOBEY launch with no onboarding, the Unity game with graphics drawn during a turbulent flight—none of them were good.
+Then I started building again -- differently this time.
 
-All of them were necessary.
+### Algorithmic Trading
+
+I went deep into quantitative trading. Built a full-stack trading system from scratch: real-time market data pipelines, custom multi-timeframe scanners, paper trading engines with automated order management, and signal alerting.
+
+2,700+ commits in four months. It was full immersion into financial markets, data engineering, and systems design at a scale I hadn't attempted before. The kind of project where you learn more about yourself than the domain -- how you handle risk, how you react to losses, and whether you can trust a system you built to make decisions with real money.
+
+### Find Common Ground
+
+A question I kept asking friends: "Where should we eat?" Not "what's rated highest on Google Maps" but "where do *we* actually overlap?" Every group dinner started with twenty minutes of negotiation. I wanted to skip straight to the answer.
+
+[**Find Common Ground**](https://apps.apple.com/us/app/find-common-ground/id6759101340) is an iOS app that started as a place-matching experiment and kept growing. SwiftUI, SwiftData, MapKit, CloudKit, Multipeer Connectivity -- I kept finding excuses to wire in more frameworks. It now does route planning with timed timelines, trip journals with photo export, nearby discovery via MapKit search, and an async "vibe check" feature where two people react to each other's planned routes over CloudKit. The matching algorithm was the fun part; getting two people to actually complete any flow was the hard part. The one thing I got right: every shared route is a link that only opens in the app -- so the product spreads every time someone plans a Saturday with a friend.
+
+<div class="image-grid">
+  <img src="/screenshots/career-journey/common-ground-welcome.png" alt="Common Ground Welcome" />
+  <img src="/screenshots/career-journey/common-ground-match.png" alt="Common Ground Match Results" />
+</div>
+
+On the [App Store](https://apps.apple.com/us/app/find-common-ground/id6759101340) now.
+
+### Playlist Hunter
+
+I kept describing playlists to friends in vibes -- "late night drive through the city," "Sunday morning coffee" -- and then spending thirty minutes manually searching for songs. So I built an app that takes the vibe and does the rest.
+
+**[Playlist Hunter](https://apps.apple.com/in/app/playlist-hunter/id6756028972)** uses AI to generate Apple Music playlists from a text prompt. Room Mode lets multiple people contribute to the same playlist -- useful when everyone in the room has opinions about the aux.
+
+<div class="image-grid">
+  <img src="/screenshots/career-journey/playlist-hunter-login.png" alt="Playlist Hunter" />
+  <img src="/screenshots/career-journey/playlist-hunter-ai.png" alt="Playlist Hunter AI" />
+</div>
+
+### Shadowbook
+
+[**Shadowbook**](https://github.com/anupamchugh/shadowbook) is a CLI tool I built in Go for managing projects where multiple AI agents work on the same codebase. It tracks drift -- when specs change but code doesn't follow, when AI agents repeat mistakes, when comments rot while code evolves.
+
+A project management tool for the era where your team includes three AI agents and yourself.
+
+## What I've Learned
+
+Most of it is obvious in hindsight.
+
+I spent years building on platforms that eventually changed the rules or disappeared. JournalDev got acquired, 350 articles gone overnight. Better Programming went on hiatus. Medium shifted focus. Every time, the work survived only if I'd kept a copy. The lesson took three rounds to stick: if you don't own the ground, you're just decorating someone else's house.
+
+I also learned that the things I built out of curiosity taught me more than the things I built for a paycheck. Nobody asked me to make an app that swipes Tinder cards with hand gestures. Nobody needed a restaurant-matching app for indecisive friend groups. But those projects forced me into corners of the SDK I'd never have found otherwise, and the solutions I improvised there showed up later in real work.
+
+The filmmaking thing turned out to matter. I think about user flows the way I used to think about scenes -- setup, tension, payoff. My parents spent years worrying I was spread too thin. Turns out the scattered interests weren't a liability. They were the curriculum.
+
+And the biggest one: shipping a bad thing teaches you more than planning a good one. My $2 app, the MOBEY launch with no onboarding, the Unity game with graphics drawn during a turbulent flight -- none of them were good. All of them were necessary.
