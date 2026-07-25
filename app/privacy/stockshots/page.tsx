@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Privacy Policy — StockShots',
   description: 'Privacy policy for the StockShots iOS app.',
+  robots: { index: false, follow: false },
 };
 
 export default function StockShotsPrivacyPage() {
