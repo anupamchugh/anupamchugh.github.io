@@ -16,7 +16,7 @@ export default function Hero() {
           <h1 className="mt-6 max-w-2xl text-5xl font-semibold leading-tight tracking-normal text-primary sm:text-6xl">
             <EditableCopy
               storageKey="home.headline"
-              placeholder="i build small apps, write essays, and trade."
+              placeholder="i build small apps and write about the systems, platforms, and accidents behind them."
               multiline
               textareaClassName="min-h-40 text-4xl leading-tight sm:text-5xl"
             />

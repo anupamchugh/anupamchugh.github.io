@@ -5,7 +5,8 @@ import AppKit
 import Foundation
 import CoreLocation
 
-// Export best photos from Apple Photos - travel, portraits, landscapes, dogs
+// Export best photos from Apple Photos - travel, portraits, landscapes, dogs.
+// This is a local curation helper; it never writes to Photos.
 // Usage: swift export-best-photos.swift [count] [output-dir]
 
 let count = CommandLine.arguments.count > 1 ? Int(CommandLine.arguments[1]) ?? 50 : 50
@@ -186,7 +187,9 @@ PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
         var photoData = Data()
 
         let resOptions = PHAssetResourceRequestOptions()
-        resOptions.isNetworkAccessAllowed = true
+        // Keep curation local. Skip originals that only exist in iCloud rather
+        // than silently downloading a private library asset.
+        resOptions.isNetworkAccessAllowed = false
 
         PHAssetResourceManager.default().requestData(for: resource, options: resOptions, dataReceivedHandler: { chunk in
             photoData.append(chunk)

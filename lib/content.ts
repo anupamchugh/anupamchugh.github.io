@@ -29,7 +29,7 @@ export const heroContent = {
   eyebrow: "software engineer, writer, app maker",
   headline: "started in code.",
   headlineGradient: "got pulled into the creator economy.",
-  headlineSuffix: "tried ai scaffolding. came back to human writing.",
+  headlineSuffix: "came back to human writing.",
   intro:
     "i have been writing on the web since 2015: android tutorials, swiftui experiments, medium-era satire, app store projects, and now a slower public archive of the work that still feels alive.",
   primaryCta: { label: "read the writing", href: "/posts/" },
