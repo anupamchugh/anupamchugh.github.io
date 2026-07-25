@@ -8,7 +8,7 @@ tags: [indie-dev, ios, trading, career, open-source]
 
 *First published in February 2024. Expanded and updated for this blog.*
 
-I didn't choose engineering. My family did. I wanted to make films, play cricket professionally, compete in chess and table tennis tournaments. Instead, I got a B.Tech in Computer Science from BITS Pilani (2011-2015) with a CGPA that told you exactly how much attention I was paying.
+I picked engineering because my family wanted me to. I wanted to make films, play cricket professionally, compete in chess and table tennis tournaments. Instead, I got a B.Tech in Computer Science from BITS Pilani (2011-2015) with a CGPA that told you exactly how much attention I was paying.
 
 But reluctant engineers have one advantage: when they finally find problems worth solving, they don't approach them like everyone else.
 
@@ -16,7 +16,7 @@ But reluctant engineers have one advantage: when they finally find problems wort
 
 I graduated without a job. Turned down a PPO from Syniverse during placement season because I was convinced I'd build something better. Classic.
 
-My first app was a movie review RSS feed reader. Lifetime earnings: $2. The minimum payout threshold was $100. My second was a Unity game with Harry Potter themes and graphics that looked like they were drawn during a turbulent flight. Both eventually vanished from the Play Store.
+My first app was a movie review RSS feed reader. Lifetime earnings: $2. The minimum payout threshold was $100. My second was a Harry Potter Unity lesson with graphics that looked like they were drawn during a turbulent flight. I never returned to it. Both eventually vanished from the Play Store.
 
 <div class="image-grid">
   <img src="/screenshots/career-journey/movie-reviews-app.png" alt="Movie Reviews app" />
@@ -30,9 +30,9 @@ My first app was a movie review RSS feed reader. Lifetime earnings: $2. The mini
 
 After a costly DigitalOcean billing mistake, my father gave me an ultimatum: earn money online within 30 days or find a real job.
 
-I started bidding on Android freelance projects at rates low enough to win bids against everyone. It worked. I landed contract after contract, eventually building a geolocation messaging app and writing tutorials for JournalDev.com.
+The thirty-day ultimatum got my balls rolling. I bid day and night at rates low enough to win against everyone. A few clients came through. I built a geolocation messaging app and started writing tutorials for JournalDev.com.
 
-Over three years, I wrote **350+ Android tutorials**. The JournalDev Android app crossed 10,000 downloads. Writing taught me as much as coding: how to break down complexity, how to think from a reader's perspective, how to build an audience one useful post at a time.
+Over three years, I wrote **350+ Android tutorials**. The JournalDev Android app crossed 10,000 downloads. Writing started as learn-and-earn work for clients. It became an identity when I found a way to offload my chaotic thoughts and streamline them.
 
 ![JournalDev app on the Play Store](/screenshots/career-journey/journaldev-playstore.png)
 *The JournalDev app on the Play Store. For the archives.*
@@ -45,7 +45,7 @@ Before joining a startup, I wanted to build one to see how it breaks. Dourier wa
 
 An Australian startup originally called MUBER hired me to build their delivery app. A week before launch, an official legal notice arrived from Uber about the name. I spent the next few days refactoring the entire Android codebase -- every string, every asset, every reference -- to rebrand as MOBEY.
 
-I was the lead Android developer, working alongside Nishant on iOS. We shipped an app without onboarding -- nobody stopped us. I set the order notification sound to "Here Comes The Money." It somehow made it into their advertising.
+I was the lead Android developer, working alongside Nishant on iOS. We shipped an app without onboarding -- nobody stopped us. My manager suggested "Here Comes The Money" as the notification ringtone for drivers when a new rider request came in. When it appeared in the YouTube video, the entire team rofl'd.
 
 [The MOBEY notification video](https://www.youtube.com/watch?v=-VCwMGz0Zvw)
 
@@ -99,7 +99,7 @@ These weren't portfolio projects. They started as questions -- "can I make an ap
 
 In 2020, [Zack Shapiro](https://twitter.com/ZackShapiro) invited me to manage [Better Programming](https://betterprogramming.pub), one of Medium's largest tech publications, while he was on paternity leave. I filled in, and then stayed. [Tony Stubblebine](https://twitter.com/tonystubblebine), who later became CEO of Medium, offered me the full-time managing editor role.
 
-What followed was a three-year crash course in the creator economy -- from the inside. I wasn't just writing anymore. I was curating, moderating, recruiting writers, running newsletters, debugging the relationship between content and distribution. The role was part editor, part growth marketer, part therapist for writers whose traffic had mysteriously vanished overnight.
+What followed was a three-year crash course in the creator economy -- from the inside. I wasn't just writing anymore. I was curating, moderating, recruiting writers, running newsletters, debugging the relationship between content and distribution. Better Programming was a good sprint. It also showed me how Medium turned writers into contestants in a rat race to churn, be accepted, and stay approved.
 
 I started [**Coffee Bytes**](https://medium.com/@coffee_bytes), a newsletter designed to cheerlead for developer writers -- spotlighting their work, driving readers their way, building a community around the craft. It worked, for a while. But Medium's content factory system rewarded volume over curation, and the model I'd built couldn't survive the incentive structure it sat inside.
 
@@ -108,11 +108,11 @@ The publication scaled from 50 million to 150 million lifetime pageviews during 
 ![Medium stats](/screenshots/career-journey/medium-stats.png)
 *That mandatory screenshot of my Medium stats.*
 
-But the real education was watching the machine from behind the curtain. I learned how platform algorithms actually decide what surfaces and what gets buried -- and how little of it correlates with quality. I learned the psychology of creators (why they write, what makes them stay, what breaks them) and of consumers (what they click vs. what they read vs. what they share -- three very different things). I saw how the creator economy pulls you in: you start as a writer, become a curator, then a moderator, then suddenly you're spending more time managing the platform's incentives than doing the work that brought you there.
+But the real education was watching the machine from behind the curtain. I learned how platform algorithms decide what surfaces and what gets buried -- and how little of it correlates with quality. I saw how the creator economy pulls you in: you start as a writer, become a curator, then a moderator, then suddenly you're spending more time managing the platform's incentives than doing the work that brought you there.
 
 I resigned in September 2023. Medium had pivoted away from tech -- the acquisition spree under new leadership shifted focus, and Better Programming was placed on hiatus.
 
-**The real lesson wasn't about Medium.** It was about platform dependency. When JournalDev was acquired by DigitalOcean, I lost control of 350 articles overnight. When Better Programming paused, years of curation went with it. This is why I now publish on my own site first and syndicate elsewhere. You're reading this on my blog for a reason.
+**The real lesson wasn't about Medium.** It was about platform dependency. When JournalDev was acquired by DigitalOcean, the publishing dates on my old Android posts changed from 2015 to 2023. Then I started getting spam LinkedIn messages asking me to update articles I could no longer edit. When Better Programming paused, years of curation went with it. This is why I now publish on my own site first and syndicate elsewhere. You're reading this on my blog for a reason.
 
 ## The New Chapter (2024-2026)
 
@@ -125,9 +125,7 @@ Then I started building again -- differently this time.
 
 ### Algorithmic Trading
 
-I went deep into quantitative trading. Built a full-stack trading system from scratch: real-time market data pipelines, custom multi-timeframe scanners, paper trading engines with automated order management, and signal alerting.
-
-2,700+ commits in four months. It was full immersion into financial markets, data engineering, and systems design at a scale I hadn't attempted before. The kind of project where you learn more about yourself than the domain -- how you handle risk, how you react to losses, and whether you can trust a system you built to make decisions with real money.
+I spent time building trading tools for myself. No grand reveal here. It taught me more about systems, risk, and the difference between automation and trust than I expected.
 
 ### Find Common Ground
 
@@ -169,4 +167,4 @@ I also learned that the things I built out of curiosity taught me more than the 
 
 The filmmaking thing turned out to matter. I think about user flows the way I used to think about scenes -- setup, tension, payoff. My parents spent years worrying I was spread too thin. Turns out the scattered interests weren't a liability. They were the curriculum.
 
-And the biggest one: shipping a bad thing teaches you more than planning a good one. My $2 app, the MOBEY launch with no onboarding, the Unity game with graphics drawn during a turbulent flight -- none of them were good. All of them were necessary.
+And the biggest one: I build random things until something becomes useful.
