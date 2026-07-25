@@ -52,3 +52,23 @@ one essay, and archive the rest or link them as field notes.
 Start with `ten-years-of-doing-stuff`. The author supplies the new opening and the scenes to keep;
 the editor cuts inventory, checks claims, and preserves the descending rhythm. No other post is
 changed in that pass.
+
+## strong-voice follow-up
+
+### `wuthering-heights-everyone-is-an-addict`
+
+Keep public and nearly intact. The opening and closing already carry the piece. A light pass can
+remove one explanatory sentence in the middle, but do not make it more literary or more complete.
+
+### `project-hail-mary-no-tragedy-tax`
+
+Keep as the film review. The agentic reading is present in the relationship between Grace and
+Rocky: two unlike agents, partial information, a shared goal, experiments, feedback, and a choice
+that changes the objective. Write that as a separate short note titled `Project Hail Mary Is an
+Agentic Universe`; do not inject current AI vocabulary into the original review.
+
+### `love-aaj-kal-two-films-play-memory-out-of-order`
+
+The one-line opening is excellent as a note. Either leave it as a deliberate micro-review, or
+expand it with one scene from each film and one sentence explaining what the different cuts do to
+memory. Do not pad it into a conventional review.
