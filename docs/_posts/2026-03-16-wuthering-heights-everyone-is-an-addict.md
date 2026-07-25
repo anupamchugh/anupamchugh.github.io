@@ -1,12 +1,14 @@
 ---
 draft: false
-title: "Wuthering Heights: The Father Started Everything"
+title: "Wuthering Heights: We Inherit Damage"
 date: '2026-03-16T22:00:00.000Z'
 categories: [reviews]
 keywords: [film, wuthering-heights, emerald-fennell, father, grief, obsession]
 type: review
 published: true
 ---
+
+We inherit damage from the people closest to us.
 
 Mr. Earnshaw brings home a boy and names him Heathcliff — after a son he already buried. That's where the whole story starts. Not with a love story, not with the moors. With a father's grief and a name he shouldn't have reused.
 
@@ -18,4 +20,8 @@ She tries to hold both — the husband and the lover, the safe life and the wild
 
 Hindley drinks himself into ruin. The house falls apart. Everyone downstream of Mr. Earnshaw's one act of love — bringing a boy home, giving him a dead son's name — ends up destroyed by it. The father meant well. That's the worst part.
 
-Fennell's version doesn't treat this like a romance. It treats it like a family that never recovered from one man's grief. The love story everyone talks about is just the loudest symptom. Underneath it, a father brought something into his house that his house couldn't survive. And nobody — not the daughter, not the brother, not the husband, not the lover — figured out how to leave.
+Fennell's version doesn't treat this like a romance. It treats it like a family that never recovered from one man's grief. The love story everyone talks about is just the loudest symptom. Underneath it, a father brought something into his house that his house couldn't survive.
+
+Everyone inherited something from him — the grief, the name, the house, the need to be loved first. By the end, nobody had escaped it.
+
+I finished the film exhausted.
