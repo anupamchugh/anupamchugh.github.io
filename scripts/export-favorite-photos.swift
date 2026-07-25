@@ -9,7 +9,7 @@ import Photos
 // Usage: swift scripts/export-favorite-photos.swift [output-dir]
 
 let outputPath = CommandLine.arguments.dropFirst().first
-    ?? FileManager.default.currentDirectoryPath + "/public/photographs/review-inbox"
+    ?? FileManager.default.currentDirectoryPath + "/.photo-review/inbox"
 let outputURL = URL(fileURLWithPath: outputPath, isDirectory: true)
 let fm = FileManager.default
 try fm.createDirectory(at: outputURL, withIntermediateDirectories: true)

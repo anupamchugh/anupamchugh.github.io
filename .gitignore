@@ -37,6 +37,9 @@ Thumbs.db
 # Testing
 coverage/
 
+# PhotoKit review exports stay local until explicitly approved.
+.photo-review/
+
 # Specs and private-notes now tracked (repo is private)
 
 # Beads / Dolt files (added by bd init)

@@ -7,7 +7,7 @@ Apple Photos remains the private source of truth. The blog receives only an expl
 ```text
 mark Favorites in Photos
   → export-favorite-photos.swift
-  → public/photographs/review-inbox/
+  → .photo-review/inbox/ (gitignored)
   → inspect locally
   → copy approved images into best-picks or a named shelf
   → add caption/location/year to lib/photos.ts
