@@ -5,6 +5,7 @@ import {
   Space_Grotesk,
   IBM_Plex_Sans,
   IBM_Plex_Serif,
+  IBM_Plex_Mono,
   Work_Sans,
 } from 'next/font/google';
 import './globals.css';
@@ -29,6 +30,11 @@ const plexSans = IBM_Plex_Sans({
 const plexSerif = IBM_Plex_Serif({
   subsets: ['latin'],
   variable: '--font-plex-serif',
+  weight: ['400', '600'],
+});
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  variable: '--font-plex-mono',
   weight: ['400', '600'],
 });
 const workSans = Work_Sans({
@@ -76,7 +82,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${inter.variable} ${sourceSerif.variable} ${spaceGrotesk.variable} ${plexSans.variable} ${plexSerif.variable} ${workSans.variable} flex min-h-screen flex-col font-sans subpixel-antialiased`}
+        className={`${inter.variable} ${sourceSerif.variable} ${spaceGrotesk.variable} ${plexSans.variable} ${plexSerif.variable} ${plexMono.variable} ${workSans.variable} flex min-h-screen flex-col font-sans subpixel-antialiased`}
       >
         <ThemeProvider>
           <Header />

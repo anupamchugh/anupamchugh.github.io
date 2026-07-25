@@ -1,6 +1,6 @@
 export type FontPresetName = 'brian' | 'space' | 'plex' | 'work';
 
-export const activeFontPreset: FontPresetName = 'brian';
+export const activeFontPreset: FontPresetName = 'plex';
 
 export const fontPresets: Record<FontPresetName, { label: string }> = {
   brian: { label: 'brian lovin' },

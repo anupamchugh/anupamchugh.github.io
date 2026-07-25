@@ -10,6 +10,9 @@ export default function Hero() {
 
       <div className="border-b border-border py-12">
         <div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-tertiary">
+            public archive / reviewed work / human-written notes
+          </p>
           <h1 className="mt-6 max-w-2xl text-5xl font-semibold leading-tight tracking-normal text-primary sm:text-6xl">
             <EditableCopy
               storageKey="home.headline"
