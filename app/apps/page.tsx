@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { apps } from '@/lib/content';
+import { matchBoxApp } from '@/lib/match-box';
 
 export const metadata: Metadata = {
   title: 'apps',
@@ -18,7 +19,7 @@ export default function AppsPage() {
       </p>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2">
-        {apps.map((app) => (
+        {[matchBoxApp, ...apps].map((app) => (
           <Link
             key={app.slug}
             href={app.href}

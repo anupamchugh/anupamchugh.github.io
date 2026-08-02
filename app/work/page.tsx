@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { apps, recentlyReviewedProjects, selectedWork } from '@/lib/content';
+import { matchBoxApp, matchBoxReviewedProject } from '@/lib/match-box';
 
 export const metadata: Metadata = {
   title: 'work',
@@ -28,7 +29,7 @@ export default function WorkPage() {
           <span className="font-mono text-xs text-tertiary">reviewed shelf / 2026</span>
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {recentlyReviewedProjects.map((item) => (
+          {[matchBoxReviewedProject, ...recentlyReviewedProjects].map((item) => (
             <Link
               key={item.name}
               href={item.href}
@@ -56,7 +57,7 @@ export default function WorkPage() {
       <section className="mt-12">
         <h2 className="text-sm font-semibold text-primary">apps</h2>
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
-          {apps.map((app) => (
+          {[matchBoxApp, ...apps].map((app) => (
             <Link
               id={app.slug}
               key={app.slug}
