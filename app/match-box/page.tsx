@@ -62,8 +62,8 @@ export default function MatchBoxPage() {
 
         <figure className="overflow-hidden rounded-3xl border border-border bg-surface shadow-sm">
           <img
-            src="/apps/match-box-fictional-demo.png"
-            alt="Fictional Match Box desktop interface showing local profile and conversation review"
+            src="/apps/match-box-suggestions-fictional-demo.png"
+            alt="Fictional Match Box desktop interface showing visible context and grounded reply ideas"
             className="h-auto w-full"
           />
           <figcaption className="border-t border-border px-4 py-3 text-sm text-tertiary">
