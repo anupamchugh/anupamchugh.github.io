@@ -46,9 +46,17 @@ export default function MatchBoxPage() {
             >
               Back to apps
             </Link>
+            <a
+              href="https://github.com/anupamchugh/match-box"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-muted"
+            >
+              View source
+            </a>
           </div>
           <p className="mt-5 text-sm text-tertiary">
-            MIT-licensed source is being prepared for public review. No Bumble, Hinge, or dating-service affiliation.
+            MIT-licensed source is public on GitHub. No Bumble, Hinge, or dating-service affiliation.
           </p>
         </div>
 
