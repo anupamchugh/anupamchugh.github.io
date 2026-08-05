@@ -35,4 +35,3 @@ Export-level tests will inspect `out/`, because the observable contract is the G
 - Both LLM indexes identify the site, primary sections, public profiles, apps, and writing without claiming private or live runtime data.
 - Exported HTML contains `Person`, `ItemList`/`SoftwareApplication`, and `BlogPosting` JSON-LD where appropriate.
 - Existing visible copy and navigation remain unchanged.
-

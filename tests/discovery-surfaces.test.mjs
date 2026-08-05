@@ -2,9 +2,33 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
+import matter from 'gray-matter';
 
 const outputDirectory = path.join(process.cwd(), 'out');
 const siteUrl = 'https://anupamchugh.github.io';
+const expectedPublicRoutes = [
+  '/',
+  '/about/',
+  '/apps/',
+  '/checkmate-academy/',
+  '/clocktower-table/',
+  '/humor/',
+  '/match-box/',
+  '/notes/',
+  '/photos/',
+  '/posts/',
+  '/privacy/',
+  '/privacy/best-face-forward/',
+  '/privacy/checkmate-academy/',
+  '/privacy/common-ground/',
+  '/privacy/feedloom/',
+  '/privacy/stockshots/',
+  '/projects/',
+  '/reviews/',
+  '/support/',
+  '/work/',
+  '/work/takeout-tax/',
+];
 
 function exportedFile(relativePath) {
   const candidates = [
@@ -24,6 +48,26 @@ function jsonLdRecords(html) {
     });
 }
 
+function postFixtures() {
+  const postsDirectory = path.join(process.cwd(), 'docs', '_posts');
+  return readdirSync(postsDirectory)
+    .filter((fileName) => fileName.endsWith('.md'))
+    .map((fileName) => {
+      const { data } = matter(readFileSync(path.join(postsDirectory, fileName), 'utf8'));
+      const slug = fileName.replace(/^\d{4}-\d{2}-\d{2}[-_]/, '').replace(/\.md$/, '');
+      let type = data.type || 'post';
+      if (!data.type && data.categories?.includes('til')) type = 'til';
+      if (!data.type && (data.categories?.includes('notes') || data.tags?.includes('hn'))) type = 'note';
+      if (!data.type && data.categories?.includes('reviews')) type = 'review';
+      return { slug, type, draft: Boolean(data.draft), private: Boolean(data.private) };
+    });
+}
+
+function urlsFromXml(xml, element) {
+  return [...xml.matchAll(new RegExp(`<${element}(?: [^>]*)?>([^<]+)</${element}>`, 'g'))]
+    .map((match) => match[1]);
+}
+
 test('exports feed and crawler discovery files', () => {
   const rss = exportedFile('rss.xml');
   assert.match(rss, /^<\?xml version="1\.0" encoding="UTF-8"\?>/);
@@ -31,12 +75,31 @@ test('exports feed and crawler discovery files', () => {
   assert.match(rss, new RegExp(`<link>${siteUrl}/posts/`));
   assert.doesNotMatch(rss, /<draft>|private-notes/);
 
+  const fixtures = postFixtures();
+  const expectedPostUrls = fixtures
+    .filter((post) => post.type === 'post' && !post.draft && !post.private)
+    .map((post) => `${siteUrl}/posts/${post.slug}/`)
+    .sort();
+  const rssItemUrls = urlsFromXml(rss, 'guid').sort();
+  assert.deepEqual(rssItemUrls, expectedPostUrls, 'RSS must contain exactly the public posts');
+  for (const post of fixtures.filter((fixture) => fixture.draft || fixture.private)) {
+    assert.doesNotMatch(rss, new RegExp(`${siteUrl}/posts/${post.slug}/`));
+  }
+
   const sitemap = exportedFile('sitemap.xml');
-  assert.match(sitemap, new RegExp(`${siteUrl}/apps/`));
-  assert.match(sitemap, new RegExp(`${siteUrl}/posts/`));
+  const sitemapUrls = urlsFromXml(sitemap, 'loc').sort();
+  const expectedSitemapUrls = [
+    ...expectedPublicRoutes.map((route) => `${siteUrl}${route}`),
+    ...expectedPostUrls,
+  ].sort();
+  assert.deepEqual(sitemapUrls, expectedSitemapUrls, 'sitemap must contain every indexable route');
+  assert.ok(!sitemapUrls.includes(`${siteUrl}/review/`));
+  assert.ok(!sitemapUrls.includes(`${siteUrl}/write/`));
 
   const robots = exportedFile('robots.txt');
   assert.match(robots, /Allow: \//);
+  assert.match(robots, /Disallow: \/review\//);
+  assert.match(robots, /Disallow: \/write\//);
   assert.match(robots, new RegExp(`Sitemap: ${siteUrl}/sitemap.xml`));
 
   for (const file of ['llms.txt', 'llms-full.txt']) {

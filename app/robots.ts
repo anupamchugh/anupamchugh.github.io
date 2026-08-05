@@ -8,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: ['/review/', '/write/'],
     },
     sitemap: absoluteUrl('/sitemap.xml'),
   };
