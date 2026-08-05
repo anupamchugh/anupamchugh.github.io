@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { apps } from '@/lib/content';
 import { matchBoxApp } from '@/lib/match-box';
+import JsonLd from '@/components/json-ld';
+import { appsJsonLd } from '@/lib/discovery';
 
 export const metadata: Metadata = {
   title: 'apps',
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 export default function AppsPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 pb-16 pt-32 sm:px-6">
+      <JsonLd data={appsJsonLd()} />
       <h1 className="text-3xl font-semibold text-primary">apps</h1>
       <p className="mt-3 max-w-2xl text-secondary">
         small app store projects, product experiments, and the occasional game. live means live.

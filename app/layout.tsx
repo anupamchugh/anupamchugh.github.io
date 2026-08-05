@@ -14,6 +14,8 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { ThemeProvider } from '@/lib/theme-context';
 import { activeFontPreset } from '@/lib/font-presets';
+import JsonLd from '@/components/json-ld';
+import { personJsonLd } from '@/lib/discovery';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const sourceSerif = Source_Serif_4({ subsets: ['latin'], variable: '--font-source-serif' });
@@ -84,6 +86,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${sourceSerif.variable} ${spaceGrotesk.variable} ${plexSans.variable} ${plexSerif.variable} ${plexMono.variable} ${workSans.variable} flex min-h-screen flex-col font-sans subpixel-antialiased`}
       >
+        <JsonLd data={personJsonLd} />
         <ThemeProvider>
           <Header />
           <main className="flex-1">{children}</main>

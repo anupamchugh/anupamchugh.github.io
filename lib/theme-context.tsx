@@ -15,10 +15,8 @@ const ALLOWED_THEMES = new Set(themes.map((theme) => theme.name));
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<ThemeName>(defaultTheme);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const stored = localStorage.getItem(STORAGE_KEY) as ThemeName | null;
     if (stored && ALLOWED_THEMES.has(stored)) {
       setThemeState(stored);
@@ -32,9 +30,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.dataset.theme = newTheme;
   };
 
-  // Prevent flash of wrong theme
-  if (!mounted) {
-    return (
+  return (
+    <>
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -47,13 +44,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
           `,
         }}
       />
-    );
-  }
-
-  return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
-    </ThemeContext.Provider>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        {children}
+      </ThemeContext.Provider>
+    </>
   );
 }
 
