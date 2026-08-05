@@ -82,3 +82,26 @@
 
 **Dependencies**
 - Tasks 1 and 2
+
+## Task 4: Pull-request build protection
+
+**Ownership**
+- Create: `.github/workflows/pr-checks.yml`, `tests/pr-workflow.test.mjs`
+- Modify: none
+- Must not change: deployment workflow, dependency automation, application code, or content
+
+**Interfaces**
+- Consumes: pull requests targeting `main`, `package-lock.json`, and existing npm scripts
+- Produces: one read-only GitHub check covering install, production build, and artifact tests
+
+**Acceptance**
+- The workflow runs on pull requests to `main`, cancels superseded runs, has only `contents: read`, and cannot deploy.
+
+**Verification**
+- Red: `node --test tests/pr-workflow.test.mjs` -> fails while the workflow is absent
+- Green: `node --test tests/pr-workflow.test.mjs` -> pass
+- Regression: `npm run build && npm test` -> pass
+- Evidence: successful `PR checks / verify` result on draft PR #1
+
+**Dependencies**
+- Tasks 1 through 3

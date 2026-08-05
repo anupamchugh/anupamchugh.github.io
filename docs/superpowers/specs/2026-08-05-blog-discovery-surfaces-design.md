@@ -35,3 +35,7 @@ Export-level tests will inspect `out/`, because the observable contract is the G
 - Both LLM indexes identify the site, primary sections, public profiles, apps, and writing without claiming private or live runtime data.
 - Exported HTML contains `Person`, `ItemList`/`SoftwareApplication`, and `BlogPosting` JSON-LD where appropriate.
 - Existing visible copy and navigation remain unchanged.
+
+## Pull-request verification
+
+The draft pull request will run a separate read-only verification workflow before merge. It triggers only for pull requests targeting `main`, installs the locked npm dependencies, builds the production static export, and runs the artifact tests. New commits cancel older runs for the same pull request. The workflow cannot deploy and does not add dependency automation; Dependabot remains a separate future decision.
