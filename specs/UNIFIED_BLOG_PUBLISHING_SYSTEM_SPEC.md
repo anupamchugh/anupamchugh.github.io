@@ -1,9 +1,13 @@
 # Unified Blog Publishing System Spec
 
-**Status:** Draft
+**Status:** Superseded by `docs/superpowers/specs/2026-08-05-personal-blog-mcp-design.md`
 **Created:** 2026-02-03
 **Category:** Developer Tooling / Content Management
 **Scope:** anupamchugh.github.io + global skills
+
+> This draft is retained as historical context. Its direct `publish`, commit,
+> and push actions are not approved. The replacement design separates a public
+> credential-free reader from a private, branch-and-PR-only GitHub workflow.
 
 ---
 
