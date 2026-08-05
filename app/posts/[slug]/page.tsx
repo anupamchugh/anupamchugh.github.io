@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import PostBody from '@/components/post-body';
 import { getAllPosts, getPostBySlug } from '@/lib/posts';
 import { formatDate } from '@/lib/utils';
+import JsonLd from '@/components/json-ld';
+import { postJsonLd } from '@/lib/discovery';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -38,6 +40,7 @@ export default async function PostPage({ params }: PageProps) {
 
   return (
     <article className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
+      <JsonLd data={postJsonLd(post)} />
       {/* Back link */}
       <Link
         href="/posts/"

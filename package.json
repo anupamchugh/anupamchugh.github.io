@@ -6,6 +6,7 @@
     "dev": "next dev",
     "blog-editor": "node scripts/blog-editor-server.mjs",
     "build": "next build",
+    "test": "node --test tests/*.test.mjs",
     "start": "next start",
     "lint": "next lint"
   },
