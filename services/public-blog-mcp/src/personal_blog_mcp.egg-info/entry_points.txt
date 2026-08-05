@@ -1,2 +1,0 @@
-[console_scripts]
-personal-blog-mcp = personal_blog_mcp.server:main
