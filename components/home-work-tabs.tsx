@@ -45,6 +45,9 @@ export default function HomeWorkTabs() {
             </div>
           </Link>
           ))}
+          <Link href="/apps/" className="inline-block text-sm text-secondary hover:text-primary">
+            view all {apps.length} apps →
+          </Link>
         </div>
 
         <div id="home-work-panel-archive" role="tabpanel" aria-labelledby="home-work-archive" className="home-work-panel home-work-panel-archive">
