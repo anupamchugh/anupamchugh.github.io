@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "Anupam Chugh",
-  title: "anupam chugh - software engineer and writer",
+  title: "anupam chugh - ios & macos engineer",
   description:
-    "started in code. got pulled into the creator economy. tried ai scaffolding. came back to human writing.",
+    "eleven years of apps, two and a half editing other engineers. the writing is an archive. the work is shipping.",
   url: "https://anupamchugh.github.io",
   caseStyle: "lowercase",
   social: {
-    twitter: "https://twitter.com/chughanupam",
+    twitter: "https://x.com/chughgpt",
     github: "https://github.com/anupamchugh",
     linkedin: "https://linkedin.com/in/anupamchugh",
   },
@@ -26,23 +26,23 @@ export const navItems: NavItem[] = [
 ];
 
 export const heroContent = {
-  eyebrow: "software engineer, writer, app maker",
+  eyebrow: "ios & macos engineer, former editor of better programming",
   headline: "started in code.",
-  headlineGradient: "got pulled into the creator economy.",
-  headlineSuffix: "came back to human writing.",
+  headlineGradient: "held the board back.",
+  headlineSuffix: "now i ship small apps.",
   intro:
-    "i have been writing on the web since 2015: android tutorials, swiftui experiments, medium-era satire, app store projects, and now a slower public archive of the work that still feels alive.",
-  primaryCta: { label: "read the writing", href: "/posts/" },
-  secondaryCta: { label: "see the work", href: "/work/" },
+    "i began building apps for fun and started an e-commerce startup. it did not pan out. the consolation prize is shipping. the essays from journaldev and better programming stay here as an archive, not as a current blog.",
+  primaryCta: { label: "see the apps", href: "/apps/" },
+  secondaryCta: { label: "the archive", href: "/posts/" },
 };
 
 export type Stat = { label: string; value: string; description?: string };
 
 export const heroStats: Stat[] = [
-  { label: "writing since", value: "2015", description: "tutorials, essays, satire" },
+  { label: "writing", value: "2015–23", description: "archive, not a current blog" },
   { label: "open source", value: "900+", description: "stars on iowncode" },
   { label: "archive", value: "300+", description: "articles and drafts under review" },
-  { label: "apps", value: "10+", description: "small shipped experiments" },
+  { label: "apps", value: "18", description: "small shipped experiments" },
 ];
 
 export type AppItem = {
@@ -56,6 +56,33 @@ export type AppItem = {
 };
 
 export const apps: AppItem[] = [
+  {
+    name: "Rifflet",
+    slug: "rifflet",
+    description: "turns a short music idea into a playable piano, guitar, or ukulele lesson.",
+    status: "live",
+    href: "https://apps.apple.com/us/app/rifflet/id6767064984",
+    icon: "/app-icons/rifflet.jpg",
+    tags: ["music", "learning", "on-device"],
+  },
+  {
+    name: "Orbits",
+    slug: "common-ground",
+    description: "plan your own trips and meetups. the store listing is find common ground.",
+    status: "live",
+    href: "https://apps.apple.com/us/app/find-common-ground/id6759101340",
+    icon: "/app-icons/common-ground.png",
+    tags: ["places", "swiftui"],
+  },
+  {
+    name: "EchoHunt",
+    slug: "playlist-hunter",
+    description: "i play music at random hours and never knew why the algorithm picked it, so now i just ask.",
+    status: "live",
+    href: "https://apps.apple.com/in/app/playlist-hunter/id6756028972",
+    icon: "/app-icons/playlist-hunter.png",
+    tags: ["music", "ai"],
+  },
   {
     name: "Pastport",
     slug: "pastport",
@@ -83,24 +110,7 @@ export const apps: AppItem[] = [
     icon: "/app-icons/flyleaf.png",
     tags: ["writing", "markdown"],
   },
-  {
-    name: "Find Common Ground",
-    slug: "common-ground",
-    description: "helps groups find overlapping saved places without sending the decision to a server.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/find-common-ground/id6759101340",
-    icon: "/app-icons/common-ground.png",
-    tags: ["places", "swiftui"],
-  },
-  {
-    name: "Playlist Hunter",
-    slug: "playlist-hunter",
-    description: "turns a prompt into an apple music playlist.",
-    status: "live",
-    href: "https://apps.apple.com/in/app/playlist-hunter/id6756028972",
-    icon: "/app-icons/playlist-hunter.png",
-    tags: ["music", "ai"],
-  },
+
   {
     name: "ClocktowerTable",
     slug: "clocktower-table",
@@ -125,6 +135,7 @@ export const apps: AppItem[] = [
     description: "an rss reader for keeping up with links and feeds.",
     status: "live",
     href: "https://apps.apple.com/us/app/feedloom/id6761685952",
+    icon: "/app-icons/feedloom.jpg",
     tags: ["rss", "reading"],
   },
   {
@@ -133,7 +144,81 @@ export const apps: AppItem[] = [
     description: "a small app for sending a nod to someone who knows.",
     status: "live",
     href: "https://apps.apple.com/us/app/getnod/id6761169513",
+    icon: "/app-icons/getnod.jpg",
     tags: ["social", "ios"],
+  },
+  {
+    name: "Best Face Forward",
+    slug: "best-face-forward",
+    description: "finds the strongest face frame from a live photo, then lets you tune, save, or share it.",
+    status: "live",
+    href: "https://apps.apple.com/us/app/best-face-forward/id6766553501",
+    icon: "/app-icons/best-face-forward.jpg",
+    tags: ["photo", "vision", "on-device"],
+  },
+  {
+    name: "Breakline Surf",
+    slug: "breakline-surf",
+    description: "compares visible surfing body position in your own photos and videos, privately on device.",
+    status: "live",
+    href: "https://apps.apple.com/us/app/breakline-surf/id6785873182",
+    icon: "/app-icons/breakline-surf.jpg",
+    tags: ["surfing", "vision", "on-device"],
+  },
+  {
+    name: "DocPolish",
+    slug: "docpolish",
+    description: "a private document cleanup app for passports, visas, ids, receipts, and forms.",
+    status: "live",
+    href: "https://apps.apple.com/us/app/docpolish/id6774345224",
+    icon: "/app-icons/docpolish.jpg",
+    tags: ["documents", "vision", "privacy"],
+  },
+  {
+    name: "Lineage Mirror",
+    slug: "lineage-mirror",
+    description: "a private reflection app for exploring family stories, inherited traits, and visible resemblance cues.",
+    status: "live",
+    href: "https://apps.apple.com/us/app/lineage-mirror/id6774345235",
+    icon: "/app-icons/lineage-mirror.jpg",
+    tags: ["reflection", "family", "on-device"],
+  },
+  {
+    name: "Pinprint",
+    slug: "pinprint",
+    description: "a private trip os for collecting saved places, screenshots, tips, documents, and travel memories.",
+    status: "live",
+    href: "https://apps.apple.com/us/app/pinprint/id6779702946",
+    icon: "/app-icons/pinprint.jpg",
+    tags: ["travel", "maps", "privacy"],
+  },
+
+  {
+    name: "RoamProof",
+    slug: "roamproof",
+    description: "helps travelers plan connectivity before a trip and record where their phone actually worked.",
+    status: "live",
+    href: "https://apps.apple.com/us/app/roamproof/id6782336949",
+    icon: "/app-icons/roamproof.jpg",
+    tags: ["travel", "connectivity", "offline"],
+  },
+  {
+    name: "Swell Window",
+    slug: "swell-window",
+    description: "helps bali and indonesia fast-boat travelers read marine model conditions before they travel.",
+    status: "live",
+    href: "https://apps.apple.com/us/app/swell-window/id6782342627",
+    icon: "/app-icons/swell-window.jpg",
+    tags: ["travel", "weather", "marine"],
+  },
+  {
+    name: "The Match Room",
+    slug: "the-match-room",
+    description: "helps fans, players, coaches, and analysts understand what each match result changes.",
+    status: "live",
+    href: "https://apps.apple.com/us/app/the-match-room/id6782396757",
+    icon: "/app-icons/the-match-room.jpg",
+    tags: ["sports", "fixtures", "scenarios"],
   },
 ];
 
@@ -229,16 +314,16 @@ export const timeline: TimelineItem[] = [
     tags: ["medium", "editing"],
   },
   {
-    year: "2024",
-    title: "building again",
-    description: "small apps, trading systems, writing tools, and experiments with ai-assisted software.",
-    tags: ["apps", "ai"],
+    year: "2021",
+    title: "the editor",
+    description: "took over better programming from zack shapiro, handed it to mihai banulescu in 2023.",
+    tags: ["medium", "editing"],
   },
   {
-    year: "2026",
-    title: "human writing",
-    description: "less scaffolding, more ownership. public notes where the voice matters as much as the system.",
-    tags: ["writing", "archive"],
+    year: "2024",
+    title: "shipping apps",
+    description: "rifflet, orbits, echohunt, and a shelf of small apple apps. writing stays in the archive.",
+    tags: ["apps", "ios"],
   },
 ];
 

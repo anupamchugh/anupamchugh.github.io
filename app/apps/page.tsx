@@ -17,8 +17,8 @@ export default function AppsPage() {
       <JsonLd data={appsJsonLd()} />
       <h1 className="text-3xl font-semibold text-primary">apps</h1>
       <p className="mt-3 max-w-2xl text-secondary">
-        small app store projects, product experiments, and the occasional game. live means live.
-        preview means the product still needs real shipping work.
+        live store apps first: rifflet, orbits, echohunt. the rest of the shelf is shipped too.
+        live means live. preview means it still needs real shipping work.
       </p>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2">

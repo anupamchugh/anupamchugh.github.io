@@ -4,7 +4,7 @@ import { siteConfig, timeline } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'about',
-  description: 'software engineer, writer, and app maker.',
+  description: 'ios and macos engineer. former editor of better programming.',
 };
 
 export default function AboutPage() {
@@ -14,19 +14,20 @@ export default function AboutPage() {
 
       <div className="prose mt-8">
         <p>
-          i started writing on the web in 2015 because code alone was not enough. tutorials
-          taught me how to explain things. apps taught me how quickly plans collapse. medium
-          taught me what happens when platforms own the room.
+          i began building apps for fun and started an e-commerce based startup. while that
+          didn&apos;t pan out well, a nice consolation prize is that i&apos;ve become a reliable
+          ios and android developer who knows how to deliver results in the alignment of a
+          company&apos;s mission.
         </p>
         <p>
-          for a few years i managed better programming, one of medium&apos;s largest programming
-          publications. i watched the creator economy from inside the machine: writers chasing
-          distribution, editors chasing quality, algorithms deciding which one mattered that day.
+          i led android at agricx and shipped their first ios app. from 2021 to 2023 i was
+          managing editor of better programming. a small editor team and i read thousands of
+          submissions a month. the job was holding a piece back until the writer understood what
+          they set out to explain.
         </p>
         <p>
-          now i build small apps, write about the work, and keep my own archive. i tried ai
-          scaffolding because it was useful. i am coming back to human writing because usefulness
-          is not the same as voice.
+          since 2024 i ship small apple apps. rifflet, orbits, and echohunt are on the store.
+          the essays stay here as an archive. i am not running a blog right now.
         </p>
       </div>
 
@@ -57,6 +58,10 @@ export default function AboutPage() {
           <Link href="/photos/">photos</Link>
           {' · '}
           <Link href="/posts/ten-years-of-doing-stuff/">ten years of doing stuff</Link>
+          {' · '}
+          <a href="https://medium.com/macoclock/apple-is-killing-a-billion-dollar-ad-industry-with-one-popup-2f83d182837f">
+            apple is killing a billion-dollar ad industry
+          </a>
         </p>
       </section>
     </div>
