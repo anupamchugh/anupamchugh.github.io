@@ -1,0 +1,148 @@
+{
+  "owner": "Anupam Chugh",
+  "source": "https://anupamchugh.github.io/apps/",
+  "asOf": "2026-10-20",
+  "apps": [
+    {
+      "name": "Rifflet",
+      "pitch": "turns a short music idea into a playable piano, guitar, or ukulele lesson.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/rifflet/id6767064984",
+      "version": "1.5"
+    },
+    {
+      "name": "Orbits",
+      "pitch": "plan your own trips and meetups. the store listing is find common ground.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/find-common-ground/id6759101340"
+    },
+    {
+      "name": "EchoHunt",
+      "pitch": "i play music at random hours and never knew why the algorithm picked it, so now i just ask.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/in/app/playlist-hunter/id6756028972"
+    },
+    {
+      "name": "Flickpot",
+      "pitch": "a small iOS flicking game, live on the app store.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/flickpot/id6766531373"
+    },
+    {
+      "name": "Flyleaf Notes",
+      "pitch": "a markdown writing desk for local folders, archives, and eventually github publishing.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/flyleaf-notes/id6764307755",
+      "version": "1.0"
+    },
+    {
+      "name": "Quorion Table",
+      "pitch": "a storyteller console and table companion for social deduction nights.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/clocktowertable/id6761296328",
+      "siteName": "ClocktowerTable",
+      "version": "1.3.0"
+    },
+    {
+      "name": "Checkmate Academy",
+      "pitch": "a chess learning app with lessons, puzzles, ai games, and review tools.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/checkmate-academy/id6760925352"
+    },
+    {
+      "name": "Feedloom",
+      "pitch": "an rss reader for keeping up with links and feeds.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/feedloom/id6761685952"
+    },
+    {
+      "name": "getNod",
+      "pitch": "a small app for sending a nod to someone who knows.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/getnod/id6761169513"
+    },
+    {
+      "name": "Best Face Forward",
+      "pitch": "finds the strongest face frame from a live photo, then lets you tune, save, or share it.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/best-face-forward/id6766553501"
+    },
+    {
+      "name": "Breakline Surf",
+      "pitch": "compares visible surfing body position in your own photos and videos, privately on device.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/breakline-surf/id6785873182",
+      "version": "1.3.1"
+    },
+    {
+      "name": "DocPolish",
+      "pitch": "a private document cleanup app for passports, visas, ids, receipts, and forms.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/docpolish/id6774345224"
+    },
+    {
+      "name": "Lineage Mirror",
+      "pitch": "a private reflection app for exploring family stories, inherited traits, and visible resemblance cues.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/lineage-mirror/id6774345235"
+    },
+    {
+      "name": "Pinprint",
+      "pitch": "a private trip os for collecting saved places, screenshots, tips, documents, and travel memories.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/pinprint/id6779702946"
+    },
+    {
+      "name": "RoamProof",
+      "pitch": "helps travelers plan connectivity before a trip and record where their phone actually worked.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/roamproof/id6782336949"
+    },
+    {
+      "name": "Swell Window",
+      "pitch": "helps bali and indonesia fast-boat travelers read marine model conditions before they travel.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/swell-window/id6782342627"
+    },
+    {
+      "name": "The Match Room",
+      "pitch": "helps fans, players, coaches, and analysts understand what each match result changes.",
+      "platforms": [
+        "iOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/the-match-room/id6782396757"
+    }
+  ]
+}

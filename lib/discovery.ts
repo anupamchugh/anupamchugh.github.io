@@ -22,6 +22,7 @@ export const publicSiteRoutes = [
   '/privacy/feedloom/',
   '/privacy/stockshots/',
   '/projects/',
+  '/resume/',
   '/reviews/',
   '/support/',
   '/work/',

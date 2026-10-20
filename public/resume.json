@@ -1,0 +1,64 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Anupam Chugh",
+    "label": "iOS & macOS engineer",
+    "email": "anupam.chugh@gmail.com",
+    "url": "https://anupamchugh.github.io",
+    "summary": "Reliable iOS and Android developer who knows how to deliver results in the alignment of a company's mission. Led Android at Agricx and shipped their first iOS app, was managing editor of Better Programming, and since 2024 ships small Apple apps.",
+    "profiles": [
+      { "network": "GitHub", "username": "anupamchugh", "url": "https://github.com/anupamchugh" },
+      { "network": "X", "username": "chughgpt", "url": "https://x.com/chughgpt" },
+      { "network": "LinkedIn", "username": "anupamchugh", "url": "https://linkedin.com/in/anupamchugh" }
+    ]
+  },
+  "work": [
+    {
+      "name": "Independent",
+      "position": "iOS & macOS app developer",
+      "url": "https://anupamchugh.github.io/apps/",
+      "startDate": "2024",
+      "summary": "Ships small Apple apps to the App Store. See apps.json for the current list."
+    },
+    {
+      "name": "Better Programming",
+      "position": "Managing Editor",
+      "startDate": "2021",
+      "endDate": "2023",
+      "summary": "Took over Better Programming from Zack Shapiro in 2021 and handed it to Mihai Banulescu in 2023. With a small editor team, read thousands of submissions a month."
+    },
+    {
+      "name": "Agricx",
+      "position": "Android lead",
+      "summary": "Led Android and shipped the company's first iOS app."
+    },
+    {
+      "name": "JournalDev",
+      "position": "Writer",
+      "startDate": "2015",
+      "summary": "Android tutorials and freelance work."
+    }
+  ],
+  "projects": [
+    {
+      "name": "iowncode",
+      "description": "Open-source Apple and Android sample projects, with 900+ stars.",
+      "url": "https://github.com/anupamchugh/iowncode"
+    },
+    {
+      "name": "VisionCreditScan",
+      "description": "Real-time credit card scanning using rectangle detection and OCR on the selected region.",
+      "url": "https://github.com/anupamchugh/VisionCreditScan"
+    },
+    {
+      "name": "Pastport",
+      "description": "On-device Safari history intelligence for macOS: movements, bookings, threads, and grounded local answers.",
+      "url": "https://github.com/anupamchugh/pastport/releases/latest"
+    }
+  ],
+  "skills": [
+    { "name": "Apple platforms", "keywords": ["SwiftUI", "Core ML", "Vision", "ARKit", "Foundation Models"] },
+    { "name": "Android", "keywords": ["Android"] },
+    { "name": "Editing", "keywords": ["Technical editing", "Editorial management"] }
+  ]
+}

@@ -55,6 +55,8 @@ export default function AboutPage() {
           {' · '}
           <a href={siteConfig.social.linkedin}>linkedin</a>
           {' · '}
+          <Link href="/resume/">resume</Link>
+          {' · '}
           <Link href="/photos/">photos</Link>
           {' · '}
           <Link href="/posts/ten-years-of-doing-stuff/">ten years of doing stuff</Link>

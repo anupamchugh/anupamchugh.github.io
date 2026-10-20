@@ -24,6 +24,7 @@ const expectedPublicRoutes = [
   '/privacy/feedloom/',
   '/privacy/stockshots/',
   '/projects/',
+  '/resume/',
   '/reviews/',
   '/support/',
   '/work/',
