@@ -1,3 +1,8 @@
+import appRecords from "../content/apps.json";
+import resumeRecord from "../content/resume.json";
+
+export const resume = resumeRecord;
+
 export const siteConfig = {
   name: "Anupam Chugh",
   title: "anupam chugh - ios & macos engineer",
@@ -55,172 +60,21 @@ export type AppItem = {
   tags: string[];
 };
 
-export const apps: AppItem[] = [
-  {
-    name: "Rifflet",
-    slug: "rifflet",
-    description: "turns a short music idea into a playable piano, guitar, or ukulele lesson.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/rifflet/id6767064984",
-    icon: "/app-icons/rifflet.jpg",
-    tags: ["music", "learning", "on-device"],
-  },
-  {
-    name: "Orbits",
-    slug: "common-ground",
-    description: "plan your own trips and meetups. the store listing is find common ground.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/find-common-ground/id6759101340",
-    icon: "/app-icons/common-ground.png",
-    tags: ["places", "swiftui"],
-  },
-  {
-    name: "EchoHunt",
-    slug: "playlist-hunter",
-    description: "i play music at random hours and never knew why the algorithm picked it, so now i just ask.",
-    status: "live",
-    href: "https://apps.apple.com/in/app/playlist-hunter/id6756028972",
-    icon: "/app-icons/playlist-hunter.png",
-    tags: ["music", "ai"],
-  },
-  {
-    name: "Pastport",
-    slug: "pastport",
-    description: "on-device Safari history intelligence for macOS: movements, bookings, threads, and grounded local answers.",
-    status: "live",
-    href: "https://github.com/anupamchugh/pastport/releases/latest",
-    icon: "/app-icons/pastport.png",
-    tags: ["macOS", "on-device", "Foundation Models"],
-  },
-  {
-    name: "Flickpot",
-    slug: "flickpot",
-    description: "a small iOS flicking game, live on the app store.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/flickpot/id6766531373",
-    icon: "/app-icons/flickpot.png",
-    tags: ["game", "ios"],
-  },
-  {
-    name: "Flyleaf Notes",
-    slug: "flyleaf",
-    description: "a markdown writing desk for local folders, archives, and eventually github publishing.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/flyleaf-notes/id6764307755",
-    icon: "/app-icons/flyleaf.png",
-    tags: ["writing", "markdown"],
-  },
-
-  {
-    name: "ClocktowerTable",
-    slug: "clocktower-table",
-    description: "a storyteller console and table companion for social deduction nights.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/clocktowertable/id6761296328",
-    icon: "/app-icons/clocktower-table.png",
-    tags: ["game aid", "ios"],
-  },
-  {
-    name: "Checkmate Academy",
-    slug: "checkmate-academy",
-    description: "a chess learning app with lessons, puzzles, ai games, and review tools.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/checkmate-academy/id6760925352",
-    icon: "/app-icons/checkmate-academy.png",
-    tags: ["chess", "learning"],
-  },
-  {
-    name: "Feedloom",
-    slug: "feedloom",
-    description: "an rss reader for keeping up with links and feeds.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/feedloom/id6761685952",
-    icon: "/app-icons/feedloom.jpg",
-    tags: ["rss", "reading"],
-  },
-  {
-    name: "getNod",
-    slug: "getnod",
-    description: "a small app for sending a nod to someone who knows.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/getnod/id6761169513",
-    icon: "/app-icons/getnod.jpg",
-    tags: ["social", "ios"],
-  },
-  {
-    name: "Best Face Forward",
-    slug: "best-face-forward",
-    description: "finds the strongest face frame from a live photo, then lets you tune, save, or share it.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/best-face-forward/id6766553501",
-    icon: "/app-icons/best-face-forward.jpg",
-    tags: ["photo", "vision", "on-device"],
-  },
-  {
-    name: "Breakline Surf",
-    slug: "breakline-surf",
-    description: "compares visible surfing body position in your own photos and videos, privately on device.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/breakline-surf/id6785873182",
-    icon: "/app-icons/breakline-surf.jpg",
-    tags: ["surfing", "vision", "on-device"],
-  },
-  {
-    name: "DocPolish",
-    slug: "docpolish",
-    description: "a private document cleanup app for passports, visas, ids, receipts, and forms.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/docpolish/id6774345224",
-    icon: "/app-icons/docpolish.jpg",
-    tags: ["documents", "vision", "privacy"],
-  },
-  {
-    name: "Lineage Mirror",
-    slug: "lineage-mirror",
-    description: "a private reflection app for exploring family stories, inherited traits, and visible resemblance cues.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/lineage-mirror/id6774345235",
-    icon: "/app-icons/lineage-mirror.jpg",
-    tags: ["reflection", "family", "on-device"],
-  },
-  {
-    name: "Pinprint",
-    slug: "pinprint",
-    description: "a private trip os for collecting saved places, screenshots, tips, documents, and travel memories.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/pinprint/id6779702946",
-    icon: "/app-icons/pinprint.jpg",
-    tags: ["travel", "maps", "privacy"],
-  },
-
-  {
-    name: "RoamProof",
-    slug: "roamproof",
-    description: "helps travelers plan connectivity before a trip and record where their phone actually worked.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/roamproof/id6782336949",
-    icon: "/app-icons/roamproof.jpg",
-    tags: ["travel", "connectivity", "offline"],
-  },
-  {
-    name: "Swell Window",
-    slug: "swell-window",
-    description: "helps bali and indonesia fast-boat travelers read marine model conditions before they travel.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/swell-window/id6782342627",
-    icon: "/app-icons/swell-window.jpg",
-    tags: ["travel", "weather", "marine"],
-  },
-  {
-    name: "The Match Room",
-    slug: "the-match-room",
-    description: "helps fans, players, coaches, and analysts understand what each match result changes.",
-    status: "live",
-    href: "https://apps.apple.com/us/app/the-match-room/id6782396757",
-    icon: "/app-icons/the-match-room.jpg",
-    tags: ["sports", "fixtures", "scenarios"],
-  },
-];
+export const apps: AppItem[] = appRecords.map((record) => {
+  const status = record.status;
+  if (status !== "live" && status !== "preview" && status !== "building" && status !== "archive") {
+    throw new Error(`Unknown app status for ${record.name}: ${status}`);
+  }
+  return {
+    name: record.name,
+    slug: record.slug,
+    description: record.description,
+    status,
+    href: record.href,
+    icon: record.icon,
+    tags: [...record.tags],
+  };
+});
 
 export type WorkItem = {
   name: string;
