@@ -1,7 +1,7 @@
 {
   "owner": "Anupam Chugh",
   "source": "https://anupamchugh.github.io/apps/",
-  "asOf": "2026-10-20",
+  "asOf": "2026-10-23",
   "apps": [
     {
       "name": "Rifflet",
@@ -18,7 +18,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/find-common-ground/id6759101340"
+      "appStoreUrl": "https://apps.apple.com/us/app/find-common-ground/id6759101340",
+      "version": "1.6"
     },
     {
       "name": "EchoHunt",
@@ -26,7 +27,16 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/in/app/playlist-hunter/id6756028972"
+      "appStoreUrl": "https://apps.apple.com/in/app/playlist-hunter/id6756028972",
+      "version": "1.7"
+    },
+    {
+      "name": "Pastport",
+      "pitch": "on-device Safari history intelligence for macOS: movements, bookings, threads, and grounded local answers.",
+      "platforms": [
+        "macOS"
+      ],
+      "appStoreUrl": "https://github.com/anupamchugh/pastport/releases/latest"
     },
     {
       "name": "Flickpot",
@@ -34,7 +44,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/flickpot/id6766531373"
+      "appStoreUrl": "https://apps.apple.com/us/app/flickpot/id6766531373",
+      "version": "2.2.0"
     },
     {
       "name": "Flyleaf Notes",
@@ -46,13 +57,12 @@
       "version": "1.0"
     },
     {
-      "name": "Quorion Table",
+      "name": "ClocktowerTable",
       "pitch": "a storyteller console and table companion for social deduction nights.",
       "platforms": [
         "iOS"
       ],
       "appStoreUrl": "https://apps.apple.com/us/app/clocktowertable/id6761296328",
-      "siteName": "ClocktowerTable",
       "version": "1.3.0"
     },
     {
@@ -61,7 +71,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/checkmate-academy/id6760925352"
+      "appStoreUrl": "https://apps.apple.com/us/app/checkmate-academy/id6760925352",
+      "version": "1.1.1"
     },
     {
       "name": "Feedloom",
@@ -69,7 +80,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/feedloom/id6761685952"
+      "appStoreUrl": "https://apps.apple.com/us/app/feedloom/id6761685952",
+      "version": "1.0.4"
     },
     {
       "name": "getNod",
@@ -77,7 +89,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/getnod/id6761169513"
+      "appStoreUrl": "https://apps.apple.com/us/app/getnod/id6761169513",
+      "version": "1.0"
     },
     {
       "name": "Best Face Forward",
@@ -85,7 +98,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/best-face-forward/id6766553501"
+      "appStoreUrl": "https://apps.apple.com/us/app/best-face-forward/id6766553501",
+      "version": "2.0.1"
     },
     {
       "name": "Breakline Surf",
@@ -102,7 +116,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/docpolish/id6774345224"
+      "appStoreUrl": "https://apps.apple.com/us/app/docpolish/id6774345224",
+      "version": "1.0.0"
     },
     {
       "name": "Lineage Mirror",
@@ -110,7 +125,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/lineage-mirror/id6774345235"
+      "appStoreUrl": "https://apps.apple.com/us/app/lineage-mirror/id6774345235",
+      "version": "1.0.0"
     },
     {
       "name": "Pinprint",
@@ -118,7 +134,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/pinprint/id6779702946"
+      "appStoreUrl": "https://apps.apple.com/us/app/pinprint/id6779702946",
+      "version": "1.0"
     },
     {
       "name": "RoamProof",
@@ -126,7 +143,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/roamproof/id6782336949"
+      "appStoreUrl": "https://apps.apple.com/us/app/roamproof/id6782336949",
+      "version": "1.0"
     },
     {
       "name": "Swell Window",
@@ -134,7 +152,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/swell-window/id6782342627"
+      "appStoreUrl": "https://apps.apple.com/us/app/swell-window/id6782342627",
+      "version": "1.0"
     },
     {
       "name": "The Match Room",
@@ -142,7 +161,8 @@
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/the-match-room/id6782396757"
+      "appStoreUrl": "https://apps.apple.com/us/app/the-match-room/id6782396757",
+      "version": "1.0"
     }
   ]
 }

@@ -1,6 +1,5 @@
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
 import { Metadata } from 'next';
+import { resume } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'resume',
@@ -26,17 +25,14 @@ type Resume = {
   skills: { name: string; keywords: string[] }[];
 };
 
-function loadResume(): Resume {
-  return JSON.parse(readFileSync(path.join(process.cwd(), 'public', 'resume.json'), 'utf8'));
-}
-
 function dates(start?: string, end?: string) {
   if (!start) return '';
   return `${start}–${end ?? 'present'}`;
 }
 
 export default function ResumePage() {
-  const { basics, work, projects, skills } = loadResume();
+  const pageResume: Resume = resume;
+  const { basics, work, projects, skills } = pageResume;
 
   return (
     <div className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
