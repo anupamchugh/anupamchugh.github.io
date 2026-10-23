@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>anupam chugh - ios &amp; macos engineer</title>
+    <link>https://anupamchugh.github.io/posts/</link>
+    <description>eleven years of apps, two and a half editing other engineers. the writing is an archive. the work is shipping.</description>
+    <language>en</language>
+    <item>
+      <title>Your iPhone Left an Airbnb</title>
+      <link>https://anupamchugh.github.io/posts/pastport-what-safari-remembers/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/pastport-what-safari-remembers/</guid>
+      <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Your iPhone Left an Airbnb
+
+I got up and was switching between Airbnbs, already annoyed at the Airbnb app sending me back and forth to Safari and Google Maps.
+
+Safari even warned me: “You are leavi...</description>
+    </item>
+    <item>
+      <title>Ten Years of Doing Stuff: From $2 Apps to Algorithmic Trading</title>
+      <link>https://anupamchugh.github.io/posts/ten-years-of-doing-stuff/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/ten-years-of-doing-stuff/</guid>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 GMT</pubDate>
+      <description>First published in February 2024. Expanded and updated for this blog.
+
+I picked engineering because my family wanted me to. I wanted to make films, play cricket professionally, compete in chess and...</description>
+    </item>
+    <item>
+      <title>Constraint Stack for AI Work: A Practical Template</title>
+      <link>https://anupamchugh.github.io/posts/constraint-stack-for-ai-work/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/constraint-stack-for-ai-work/</guid>
+      <pubDate>Sun, 08 Mar 2026 16:30:00 GMT</pubDate>
+      <description>If constraints are the moat, we need a repeatable way to define them.
+
+Here is the template I now use before handing work to an AI system.
+
+ The Constraint Stack
+
+1. Goal  
+   What exactly shou...</description>
+    </item>
+    <item>
+      <title>The Tool That Wins Is the One With the Best Constraints</title>
+      <link>https://anupamchugh.github.io/posts/The-Tool-That-Wins-Is-The-One-With-The-Best-Constraints/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/The-Tool-That-Wins-Is-The-One-With-The-Best-Constraints/</guid>
+      <pubDate>Sun, 08 Mar 2026 12:00:00 GMT</pubDate>
+      <description>&quot;Constraints breed creativity&quot; is design school gospel. Eames said it. Stravinsky said it. Every product blog has said it. I&apos;m not here to repeat that.
+
+I&apos;m here to point out something sharper: in th...</description>
+    </item>
+    <item>
+      <title>good code isn&apos;t dying</title>
+      <link>https://anupamchugh.github.io/posts/good-code-isnt-dying/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/good-code-isnt-dying/</guid>
+      <pubDate>Sun, 08 Feb 2026 14:00:00 GMT</pubDate>
+      <description>amit prasad wrote about the silent death of good code(https://amit.prasad.me/blog/rip-good-code). his thesis: agents make you productive, but output is &quot;acceptable, not excellent.&quot; craftsmanship is...</description>
+    </item>
+    <item>
+      <title>what most people miss about ai code quality</title>
+      <link>https://anupamchugh.github.io/posts/what-most-people-miss-about-ai-code-quality/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/what-most-people-miss-about-ai-code-quality/</guid>
+      <pubDate>Sat, 07 Feb 2026 20:00:00 GMT</pubDate>
+      <description>a thread on HN(https://news.ycombinator.com/item?id=46916586) about writing quality code with AI hit 200 points today. 145 comments. i read all of them. the article has 12 reasonable principles. th...</description>
+    </item>
+    <item>
+      <title>claude code agent teams — what changes for multi-agent coordination</title>
+      <link>https://anupamchugh.github.io/posts/claude-code-agent-teams-what-changes/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/claude-code-agent-teams-what-changes/</guid>
+      <pubDate>Fri, 06 Feb 2026 14:00:00 GMT</pubDate>
+      <description>two days ago i submitted a PR to MCP Agent Mail(https://github.com/Dicklesworthstone/mcpagentmail/pull/77) adding agent heartbeat presence, lifecycle management, and soft-block messaging. the pro...</description>
+    </item>
+    <item>
+      <title>Facebook&apos;s agents still run. Apple keeps wiping their memory.</title>
+      <link>https://anupamchugh.github.io/posts/facebooks-agents-still-run-apple-keeps-wiping-their-memory/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/facebooks-agents-still-run-apple-keeps-wiping-their-memory/</guid>
+      <pubDate>Wed, 04 Feb 2026 12:00:00 GMT</pubDate>
+      <description>In 2020 I wrote that Apple&apos;s iOS 14 privacy popup would crush the deep links used for ad tracking. Facebook warned of 50% revenue drops. Advertisers panicked. Four years later, we have the receipts —...</description>
+    </item>
+    <item>
+      <title>Shadowbook: The F1 Control Room for Complex Systems</title>
+      <link>https://anupamchugh.github.io/posts/shadowbook-f1-control-room/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/shadowbook-f1-control-room/</guid>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
+      <description>Spec-driven workflows break in slow, expensive ways. The spec starts clean, then accretes edge cases, caveats, and context files. The code moves, the spec moves, and the two stop moving together. You...</description>
+    </item>
+    <item>
+      <title>i built a tool that became obsolete in four days</title>
+      <link>https://anupamchugh.github.io/posts/I-Built-A-Tool-That-Became-Obsolete-In-Four-Days/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/I-Built-A-Tool-That-Became-Obsolete-In-Four-Days/</guid>
+      <pubDate>Sun, 01 Feb 2026 18:00:00 GMT</pubDate>
+      <description>my M4 Mac was eating battery faster than a cryptocurrency miner at a free electricity convention. terminal kept freezing. fans spinning for no visible reason. activity monitor showed runaway CPU from...</description>
+    </item>
+    <item>
+      <title>Pacman Mode in Beads: Eating Tasks Without a Server</title>
+      <link>https://anupamchugh.github.io/posts/Pacman-Mode-Multi-Agent/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Pacman-Mode-Multi-Agent/</guid>
+      <pubDate>Sun, 01 Feb 2026 18:00:00 GMT</pubDate>
+      <description>Part 1(/skill-drift): skill drift. Part 2(/spec-drift): spec drift. Part 3(/snap-streaks): volatility tracking.
+
+Part 4: coordination without a server.
+
+ The Problem (One Paragraph)
+
+Mult...</description>
+    </item>
+    <item>
+      <title>Snap Your Spec Streaks</title>
+      <link>https://anupamchugh.github.io/posts/Snap-Your-Spec-Streaks/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Snap-Your-Spec-Streaks/</guid>
+      <pubDate>Sun, 01 Feb 2026 12:00:00 GMT</pubDate>
+      <description>Specs change. Sometimes too much.
+
+A spec that changes five times in a week while three engineers build against it creates chaos. Work drifts. Reviews fail. Rework multiplies.
+
+This is Stability Dr...</description>
+    </item>
+    <item>
+      <title>Where Did I Leave That Spec?</title>
+      <link>https://anupamchugh.github.io/posts/Where-Did-I-Leave-That-Spec/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Where-Did-I-Leave-That-Spec/</guid>
+      <pubDate>Sat, 31 Jan 2026 12:00:00 GMT</pubDate>
+      <description>Monday morning. Coffee. Terminal open. And the question that haunts every fast-moving codebase:
+
+What was I working on?
+
+I have 76 specs. 127 beads (tasks). Skills scattered across two agents. Code...</description>
+    </item>
+    <item>
+      <title>Skill Drift: 42 Skills in Claude. 40 in Codex.</title>
+      <link>https://anupamchugh.github.io/posts/Skill-Drift/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Skill-Drift/</guid>
+      <pubDate>Fri, 30 Jan 2026 12:00:00 GMT</pubDate>
+      <description>Specs drift from code. That was the vibe-clock problem(https://chughgpt.substack.com/p/the-vibe-clock-drift-problem)—you update the spec at 3am, but the code keeps building the old version.
+
+Now th...</description>
+    </item>
+    <item>
+      <title>Growing Up With a Pansexual Brother</title>
+      <link>https://anupamchugh.github.io/posts/Growing-Up-With-A-Pansexual-Brother/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Growing-Up-With-A-Pansexual-Brother/</guid>
+      <pubDate>Tue, 20 Feb 2024 04:04:49 GMT</pubDate>
+      <description>!My younger brother and me, framed sometime around 2001.(/photographs/anupam-vidit-childhood-pic.png)
+ My younger brother and me, framed sometime around 2001.
+
+In 2022, on Pride Day, my (29)...</description>
+    </item>
+    <item>
+      <title>I, a Loyal Employee, Bow Before the Unrivaled Honesty and Transparency of My Startup’s CEO</title>
+      <link>https://anupamchugh.github.io/posts/Satire-On-Loyal-Employee-and-CEO/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Satire-On-Loyal-Employee-and-CEO/</guid>
+      <pubDate>Thu, 15 Feb 2024 04:04:49 GMT</pubDate>
+      <description>!Illustration generated using Midjourney(/assets/illustrations/startup-humor-ceo-dilemma.png)
+
+You probably know who I am! I’m your next-door neighbor colleague. Spiderman? Nah, just a humble 9–5 w...</description>
+    </item>
+    <item>
+      <title>Apple&apos;s Journal App - A Foray Into AI, the Other Way Round</title>
+      <link>https://anupamchugh.github.io/posts/Views-On-Apple-Journal-App/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Views-On-Apple-Journal-App/</guid>
+      <pubDate>Tue, 13 Feb 2024 04:04:49 GMT</pubDate>
+      <description>Upon the announcement of Apple’s Journal app at WWDC 23, I found myself torn. Given the comparable functionality available within the Shortcuts app for mood tracking journals(https://hachyderm.io/@...</description>
+    </item>
+    <item>
+      <title>Moving on from Better Programming</title>
+      <link>https://anupamchugh.github.io/posts/Moving-On-From-BP/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Moving-On-From-BP/</guid>
+      <pubDate>Tue, 29 Aug 2023 04:04:49 GMT</pubDate>
+      <description>In my announcement post on Medium(https://betterprogramming.pub/better-programming-has-a-new-editor-4f4ee04fa899){:target=&quot;blank&quot;}{:rel=&quot;noopener noreferrer&quot;}, I shared the news about stepping dow...</description>
+    </item>
+    <item>
+      <title>“AI”dentity Crisis</title>
+      <link>https://anupamchugh.github.io/posts/AI-dentity-Crisis/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/AI-dentity-Crisis/</guid>
+      <pubDate>Fri, 20 Jan 2023 04:04:49 GMT</pubDate>
+      <description>!An illustration of a young girl on her knees embracing a standing robot as they both extend their arms in a hug, depicting an emotional connection between human and technology. by DALL-E(/assets/s...</description>
+    </item>
+    <item>
+      <title>New in iOS 15: Vision Person Segmentation</title>
+      <link>https://anupamchugh.github.io/posts/New-in-iOS-15--Vision-Person-Segmentation-5c031a2f3822/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/New-in-iOS-15--Vision-Person-Segmentation-5c031a2f3822/</guid>
+      <pubDate>Tue, 29 Jun 2021 18:17:29 GMT</pubDate>
+      <description>Vision is Apple’s framework that provides out-of-the-box solutions for complex computer vision challenges. It also abstracts the Core ML request by handling the pre-processing of images during classi...</description>
+    </item>
+    <item>
+      <title>With iOS 15, Apple Gives Us Strong Reasons to Ditch Google Services</title>
+      <link>https://anupamchugh.github.io/posts/With-iOS-15--Apple-Gives-Us-Strong-Reasons-to-Ditch-Google-Services/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/With-iOS-15--Apple-Gives-Us-Strong-Reasons-to-Ditch-Google-Services/</guid>
+      <pubDate>Tue, 15 Jun 2021 14:09:20 GMT</pubDate>
+      <description>You don’t need Google Workspace on your iPhone and iPad anymore — Apple offers 10 better alternatives
+
+------
+
+!Illustration by me(/assets/screenshots/ios-15-google-alternatives-header-image-b...</description>
+    </item>
+    <item>
+      <title>Apple Is Killing Email Read Receipts With a Single Popup</title>
+      <link>https://anupamchugh.github.io/posts/Apple-Is-Killing-Email-Read-Receipts-With-a-Single-Popup/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Apple-Is-Killing-Email-Read-Receipts-With-a-Single-Popup/</guid>
+      <pubDate>Fri, 11 Jun 2021 12:45:11 GMT</pubDate>
+      <description>The new Mail Privacy Protection feature ensures that email marketers can no longer track your activity
+
+!Screenshot by me(/assets/screenshots/apple-mail-privacy-protection-screenshot.png)
+
+A...</description>
+    </item>
+    <item>
+      <title>Google Joins Apple to Cancel Facebook’s Trillion-Dollar Empire Dream</title>
+      <link>https://anupamchugh.github.io/posts/Google-Joins-Apple-to-Cancel-Facebook-s-Trillion-Dollar-Empire-Dream/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Google-Joins-Apple-to-Cancel-Facebook-s-Trillion-Dollar-Empire-Dream/</guid>
+      <pubDate>Thu, 03 Jun 2021 04:58:18 GMT</pubDate>
+      <description>Android 12 makes interest-based advertising obsolete to set off an irreversible collapse in Facebook’s ad ecosystem
+
+
+
+Facebook has a market evaluation of over 930 billion dollars today. Tha...</description>
+    </item>
+    <item>
+      <title>Swipeless Tinder Using iOS 14 Vision Hand Pose Estimation</title>
+      <link>https://anupamchugh.github.io/posts/Swipeless-Tinder-Using-iOS-14-Vision-Hand-Pose-Estimation/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Swipeless-Tinder-Using-iOS-14-Vision-Hand-Pose-Estimation/</guid>
+      <pubDate>Tue, 05 Jan 2021 14:20:05 GMT</pubDate>
+      <description>Let’s use the power of computer vision to detect hand gestures in iOS
+
+-----
+
+The introduction of iOS 14 brought in a slew of enhancements and interesting new features in Apple’s computer vision...</description>
+    </item>
+    <item>
+      <title>Not Apple, Google and Facebook Are Killing the Free Internet</title>
+      <link>https://anupamchugh.github.io/posts/Not-Apple-Google-and-Facebook-Are-Killing-the-Free-Internet/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Not-Apple-Google-and-Facebook-Are-Killing-the-Free-Internet/</guid>
+      <pubDate>Sun, 20 Dec 2020 18:43:55 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0POqaDMkcjzZSW54x.jpg)
+
+Recently, Facebook doubled down on...</description>
+    </item>
+    <item>
+      <title>Facebook’s Hypocrisy on Apple’s New iOS 14 Privacy Feature</title>
+      <link>https://anupamchugh.github.io/posts/Facebook-Hypocrisy-on-Apple-iOS14-Privacy-Feature/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Facebook-Hypocrisy-on-Apple-iOS14-Privacy-Feature/</guid>
+      <pubDate>Thu, 17 Dec 2020 12:49:23 GMT</pubDate>
+      <description>During WWDC 2020, Apple had announced a new iOS 14 privacy-based feature that sent chills down the spine of advertisement agencies.
+
+Specifically, there’s a new `AppTrackingTransparency(https://dev...</description>
+    </item>
+    <item>
+      <title>Apple Moves Two Steps Closer To Mixed Reality</title>
+      <link>https://anupamchugh.github.io/posts/Apple-Moves-Two-Steps-Closer-To-Mixed-Reality-81734b524509/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Apple-Moves-Two-Steps-Closer-To-Mixed-Reality-81734b524509/</guid>
+      <pubDate>Wed, 11 Nov 2020 13:41:01 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1dyYsj2q5NvqUnQA9v3tfA.jpeg)
+
+Now that the euphoria and...</description>
+    </item>
+    <item>
+      <title>If Google’s Doomed Apps Suddenly Woke Up From Their Graves</title>
+      <link>https://anupamchugh.github.io/posts/If-Google-s-Doomed-Apps-Suddenly-Woke-Up-From-Their-Graves/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/If-Google-s-Doomed-Apps-Suddenly-Woke-Up-From-Their-Graves/</guid>
+      <pubDate>Thu, 29 Oct 2020 15:55:12 GMT</pubDate>
+      <description>Listen to their sad tales
+
+!Image(/assets/screenshots/unsplash-image-for-google-doomed-apps-post-altered-by-me.png)
+
+
+Google has a knack for releasing a lot of new products every year in hopes...</description>
+    </item>
+    <item>
+      <title>From Swift Import Python</title>
+      <link>https://anupamchugh.github.io/posts/From-Swift-Import-Python/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/From-Swift-Import-Python/</guid>
+      <pubDate>Mon, 24 Aug 2020 22:30:23 GMT</pubDate>
+      <description>Build a macOS app to run Python scripts from your SwiftUI codebases
+
+Python for long has established itself as the undisputed leader of data science. But as the size of data continues to increas...</description>
+    </item>
+    <item>
+      <title>Advancements in Artificial Intelligence in iOS 14</title>
+      <link>https://anupamchugh.github.io/posts/Advancements-in-Artificial-Intelligence-in-iOS-14-c1602f5d4951/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Advancements-in-Artificial-Intelligence-in-iOS-14-c1602f5d4951/</guid>
+      <pubDate>Mon, 17 Aug 2020 13:47:59 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1AygpNv6gzFLTVHxJD5vNA.jpeg)
+
+Apple has recently been pu...</description>
+    </item>
+    <item>
+      <title>Apple Caught Apps Spying Keystrokes on Millions of Devices</title>
+      <link>https://anupamchugh.github.io/posts/Apple-Caught-Apps-Spying-Keystrokes-on-Millions-of-Devices-c150a3136f3c/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Apple-Caught-Apps-Spying-Keystrokes-on-Millions-of-Devices-c150a3136f3c/</guid>
+      <pubDate>Sun, 16 Aug 2020 05:30:42 GMT</pubDate>
+      <description>The new iOS 14 privacy feature informs you when an app accesses your data from the copy-paste clipboard
+
+
+
+The fact that Apple keeps pushing the envelope every year with regards to user priv...</description>
+    </item>
+    <item>
+      <title>Anomaly Detection in iOS — Compute Image Differences Using Core Image in SwiftUI</title>
+      <link>https://anupamchugh.github.io/posts/Anomaly-Detection-in-iOS---Compute-Image-Differences-Using-Core-Image-in-SwiftUI-7753b8d61e82/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Anomaly-Detection-in-iOS---Compute-Image-Differences-Using-Core-Image-in-SwiftUI-7753b8d61e82/</guid>
+      <pubDate>Mon, 03 Aug 2020 13:57:58 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0sWguIXyOnGZ1P59.jpg)
+
+Human eyes are very receptive to...</description>
+    </item>
+    <item>
+      <title>How Facebook’s SDK Can Bring Apple’s iOS Ecosystem Down Without a Single Line of Code</title>
+      <link>https://anupamchugh.github.io/posts/How-Facebook-s-SDK-Can-Bring-Apple-s-iOS-Ecosystem-Down-Without-a-Single-Line-of-Code/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/How-Facebook-s-SDK-Can-Bring-Apple-s-iOS-Ecosystem-Down-Without-a-Single-Line-of-Code/</guid>
+      <pubDate>Thu, 23 Jul 2020 17:37:46 GMT</pubDate>
+      <description>Facebook’s SDK is not only a privacy threat but can also cause catastrophes
+
+One fine morning, I opened my favorite music streaming app, Spotify, on an iOS device and it crashed.
+
+It could have...</description>
+    </item>
+    <item>
+      <title>Apple Is Killing a Billion-Dollar Ad Industry With One Popup</title>
+      <link>https://anupamchugh.github.io/posts/Apple-Is-Killing-a-Billion-Dollar-Ad-Industry-With-One-Popup-2f83d182837f/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Apple-Is-Killing-a-Billion-Dollar-Ad-Industry-With-One-Popup-2f83d182837f/</guid>
+      <pubDate>Tue, 07 Jul 2020 06:37:15 GMT</pubDate>
+      <description>The new iOS 14 privacy feature spells trouble for advertisement agencies and promises to end an era of personalized ads
+
+!Header Image(/assets/screenshots/unsplash-image-apple-killing-ad-indus...</description>
+    </item>
+    <item>
+      <title>SwiftUI + Vision Contour Request — Coin Detection in iOS</title>
+      <link>https://anupamchugh.github.io/posts/SwiftUI-Vision-Contour-Request-Coin-Detection-in-iOS/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/SwiftUI-Vision-Contour-Request-Coin-Detection-in-iOS/</guid>
+      <pubDate>Sat, 27 Jun 2020 14:21:32 GMT</pubDate>
+      <description>Apple boosts its computer vision ambitions with a bunch of new Vision requests
+
+Apple’s WWDC 2020 (digital-only) event kickstarted with a bang. There were a lot of new surprises from the world o...</description>
+    </item>
+    <item>
+      <title>If Netflix Was Your Girlfriend</title>
+      <link>https://anupamchugh.github.io/posts/If-Netflix-Was-Your-Girlfriend-c54d704646a9/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/If-Netflix-Was-Your-Girlfriend-c54d704646a9/</guid>
+      <pubDate>Sat, 20 Jun 2020 01:04:24 GMT</pubDate>
+      <description>She might be a little clingy but would surely be great with kids
+
+
+
+Most of us today are closer to Netflix than people in real life. And as we find ourselves sheltered in place, our relations...</description>
+    </item>
+    <item>
+      <title>Build a SwiftUI + Core ML Emoji Hunt Game for iOS</title>
+      <link>https://anupamchugh.github.io/posts/Build-a-SwiftUI-Core-ML-Emoji-Hunt-Game-for-iOS/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Build-a-SwiftUI-Core-ML-Emoji-Hunt-Game-for-iOS/</guid>
+      <pubDate>Fri, 19 Jun 2020 12:42:03 GMT</pubDate>
+      <description>Let’s create a fun machine-learning iOS camera app that lets you search for things in your house that are similar to emojis
+
+The advent of machine learning on mobile has opened doors for a bunc...</description>
+    </item>
+    <item>
+      <title>My Predictions for WWDC 2020</title>
+      <link>https://anupamchugh.github.io/posts/My-Predictions-for-WWDC-2020-fb727a4b45e6/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/My-Predictions-for-WWDC-2020-fb727a4b45e6/</guid>
+      <pubDate>Mon, 15 Jun 2020 17:14:29 GMT</pubDate>
+      <description>WWDC 2020 is almost here, and it’s Apple’s first online-only developer event given the current health situation. We’ll surely miss the applause from a live audience, and it’ll be interesting to see h...</description>
+    </item>
+    <item>
+      <title>How to Modify States During View Updates in SwiftUI</title>
+      <link>https://anupamchugh.github.io/posts/How-to-Modify-States-During-View-Updates-in-SwiftUI-923bf7cea44f/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/How-to-Modify-States-During-View-Updates-in-SwiftUI-923bf7cea44f/</guid>
+      <pubDate>Mon, 15 Jun 2020 14:47:59 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0NTi5gorXl8eUIKxV.jpg)
+
+Introduced at WWDC 2019, SwiftUI h...</description>
+    </item>
+    <item>
+      <title>If Social Media Stories Had A War Of Words</title>
+      <link>https://anupamchugh.github.io/posts/If-Social-Media-Stories-Had-A-War-Of-Words-265c6eaee185/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/If-Social-Media-Stories-Had-A-War-Of-Words-265c6eaee185/</guid>
+      <pubDate>Fri, 12 Jun 2020 14:15:59 GMT</pubDate>
+      <description>You’d be confused whose the winner as they’d all self-disappear
+
+The Snapchat-like stories feature has become an integral part of every social media app today. All of them have introduced their...</description>
+    </item>
+    <item>
+      <title>7 SwiftUI Tips — Little Known Features</title>
+      <link>https://anupamchugh.github.io/posts/7-SwiftUI-Tips---Little-Known-Features-c7840d8eb01b/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/7-SwiftUI-Tips---Little-Known-Features-c7840d8eb01b/</guid>
+      <pubDate>Wed, 10 Jun 2020 14:09:04 GMT</pubDate>
+      <description>SwiftUI has changed the way we build user interfaces in our iOS applications. The declarative state-driven framework is concise and easy on the eyes primarily due to function builders that power the...</description>
+    </item>
+    <item>
+      <title>6 Swifty Ways of Writing Code</title>
+      <link>https://anupamchugh.github.io/posts/6-Swifty-Ways-of-Writing-Code-f260286a0dbb/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/6-Swifty-Ways-of-Writing-Code-f260286a0dbb/</guid>
+      <pubDate>Mon, 25 May 2020 14:50:03 GMT</pubDate>
+      <description>Use Maps to Safely Unwrap Optionals
+
+Typically, we use the `if let` or `guard let` syntax to safely unwrap optionals in Swift. While that’s all fine, sometimes you wish there was a way without th...</description>
+    </item>
+    <item>
+      <title>If Video Conferencing Apps Pitched Themselves to Customers</title>
+      <link>https://anupamchugh.github.io/posts/If-Video-Conferencing-Apps-Pitched-Themselves-to-Customers-4417bd4ee19c/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/If-Video-Conferencing-Apps-Pitched-Themselves-to-Customers-4417bd4ee19c/</guid>
+      <pubDate>Thu, 21 May 2020 15:15:34 GMT</pubDate>
+      <description>You have to decide which is the best fit for the job
+
+Video conferencing apps are on the rise as people seek the easiest way to communicate for work and personal reasons. As the demand continues...</description>
+    </item>
+    <item>
+      <title>If Trump was a Programmer</title>
+      <link>https://anupamchugh.github.io/posts/If-Trump-was-a-Programmer/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/If-Trump-was-a-Programmer/</guid>
+      <pubDate>Mon, 04 May 2020 18:19:50 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/06SNTCQUCgGZe5P.jpg)
+
+A lot of programmers love making...</description>
+    </item>
+    <item>
+      <title>Exploring Core Image: Apple’s First Computer Vision Framework</title>
+      <link>https://anupamchugh.github.io/posts/Exploring-Core-Image--Apple-s-First-Computer-Vision-Framework-160f4a589413/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Exploring-Core-Image--Apple-s-First-Computer-Vision-Framework-160f4a589413/</guid>
+      <pubDate>Wed, 29 Apr 2020 13:47:15 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0kb4xMY5du9pffoo.jpg)
+
+Over the years, Apple has release...</description>
+    </item>
+    <item>
+      <title>Don’t Use Boolean Arguments, Use Enums</title>
+      <link>https://anupamchugh.github.io/posts/Don-t-Use-Boolean-Arguments--Use-Enums/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Don-t-Use-Boolean-Arguments--Use-Enums/</guid>
+      <pubDate>Tue, 28 Apr 2020 18:42:00 GMT</pubDate>
+      <description>A case for avoiding flag values in your code
+
+
+
+Booleans are the first data type any programmer learns. And why not? They’re the simplest of the lot with only two states: a `true` and a `fals...</description>
+    </item>
+    <item>
+      <title>If Apps Were People You Knew</title>
+      <link>https://anupamchugh.github.io/posts/If-Apps-Were-People-You-Knew-107d97eaea9/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/If-Apps-Were-People-You-Knew-107d97eaea9/</guid>
+      <pubDate>Sat, 25 Apr 2020 16:58:12 GMT</pubDate>
+      <description>Fact: You’d probably hate most of them
+
+Most of us feel a strong bond with our apps these days. It’s no mystery why. Every app has its own personality we love. Or hate. They’re so unique th...</description>
+    </item>
+    <item>
+      <title>If Programming Languages Had Honest Slogans</title>
+      <link>https://anupamchugh.github.io/posts/If-Programming-Languages-Had-Honest-Slogans/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/If-Programming-Languages-Had-Honest-Slogans/</guid>
+      <pubDate>Sun, 19 Apr 2020 20:26:55 GMT</pubDate>
+      <description>Software engineering is one field where experiences can vary. Some relish programming while others can find it frustrating. Building software can stress anyone out, no doubt about that.
+
+In order to...</description>
+    </item>
+    <item>
+      <title>What if brand slogans were brutally honest?</title>
+      <link>https://anupamchugh.github.io/posts/What-if-brand-slogans-were-brutally-honest/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/What-if-brand-slogans-were-brutally-honest/</guid>
+      <pubDate>Sun, 19 Apr 2020 05:05:58 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0fK06h0Xur8FkPoK1.jpg)
+
+Brand slogans in many ways are min...</description>
+    </item>
+    <item>
+      <title>The New iPhone SE is a Flagship Killer</title>
+      <link>https://anupamchugh.github.io/posts/The-New-iPhone-SE-is-a-Flagship-Killer/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/The-New-iPhone-SE-is-a-Flagship-Killer/</guid>
+      <pubDate>Fri, 17 Apr 2020 15:20:48 GMT</pubDate>
+      <description>&apos;Despite a dated design, it’s Apple’s best budget phone in a while&apos;
+
+After months of speculation, Apple has finally unveiled the much-awaited successor to its 2016’s iPhone SE. The long-rumored...</description>
+    </item>
+    <item>
+      <title>SwiftUI Introspect — Accessing UIKit Components Under SwiftUI Views</title>
+      <link>https://anupamchugh.github.io/posts/SwiftUI-Introspect-Accessing-UIKit-Components-Under-SwiftUI-Views/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/SwiftUI-Introspect-Accessing-UIKit-Components-Under-SwiftUI-Views/</guid>
+      <pubDate>Thu, 09 Apr 2020 04:14:42 GMT</pubDate>
+      <description>SwiftUI was the talk of the town during WWDC 2019. Despite the limited set of tools, it created a euphoria due to the ease with which you can build user interfaces. Gladly, a lot of the SwiftUI compo...</description>
+    </item>
+    <item>
+      <title>See How Writing Is Like a Great Game of Chess</title>
+      <link>https://anupamchugh.github.io/posts/See-How-Writing-Is-Like-a-Great-Game-of-Chess-9dadd0d83ef9/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/See-How-Writing-Is-Like-a-Great-Game-of-Chess-9dadd0d83ef9/</guid>
+      <pubDate>Sun, 29 Mar 2020 06:01:00 GMT</pubDate>
+      <description>WRITING TIPS
+
+!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0ez2dRppxAgB5be.jpg)
+
+I started pla...</description>
+    </item>
+    <item>
+      <title>Coronavirus Visualisation on Maps with SwiftUI and Combine on iOS</title>
+      <link>https://anupamchugh.github.io/posts/Coronavirus-Visualisation-on-Maps-with-SwiftUI-and-Combine-on-iOS-c3f6e04c2634/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Coronavirus-Visualisation-on-Maps-with-SwiftUI-and-Combine-on-iOS-c3f6e04c2634/</guid>
+      <pubDate>Fri, 13 Mar 2020 13:45:06 GMT</pubDate>
+      <description>COVID-19
+
+!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1rlD4nuhiJnByKRL5jaQ.jpeg)
+
+&gt; For rol...</description>
+    </item>
+    <item>
+      <title>Developers Should Play Video Games</title>
+      <link>https://anupamchugh.github.io/posts/Developers-Should-Play-Video-Games/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Developers-Should-Play-Video-Games/</guid>
+      <pubDate>Sun, 01 Mar 2020 22:36:36 GMT</pubDate>
+      <description>Video games are often thought of as time-wasters but they can benefit developers in many ways
+
+!Unsplash Image(/assets/img/07JQ0Jrt08tY8UUWQ.jpg)
+
+Video games are often thought of as a sour...</description>
+    </item>
+    <item>
+      <title>Sentiment Analysis on iOS Using Swift, Natural Language, and Combine: Hacker News Top Stories</title>
+      <link>https://anupamchugh.github.io/posts/Sentiment-Analysis-on-iOS-Using-Swift--Natural-Language--and-Combine--Hacker-News-Top-Stories-d1b8d8f4f798/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Sentiment-Analysis-on-iOS-Using-Swift--Natural-Language--and-Combine--Hacker-News-Top-Stories-d1b8d8f4f798/</guid>
+      <pubDate>Fri, 28 Feb 2020 14:26:01 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1J4d5sOjVozBE6pq8Df5vgA.jpeg)
+
+Powering applications with...</description>
+    </item>
+    <item>
+      <title>Scanning Credit Cards with Computer Vision on iOS</title>
+      <link>https://anupamchugh.github.io/posts/Scanning-Credit-Cards-with-Computer-Vision-on-iOS/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Scanning-Credit-Cards-with-Computer-Vision-on-iOS/</guid>
+      <pubDate>Thu, 20 Feb 2020 17:16:28 GMT</pubDate>
+      <description>Leverage Vision’s Rectangle Detection and Text Recogniser to detect credit and other business cards in a live camera feed
+
+Photography has been Apple’s central focus since the inception of the...</description>
+    </item>
+    <item>
+      <title>Winks and Head Turns — Build a Tinder-Swipe iOS App Using ML Kit’s Face Detection API</title>
+      <link>https://anupamchugh.github.io/posts/Winks-and-Head-Turns---Build-a-Tinder-Swipe-iOS-App-Using-ML-Kit-s-Face-Detection-API-da40d1e2cb86/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Winks-and-Head-Turns---Build-a-Tinder-Swipe-iOS-App-Using-ML-Kit-s-Face-Detection-API-da40d1e2cb86/</guid>
+      <pubDate>Thu, 13 Feb 2020 14:53:19 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0vlPWJD3pv2pR80Kx.jpg)
+
+With 3D Motion Sense technology al...</description>
+    </item>
+    <item>
+      <title>Valuable Life Lessons That Video Games Taught Me</title>
+      <link>https://anupamchugh.github.io/posts/Valuable-Life-Lessons-That-Video-Games-Taught-Me/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Valuable-Life-Lessons-That-Video-Games-Taught-Me/</guid>
+      <pubDate>Sun, 09 Feb 2020 13:51:01 GMT</pubDate>
+      <description>I still remember the first game I ever played. The 3-year-old me was tucked into a chair. Observing the monitor in front. A fat monitor that would transport me into a world far far away.
+
+I was asked...</description>
+    </item>
+    <item>
+      <title>How to Change Your App’s Icon in SwiftUI</title>
+      <link>https://anupamchugh.github.io/posts/How-to-Change-Your-App-s-Icon-in-SwiftUI-1f2ff3c44344/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/How-to-Change-Your-App-s-Icon-in-SwiftUI-1f2ff3c44344/</guid>
+      <pubDate>Fri, 31 Jan 2020 01:04:07 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1UHqqq8Ulm7qDoBnYXr6W6w.jpeg)
+
+The ability to change your...</description>
+    </item>
+    <item>
+      <title>Detect and Handle Collision Events in a RealityKit Scene Across Different Entities</title>
+      <link>https://anupamchugh.github.io/posts/Detect-and-Handle-Collision-Events-in-a-RealityKit-Scene-Across-Different-Entities-d64b6e10421f/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Detect-and-Handle-Collision-Events-in-a-RealityKit-Scene-Across-Different-Entities-d64b6e10421f/</guid>
+      <pubDate>Thu, 30 Jan 2020 15:14:25 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1yjgAKumpQwyoivPVCYM1A.png)
+
+This is the second part of...</description>
+    </item>
+    <item>
+      <title>Pull to Refresh in SwiftUI [iOS 13 Workaround]</title>
+      <link>https://anupamchugh.github.io/posts/Pull-to-Refresh-in-SwiftUI-ios13/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Pull-to-Refresh-in-SwiftUI-ios13/</guid>
+      <pubDate>Sun, 19 Jan 2020 22:58:07 GMT</pubDate>
+      <description>Leverage the `UIViewRepresentable` and `UIHostingController` to embed the refresh controls in your SwiftUI views
+
+Update: As of iOS 15, we now have a `refreshable` modifier that can be attached...</description>
+    </item>
+    <item>
+      <title>The Strong, The Weak, and the Unowned Self in Swift</title>
+      <link>https://anupamchugh.github.io/posts/The-Strong--The-Weak--and-the-Unowned-Self-in-Swift-1795d8e7b990/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/The-Strong--The-Weak--and-the-Unowned-Self-in-Swift-1795d8e7b990/</guid>
+      <pubDate>Wed, 15 Jan 2020 19:22:41 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0kL15QEznTdkomlzC.jpg)
+
+A long time ago, in a land far awa...</description>
+    </item>
+    <item>
+      <title>Ugly Truths About Working From Home</title>
+      <link>https://anupamchugh.github.io/posts/Ugly-Truths-About-Working-From-Home/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Ugly-Truths-About-Working-From-Home/</guid>
+      <pubDate>Sun, 05 Jan 2020 00:00:23 GMT</pubDate>
+      <description>Anything that’s too good has a hidden cost. Repercussions, rather.
+
+Working from home has been a dream for many people for a while now. It still is a very desirable option for some. Offer any i...</description>
+    </item>
+    <item>
+      <title>Advancements in Apple’s Vision Framework: 2019 Year-in-Review</title>
+      <link>https://anupamchugh.github.io/posts/Advancements-in-Apple-s-Vision-Framework--2019-Year-in-Review-4c9d3ad5b138/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Advancements-in-Apple-s-Vision-Framework--2019-Year-in-Review-4c9d3ad5b138/</guid>
+      <pubDate>Tue, 31 Dec 2019 14:59:15 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/15Y6sYDIcFRxDWBU1JjtMw.jpeg)
+
+In 2019 Apple introduced s...</description>
+    </item>
+    <item>
+      <title>Computer Vision in iOS: Determine the Best Facial Expression in Live Photos</title>
+      <link>https://anupamchugh.github.io/posts/Computer-Vision-in-iOS--Determine-the-Best-Facial-Expression-in-Live-Photos-452a2eaf6512/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Computer-Vision-in-iOS--Determine-the-Best-Facial-Expression-in-Live-Photos-452a2eaf6512/</guid>
+      <pubDate>Fri, 06 Dec 2019 14:49:44 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0uVA9MWl781wzyvVQ.jpg)
+
+Apple brought in a lot of exciting...</description>
+    </item>
+    <item>
+      <title>Gestures in SwiftUI [2019]</title>
+      <link>https://anupamchugh.github.io/posts/SwiftUI-Gestures/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/SwiftUI-Gestures/</guid>
+      <pubDate>Thu, 05 Dec 2019 14:14:10 GMT</pubDate>
+      <description>Swipe like you do in Tinder, create a GestureState property wrapper, and more
+
+-----
+
+!Header Image(/assets/screenshots/swiftui-gestures-header-image-screenshot.png)
+
+Gesture recognition is r...</description>
+    </item>
+    <item>
+      <title>NSFW Image Classifier Using Create ML, Core ML, and Vision in a SwiftUI App</title>
+      <link>https://anupamchugh.github.io/posts/NSFW-Image-Classifier-Using-Create-ML--Core-ML--and-Vision-in-a-SwiftUI-App/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/NSFW-Image-Classifier-Using-Create-ML--Core-ML--and-Vision-in-a-SwiftUI-App/</guid>
+      <pubDate>Tue, 03 Dec 2019 23:13:27 GMT</pubDate>
+      <description>Let&apos;s blur out SwiftUI images with sensitive content
+
+-----
+
+With the advent of machine learning on devices, the opportunities that are emerging to make smartphones smarter than ever are endles...</description>
+    </item>
+    <item>
+      <title>SwiftUI NavigationLinks and the Common Pitfalls Faced</title>
+      <link>https://anupamchugh.github.io/posts/SwiftUI-Navigation-Links-and-the-Common-Pitfalls-Faced/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/SwiftUI-Navigation-Links-and-the-Common-Pitfalls-Faced/</guid>
+      <pubDate>Tue, 03 Dec 2019 00:26:55 GMT</pubDate>
+      <description>Currently, it’s not lazy and that could be dangerous
+
+------------------
+
+Every application requires navigation unless, of course, you’ve made a killer app that’s doing great with a single view...</description>
+    </item>
+    <item>
+      <title>Build a SwiftUI App to Compose Smart Replies in Foreign Languages Using Firebase MLKit</title>
+      <link>https://anupamchugh.github.io/posts/Build-a-SwiftUI-App-to-Compose-Smart-Replies-in-Foreign-Languages-Using-Firebase-MLKit-b6a2ba25f144/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Build-a-SwiftUI-App-to-Compose-Smart-Replies-in-Foreign-Languages-Using-Firebase-MLKit-b6a2ba25f144/</guid>
+      <pubDate>Mon, 02 Dec 2019 14:55:32 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0kohyltaWMty7hS5V.jpg)
+
+Firebase ML Kit(https://firebase...</description>
+    </item>
+    <item>
+      <title>Build a Core ML Movie Recommender SwiftUI App Using Create ML</title>
+      <link>https://anupamchugh.github.io/posts/Build-a-Core-ML-Movie-Recommender-SwiftUI-App-Using-Create-ML-e8a748d01ba3/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Build-a-Core-ML-Movie-Recommender-SwiftUI-App-Using-Create-ML-e8a748d01ba3/</guid>
+      <pubDate>Tue, 26 Nov 2019 14:56:44 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0nPNxtHRC5H0MWxsP.jpg)
+
+Recommender systems are essential...</description>
+    </item>
+    <item>
+      <title>iOS 13 Applying Diffable Data Sources</title>
+      <link>https://anupamchugh.github.io/posts/iOS-13-Applying-Diffable-Data-Sources-70ce65b368e4/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/iOS-13-Applying-Diffable-Data-Sources-70ce65b368e4/</guid>
+      <pubDate>Mon, 25 Nov 2019 01:22:52 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0aUiCUNjlvpJY05oF.jpg)
+
+Declarative programming was wholeh...</description>
+    </item>
+    <item>
+      <title>MLDataTable: The Panda For iOS Developers</title>
+      <link>https://anupamchugh.github.io/posts/MLDataTable--The-Panda-For-iOS-Developers-251aa9a09eb1/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/MLDataTable--The-Panda-For-iOS-Developers-251aa9a09eb1/</guid>
+      <pubDate>Fri, 22 Nov 2019 21:50:50 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0D45txEqR7zbOYXN7.jpg)
+
+Data processing, handling, cleanin...</description>
+    </item>
+    <item>
+      <title>Exploring Use Cases of Core ML Tools</title>
+      <link>https://anupamchugh.github.io/posts/Exploring-Use-Cases-of-Core-ML-Tools-9fbc0fde72e7/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Exploring-Use-Cases-of-Core-ML-Tools-9fbc0fde72e7/</guid>
+      <pubDate>Thu, 21 Nov 2019 15:04:45 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/07vnYpILSk4MraEXB.jpg)
+
+Apple’s Core ML is a powerful mach...</description>
+    </item>
+    <item>
+      <title>Cropping Areas Of Interest Using Vision in iOS</title>
+      <link>https://anupamchugh.github.io/posts/Cropping-Areas-Of-Interest-Using-Vision-in-iOS-e83b5e53440b/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Cropping-Areas-Of-Interest-Using-Vision-in-iOS-e83b5e53440b/</guid>
+      <pubDate>Wed, 20 Nov 2019 17:03:12 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1EKboKCRYOwceqb4FgB7yyw.png)
+
+Apple introduced plenty of n...</description>
+    </item>
+    <item>
+      <title>iOS 13 Compositional Layouts in CollectionView</title>
+      <link>https://anupamchugh.github.io/posts/iOS-13-Compositional-Layouts-in-CollectionView-90a574b410b8/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/iOS-13-Compositional-Layouts-in-CollectionView-90a574b410b8/</guid>
+      <pubDate>Tue, 19 Nov 2019 13:57:51 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0VZumXGZSfiKMX9KX.jpg)
+
+The advancements Apple brought in...</description>
+    </item>
+    <item>
+      <title>iOS 13 Multiselection Gestures in TableView and CollectionView</title>
+      <link>https://anupamchugh.github.io/posts/iOS-13-Multiselection-Gestures-in-TableView-and-CollectionView-619d515eef16/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/iOS-13-Multiselection-Gestures-in-TableView-and-CollectionView-619d515eef16/</guid>
+      <pubDate>Mon, 18 Nov 2019 07:34:16 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1I8ChgT4jW68Wg2HjDGf8KQ.jpeg)
+
+WWDC 2019 introduced some i...</description>
+    </item>
+    <item>
+      <title>Edit PDFs, Images, and Videos Using Quick Look in iOS 13</title>
+      <link>https://anupamchugh.github.io/posts/Edit-PDFs--Images--and-Videos-Using-Quick-Look-in-iOS-13-ad2131080587/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Edit-PDFs--Images--and-Videos-Using-Quick-Look-in-iOS-13-ad2131080587/</guid>
+      <pubDate>Thu, 14 Nov 2019 19:33:53 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/14PAyvGEdkoz9Tl22EbRaFg.png)
+
+One of the lesser-known gems...</description>
+    </item>
+    <item>
+      <title>Sound Classification on iOS Using Core ML 3 and Create ML</title>
+      <link>https://anupamchugh.github.io/posts/Sound-Classification-on-iOS-Using-Core-ML-3-and-Create-ML-fc73ca20aff5/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Sound-Classification-on-iOS-Using-Core-ML-3-and-Create-ML-fc73ca20aff5/</guid>
+      <pubDate>Tue, 12 Nov 2019 16:06:01 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0oPLA12jzwZEcDahh.jpg)
+
+During WWDC 2019, Create ML got i...</description>
+    </item>
+    <item>
+      <title>Exploring MapKit on iOS 13</title>
+      <link>https://anupamchugh.github.io/posts/Exploring-MapKit-on-iOS-13-1a7a1439e3b6/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Exploring-MapKit-on-iOS-13-1a7a1439e3b6/</guid>
+      <pubDate>Tue, 12 Nov 2019 00:26:09 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1I0idAmCrZlJyMvdRMuA1Hg.jpeg)
+
+Maps have been a constant i...</description>
+    </item>
+    <item>
+      <title>Classify Movie Reviews With Natural Language Framework, Core ML, and SwiftUI</title>
+      <link>https://anupamchugh.github.io/posts/Classify-Movie-Reviews-With-Natural-Language-Framework--Core-ML--and-SwiftUI-12dfe2fc3308/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Classify-Movie-Reviews-With-Natural-Language-Framework--Core-ML--and-SwiftUI-12dfe2fc3308/</guid>
+      <pubDate>Mon, 11 Nov 2019 00:39:20 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0Uy8EENZtQamveCkW.jpg)
+
+Apple showed some good progress in...</description>
+    </item>
+    <item>
+      <title>Combine SwiftUI With Alamofire</title>
+      <link>https://anupamchugh.github.io/posts/Combine-SwiftUI-With-Alamofire-abb4cd4a0aca/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Combine-SwiftUI-With-Alamofire-abb4cd4a0aca/</guid>
+      <pubDate>Wed, 06 Nov 2019 16:22:46 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/17SYBgrbNOfbD45I3NRxeKA.jpeg)
+
+Alongside SwiftUI, Apple in...</description>
+    </item>
+    <item>
+      <title>Lesser-Known WKWebView Features</title>
+      <link>https://anupamchugh.github.io/posts/5-Lesser-Known-Features-of-WKWebView/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/5-Lesser-Known-Features-of-WKWebView/</guid>
+      <pubDate>Tue, 05 Nov 2019 14:27:31 GMT</pubDate>
+      <description>Recently, I worked on a freelance project (Aged Care Decisions) where I was asked to build a PoC set of white-label apps that uses web views throughout. Below are the things I discovered while imple...</description>
+    </item>
+    <item>
+      <title>SwiftUI Bar Charts</title>
+      <link>https://anupamchugh.github.io/posts/SwiftUI-Bar-Charts/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/SwiftUI-Bar-Charts/</guid>
+      <pubDate>Mon, 04 Nov 2019 06:00:20 GMT</pubDate>
+      <description>!Header Image(/assets/screenshots/swiftui-bar-charts-final-output.png)
+
+SwiftUI is the talk of the town. The declarative UI pattern is here to stay and building cool and awesome UIs is easier than...</description>
+    </item>
+    <item>
+      <title>PyTorch Mobile: Image Classification on iOS</title>
+      <link>https://anupamchugh.github.io/posts/PyTorch-Mobile--Image-Classification-on-iOS-c822a36ecfa9/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/PyTorch-Mobile--Image-Classification-on-iOS-c822a36ecfa9/</guid>
+      <pubDate>Tue, 29 Oct 2019 13:55:44 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1rcDmQER45lyxG69nF3XUNQ.jpeg)
+
+PyTorch is one of the most...</description>
+    </item>
+    <item>
+      <title>SwiftUI Alerts, Pickers, and Gradients</title>
+      <link>https://anupamchugh.github.io/posts/SwiftUI-Alerts--Pickers--and-Gradients-29b9ee5ff8f3/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/SwiftUI-Alerts--Pickers--and-Gradients-29b9ee5ff8f3/</guid>
+      <pubDate>Sun, 27 Oct 2019 10:10:28 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/12PYOFLRfFEmKcfTxItyXg.png)
+
+SwiftUI(https://developer...</description>
+    </item>
+    <item>
+      <title>Handling iOS 13 Bluetooth Permissions</title>
+      <link>https://anupamchugh.github.io/posts/Handling-iOS-13-Bluetooth-Permissions-26c6a8cbb816/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Handling-iOS-13-Bluetooth-Permissions-26c6a8cbb816/</guid>
+      <pubDate>Fri, 25 Oct 2019 11:57:40 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0N2dJOe6hNHnckBw.jpg)
+
+Core Bluetooth framework is an ab...</description>
+    </item>
+    <item>
+      <title>Implementing Multiple Window Support in iPadOS</title>
+      <link>https://anupamchugh.github.io/posts/Implementing-Multiple-Window-Support-in-iPadOS-5b9a3ceeac6f/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Implementing-Multiple-Window-Support-in-iPadOS-5b9a3ceeac6f/</guid>
+      <pubDate>Wed, 23 Oct 2019 13:26:45 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/16ziGpv89dW2jLWE9jiumOg.png)
+
+iPadOS 13 was launched durin...</description>
+    </item>
+    <item>
+      <title>iOS Vision And Highlighting Text With Core ML</title>
+      <link>https://anupamchugh.github.io/posts/iOS-Vision-And-Highlighting-Text-With-Core-ML-aaca104e9427/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/iOS-Vision-And-Highlighting-Text-With-Core-ML-aaca104e9427/</guid>
+      <pubDate>Tue, 15 Oct 2019 21:35:54 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/0EWkB5qe2iaDmriso.jpg)
+
+Vision and Core ML frameworks were...</description>
+    </item>
+    <item>
+      <title>Using PencilKit in iOS 13</title>
+      <link>https://anupamchugh.github.io/posts/Using-PencilKit-in-iOS13/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Using-PencilKit-in-iOS13/</guid>
+      <pubDate>Tue, 15 Oct 2019 02:20:57 GMT</pubDate>
+      <description>WWDC 2019 introduced another interesting framework, PencilKit. It’s now available on iOS 13. PencilKit allows an easy integration of the drawing canvas view and toolkit in applications.
+
+The goal of...</description>
+    </item>
+    <item>
+      <title>iOS 13 Context Menus and SF Symbols</title>
+      <link>https://anupamchugh.github.io/posts/iOS-13-Context-Menus-and-SF-Symbols-a03b032fe330/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/iOS-13-Context-Menus-and-SF-Symbols-a03b032fe330/</guid>
+      <pubDate>Tue, 08 Oct 2019 14:33:18 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1RJuTP54uHtRZ7JHkuIyCA.png)
+
+Context menus were one of t...</description>
+    </item>
+    <item>
+      <title>Core ML 3 On-Device Retraining - Hands-On</title>
+      <link>https://anupamchugh.github.io/posts/Core-ML-3-Model-Retraining-On-Device/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/Core-ML-3-Model-Retraining-On-Device/</guid>
+      <pubDate>Mon, 30 Sep 2019 18:55:46 GMT</pubDate>
+      <description>Long story short:
+
+It&apos;s me, a Core ML model, and I&apos;m intentionally trained to detect a few cats as dogs and vice versa. Let&apos;s see if I can be re-trained on device to detect the images correctly.
+
+Th...</description>
+    </item>
+    <item>
+      <title>iOS 13 Checklist For Developers</title>
+      <link>https://anupamchugh.github.io/posts/iOS-13-Checklist-For-Developers/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/iOS-13-Checklist-For-Developers/</guid>
+      <pubDate>Fri, 27 Sep 2019 17:55:20 GMT</pubDate>
+      <description>A checklist to refer to when shipping your next app for iOS 13
+
+iOS 13(https://www.apple.com/ios/ios-13/features/) has finally been rolled out to the public, closely followed by 13.1. I’m su...</description>
+    </item>
+    <item>
+      <title>iOS Vision Text Document Scanner</title>
+      <link>https://anupamchugh.github.io/posts/iOS-Vision-Text-Document-Scanner-effc0b7f4635/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/iOS-Vision-Text-Document-Scanner-effc0b7f4635/</guid>
+      <pubDate>Fri, 20 Sep 2019 07:16:33 GMT</pubDate>
+      <description>!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/15337r916cJYl2eebzNWfCA.jpeg)
+
+Now that iOS 13 is here, th...</description>
+    </item>
+    <item>
+      <title>a nightmare with shared preferences and stringset</title>
+      <link>https://anupamchugh.github.io/posts/a-nightmare-with-shared-preferences-and-stringset/</link>
+      <guid isPermaLink="true">https://anupamchugh.github.io/posts/a-nightmare-with-shared-preferences-and-stringset/</guid>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 GMT</pubDate>
+      <description>A Nightmare with SharedPreferences and StringSet
+
+I love using SharedPreferences to cache data in various parts of my Android applications. Little did I know that storing values in a Set of Strings...</description>
+    </item>
+  </channel>
+</rss>

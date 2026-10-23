@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>CommonGround — Find what you share</title>
+<meta name="description" content="Swipe through your saved places, compare with someone, discover your common ground.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#09090b;--bg2:#18181b;--bg3:#27272a;--bg4:#3f3f46;
+  --fg:#fafafa;--fg2:#a1a1aa;--fg3:#71717a;
+  --accent:#a855f7;--accent2:#ec4899;
+  --match:#22c55e;--want:#3b82f6;--skip:#71717a;
+  --gradient:linear-gradient(135deg,#a855f7 0%,#ec4899 50%,#f97316 100%);
+  --radius:16px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--fg);min-height:100vh;overflow-x:hidden;-webkit-user-select:none;user-select:none}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+code{background:var(--bg2);padding:2px 6px;border-radius:4px;font-size:.72rem;font-family:'SF Mono',Monaco,Consolas,monospace}
+
+.hero{text-align:center;padding:40px 24px 16px;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(168,85,247,.1) 0%,transparent 70%);pointer-events:none}
+.logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:8px}
+.logo svg{width:32px;height:32px}
+.logo h1{font-size:1.3rem;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tagline{color:var(--fg2);font-size:.85rem;max-width:420px;margin:0 auto;line-height:1.4}
+.punchline{color:var(--fg3);font-size:.72rem;max-width:360px;margin:6px auto 0;font-style:italic}
+
+.container{max-width:480px;margin:0 auto;padding:0 20px 60px}
+
+.step{display:none;animation:fadeUp .35s ease}
+.step.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.progress{display:flex;justify-content:center;gap:6px;margin:16px 0 24px}
+.prog-dot{width:8px;height:8px;border-radius:50%;background:var(--bg3);transition:all .3s}
+.prog-dot.done{background:var(--accent)}
+.prog-dot.current{background:var(--accent);width:24px;border-radius:4px}
+
+/* Landing / Demo CTA */
+.landing-choices{display:flex;flex-direction:column;gap:12px;max-width:340px;margin:0 auto}
+.choice-btn{display:flex;align-items:center;gap:12px;background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius);padding:18px 20px;cursor:pointer;transition:all .2s;text-align:left}
+.choice-btn:hover{border-color:var(--accent);transform:translateY(-2px)}
+.choice-btn svg{width:28px;height:28px;flex-shrink:0;opacity:.7}
+.choice-btn .choice-text{flex:1}
+.choice-btn .choice-title{font-size:.88rem;font-weight:600;margin-bottom:2px}
+.choice-btn .choice-desc{font-size:.7rem;color:var(--fg3);line-height:1.3}
+.choice-btn.demo{border-color:var(--accent);background:rgba(168,85,247,.08)}
+.choice-btn.demo .choice-title{color:var(--accent)}
+.or-divider{text-align:center;color:var(--fg3);font-size:.72rem;padding:4px 0}
+
+/* URL Input */
+.url-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius);padding:24px;transition:border-color .2s}
+.url-card:focus-within{border-color:var(--accent)}
+.url-card label{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;color:var(--fg2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.url-card label svg{width:16px;height:16px;opacity:.6}
+.url-row{display:flex;gap:8px}
+.url-row input{flex:1;background:var(--bg);border:1px solid var(--bg3);border-radius:10px;padding:11px 12px;color:var(--fg);font-size:.85rem;outline:none;transition:border-color .2s}
+.url-row input:focus{border-color:var(--accent)}
+.url-row input::placeholder{color:var(--fg3)}
+.paste-btn{background:var(--bg3);border:1px solid var(--bg4);color:var(--fg2);padding:0 12px;border-radius:10px;cursor:pointer;font-size:.72rem;font-weight:500;display:flex;align-items:center;gap:4px;transition:all .15s;white-space:nowrap}
+.paste-btn:hover{background:var(--bg4);color:var(--fg)}
+.paste-btn svg{width:13px;height:13px}
+.url-card .hint{font-size:.68rem;color:var(--fg3);margin-top:6px}
+.error-msg{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:10px 14px;border-radius:10px;font-size:.78rem;margin-top:12px;display:none}
+.error-msg.show{display:block}
+
+.action-wrap{text-align:center;margin-top:18px}
+.action-btn{background:var(--gradient);color:#fff;border:none;padding:11px 32px;border-radius:50px;font-size:.88rem;font-weight:600;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 18px rgba(168,85,247,.25)}
+.action-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(168,85,247,.35)}
+.action-btn:active{transform:translateY(0)}
+.action-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.secondary-btn{background:var(--bg2);border:2px solid var(--accent);color:var(--accent);padding:11px 32px;border-radius:50px;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s}
+.secondary-btn:hover{background:var(--accent);color:#fff}
+
+.loading{display:none;text-align:center;padding:40px 0}
+.loading.show{display:block}
+.spinner{width:40px;height:40px;border:3px solid var(--bg3);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{color:var(--fg2);font-size:.85rem}
+
+.toggle-link{text-align:center;margin-top:12px;font-size:.72rem;color:var(--fg3)}
+.toggle-link button{background:none;border:none;color:var(--accent);cursor:pointer;font-size:.72rem;text-decoration:underline}
+.json-box{display:none;margin-top:10px}
+.json-box.show{display:block}
+.json-box textarea{width:100%;height:120px;background:var(--bg);border:1px solid var(--bg3);border-radius:10px;padding:10px;color:var(--fg);font-family:'SF Mono',Monaco,monospace;font-size:.7rem;resize:vertical;outline:none}
+
+/* Demo badge */
+.demo-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(168,85,247,.15);color:var(--accent);padding:3px 10px;border-radius:8px;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+
+/* Swipe */
+.swipe-header{text-align:center;margin-bottom:16px}
+.swipe-header h2{font-size:1rem;font-weight:600;margin-bottom:4px}
+.swipe-counter{font-size:.75rem;color:var(--fg3)}
+.swipe-legend{display:flex;justify-content:center;gap:16px;margin-top:8px;font-size:.68rem;color:var(--fg3)}
+.swipe-legend span{display:flex;align-items:center;gap:4px}
+.swipe-legend .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+.card-area{position:relative;width:100%;height:340px;margin:0 auto;perspective:1000px}
+.swipe-card{position:absolute;top:0;left:0;width:100%;height:100%;background:var(--bg2);border:1px solid var(--bg3);border-radius:20px;padding:24px;cursor:grab;touch-action:none;transform-origin:center;transition:transform .08s ease,box-shadow .08s ease;will-change:transform;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.swipe-card:active{cursor:grabbing}
+.swipe-card.animating{transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .35s ease;pointer-events:none}
+.swipe-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gradient);opacity:.5}
+
+.card-top{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.card-name{font-size:1.2rem;font-weight:700;margin-bottom:8px;line-height:1.3}
+.card-addr{font-size:.78rem;color:var(--fg3);line-height:1.4;max-width:90%}
+.card-coords{font-size:.65rem;color:var(--fg3);margin-top:8px;opacity:.5;font-family:'SF Mono',Monaco,monospace}
+
+.card-bottom{display:flex;justify-content:center;gap:10px}
+.card-action{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;border:2px solid var(--bg3)}
+.card-action:hover{transform:scale(1.1)}
+.card-action svg{width:24px;height:24px}
+.card-action.skip-btn{border-color:var(--skip);color:var(--skip)}
+.card-action.skip-btn:hover{background:var(--skip);color:var(--bg)}
+.card-action.want-btn{border-color:var(--want);color:var(--want)}
+.card-action.want-btn:hover{background:var(--want);color:#fff}
+.card-action.been-btn{border-color:var(--match);color:var(--match)}
+.card-action.been-btn:hover{background:var(--match);color:#fff}
+
+.card-overlay{position:absolute;top:0;left:0;right:0;bottom:0;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;opacity:0;transition:opacity .1s;pointer-events:none}
+.card-overlay.been{background:rgba(34,197,94,.15);color:var(--match);border:3px solid var(--match)}
+.card-overlay.want{background:rgba(59,130,246,.15);color:var(--want);border:3px solid var(--want)}
+.card-overlay.skip-o{background:rgba(113,113,122,.1);color:var(--skip);border:3px solid var(--skip)}
+
+.swipe-done{text-align:center;padding:20px 0}
+.swipe-done h3{font-size:1rem;font-weight:600;margin-bottom:12px}
+.swipe-stats{display:flex;justify-content:center;gap:16px;margin-bottom:20px}
+.swipe-stat{background:var(--bg2);border-radius:12px;padding:12px 18px;text-align:center}
+.swipe-stat .num{font-size:1.4rem;font-weight:700}
+.swipe-stat .lbl{font-size:.65rem;color:var(--fg3);text-transform:uppercase;margin-top:2px}
+.swipe-stat.been-s .num{color:var(--match)}
+.swipe-stat.want-s .num{color:var(--want)}
+.swipe-stat.skip-s .num{color:var(--skip)}
+
+/* Results */
+.score-section{text-align:center;margin:0 0 32px}
+.score-ring-wrap{position:relative;width:180px;height:180px;margin:0 auto 12px}
+.score-ring{width:180px;height:180px;transform:rotate(-90deg)}
+.score-ring-bg{fill:none;stroke:var(--bg3);stroke-width:8}
+.score-ring-fill{fill:none;stroke:url(#scoreGrad);stroke-width:8;stroke-linecap:round;stroke-dasharray:502.65;stroke-dashoffset:502.65;transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1)}
+.score-number{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.6rem;font-weight:800}
+.score-number span{font-size:1rem;font-weight:400;color:var(--fg2)}
+.score-label{font-size:.82rem;color:var(--fg2)}
+.match-badge{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:5px 14px;border-radius:20px;font-size:.78rem;font-weight:600;opacity:0;transform:scale(.8);transition:all .4s .8s}
+.match-badge.reveal{opacity:1;transform:scale(1)}
+.match-badge.high{background:rgba(34,197,94,.15);color:#22c55e}
+.match-badge.med{background:rgba(234,179,8,.15);color:#eab308}
+.match-badge.low{background:rgba(239,68,68,.15);color:#ef4444}
+.match-badge svg{width:14px;height:14px}
+
+.match-cats{margin:28px 0;opacity:0;transform:translateY(10px);transition:all .4s 1s}
+.match-cats.reveal{opacity:1;transform:translateY(0)}
+.match-cat{margin-bottom:20px}
+.match-cat-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.match-cat-header svg{width:20px;height:20px;flex-shrink:0}
+.match-cat-header h3{font-size:.9rem;font-weight:600}
+.match-cat-header .cnt{background:var(--accent);color:#fff;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:4px}
+.match-cat-header .desc{font-size:.7rem;color:var(--fg3);width:100%;margin-top:2px;margin-left:28px}
+.match-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.match-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:12px;padding:12px;position:relative;overflow:hidden;transition:border-color .2s;opacity:0;transform:translateY(6px);animation:cardIn .3s ease forwards}
+.match-card:hover{border-color:var(--accent)}
+.match-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.match-card.both-been::before{background:var(--match)}
+.match-card.both-want::before{background:var(--want)}
+.match-card.you-show::before{background:linear-gradient(90deg,var(--match),var(--want))}
+.match-card.they-show::before{background:linear-gradient(90deg,var(--want),var(--match))}
+.match-card.geo::before{background:#f97316}
+.match-card .mc-name{font-size:.82rem;font-weight:600;margin-bottom:2px}
+.match-card .mc-addr{font-size:.68rem;color:var(--fg3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@keyframes cardIn{to{opacity:1;transform:translateY(0)}}
+
+.lists-section{margin:32px 0;opacity:0;transform:translateY(10px);transition:all .4s 1.8s}
+.lists-section.reveal{opacity:1;transform:translateY(0)}
+.lists-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.lists-grid{grid-template-columns:1fr}}
+.list-col h3{font-size:.82rem;font-weight:600;color:var(--fg2);margin-bottom:8px}
+.place-row{font-size:.75rem;padding:5px 0;border-bottom:1px solid var(--bg3);display:flex;align-items:center;gap:5px}
+.place-row:last-child{border:none}
+.place-row.is-shared{color:var(--match);font-weight:600}
+.place-row.is-shared::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--match);flex-shrink:0}
+.place-row:not(.is-shared){color:var(--fg3);padding-left:11px}
+
+.again-wrap{text-align:center;margin:32px 0 0;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+.confetti-wrap{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999;overflow:hidden}
+.confetti{position:absolute;width:8px;height:8px;border-radius:2px;animation:confettiFall linear forwards}
+@keyframes confettiFall{0%{transform:translateY(-10px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+
+.footer{text-align:center;padding:32px 20px;color:var(--fg3);font-size:.7rem;border-top:1px solid var(--bg3)}
+.footer a{color:var(--fg2)}
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <defs>
+    <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="pinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<div class="hero">
+  <div class="logo">
+    <svg viewBox="0 0 36 36" fill="none">
+      <circle cx="12" cy="14" r="10" stroke="url(#pinGrad)" stroke-width="2.5" fill="none"/>
+      <circle cx="12" cy="14" r="3.5" fill="url(#pinGrad)"/>
+      <path d="M12 24 L12 33" stroke="url(#pinGrad)" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="26" cy="14" r="10" stroke="#ec4899" stroke-width="2.5" fill="none" opacity=".5"/>
+      <circle cx="26" cy="14" r="3.5" fill="#ec4899" opacity=".5"/>
+      <path d="M26 24 L26 33" stroke="#ec4899" stroke-width="2.5" stroke-linecap="round" opacity=".5"/>
+    </svg>
+    <h1>CommonGround</h1>
+  </div>
+  <p class="tagline">Swipe your saved places. Discover what you share.</p>
+  <p class="punchline">Dating apps need a million users. This needs two people and a Google Maps list.</p>
+</div>
+
+<div class="container">
+  <div class="progress" id="progress">
+    <div class="prog-dot current" id="pd0"></div>
+    <div class="prog-dot" id="pd1"></div>
+    <div class="prog-dot" id="pd2"></div>
+    <div class="prog-dot" id="pd3"></div>
+    <div class="prog-dot" id="pd4"></div>
+  </div>
+
+  <!-- ===== STEP 0: Landing ===== -->
+  <div class="step active" id="step0">
+    <div class="landing-choices">
+      <div class="choice-btn demo" onclick="startDemo()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <div class="choice-text">
+          <div class="choice-title">Try the Demo</div>
+          <div class="choice-desc">Swipe through 5 sample places each. See how matching works — no Google Maps needed.</div>
+        </div>
+      </div>
+      <div class="or-divider">or use your own lists</div>
+      <div class="choice-btn" onclick="startReal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="choice-text">
+          <div class="choice-title">Use Your Google Maps Lists</div>
+          <div class="choice-desc">Paste your shared list URL. We'll fetch your places and you can swipe through them.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STEP 0b: URL Input (Your list) ===== -->
+  <div class="step" id="step0b">
+    <div class="url-card">
+      <label>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+        Your Google Maps List
+      </label>
+      <div class="url-row">
+        <input type="text" id="urlA" placeholder="https://maps.app.goo.gl/..." autocomplete="off">
+        <button class="paste-btn" onclick="pasteInto('urlA')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Paste
+        </button>
+      </div>
+      <div class="hint">Open Google Maps &rarr; Your Lists &rarr; Share &rarr; Copy link</div>
+      <div class="json-box" id="jsonWrapA"><textarea id="jsonA" placeholder="Or paste gmaps-list JSON..."></textarea></div>
+    </div>
+    <div class="error-msg" id="errorA"></div>
+    <div class="toggle-link"><button onclick="toggleJson('A')">Have JSON from <code>gmaps-list</code> CLI?</button></div>
+    <div class="action-wrap"><button class="action-btn" id="loadA" onclick="loadPlaces('A')">Load My Places</button></div>
+    <div class="loading" id="loadingA"><div class="spinner"></div><div class="loading-text">Fetching your places...</div></div>
+  </div>
+
+  <!-- ===== STEP 1: Swipe YOUR places ===== -->
+  <div class="step" id="step1">
+    <div class="swipe-header">
+      <span class="demo-badge" id="demoBadge1" style="display:none">Demo Mode</span>
+      <h2 id="swipeTitle1">Your Places</h2>
+      <div class="swipe-counter"><span id="swipeCountA">0</span> / <span id="swipeTotalA">0</span></div>
+      <div class="swipe-legend">
+        <span><span class="dot" style="background:var(--match)"></span> Been here</span>
+        <span><span class="dot" style="background:var(--want)"></span> Want to go</span>
+        <span><span class="dot" style="background:var(--skip)"></span> Skip</span>
+      </div>
+    </div>
+    <div class="card-area" id="cardAreaA"></div>
+    <div class="swipe-done" id="doneA" style="display:none">
+      <h3>Done!</h3>
+      <div class="swipe-stats">
+        <div class="swipe-stat been-s"><div class="num" id="beenCountA">0</div><div class="lbl">Been</div></div>
+        <div class="swipe-stat want-s"><div class="num" id="wantCountA">0</div><div class="lbl">Want</div></div>
+        <div class="swipe-stat skip-s"><div class="num" id="skipCountA">0</div><div class="lbl">Skip</div></div>
+      </div>
+      <button class="action-btn" id="nextAfterA" onclick="afterSwipeA()">Now Their Turn &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 2: Their URL ===== -->
+  <div class="step" id="step2">
+    <div class="url-card">
+      <label>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+        Their Google Maps List
+      </label>
+      <div class="url-row">
+        <input type="text" id="urlB" placeholder="https://maps.app.goo.gl/..." autocomplete="off">
+        <button class="paste-btn" onclick="pasteInto('urlB')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Paste
+        </button>
+      </div>
+      <div class="hint">Hand them your phone or ask for their list link</div>
+      <div class="json-box" id="jsonWrapB"><textarea id="jsonB" placeholder="Or paste gmaps-list JSON..."></textarea></div>
+    </div>
+    <div class="error-msg" id="errorB"></div>
+    <div class="toggle-link"><button onclick="toggleJson('B')">Have JSON?</button></div>
+    <div class="action-wrap"><button class="action-btn" id="loadB" onclick="loadPlaces('B')">Load Their Places</button></div>
+    <div class="loading" id="loadingB"><div class="spinner"></div><div class="loading-text">Fetching their places...</div></div>
+  </div>
+
+  <!-- ===== STEP 3: Swipe THEIR places ===== -->
+  <div class="step" id="step3">
+    <div class="swipe-header">
+      <span class="demo-badge" id="demoBadge3" style="display:none">Demo Mode</span>
+      <h2 id="swipeTitle3">Their Places</h2>
+      <div class="swipe-counter"><span id="swipeCountB">0</span> / <span id="swipeTotalB">0</span></div>
+      <div class="swipe-legend">
+        <span><span class="dot" style="background:var(--match)"></span> Been here</span>
+        <span><span class="dot" style="background:var(--want)"></span> Want to go</span>
+        <span><span class="dot" style="background:var(--skip)"></span> Skip</span>
+      </div>
+    </div>
+    <div class="card-area" id="cardAreaB"></div>
+    <div class="swipe-done" id="doneB" style="display:none">
+      <h3>Done!</h3>
+      <div class="swipe-stats">
+        <div class="swipe-stat been-s"><div class="num" id="beenCountB">0</div><div class="lbl">Been</div></div>
+        <div class="swipe-stat want-s"><div class="num" id="wantCountB">0</div><div class="lbl">Want</div></div>
+        <div class="swipe-stat skip-s"><div class="num" id="skipCountB">0</div><div class="lbl">Skip</div></div>
+      </div>
+      <button class="action-btn" onclick="revealMatch()">See the Match &hearts;</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 4: Results ===== -->
+  <div class="step" id="step4">
+    <div class="score-section">
+      <div class="score-ring-wrap">
+        <svg class="score-ring" viewBox="0 0 200 200">
+          <circle class="score-ring-bg" cx="100" cy="100" r="80"/>
+          <circle class="score-ring-fill" id="scoreRing" cx="100" cy="100" r="80"/>
+        </svg>
+        <div class="score-number" id="scoreNumber">0<span>%</span></div>
+      </div>
+      <div class="score-label">compatibility</div>
+      <div class="match-badge" id="matchBadge"></div>
+    </div>
+    <div class="match-cats" id="matchCats"></div>
+    <div class="lists-section" id="listsSection">
+      <div class="lists-grid">
+        <div class="list-col"><h3 id="listALabel">You</h3><div id="listAItems"></div></div>
+        <div class="list-col"><h3 id="listBLabel">Them</h3><div id="listBItems"></div></div>
+      </div>
+    </div>
+    <div class="again-wrap">
+      <button class="secondary-btn" onclick="resetAll()">Try Again</button>
+      <button class="action-btn" onclick="resetAll();startReal()">Use Your Own Lists</button>
+    </div>
+  </div>
+</div>
+
+<div class="confetti-wrap" id="confetti"></div>
+
+<!-- ===== iOS APP SHOWCASE ===== -->
+<div class="ios-showcase">
+  <div class="ios-inner">
+    <div class="ios-badge">SwiftUI &middot; iOS 17+ &middot; Dark Mode &middot; Haptics &middot; Confetti</div>
+    <h2 class="ios-title">The App</h2>
+    <p class="ios-subtitle">Because apparently a web page wasn't enough.</p>
+
+    <div class="ios-screenshots">
+      <div class="phone-frame"><img src="ios/01-welcome.png" alt="Welcome screen" loading="lazy"><span class="frame-label">Welcome</span></div>
+      <div class="phone-frame"><img src="ios/02-swipe-deck.png" alt="Swipe deck" loading="lazy"><span class="frame-label">Swipe</span></div>
+      <div class="phone-frame"><img src="ios/03-match-reveal.png" alt="Match reveal" loading="lazy"><span class="frame-label">Match</span></div>
+      <div class="phone-frame"><img src="ios/04-url-input.png" alt="URL input" loading="lazy"><span class="frame-label">Import</span></div>
+      <div class="phone-frame"><img src="ios/05-my-places.png" alt="My Places dashboard" loading="lazy"><span class="frame-label">My Places</span></div>
+      <div class="phone-frame"><img src="ios/06-discover.png" alt="Discover feed" loading="lazy"><span class="frame-label">Discover</span></div>
+      <div class="phone-frame"><img src="ios/08-map-view.png" alt="Map dashboard" loading="lazy"><span class="frame-label">Map</span></div>
+    </div>
+
+    <div class="ios-pitch">
+      <p class="pitch-lead">hinge already has prompts. bumble already has your preferences.</p>
+
+      <p>every dating app already knows where you eat, what you drink, and when you go out &mdash; they just don't show you. the taste-matching feature you'd build in this app? any one of them could ship it tomorrow as a tab. and now with vibe coding, so could any solo dev with a weekend and an idea &mdash; i built this in an hour. the moat isn't the code anymore.</p>
+
+      <p>this whole thing started with <a href="https://github.com/anupamchugh/gmaps-list">gmaps-list</a> &mdash; a parser for google maps saved lists. google lets you export your place history, share saved lists, take out your data. apple doesn't. there's no "download my saved places" in apple maps. they give you mapkit identifiers for stable place matching across devices, but your actual visit history stays locked inside the ecosystem. so you're building place intelligence on top of a platform where users can't even get their own data out. google hands you the export. apple hands you an API and says good luck. so i built both &mdash; a place intelligence app with social matching.</p>
+
+      <p>it tracks how adventurous you are. how many new places vs. repeats this month. <em>"you visited 8 places but 6 were repeats. you used to try 4 new spots a month."</em> it computes your taste profile from where you actually go &mdash; not what you say you like.</p>
+
+      <p>then compare your map with someone else's. <span class="cat-inline green">both been</span>, <span class="cat-inline blue">both want to go</span>, <span class="cat-inline purple">you show them</span>, <span class="cat-inline pink">they show you</span>, <span class="cat-inline orange">nearby vibes</span>. five categories of shared taste that no other app computes.</p>
+
+      <p class="pitch-punchline">also: confetti.</p>
+    </div>
+
+    <div class="ios-cta">
+      <a href="https://github.com/anupamchugh/PlaceMatch" class="ios-gh-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.43 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.24-.01-2.25-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.85 1.24 1.85 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.22.7.82.58C20.57 21.8 24 17.31 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub
+      </a>
+      <span class="ios-private"></span>
+    </div>
+  </div>
+</div>
+
+<style>
+.ios-showcase{border-top:1px solid var(--bg3);margin-top:40px;padding:48px 20px 40px;text-align:center}
+.ios-inner{max-width:640px;margin:0 auto}
+.ios-badge{display:inline-block;background:var(--bg2);border:1px solid var(--bg3);color:var(--fg3);font-size:.65rem;font-weight:500;padding:4px 14px;border-radius:20px;letter-spacing:.03em;margin-bottom:16px}
+.ios-title{font-size:1.6rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.ios-subtitle{color:var(--fg3);font-size:.82rem;font-style:italic;margin-bottom:28px}
+
+.ios-screenshots{display:flex;gap:16px;justify-content:center;overflow-x:auto;padding:0 0 16px;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}
+.phone-frame{flex-shrink:0;width:180px;scroll-snap-align:center}
+.phone-frame img{width:100%;border-radius:16px;border:2px solid var(--bg3);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.frame-label{display:block;font-size:.68rem;color:var(--fg3);margin-top:8px;text-transform:uppercase;letter-spacing:.04em}
+
+.ios-pitch{text-align:left;margin:32px 0;line-height:1.7;font-size:.85rem;color:var(--fg2)}
+.ios-pitch p{margin-bottom:14px}
+.pitch-lead{font-size:1rem;font-weight:600;color:var(--fg)}
+.pitch-but{font-size:1rem;font-weight:700;color:var(--fg);margin-top:24px}
+.pitch-break{width:40px;height:2px;background:var(--gradient);margin:24px 0;border-radius:2px}
+.pitch-punchline{color:var(--fg);font-weight:600;font-style:italic;font-size:.9rem;text-align:center;margin-top:20px}
+.cat-inline{font-weight:600;font-size:.82rem}
+.cat-inline.green{color:var(--match)}.cat-inline.blue{color:var(--want)}.cat-inline.purple{color:var(--accent)}.cat-inline.pink{color:var(--accent2)}.cat-inline.orange{color:#f97316}
+
+.ios-cta{margin-top:28px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.ios-gh-btn{display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--bg3);color:var(--fg);padding:9px 18px;border-radius:10px;font-size:.82rem;font-weight:600;transition:all .2s;text-decoration:none}
+.ios-gh-btn:hover{border-color:var(--accent);background:var(--bg3);text-decoration:none}
+.ios-private{font-size:.68rem;color:var(--fg3);font-style:italic}
+@media(max-width:480px){.phone-frame{width:150px}.phone-mockup{height:326px;padding:14px}}
+
+/* Phone mockup frames for upcoming screens */
+.phone-mockup{width:100%;height:390px;border-radius:16px;border:2px solid var(--bg3);background:var(--bg);box-shadow:0 8px 32px rgba(0,0,0,.4);padding:18px 14px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.mock-header{font-size:.85rem;font-weight:700;color:var(--fg);text-align:center;padding-bottom:8px;border-bottom:1px solid var(--bg3)}
+.mock-row{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:.7rem}
+.mock-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.mock-dot.red{background:#ef4444}.mock-dot.yellow{background:#eab308}.mock-dot.green{background:#22c55e}
+.mock-text{color:var(--fg2);flex:1}
+.mock-days{color:var(--fg3);font-size:.6rem}
+.mock-taste{font-size:.6rem;color:var(--accent);background:rgba(168,85,247,.1);padding:6px 10px;border-radius:8px;text-align:center;margin-top:auto}
+.mock-tag-row{text-align:center;margin-top:6px}
+.mock-tag{font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);background:rgba(168,85,247,.15);padding:3px 10px;border-radius:6px}
+.mock-card{font-size:.65rem;padding:10px;border-radius:10px;color:var(--fg);font-weight:500;line-height:1.3}
+.blue-card{background:linear-gradient(135deg,rgba(59,130,246,.2),rgba(59,130,246,.05));border:1px solid rgba(59,130,246,.2)}
+.orange-card{background:linear-gradient(135deg,rgba(249,115,22,.2),rgba(249,115,22,.05));border:1px solid rgba(249,115,22,.2)}
+.purple-card{background:linear-gradient(135deg,rgba(168,85,247,.2),rgba(168,85,247,.05));border:1px solid rgba(168,85,247,.2)}
+.green-card{background:linear-gradient(135deg,rgba(34,197,94,.2),rgba(34,197,94,.05));border:1px solid rgba(34,197,94,.2)}
+</style>
+
+<div class="footer">
+  Everything runs in your browser. No server sees your places. &middot;
+  <a href="https://github.com/anupamchugh/gmaps-list">gmaps-list</a> &middot;
+  <a href="https://anupamchugh.github.io">anupamchugh</a>
+</div>
+
+<script>
+const API = "https://placematch-api.vercel.app";
+
+// ====== DEMO DATA ======
+const DEMO_A = [
+  { name: "Joe's Pizza", address: "7 Carmine St, New York, NY", latitude: 40.7306, longitude: -73.9997 },
+  { name: "Taco Bell Cantina", address: "840 Broadway, New York, NY", latitude: 40.7345, longitude: -73.9916 },
+  { name: "Ichiran Ramen", address: "374 Johnson Ave, Brooklyn, NY", latitude: 40.7069, longitude: -73.9371 },
+  { name: "Los Tacos No. 1", address: "75 9th Ave, New York, NY", latitude: 40.7425, longitude: -74.0049 },
+  { name: "Di Fara Pizza", address: "1424 Ave J, Brooklyn, NY", latitude: 40.6250, longitude: -73.9614 }
+];
+const DEMO_B = [
+  { name: "Joe's Pizza", address: "7 Carmine St, New York, NY", latitude: 40.7306, longitude: -73.9997 },
+  { name: "Russ & Daughters", address: "179 E Houston St, New York, NY", latitude: 40.7223, longitude: -73.9880 },
+  { name: "Ichiran Ramen", address: "374 Johnson Ave, Brooklyn, NY", latitude: 40.7069, longitude: -73.9371 },
+  { name: "Prince Street Pizza", address: "27 Prince St, New York, NY", latitude: 40.7231, longitude: -73.9946 },
+  { name: "Taqueria St Marks", address: "79 St Marks Pl, New York, NY", latitude: 40.7279, longitude: -73.9882 }
+];
+
+// ====== STATE ======
+let rawA = [], rawB = [];
+let swipesA = {}, swipesB = {};
+let metaA = {}, metaB = {};
+let isDemo = false;
+
+// ====== DEMO + REAL START ======
+function startDemo() {
+  isDemo = true;
+  rawA = DEMO_A;
+  rawB = DEMO_B;
+  metaA = { list_name: "Alex's Picks" };
+  metaB = { list_name: "Sam's Picks" };
+  document.getElementById('demoBadge1').style.display = '';
+  document.getElementById('demoBadge3').style.display = '';
+  document.getElementById('swipeTitle1').textContent = "Alex's Places";
+  document.getElementById('swipeTitle3').textContent = "Sam's Places";
+  goStep(1);
+}
+
+function startReal() {
+  isDemo = false;
+  document.getElementById('demoBadge1').style.display = 'none';
+  document.getElementById('demoBadge3').style.display = 'none';
+  document.getElementById('swipeTitle1').textContent = 'Your Places';
+  document.getElementById('swipeTitle3').textContent = 'Their Places';
+  showStep('step0b');
+}
+
+function afterSwipeA() {
+  if (isDemo) { goStep(3); }
+  else { goStep(2); }
+}
+
+// ====== NAVIGATION ======
+const STEPS = ['step0','step0b','step1','step2','step3','step4'];
+function goStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+  document.querySelectorAll('.prog-dot').forEach((d, i) => {
+    d.className = 'prog-dot';
+    if (i < n) d.classList.add('done');
+    if (i === n) d.classList.add('current');
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (n === 1) buildDeck('A', rawA);
+  if (n === 3) buildDeck('B', rawB);
+}
+
+function showStep(id) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ====== PASTE / JSON ======
+async function pasteInto(id) {
+  try { document.getElementById(id).value = await navigator.clipboard.readText(); } catch { document.getElementById(id).focus(); }
+}
+function toggleJson(side) { document.getElementById('jsonWrap' + side).classList.toggle('show'); }
+
+// ====== LOAD PLACES ======
+async function loadPlaces(side) {
+  const urlEl = document.getElementById('url' + side);
+  const jsonEl = document.getElementById('json' + side);
+  const errEl = document.getElementById('error' + side);
+  const loadEl = document.getElementById('loading' + side);
+  const btnEl = document.getElementById('load' + side);
+  const jsonWrap = document.getElementById('jsonWrap' + side);
+
+  errEl.classList.remove('show');
+  const useJson = jsonWrap.classList.contains('show') && jsonEl.value.trim();
+  const url = urlEl.value.trim();
+
+  if (!useJson && !url) { errEl.textContent = 'Paste a Google Maps list URL.'; errEl.classList.add('show'); return; }
+
+  if (useJson) {
+    try {
+      const arr = JSON.parse(jsonEl.value.trim());
+      if (!Array.isArray(arr) || !arr.length) throw new Error('Not a valid array');
+      if (side === 'A') { rawA = arr; metaA = { list_name: 'Your List' }; }
+      else { rawB = arr; metaB = { list_name: 'Their List' }; }
+      goStep(side === 'A' ? 1 : 3);
+      return;
+    } catch (e) { errEl.textContent = 'Invalid JSON: ' + e.message; errEl.classList.add('show'); return; }
+  }
+
+  btnEl.disabled = true;
+  loadEl.classList.add('show');
+  try {
+    const r = await fetch(API + '/api/fetch?url=' + encodeURIComponent(url));
+    const d = await r.json();
+    if (!r.ok || d.error) throw new Error(d.error || 'Failed');
+    if (!d.places?.length) throw new Error('No places found');
+    if (side === 'A') { rawA = d.places; metaA = { list_name: d.list_name, owner: d.owner }; }
+    else { rawB = d.places; metaB = { list_name: d.list_name, owner: d.owner }; }
+    loadEl.classList.remove('show');
+    goStep(side === 'A' ? 1 : 3);
+  } catch (e) {
+    loadEl.classList.remove('show');
+    btnEl.disabled = false;
+    errEl.textContent = e.message; errEl.classList.add('show');
+  }
+}
+
+// ====== SWIPE DECK ======
+function buildDeck(side, places) {
+  const area = document.getElementById('cardArea' + side);
+  const counterEl = document.getElementById('swipeCount' + side);
+  const totalEl = document.getElementById('swipeTotal' + side);
+  const doneEl = document.getElementById('done' + side);
+  const swipes = side === 'A' ? swipesA : swipesB;
+
+  // Clear previous swipes for this side
+  if (side === 'A') swipesA = {}; else swipesB = {};
+  const sw = side === 'A' ? swipesA : swipesB;
+
+  area.innerHTML = '';
+  doneEl.style.display = 'none';
+  totalEl.textContent = places.length;
+  counterEl.textContent = '0';
+  let idx = 0;
+
+  function renderStack() {
+    area.innerHTML = '';
+    for (let i = Math.min(idx + 2, places.length - 1); i >= idx; i--) {
+      if (i >= places.length) continue;
+      const p = places[i];
+      const depth = i - idx;
+      const card = document.createElement('div');
+      card.className = 'swipe-card';
+      card.style.zIndex = 10 - depth;
+      card.style.transform = `scale(${1 - depth * 0.04}) translateY(${depth * 8}px)`;
+      card.style.opacity = depth === 0 ? 1 : 0.6 - depth * 0.2;
+
+      card.innerHTML = `
+        <div class="card-overlay been">Been here</div>
+        <div class="card-overlay want">Want to go</div>
+        <div class="card-overlay skip-o">Skip</div>
+        <div class="card-top">
+          <div class="card-name">${esc(p.name)}</div>
+          <div class="card-addr">${esc(p.address || '')}</div>
+          ${p.latitude ? `<div class="card-coords">${p.latitude.toFixed(4)}, ${p.longitude.toFixed(4)}</div>` : ''}
+        </div>
+        <div class="card-bottom">
+          <div class="card-action skip-btn" onclick="event.stopPropagation();swipeAction('skip')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </div>
+          <div class="card-action want-btn" onclick="event.stopPropagation();swipeAction('want')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>
+          </div>
+          <div class="card-action been-btn" onclick="event.stopPropagation();swipeAction('been')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+        </div>`;
+      if (depth === 0) setupDrag(card);
+      area.appendChild(card);
+    }
+  }
+
+  function swipeAction(type) {
+    if (idx >= places.length) return;
+    sw[norm(places[idx].name)] = type;
+    const topCard = area.lastElementChild;
+    if (topCard) {
+      topCard.classList.add('animating');
+      if (type === 'been') topCard.style.transform = 'translateX(120%) rotate(15deg)';
+      else if (type === 'want') topCard.style.transform = 'translateX(-120%) rotate(-15deg)';
+      else topCard.style.transform = 'translateY(-120%)';
+      topCard.style.opacity = '0';
+    }
+    idx++;
+    counterEl.textContent = idx;
+    setTimeout(() => {
+      if (idx >= places.length) { area.innerHTML = ''; showSwipeSummary(side, sw); }
+      else renderStack();
+    }, 300);
+  }
+  window.swipeAction = swipeAction;
+
+  function setupDrag(card) {
+    let startX = 0, startY = 0, dx = 0, dy = 0, dragging = false;
+    const oB = card.querySelector('.card-overlay.been');
+    const oW = card.querySelector('.card-overlay.want');
+    const oS = card.querySelector('.card-overlay.skip-o');
+    function onStart(e) { dragging = true; const t = e.touches ? e.touches[0] : e; startX = t.clientX; startY = t.clientY; card.style.transition = 'none'; }
+    function onMove(e) {
+      if (!dragging) return; e.preventDefault();
+      const t = e.touches ? e.touches[0] : e; dx = t.clientX - startX; dy = t.clientY - startY;
+      card.style.transform = `translateX(${dx}px) translateY(${dy}px) rotate(${dx * 0.08}deg)`;
+      oB.style.opacity = dx > 30 ? Math.min((dx - 30) / 80, 1) : 0;
+      oW.style.opacity = dx < -30 ? Math.min((-dx - 30) / 80, 1) : 0;
+      oS.style.opacity = (dy < -30 && Math.abs(dx) < 60) ? Math.min((-dy - 30) / 80, 1) : 0;
+    }
+    function onEnd() {
+      if (!dragging) return; dragging = false; card.style.transition = '';
+      if (dx > 80) { swipeAction('been'); return; }
+      if (dx < -80) { swipeAction('want'); return; }
+      if (dy < -80 && Math.abs(dx) < 60) { swipeAction('skip'); return; }
+      card.style.transform = 'scale(1) translateY(0)'; oB.style.opacity = 0; oW.style.opacity = 0; oS.style.opacity = 0;
+    }
+    card.addEventListener('mousedown', onStart);
+    card.addEventListener('touchstart', onStart, { passive: false });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onEnd);
+    window.addEventListener('touchend', onEnd);
+  }
+  renderStack();
+}
+
+function showSwipeSummary(side, sw) {
+  const doneEl = document.getElementById('done' + side);
+  let been = 0, want = 0, skip = 0;
+  for (const v of Object.values(sw)) { if (v === 'been') been++; else if (v === 'want') want++; else skip++; }
+  document.getElementById('beenCount' + side).textContent = been;
+  document.getElementById('wantCount' + side).textContent = want;
+  document.getElementById('skipCount' + side).textContent = skip;
+  doneEl.style.display = 'block';
+}
+
+// ====== MATCH REVEAL ======
+function revealMatch() {
+  goStep(4);
+  const bothBeen = [], bothWant = [], youShowThem = [], theyShowYou = [], geoNear = [];
+  const placeMapA = {}; rawA.forEach(p => placeMapA[norm(p.name)] = p);
+  const placeMapB = {}; rawB.forEach(p => placeMapB[norm(p.name)] = p);
+
+  for (const [name, typeA] of Object.entries(swipesA)) {
+    const typeB = swipesB[name];
+    if (typeB) {
+      if (typeA === 'been' && typeB === 'been') bothBeen.push(placeMapA[name] || { name });
+      else if (typeA === 'want' && typeB === 'want') bothWant.push(placeMapA[name] || { name });
+      else if (typeA === 'been' && typeB === 'want') youShowThem.push(placeMapA[name] || { name });
+      else if (typeA === 'want' && typeB === 'been') theyShowYou.push(placeMapB[name] || { name });
+    }
+  }
+
+  const matchedNames = new Set([...bothBeen, ...bothWant, ...youShowThem, ...theyShowYou].map(p => norm(p.name)));
+  for (const a of rawA) {
+    if (!a.latitude || matchedNames.has(norm(a.name))) continue;
+    for (const b of rawB) {
+      if (!b.latitude || matchedNames.has(norm(b.name)) || norm(a.name) === norm(b.name)) continue;
+      if (haversine(a.latitude, a.longitude, b.latitude, b.longitude) <= 500) { geoNear.push({ a, b }); break; }
+    }
+  }
+
+  const totalUnique = new Set([...Object.keys(swipesA), ...Object.keys(swipesB)]).size || 1;
+  const strong = bothBeen.length * 3 + bothWant.length * 2 + youShowThem.length + theyShowYou.length;
+  const catScore = Math.min((strong / (totalUnique * 3)) * 100, 100);
+  const geoAB = geoOverlap(rawA, rawB, 500), geoBA = geoOverlap(rawB, rawA, 500);
+  const geoScore = (geoAB + geoBA) / 2;
+  const compatibility = catScore * 0.65 + geoScore * 100 * 0.35;
+
+  const circ = 2 * Math.PI * 80;
+  document.getElementById('scoreRing').style.strokeDasharray = circ;
+  document.getElementById('scoreRing').style.strokeDashoffset = circ;
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.getElementById('scoreRing').style.strokeDashoffset = circ - (compatibility / 100) * circ;
+    animateNumber('scoreNumber', compatibility);
+    const badge = document.getElementById('matchBadge');
+    if (compatibility >= 40) { badge.className = 'match-badge high'; badge.innerHTML = heartSVG() + " It's a match!"; }
+    else if (compatibility >= 15) { badge.className = 'match-badge med'; badge.innerHTML = sparkSVG() + ' Some overlap'; }
+    else { badge.className = 'match-badge low'; badge.innerHTML = xSVG() + ' Different tastes'; }
+    setTimeout(() => badge.classList.add('reveal'), 50);
+
+    const cats = document.getElementById('matchCats'); cats.innerHTML = '';
+    if (bothBeen.length) cats.appendChild(makeCat('both-been', 'Both been here', 'Your shared history', bothBeen, '#22c55e', heartSVG()));
+    if (bothWant.length) cats.appendChild(makeCat('both-want', 'Both want to go', 'Date idea!', bothWant, '#3b82f6', sparkSVG()));
+    if (youShowThem.length) cats.appendChild(makeCat('you-show', 'You can show them', "You've been, they want to go", youShowThem, '#a855f7', arrowSVG()));
+    if (theyShowYou.length) cats.appendChild(makeCat('they-show', 'They can show you', "They've been, you want to go", theyShowYou, '#ec4899', arrowSVG()));
+    if (geoNear.length) cats.appendChild(makeCat('geo', 'Nearby vibes', 'Different places, same neighborhood', geoNear.map(g => ({ name: g.a.name + ' \u2194 ' + g.b.name, address: 'Within 500m' })), '#f97316', pinSVG()));
+    setTimeout(() => cats.classList.add('reveal'), 50);
+
+    const shared = new Set([...bothBeen, ...bothWant, ...youShowThem, ...theyShowYou].map(p => norm(p.name)));
+    document.getElementById('listALabel').textContent = (metaA.list_name || 'You') + ' (' + rawA.length + ')';
+    document.getElementById('listBLabel').textContent = (metaB.list_name || 'Them') + ' (' + rawB.length + ')';
+    renderList('listAItems', rawA, shared); renderList('listBItems', rawB, shared);
+    setTimeout(() => document.getElementById('listsSection').classList.add('reveal'), 50);
+    if (compatibility >= 40) setTimeout(fireConfetti, 1200);
+  }));
+}
+
+function makeCat(cls, title, desc, places, color, icon) {
+  const s = document.createElement('div'); s.className = 'match-cat';
+  s.innerHTML = `<div class="match-cat-header"><span style="color:${color}">${icon}</span><h3>${title}</h3><span class="cnt">${places.length}</span><span class="desc">${desc}</span></div>
+  <div class="match-cards">${places.map((p, i) => `<div class="match-card ${cls}" style="animation-delay:${1 + i * 0.06}s"><div class="mc-name">${esc(p.name)}</div><div class="mc-addr">${esc(p.address || '')}</div></div>`).join('')}</div>`;
+  return s;
+}
+
+// ====== RESET ======
+function resetAll() {
+  rawA = []; rawB = []; swipesA = {}; swipesB = {}; metaA = {}; metaB = {}; isDemo = false;
+  ['A', 'B'].forEach(s => {
+    const u = document.getElementById('url' + s); if (u) u.value = '';
+    const j = document.getElementById('json' + s); if (j) j.value = '';
+    const e = document.getElementById('error' + s); if (e) e.classList.remove('show');
+    const l = document.getElementById('loading' + s); if (l) l.classList.remove('show');
+    const b = document.getElementById('load' + s); if (b) b.disabled = false;
+    const jw = document.getElementById('jsonWrap' + s); if (jw) jw.classList.remove('show');
+  });
+  document.getElementById('scoreRing').style.strokeDashoffset = '502.65';
+  document.getElementById('scoreNumber').innerHTML = '0<span>%</span>';
+  document.getElementById('matchBadge').classList.remove('reveal');
+  document.getElementById('matchCats').classList.remove('reveal');
+  document.getElementById('listsSection').classList.remove('reveal');
+  goStep(0);
+}
+
+// ====== UTILS ======
+function haversine(lat1, lon1, lat2, lon2) {
+  const R = 6371000, toRad = d => d * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1), dLon = toRad(lon2 - lon1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+function norm(s) { return (s || '').trim().toLowerCase().replace(/\s+/g, ' '); }
+function geoOverlap(from, to, t) {
+  const f = from.filter(p => p.latitude), tw = to.filter(p => p.latitude);
+  if (!f.length || !tw.length) return 0;
+  let m = 0; for (const a of f) { for (const b of tw) { if (haversine(a.latitude, a.longitude, b.latitude, b.longitude) <= t) { m++; break; } } }
+  return m / f.length;
+}
+function renderList(id, places, shared) {
+  const el = document.getElementById(id); el.innerHTML = '';
+  [...places].sort((a, b) => (shared.has(norm(a.name)) ? 0 : 1) - (shared.has(norm(b.name)) ? 0 : 1))
+    .forEach(p => { const r = document.createElement('div'); r.className = 'place-row' + (shared.has(norm(p.name)) ? ' is-shared' : ''); r.textContent = p.name; el.appendChild(r); });
+}
+function animateNumber(id, target) {
+  const el = document.getElementById(id), dur = 1500, start = performance.now();
+  (function step(now) { const p = Math.min((now - start) / dur, 1), e = 1 - (1 - p) ** 3; el.innerHTML = Math.round(e * target) + '<span>%</span>'; if (p < 1) requestAnimationFrame(step); })(performance.now());
+}
+function fireConfetti() {
+  const w = document.getElementById('confetti'); w.innerHTML = '';
+  const colors = ['#a855f7','#ec4899','#f97316','#22c55e','#eab308','#3b82f6'];
+  for (let i = 0; i < 60; i++) { const c = document.createElement('div'); c.className = 'confetti'; c.style.left = Math.random()*100+'%'; c.style.background = colors[~~(Math.random()*colors.length)]; c.style.width = (4+Math.random()*6)+'px'; c.style.height = (4+Math.random()*6)+'px'; c.style.animationDuration = (2+Math.random()*2)+'s'; c.style.animationDelay = Math.random()*.5+'s'; w.appendChild(c); }
+  setTimeout(() => w.innerHTML = '', 5000);
+}
+function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function heartSVG() { return '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'; }
+function sparkSVG() { return '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>'; }
+function xSVG() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20"><path d="M18 6L6 18M6 6l12 12"/></svg>'; }
+function arrowSVG() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'; }
+function pinSVG() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'; }
+</script>
+</body>
+</html>

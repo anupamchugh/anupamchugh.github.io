@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /review/
+Disallow: /write/
+
+Sitemap: https://anupamchugh.github.io/sitemap.xml

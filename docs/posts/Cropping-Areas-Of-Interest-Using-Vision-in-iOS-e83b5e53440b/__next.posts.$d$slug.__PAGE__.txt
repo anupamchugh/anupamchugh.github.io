@@ -1,0 +1,140 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/f88ee8140d2442df.js"],""]
+2d:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+2e:"$Sreact.suspense"
+0:{"buildId":"WcPedvjddf9cO8FBRm_SE","rsc":["$","$1","c",{"children":[["$","article",null,{"className":"mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Cropping Areas Of Interest Using Vision in iOS\",\"description\":\"!(/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md1703150257140/img/1EKboKCRYOwceqb4FgB7yyw.png)\\n\\nApple introduced plenty of n...\",\"datePublished\":\"2019-11-20T17:03:12.780Z\",\"mainEntityOfPage\":\"https://anupamchugh.github.io/posts/Cropping-Areas-Of-Interest-Using-Vision-in-iOS-e83b5e53440b/\",\"url\":\"https://anupamchugh.github.io/posts/Cropping-Areas-Of-Interest-Using-Vision-in-iOS-e83b5e53440b/\",\"author\":{\"@type\":\"Person\",\"name\":\"Anupam Chugh\",\"url\":\"https://anupamchugh.github.io\"}}"}}],["$","$L2",null,{"href":"/posts/","className":"text-sm text-tertiary hover:text-primary transition-colors","children":"← writing"}],["$","header",null,{"className":"mt-8","children":[["$","div",null,{"className":"flex items-center gap-4 text-sm text-tertiary","children":[["$","time",null,{"dateTime":"2019-11-20T17:03:12.780Z","children":"November 20, 2019"}],["$","span",null,{"children":"·"}],["$","span",null,{"children":[5," min read"]}]]}],["$","h1",null,{"className":"mt-4 text-2xl font-semibold","children":"Cropping Areas Of Interest Using Vision in iOS"}],false]}],["$","div",null,{"className":"prose mt-8","children":[["$","p","p-0",{"children":["$","img","img-0",{"src":"/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/1__EKboKCRYOwceqb4FgB7yyw.png","alt":"","loading":"lazy"}]}],"\n",["$","p","p-1",{"children":"Apple introduced plenty of new features in the Vision Framework during WWDC 2019. Besides providing built-in image classification models for identifying pet animals and bringing improvements in face feature tracking, one of the features that stood out was saliency."}],"\n",["$","p","p-2",{"children":"Saliency has many applications in computer vision and image processing. From highlighting areas of interest, to blur detection, anomaly detection, automated image cropping, and post-processing of images — the list could go on."}],"\n",["$","h3","h3-0",{"children":"What is Saliency?"}],"\n",["$","p","p-3",{"children":"In simple terms, saliency implies the most noticeable or important features. Saliency is largely split into two types:"}],"\n",["$","p","p-4",{"children":[["$","strong","strong-0",{"children":"Attention-Based Saliency"}]," — This algorithm provides features of the image that catch the human eye at first glance. The model for this algorithm was trained based on where people looked in the image when they were shown a batch of images."]}],"\n",["$","p","p-5",{"children":[["$","strong","strong-0",{"children":"Objectness-Based Saliency"}]," — This was trained on object segmentation in order to highlight the prominent objects present in the image."]}],"\n",["$","p","p-6",{"children":"Attention-based saliency is the trickier one as it relies on a number of things, such as faces, contrast, and lighting in the image, to determine the parts that are eye-catching."}],"\n",["$","p","p-7",{"children":"Each of these saliency types returns a heatmap which is essentially 68X68 pixel buffers that hold the value of saliency for each region of the image."}],"\n",["$","p","p-8",{"children":["$","img","img-0",{"src":"/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/1__4Z534Rn3CmQqpgo8PxC8lw.png","alt":"","loading":"lazy"}]}],"\n","$L3","\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15","\n","$L16","\n","$L17","\n","$L18","\n","$L19","\n","$L1a","\n","$L1b","\n","$L1c","\n","$L1d","\n","$L1e","\n","$L1f","\n","$L20","\n","$L21","\n","$L22","\n","$L23","\n","$L24","\n","$L25","\n","$L26","\n","$L27","\n","$L28"]}],"$L29"]}],null,"$L2a"]}],"loading":null,"isPartial":false}
+3:["$","h3","h3-1",{"children":"Our Goal"}]
+4:["$","p","p-9",{"children":"We’ll be developing an iOS application that automatically crops an image to display only the salient regions. We’ll be using both saliency types and will compare the results."}]
+5:["$","h3","h3-2",{"children":"Implementation"}]
+6:["$","p","p-10",{"children":"To keep things simple, the UI consists of an Image and a Button, both created programmatically in our ViewController. The button selector is responsible for selecting the images using the ImagePickerController as shown below:"}]
+7:["$","p","p-11",{"children":"@objc func onButtonClick(sender: UIButton){"}]
+8:["$","p","p-12",{"children":"let imagePicker = UIImagePickerController()"}]
+9:["$","p","p-13",{"children":"imagePicker.sourceType = .photoLibrary"}]
+a:["$","p","p-14",{"children":"imagePicker.delegate = self"}]
+b:["$","p","p-15",{"children":"present(imagePicker, animated: true, completion: nil)"}]
+c:["$","p","p-16",{"children":"}"}]
+d:["$","p","p-17",{"children":["For this to work as intended, make sure you’ve implemented the ",["$","code","code-0",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"UIImagePickerControllerDelegate","position":{"start":{"line":42,"column":64,"offset":2411},"end":{"line":42,"column":97,"offset":2444}}}],"position":{"start":{"line":42,"column":64,"offset":2411},"end":{"line":42,"column":97,"offset":2444}}},"children":"UIImagePickerControllerDelegate"}],", ",["$","code","code-1",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"UINavigationControllerDelegate","position":{"start":{"line":42,"column":99,"offset":2446},"end":{"line":42,"column":131,"offset":2478}}}],"position":{"start":{"line":42,"column":99,"offset":2446},"end":{"line":42,"column":131,"offset":2478}}},"children":"UINavigationControllerDelegate"}]," protocols and also added the privacy usage permissions for the photos library in your ",["$","code","code-2",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"info.plist","position":{"start":{"line":42,"column":218,"offset":2565},"end":{"line":42,"column":230,"offset":2577}}}],"position":{"start":{"line":42,"column":218,"offset":2565},"end":{"line":42,"column":230,"offset":2577}}},"children":"info.plist"}]," file."]}]
+e:["$","p","p-18",{"children":["func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {",["$","br","br-0",{}],"\n","dismiss(animated: true) {",["$","br","br-1",{}],"\n","if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {",["$","br","br-2",{}],"\n","self.imageView?.image = image",["$","br","br-3",{}],"\n","self.processImage(image)"]}]
+f:["$","pre","pre-0",{"children":["$","code","code-0",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"        }  \n    }  \n"}],"position":{"start":{"line":50,"column":1,"offset":2974},"end":{"line":51,"column":12,"offset":3001}}},"children":"        }  \n    }  \n"}]}]
+10:["$","p","p-19",{"children":"}"}]
+11:["$","p","p-20",{"children":["Inside the ",["$","code","code-0",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"processImage","position":{"start":{"line":54,"column":12,"offset":3016},"end":{"line":54,"column":26,"offset":3030}}}],"position":{"start":{"line":54,"column":12,"offset":3016},"end":{"line":54,"column":26,"offset":3030}}},"children":"processImage"}]," function our vision API handles the saliency request. We’ll take a look at that in the next section."]}]
+12:["$","h3","h3-3",{"children":"Setting Up Our Vision Request"}]
+13:["$","p","p-21",{"children":["$","img","img-0",{"src":"/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/1__GKr08LltXfhvuGF7Leqe5w.png","alt":"","loading":"lazy"}]}]
+14:["$","p","p-22",{"children":["We’ll use the standard ",["$","code","code-0",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"VNImageRequestHandler","position":{"start":{"line":60,"column":24,"offset":3362},"end":{"line":60,"column":47,"offset":3385}}}],"position":{"start":{"line":60,"column":24,"offset":3362},"end":{"line":60,"column":47,"offset":3385}}},"children":"VNImageRequestHandler"}]," to handle our image and pass the algorithm type in the vision request handler, as shown below:"]}]
+15:["$","p","p-23",{"children":"let requestHandler = VNImageRequestHandler(cgImage: originalImage, options: [:])"}]
+16:["$","p","p-24",{"children":"let saliencyRequest = VNGenerateAttentionBasedSaliencyImageRequest(completionHandler: nil)"}]
+17:["$","p","p-25",{"children":["try requestHandler.perform([self.saliencyRequest])",["$","br","br-0",{}],"\n","guard let results = self.saliencyRequest.results?.first else{return}"]}]
+18:["$","p","p-26",{"children":"let observations = results as? VNSaliencyImageObservation"}]
+19:["$","p","p-27",{"children":"let salientObjects = observation.salientObjects"}]
+1a:["$","p","p-28",{"children":"There are some pretty new terms in the above code. Let’s look at what they are:"}]
+1b:["$","ul","ul-0",{"children":["\n",["$","li","li-0",{"children":["The ",["$","code","code-0",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"salientObjects","position":{"start":{"line":75,"column":9,"offset":3980},"end":{"line":75,"column":25,"offset":3996}}}],"position":{"start":{"line":75,"column":9,"offset":3980},"end":{"line":75,"column":25,"offset":3996}}},"children":"salientObjects"}]," property is an array of ",["$","code","code-1",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"VNRectangleObservation","position":{"start":{"line":75,"column":50,"offset":4021},"end":{"line":75,"column":74,"offset":4045}}}],"position":{"start":{"line":75,"column":50,"offset":4021},"end":{"line":75,"column":74,"offset":4045}}},"children":"VNRectangleObservation"}]," for all the prominent features detected by the algorithm. It holds the ",["$","code","code-2",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"boundingBox","position":{"start":{"line":75,"column":146,"offset":4117},"end":{"line":75,"column":159,"offset":4130}}}],"position":{"start":{"line":75,"column":146,"offset":4117},"end":{"line":75,"column":159,"offset":4130}}},"children":"boundingBox"}]," for each of the features and the confidence thresholds. For cropping the image to display the prominent features only, we’ll merge all the salient bounding boxes regions."]}],"\n",["$","li","li-1",{"children":["The bounding boxes returned by the vision framework uses a normalized coordinate system such that the lower-left point is the origin. Hence, we’ll pass the bounding boxes union to a ",["$","code","code-0",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"VNImageRectForNormalizedRect","position":{"start":{"line":76,"column":187,"offset":4488},"end":{"line":76,"column":217,"offset":4518}}}],"position":{"start":{"line":76,"column":187,"offset":4488},"end":{"line":76,"column":217,"offset":4518}}},"children":"VNImageRectForNormalizedRect"}]," to project the salient region into the UIKit coordinate system."]}],"\n",["$","li","li-2",{"children":["In cases, where the image has no highlights, the ",["$","code","code-0",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"salientObjects","position":{"start":{"line":77,"column":54,"offset":4636},"end":{"line":77,"column":70,"offset":4652}}}],"position":{"start":{"line":77,"column":54,"offset":4636},"end":{"line":77,"column":70,"offset":4652}}},"children":"salientObjects"}]," returned are empty."]}],"\n"]}]
+1c:["$","p","p-29",{"children":"The following code contains the full implementation of the vision request that crops the image based on salient features:"}]
+1d:["$","p","p-30",{"children":"private let workQueue = DispatchQueue(label: \"VisionRequest\", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)"}]
+1e:["$","p","p-31",{"children":"private func processImage(_ image: UIImage) {"}]
+2b:T8cf,    guard let originalImage = image.cgImage else { return }  
+      
+    workQueue.async {  
+        let requestHandler = VNImageRequestHandler(cgImage: originalImage, options: \[:\])  
+        do {  
+            try requestHandler.perform(\[self.saliencyRequest\])  
+            guard let results = self.saliencyRequest.results?.first  
+                else{return}  
+              
+            if let observation = results as? VNSaliencyImageObservation  
+            {  
+                var unionOfSalientRegions = CGRect(x: 0, y: 0, width: 0, height: 0)  
+                let salientObjects = observation.salientObjects  
+                  
+                let showAlert = (salientObjects?.isEmpty ?? false)  
+                  
+                for salientObject in salientObjects ?? \[\] {  
+                    unionOfSalientRegions = unionOfSalientRegions.union(salientObject.boundingBox)  
+                }  
+                  
+                if let ciimage = CIImage(image: image)  
+                {  
+                    let salientRect = VNImageRectForNormalizedRect(unionOfSalientRegions,  
+                                                                   Int(ciimage.extent.size.width),  
+                                                                   Int(ciimage.extent.size.height))  
+                    let croppedImage = ciimage.cropped(to: salientRect)  
+                    let thumbnail =  UIImage(ciImage:croppedImage)  
+                    DispatchQueue.main.async {  
+                          
+                        if showAlert{  
+                            let alertController = UIAlertController(title: "Oops!", message: "No highlights were found", preferredStyle: .alert)  
+                              
+                            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { \_ in  
+                            }))  
+                            self.present(alertController, animated: false, completion: nil)  
+                        }  
+                          
+                        self.imageView?.image = thumbnail  
+                    }  
+                }  
+            }  
+              
+        } catch {  
+            print(error)  
+        }  
+    }  
+}
+2c:T8cf,    guard let originalImage = image.cgImage else { return }  
+      
+    workQueue.async {  
+        let requestHandler = VNImageRequestHandler(cgImage: originalImage, options: \[:\])  
+        do {  
+            try requestHandler.perform(\[self.saliencyRequest\])  
+            guard let results = self.saliencyRequest.results?.first  
+                else{return}  
+              
+            if let observation = results as? VNSaliencyImageObservation  
+            {  
+                var unionOfSalientRegions = CGRect(x: 0, y: 0, width: 0, height: 0)  
+                let salientObjects = observation.salientObjects  
+                  
+                let showAlert = (salientObjects?.isEmpty ?? false)  
+                  
+                for salientObject in salientObjects ?? \[\] {  
+                    unionOfSalientRegions = unionOfSalientRegions.union(salientObject.boundingBox)  
+                }  
+                  
+                if let ciimage = CIImage(image: image)  
+                {  
+                    let salientRect = VNImageRectForNormalizedRect(unionOfSalientRegions,  
+                                                                   Int(ciimage.extent.size.width),  
+                                                                   Int(ciimage.extent.size.height))  
+                    let croppedImage = ciimage.cropped(to: salientRect)  
+                    let thumbnail =  UIImage(ciImage:croppedImage)  
+                    DispatchQueue.main.async {  
+                          
+                        if showAlert{  
+                            let alertController = UIAlertController(title: "Oops!", message: "No highlights were found", preferredStyle: .alert)  
+                              
+                            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { \_ in  
+                            }))  
+                            self.present(alertController, animated: false, completion: nil)  
+                        }  
+                          
+                        self.imageView?.image = thumbnail  
+                    }  
+                }  
+            }  
+              
+        } catch {  
+            print(error)  
+        }  
+    }  
+}
+1f:["$","pre","pre-1",{"children":["$","code","code-0",{"node":{"type":"element","tagName":"code","properties":{},"children":[{"type":"text","value":"$2b"}],"position":{"start":{"line":85,"column":1,"offset":4996},"end":{"line":131,"column":6,"offset":7438}}},"children":"$2c"}]}]
+20:["$","p","p-32",{"children":"Attention-based saliency types return just one bounding box while the objectness-based algorithm can return up to three bounding boxes."}]
+21:["$","p","p-33",{"children":"The output of the application in action is given below:"}]
+22:["$","p","p-34",{"children":["$","img","img-0",{"src":"/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/1__fLN0fIB1dCkrsN4ow__FUWg.png","alt":"","loading":"lazy"}]}]
+23:["$","p","p-35",{"children":"Now let’s compare the objectness and attention-based types on a landscape image as shown below:"}]
+24:["$","p","p-36",{"children":["$","img","img-0",{"src":"/Users/anupamchugh/Downloads/medium-export-a4b48d5fe977f1f289836fecb566e574d085c11debefe6da1b475ac0c8622324/posts/md_1703150257140/img/1__CXN7G73qaFoW5RXvxBh4pw.png","alt":"","loading":"lazy"}]}]
+25:["$","p","p-37",{"children":"The attention-based algorithm doesn’t have much impact on landscape images. You can use either of the saliency request types depending on the use cases. For showing the portion of interest in thumbnails, attention-based saliency is generally used."}]
+26:["$","h3","h3-4",{"children":"Conclusion"}]
+27:["$","p","p-38",{"children":["We’ve had a good look at the saliency feature of vision and compared the attention-based and objectness-based types. Vision framework has many more advancements coming this year, such as image similarity, faced capture quality, etc — more on them soon! The full source code of the above example is available in the ",["$","a","a-0",{"href":"https://github.com/anupamchugh/iowncode/tree/master/iOSVisionCroppingSalientFeatures","node":{"type":"element","tagName":"a","properties":{"href":"https://github.com/anupamchugh/iowncode/tree/master/iOSVisionCroppingSalientFeatures"},"children":[{"type":"text","value":"Github Repository","position":{"start":{"line":147,"column":317,"offset":8655},"end":{"line":147,"column":334,"offset":8672}}}],"position":{"start":{"line":147,"column":316,"offset":8654},"end":{"line":147,"column":421,"offset":8759}}},"children":"Github Repository"}],"."]}]
+28:["$","p","p-39",{"children":"That’s it for this one. I hope you enjoyed reading."}]
+29:["$","footer",null,{"className":"mt-16 pt-8 border-t border-border","children":["$","$L2",null,{"href":"/posts/","className":"text-sm text-tertiary hover:text-primary transition-colors","children":"← back to writing"}]}]
+2a:["$","$L2d",null,{"children":["$","$2e",null,{"name":"Next.MetadataOutlet","children":"$@2f"}]}]
+2f:null

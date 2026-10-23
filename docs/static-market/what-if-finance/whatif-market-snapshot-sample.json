@@ -1,0 +1,153 @@
+{
+  "disallowedFields": [
+    "broker tokens",
+    "orders API",
+    "positions API",
+    "holdings API",
+    "funds",
+    "account IDs",
+    "bot state",
+    "admin health",
+    "private logs",
+    "access tokens",
+    "refresh tokens",
+    "kite profile"
+  ],
+  "generatedAt": "2026-05-16T19:41:56.355635Z",
+  "instruments": [
+    {
+      "exchange": "NASDAQ",
+      "name": null,
+      "provider": "yfinance",
+      "sector": null,
+      "symbol": "AAPL",
+      "timeframes": {
+        "1d": {
+          "candles": [
+            {
+              "close": 292.67999267578125,
+              "high": 293.8800048828125,
+              "low": 290.2300109863281,
+              "open": 291.9800109863281,
+              "ts": "2026-05-11T00:00:00Z",
+              "volume": 42247300.0
+            },
+            {
+              "close": 294.79998779296875,
+              "high": 295.2699890136719,
+              "low": 292.55999755859375,
+              "open": 292.55999755859375,
+              "ts": "2026-05-12T00:00:00Z",
+              "volume": 45748100.0
+            },
+            {
+              "close": 298.8699951171875,
+              "high": 300.9200134277344,
+              "low": 293.5,
+              "open": 293.5,
+              "ts": "2026-05-13T00:00:00Z",
+              "volume": 52684300.0
+            },
+            {
+              "close": 298.2099914550781,
+              "high": 300.45001220703125,
+              "low": 295.3800048828125,
+              "open": 299.82000732421875,
+              "ts": "2026-05-14T00:00:00Z",
+              "volume": 35324900.0
+            },
+            {
+              "close": 300.2300109863281,
+              "high": 303.20001220703125,
+              "low": 296.5199890136719,
+              "open": 297.8999938964844,
+              "ts": "2026-05-15T00:00:00Z",
+              "volume": 54721100.0
+            }
+          ],
+          "changes": {
+            "dailyPct": 0.0067738157309671365,
+            "monthlyPct": null,
+            "weeklyPct": null
+          },
+          "indicators": {
+            "atr14": null,
+            "atrPct": null,
+            "drawdownPct": 0.0,
+            "rsi14": null
+          }
+        }
+      }
+    },
+    {
+      "exchange": "NASDAQ",
+      "name": null,
+      "provider": "yfinance",
+      "sector": null,
+      "symbol": "NVDA",
+      "timeframes": {
+        "1d": {
+          "candles": [
+            {
+              "close": 219.44000244140625,
+              "high": 222.3000030517578,
+              "low": 213.88999938964844,
+              "open": 214.0399932861328,
+              "ts": "2026-05-11T00:00:00Z",
+              "volume": 160685800.0
+            },
+            {
+              "close": 220.77999877929688,
+              "high": 223.75,
+              "low": 214.9199981689453,
+              "open": 218.5500030517578,
+              "ts": "2026-05-12T00:00:00Z",
+              "volume": 159176600.0
+            },
+            {
+              "close": 225.8300018310547,
+              "high": 227.83999633789062,
+              "low": 221.57000732421875,
+              "open": 224.92999267578125,
+              "ts": "2026-05-13T00:00:00Z",
+              "volume": 150405400.0
+            },
+            {
+              "close": 235.74000549316406,
+              "high": 236.5399932861328,
+              "low": 229.3000030517578,
+              "open": 229.85000610351562,
+              "ts": "2026-05-14T00:00:00Z",
+              "volume": 180782900.0
+            },
+            {
+              "close": 225.32000732421875,
+              "high": 231.5,
+              "low": 224.24000549316406,
+              "open": 229.75999450683594,
+              "ts": "2026-05-15T00:00:00Z",
+              "volume": 179993300.0
+            }
+          ],
+          "changes": {
+            "dailyPct": -0.04420122985552177,
+            "monthlyPct": null,
+            "weeklyPct": null
+          },
+          "indicators": {
+            "atr14": null,
+            "atrPct": null,
+            "drawdownPct": -0.04420122985552177,
+            "rsi14": null
+          }
+        }
+      }
+    }
+  ],
+  "source": "Glint sanitized public OHLCV export",
+  "symbols": [
+    "AAPL",
+    "NVDA"
+  ],
+  "version": "sample-static-2026-05-17"
+}

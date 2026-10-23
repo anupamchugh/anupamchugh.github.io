@@ -1,0 +1,100 @@
+# Anupam Chugh
+
+> eleven years of apps, two and a half editing other engineers. the writing is an archive. the work is shipping.
+
+This is the public portfolio and writing archive of a software engineer, writer, and independent app maker.
+
+## Primary sections
+
+- [Writing](https://anupamchugh.github.io/posts/): Public essays, tutorials, notes, and reviews.
+- [Apps](https://anupamchugh.github.io/apps/): Publicly listed apps and product experiments.
+- [Work](https://anupamchugh.github.io/work/): Selected engineering work and archives.
+- [About](https://anupamchugh.github.io/about/): Background and public profile links.
+- [RSS](https://anupamchugh.github.io/rss.xml): RSS 2.0 feed of public posts.
+
+## Public profiles
+
+- [GitHub](https://github.com/anupamchugh)
+- [X](https://x.com/chughgpt)
+- [LinkedIn](https://linkedin.com/in/anupamchugh)
+
+## Apps
+
+- [Match Box](https://anupamchugh.github.io/match-box/): A local macOS companion for reviewing owner-selected visible dating context. Status: building.
+- [Rifflet](https://apps.apple.com/us/app/rifflet/id6767064984): turns a short music idea into a playable piano, guitar, or ukulele lesson. Status: live.
+- [Orbits](https://apps.apple.com/us/app/find-common-ground/id6759101340): plan your own trips and meetups. the store listing is find common ground. Status: live.
+- [EchoHunt](https://apps.apple.com/in/app/playlist-hunter/id6756028972): i play music at random hours and never knew why the algorithm picked it, so now i just ask. Status: live.
+- [Pastport](https://github.com/anupamchugh/pastport/releases/latest): on-device Safari history intelligence for macOS: movements, bookings, threads, and grounded local answers. Status: live.
+- [Flickpot](https://apps.apple.com/us/app/flickpot/id6766531373): a small iOS flicking game, live on the app store. Status: live.
+- [Flyleaf Notes](https://apps.apple.com/us/app/flyleaf-notes/id6764307755): a markdown writing desk for local folders, archives, and eventually github publishing. Status: live.
+- [ClocktowerTable](https://apps.apple.com/us/app/clocktowertable/id6761296328): a storyteller console and table companion for social deduction nights. Status: live.
+- [Checkmate Academy](https://apps.apple.com/us/app/checkmate-academy/id6760925352): a chess learning app with lessons, puzzles, ai games, and review tools. Status: live.
+- [Feedloom](https://apps.apple.com/us/app/feedloom/id6761685952): an rss reader for keeping up with links and feeds. Status: live.
+- [getNod](https://apps.apple.com/us/app/getnod/id6761169513): a small app for sending a nod to someone who knows. Status: live.
+- [Best Face Forward](https://apps.apple.com/us/app/best-face-forward/id6766553501): finds the strongest face frame from a live photo, then lets you tune, save, or share it. Status: live.
+- [Breakline Surf](https://apps.apple.com/us/app/breakline-surf/id6785873182): compares visible surfing body position in your own photos and videos, privately on device. Status: live.
+- [DocPolish](https://apps.apple.com/us/app/docpolish/id6774345224): a private document cleanup app for passports, visas, ids, receipts, and forms. Status: live.
+- [Lineage Mirror](https://apps.apple.com/us/app/lineage-mirror/id6774345235): a private reflection app for exploring family stories, inherited traits, and visible resemblance cues. Status: live.
+- [Pinprint](https://apps.apple.com/us/app/pinprint/id6779702946): a private trip os for collecting saved places, screenshots, tips, documents, and travel memories. Status: live.
+- [RoamProof](https://apps.apple.com/us/app/roamproof/id6782336949): helps travelers plan connectivity before a trip and record where their phone actually worked. Status: live.
+- [Swell Window](https://apps.apple.com/us/app/swell-window/id6782342627): helps bali and indonesia fast-boat travelers read marine model conditions before they travel. Status: live.
+- [The Match Room](https://apps.apple.com/us/app/the-match-room/id6782396757): helps fans, players, coaches, and analysts understand what each match result changes. Status: live.
+
+## Recent writing
+
+- [Your iPhone Left an Airbnb](https://anupamchugh.github.io/posts/pastport-what-safari-remembers/): Your iPhone Left an Airbnb
+
+I got up and was switching between Airbnbs, already annoyed at the Airbnb app sending me back and forth to Safari and Google Maps.
+
+Safari even warned me: “You are leavi...
+- [Ten Years of Doing Stuff: From $2 Apps to Algorithmic Trading](https://anupamchugh.github.io/posts/ten-years-of-doing-stuff/): First published in February 2024. Expanded and updated for this blog.
+
+I picked engineering because my family wanted me to. I wanted to make films, play cricket professionally, compete in chess and...
+- [Constraint Stack for AI Work: A Practical Template](https://anupamchugh.github.io/posts/constraint-stack-for-ai-work/): If constraints are the moat, we need a repeatable way to define them.
+
+Here is the template I now use before handing work to an AI system.
+
+ The Constraint Stack
+
+1. Goal  
+   What exactly shou...
+- [The Tool That Wins Is the One With the Best Constraints](https://anupamchugh.github.io/posts/The-Tool-That-Wins-Is-The-One-With-The-Best-Constraints/): "Constraints breed creativity" is design school gospel. Eames said it. Stravinsky said it. Every product blog has said it. I'm not here to repeat that.
+
+I'm here to point out something sharper: in th...
+- [good code isn't dying](https://anupamchugh.github.io/posts/good-code-isnt-dying/): amit prasad wrote about the silent death of good code(https://amit.prasad.me/blog/rip-good-code). his thesis: agents make you productive, but output is "acceptable, not excellent." craftsmanship is...
+- [what most people miss about ai code quality](https://anupamchugh.github.io/posts/what-most-people-miss-about-ai-code-quality/): a thread on HN(https://news.ycombinator.com/item?id=46916586) about writing quality code with AI hit 200 points today. 145 comments. i read all of them. the article has 12 reasonable principles. th...
+- [claude code agent teams — what changes for multi-agent coordination](https://anupamchugh.github.io/posts/claude-code-agent-teams-what-changes/): two days ago i submitted a PR to MCP Agent Mail(https://github.com/Dicklesworthstone/mcpagentmail/pull/77) adding agent heartbeat presence, lifecycle management, and soft-block messaging. the pro...
+- [Facebook's agents still run. Apple keeps wiping their memory.](https://anupamchugh.github.io/posts/facebooks-agents-still-run-apple-keeps-wiping-their-memory/): In 2020 I wrote that Apple's iOS 14 privacy popup would crush the deep links used for ad tracking. Facebook warned of 50% revenue drops. Advertisers panicked. Four years later, we have the receipts —...
+- [Shadowbook: The F1 Control Room for Complex Systems](https://anupamchugh.github.io/posts/shadowbook-f1-control-room/): Spec-driven workflows break in slow, expensive ways. The spec starts clean, then accretes edge cases, caveats, and context files. The code moves, the spec moves, and the two stop moving together. You...
+- [i built a tool that became obsolete in four days](https://anupamchugh.github.io/posts/I-Built-A-Tool-That-Became-Obsolete-In-Four-Days/): my M4 Mac was eating battery faster than a cryptocurrency miner at a free electricity convention. terminal kept freezing. fans spinning for no visible reason. activity monitor showed runaway CPU from...
+- [Pacman Mode in Beads: Eating Tasks Without a Server](https://anupamchugh.github.io/posts/Pacman-Mode-Multi-Agent/): Part 1(/skill-drift): skill drift. Part 2(/spec-drift): spec drift. Part 3(/snap-streaks): volatility tracking.
+
+Part 4: coordination without a server.
+
+ The Problem (One Paragraph)
+
+Mult...
+- [Snap Your Spec Streaks](https://anupamchugh.github.io/posts/Snap-Your-Spec-Streaks/): Specs change. Sometimes too much.
+
+A spec that changes five times in a week while three engineers build against it creates chaos. Work drifts. Reviews fail. Rework multiplies.
+
+This is Stability Dr...
+- [Where Did I Leave That Spec?](https://anupamchugh.github.io/posts/Where-Did-I-Leave-That-Spec/): Monday morning. Coffee. Terminal open. And the question that haunts every fast-moving codebase:
+
+What was I working on?
+
+I have 76 specs. 127 beads (tasks). Skills scattered across two agents. Code...
+- [Skill Drift: 42 Skills in Claude. 40 in Codex.](https://anupamchugh.github.io/posts/Skill-Drift/): Specs drift from code. That was the vibe-clock problem(https://chughgpt.substack.com/p/the-vibe-clock-drift-problem)—you update the spec at 3am, but the code keeps building the old version.
+
+Now th...
+- [Growing Up With a Pansexual Brother](https://anupamchugh.github.io/posts/Growing-Up-With-A-Pansexual-Brother/): !My younger brother and me, framed sometime around 2001.(/photographs/anupam-vidit-childhood-pic.png)
+ My younger brother and me, framed sometime around 2001.
+
+In 2022, on Pride Day, my (29)...
+- [I, a Loyal Employee, Bow Before the Unrivaled Honesty and Transparency of My Startup’s CEO](https://anupamchugh.github.io/posts/Satire-On-Loyal-Employee-and-CEO/): !Illustration generated using Midjourney(/assets/illustrations/startup-humor-ceo-dilemma.png)
+
+You probably know who I am! I’m your next-door neighbor colleague. Spiderman? Nah, just a humble 9–5 w...
+- [Apple's Journal App - A Foray Into AI, the Other Way Round](https://anupamchugh.github.io/posts/Views-On-Apple-Journal-App/): Upon the announcement of Apple’s Journal app at WWDC 23, I found myself torn. Given the comparable functionality available within the Shortcuts app for mood tracking journals(https://hachyderm.io/@...
+- [Moving on from Better Programming](https://anupamchugh.github.io/posts/Moving-On-From-BP/): In my announcement post on Medium(https://betterprogramming.pub/better-programming-has-a-new-editor-4f4ee04fa899){:target="blank"}{:rel="noopener noreferrer"}, I shared the news about stepping dow...
+- [“AI”dentity Crisis](https://anupamchugh.github.io/posts/AI-dentity-Crisis/): !An illustration of a young girl on her knees embracing a standing robot as they both extend their arms in a hug, depicting an emotional connection between human and technology. by DALL-E(/assets/s...
+- [New in iOS 15: Vision Person Segmentation](https://anupamchugh.github.io/posts/New-in-iOS-15--Vision-Person-Segmentation-5c031a2f3822/): Vision is Apple’s framework that provides out-of-the-box solutions for complex computer vision challenges. It also abstracts the Core ML request by handling the pre-processing of images during classi...

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T01:45:00+05:30",
+  "boundary": "public-static-market-snapshots",
+  "description": "Manifest for sanitized public market snapshots shared by What-If Finance, Market Weather, and Market Highway. Publish these files to isolated static hosting only; do not point apps at Glint admin, broker, or VPS-private APIs.",
+  "disallowedFields": [
+    "broker tokens",
+    "orders API",
+    "positions API",
+    "holdings API",
+    "funds",
+    "account IDs",
+    "bot state",
+    "admin health",
+    "private logs",
+    "access tokens",
+    "refresh tokens",
+    "kite profile"
+  ],
+  "snapshots": [
+    {
+      "id": "sample-static-2026-05-17",
+      "path": "whatif-market-snapshot-sample.json",
+      "sha256": "f7ab5acf1e3062bbd4c9b34311dd4c3c6406aaa8c1a66d031e26524829600178",
+      "source": "Glint sanitized public OHLCV export",
+      "symbols": [
+        "AAPL",
+        "NVDA"
+      ],
+      "consumers": [
+        "what-if-finance",
+        "market-highway"
+      ]
+    }
+  ],
+  "publishRules": [
+    "Publish on static hosting/CDN without cookies or authentication.",
+    "Use HTTPS.",
+    "No private Glint admin routes.",
+    "No broker/Kite/Zerodha account data.",
+    "No user-imported CSV data.",
+    "Apps must continue to work with bundled fallback data if manifest fetch fails."
+  ]
+}

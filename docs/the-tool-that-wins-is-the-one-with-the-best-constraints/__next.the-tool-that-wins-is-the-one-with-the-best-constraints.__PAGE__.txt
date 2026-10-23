@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/f88ee8140d2442df.js"],""]
+3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"WcPedvjddf9cO8FBRm_SE","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6","children":[["$","h1",null,{"className":"text-2xl font-semibold","children":"This post moved"}],["$","p",null,{"className":"mt-4 text-secondary","children":"Redirecting to the canonical URL for this post."}],["$","p",null,{"className":"mt-4","children":["$","$L2",null,{"href":"/posts/The-Tool-That-Wins-Is-The-One-With-The-Best-Constraints/","className":"text-primary hover:underline underline-offset-4","children":"Open the post"}]}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"window.location.replace(\"/posts/The-Tool-That-Wins-Is-The-One-With-The-Best-Constraints/\");"}}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null
