@@ -5,11 +5,23 @@
     "label": "iOS & macOS engineer",
     "email": "anupam.chugh@gmail.com",
     "url": "https://anupamchugh.github.io",
-    "summary": "Reliable iOS and Android developer who knows how to deliver results in the alignment of a company's mission. Led Android at Agricx and shipped their first iOS app, was managing editor of Better Programming, and since 2024 ships small Apple apps.",
+    "summary": "iOS & macOS engineer with 11+ years shipping native mobile, computer vision, and on-device AI apps. Previously led mobile at MOBEY (Australia) and Agricx, managing editor of Better Programming, and since 2024 ships high-craft native Apple apps.",
     "profiles": [
-      { "network": "GitHub", "username": "anupamchugh", "url": "https://github.com/anupamchugh" },
-      { "network": "X", "username": "chughgpt", "url": "https://x.com/chughgpt" },
-      { "network": "LinkedIn", "username": "anupamchugh", "url": "https://linkedin.com/in/anupamchugh" }
+      {
+        "network": "GitHub",
+        "username": "anupamchugh",
+        "url": "https://github.com/anupamchugh"
+      },
+      {
+        "network": "X",
+        "username": "chughgpt",
+        "url": "https://x.com/chughgpt"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "anupamchugh",
+        "url": "https://linkedin.com/in/anupamchugh"
+      }
     ]
   },
   "work": [
@@ -18,46 +30,80 @@
       "position": "iOS & macOS app developer",
       "url": "https://anupamchugh.github.io/apps/",
       "startDate": "2024",
-      "summary": "Ships small Apple apps to the App Store. See apps.json for the current list."
+      "summary": "Ships 18 native Apple apps to the App Store, specializing in Swift 6 concurrency, on-device Apple Foundation Models, Vision kinematics, and local-first architecture."
     },
     {
       "name": "Better Programming",
       "position": "Managing Editor",
       "startDate": "2021",
       "endDate": "2023",
-      "summary": "Took over Better Programming from Zack Shapiro in 2021 and handed it to Mihai Banulescu in 2023. With a small editor team, read thousands of submissions a month."
+      "summary": "Directed editorial standards, author growth, and technical review across thousands of monthly engineering submissions. Led the publication to multiple HN front-page hits and millions of reads."
     },
     {
-      "name": "Agricx",
-      "position": "Android lead",
-      "summary": "Led Android and shipped the company's first iOS app."
+      "name": "Agricx Lab",
+      "position": "Mobile Lead",
+      "startDate": "2019",
+      "endDate": "2021",
+      "summary": "Led Android engineering and shipped the company\u2019s first iOS app, applying computer vision and image processing to agricultural quality assessment."
+    },
+    {
+      "name": "MOBEY (Gold Coast, Australia)",
+      "position": "Lead Mobile Developer",
+      "startDate": "2016",
+      "endDate": "2019",
+      "summary": "Built on-demand delivery customer and driver apps from scratch on Android, and redesigned their native iOS applications (featured on 7 News Brisbane)."
     },
     {
       "name": "JournalDev",
-      "position": "Writer",
-      "summary": "Android tutorials and freelance work."
+      "position": "Technical Writer & Android Lead",
+      "summary": "Authored 300+ in-depth tutorials on Android, Core Java, and mobile architectures, and built the official Android app."
     }
   ],
   "projects": [
     {
-      "name": "iowncode",
-      "description": "Open-source Apple and Android sample projects, with 900+ stars.",
-      "url": "https://github.com/anupamchugh/iowncode"
+      "name": "Glint",
+      "description": "Institutional-grade market execution companion in pure Swift 6 concurrency with live Binance WebSocket ribbons, Dynamic Island Live Activities, and offline statement tax auditing.",
+      "url": "https://anupamchugh.github.io/showcase/"
     },
     {
-      "name": "VisionCreditScan",
-      "description": "Real-time credit card scanning using rectangle detection and OCR on the selected region.",
-      "url": "https://github.com/anupamchugh/VisionCreditScan"
+      "name": "Foundation-Models-Framework-Lab",
+      "description": "On-device Apple Intelligence developer lab for Xcode 27+ with tool calling, RAG over Spotlight, and dynamic token profiling.",
+      "url": "https://github.com/anupamchugh/Foundation-Models-Framework-Lab"
     },
     {
       "name": "Pastport",
       "description": "On-device Safari history intelligence for macOS: movements, bookings, threads, and grounded local answers.",
       "url": "https://github.com/anupamchugh/pastport/releases/latest"
+    },
+    {
+      "name": "VisionCreditScan & Swipeless Tinder",
+      "description": "Open-source Apple Vision prototypes for real-time OCR and hand-pose gesture navigation (1,000+ GitHub stars).",
+      "url": "https://github.com/anupamchugh/iOS14VisionHandPose"
     }
   ],
   "skills": [
-    { "name": "Apple platforms", "keywords": ["SwiftUI", "Core ML", "Vision", "ARKit", "Foundation Models"] },
-    { "name": "Android", "keywords": ["Android"] },
-    { "name": "Editing", "keywords": ["Technical editing", "Editorial management"] }
+    {
+      "name": "Apple platforms",
+      "keywords": [
+        "SwiftUI",
+        "Core ML",
+        "Vision",
+        "ARKit",
+        "Foundation Models"
+      ]
+    },
+    {
+      "name": "Android",
+      "keywords": [
+        "Android"
+      ]
+    },
+    {
+      "name": "Editing",
+      "keywords": [
+        "Technical editing",
+        "Editorial management"
+      ]
+    }
   ]
 }
