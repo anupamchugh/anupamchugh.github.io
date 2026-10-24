@@ -279,3 +279,86 @@ h3 { font-size: clamp(1.9rem, 3.2vw, 3rem); font-stretch: 114%; line-height: 1.0
   body { font-size: 10.5pt; }
   h1 { font-size: 3rem; }
 }
+
+/* ---- screen galleries: every captured screen, in the app's own lit colour --------------------------------- */
+.p-gallery { grid-column: 1 / -1; padding: clamp(18px, 2.2vw, 36px); }
+.p-gallery summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px; cursor: pointer; font-size: 1.15rem; font-weight: 620; font-stretch: 114%; }
+.p-gallery summary:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+.p-gallery .shots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(18px, 2vw, 30px) clamp(12px, 1.6vw, 24px); margin-top: 1.2rem; }
+.p-gallery figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+.p-gallery figcaption { font-size: 0.88rem; line-height: 1.35; text-align: center; max-width: 22ch; }
+.p-gallery .plate { color: inherit; margin-top: 1.4rem; max-width: 80ch; }
+
+/* ---- assistants -------------------------------------------------------------------------------------------- */
+.assist .p-title { grid-column: 1 / -1; display: grid; gap: 0.6rem; }
+.assist .p-title p { color: var(--ink-2); }
+.p-assist { display: flex; gap: clamp(16px, 2.4vw, 40px); align-items: flex-start; }
+.p-assist .a-copy { display: flex; flex-direction: column; gap: 0.9rem; flex: 1 1 0; min-width: 0; }
+.p-assist h3 { font-size: clamp(1.6rem, 2.4vw, 2.3rem); }
+.p-assist.lit .plate { color: inherit; }
+.p-assist.frost p { color: var(--ink); }
+.a-orbits { grid-column: 1 / 8; }
+.a-orbits .shots { display: flex; gap: 10px; flex: 1.5 1 0; min-width: 0; }
+.a-orbits .shots .phone { flex: 1 1 0; min-width: 0; }
+.a-glint { grid-column: 8 / 13; }
+.a-glint .phone { flex: 0 0 min(190px, 40%); margin-inline: 0; }
+.a-quorion { grid-column: 1 / -1; }
+.a-quorion .a-copy { max-width: 70ch; }
+
+/* ---- glint: what is live, what is sample ---------------------------------------------------------------------- */
+.studio.live { margin-top: 0; }
+.p-live { grid-column: 1 / 8; margin: 0; display: flex; flex-direction: column; gap: 1.2rem; }
+.p-live figcaption { font-size: 0.95rem; max-width: 60ch; color: var(--ink); }
+.p-live .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 32px); }
+.p-live .shots > div { display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+.p-live .phone { --w: 260px; }
+.p-live .shots p { font-size: 0.88rem; text-align: center; color: var(--ink); }
+.p-truth { grid-column: 8 / 13; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; }
+.p-truth h3 { font-size: clamp(1.5rem, 2.2vw, 2.1rem); }
+.p-truth dl { display: grid; gap: 1rem; margin: 0; }
+.p-truth dt { font-weight: 640; color: var(--ink); font-stretch: 112%; }
+.p-truth dd { margin: 0.15rem 0 0; color: var(--ink); max-width: 46ch; }
+
+/* ---- xthlete: six screens across the wall -------------------------------------------------------------------- */
+.studio.xth.stack .p-text { grid-column: 1 / -1; background-color: #dde6e5; }
+.studio.xth .p-screen { grid-column: span 2; flex-direction: column; gap: 0.8rem; padding-inline: 12px; }
+.studio.xth .p-screen .phone { --w: 190px; }
+.studio.xth figcaption { font-size: 0.88rem; text-align: center; color: var(--ink); }
+
+.studio.small { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.p-small .mini .phone { --w: 170px; flex: 1 1 0; max-width: 170px; }
+
+@media (max-width: 1100px) {
+  .a-orbits, .a-glint { grid-column: 1 / -1; }
+  .p-live, .p-truth { grid-column: 1 / -1; }
+}
+@media (max-width: 880px) {
+  .studio.small { grid-template-columns: minmax(0, 1fr); }
+  .studio.xth { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .studio.xth > .p-text { grid-column: 1 / -1 !important; }
+  .studio.xth > .p-screen { grid-column: auto !important; padding-block: 22px; }
+  .studio.xth .p-screen .phone { --w: 170px; }
+  .p-gallery .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-gallery .phone { --w: 170px; }
+  .p-assist { flex-direction: column; }
+  .a-orbits .shots { width: 100%; }
+  .a-glint .phone { flex: none; width: 190px; }
+  .p-live .phone { --w: 200px; }
+}
+@media print {
+  .p-gallery { break-inside: auto; }
+  .p-gallery figure { break-inside: avoid; }
+}
+
+.a-quorion { gap: clamp(20px, 4vw, 72px); }
+.a-tools { flex: 1.3 1 0; min-width: 0; margin: 0; padding: 0; list-style: none; display: grid; gap: 1rem; counter-reset: tool; }
+.a-tools li { display: grid; gap: 0.15rem; color: var(--ink); max-width: 52ch; }
+.a-tools strong { font-weight: 640; font-stretch: 112%; }
+@media (max-width: 880px) { .a-tools { width: 100%; } }
+
+.p-gallery summary::-webkit-details-marker { display: none; }
+.p-gallery summary::after { content: "Hide"; font-size: 0.95rem; font-weight: 560; font-stretch: 100%; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.3em; }
+.p-gallery:not([open]) summary::after { content: "Show"; }
+@media print { .p-gallery summary::after { content: none; } }
+
+.lit h2, .lit h3 { color: inherit; }
