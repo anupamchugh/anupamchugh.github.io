@@ -10,4 +10,4 @@
 :HL["/_next/static/css/a873942a9bd13ae0.css","style"]
 :HL["/_next/static/css/e3e6adf877763744.css","style"]
 :HL["/apps/match-box-suggestions-fictional-demo.png","image"]
-0:{"buildId":"SQvtK-ricL6_LbivXy0pc","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"match-box","paramType":null,"paramKey":"match-box","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"LFHlg8GW51k0SBPRyCOVI","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"match-box","paramType":null,"paramKey":"match-box","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

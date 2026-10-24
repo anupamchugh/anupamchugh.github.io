@@ -71,14 +71,14 @@
       "url": "https://github.com/anupamchugh/pastport/releases/latest"
     },
     {
-      "name": "VisionCreditScan & Swipeless Tinder",
-      "description": "Open-source Apple Vision prototypes for real-time OCR and hand-pose gesture navigation (1,000+ GitHub stars).",
-      "url": "https://github.com/anupamchugh/iOS14VisionHandPose"
+      "name": "iowncode",
+      "description": "Curated open-source Apple and Android sample projects with 900+ stars across Computer Vision, Core ML, and SwiftUI.",
+      "url": "https://github.com/anupamchugh/iowncode"
     },
     {
-      "name": "iowncode",
-      "description": "Open-source Apple and Android sample projects with 900+ stars across computer vision, CoreML, and SwiftUI.",
-      "url": "https://github.com/anupamchugh/iowncode"
+      "name": "VisionCreditScan & Swipeless Tinder",
+      "description": "Open-source Apple Vision prototypes demonstrating real-time card OCR and touchless hand-pose gesture navigation.",
+      "url": "https://github.com/anupamchugh/iOS14VisionHandPose"
     }
   ],
   "skills": [
