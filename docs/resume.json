@@ -5,7 +5,7 @@
     "label": "iOS & macOS engineer",
     "email": "anupam.chugh@gmail.com",
     "url": "https://anupamchugh.github.io",
-    "summary": "iOS & macOS engineer with 11+ years shipping native mobile, computer vision, and on-device AI apps. Previously led mobile at MOBEY (Australia) and Agricx, managing editor of Better Programming, and since 2024 ships high-craft native Apple apps.",
+    "summary": "iOS & macOS engineer with 11+ years shipping native mobile, computer vision, and on-device AI apps. Previously led mobile at MOBEY (Australia) and Agricx, managing editor of Better Programming (reviewed thousands of submissions, millions of words read), and since 2024 ships high-craft native Apple apps.",
     "profiles": [
       {
         "network": "GitHub",
@@ -66,11 +66,6 @@
       "url": "https://anupamchugh.github.io/showcase/"
     },
     {
-      "name": "Foundation-Models-Framework-Lab",
-      "description": "On-device Apple Intelligence developer lab for Xcode 27+ with tool calling, RAG over Spotlight, and dynamic token profiling.",
-      "url": "https://github.com/anupamchugh/Foundation-Models-Framework-Lab"
-    },
-    {
       "name": "Pastport",
       "description": "On-device Safari history intelligence for macOS: movements, bookings, threads, and grounded local answers.",
       "url": "https://github.com/anupamchugh/pastport/releases/latest"
@@ -79,6 +74,11 @@
       "name": "VisionCreditScan & Swipeless Tinder",
       "description": "Open-source Apple Vision prototypes for real-time OCR and hand-pose gesture navigation (1,000+ GitHub stars).",
       "url": "https://github.com/anupamchugh/iOS14VisionHandPose"
+    },
+    {
+      "name": "iowncode",
+      "description": "Open-source Apple and Android sample projects with 900+ stars across computer vision, CoreML, and SwiftUI.",
+      "url": "https://github.com/anupamchugh/iowncode"
     }
   ],
   "skills": [
