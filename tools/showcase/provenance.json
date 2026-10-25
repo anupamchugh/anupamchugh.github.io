@@ -1,0 +1,576 @@
+{
+ "about": "Source and date of every image in public/showcase/img. Stays out of the published files. 'frozen' images were encoded on 24 Oct 2026 from sources outside the repo and are kept as published; the rest are re-encoded from files inside the repo on every build.",
+ "images": {
+  "icon-rifflet.webp": {
+   "source": "public/app-icons/rifflet.jpg",
+   "kind": "icon",
+   "date": "2026-10-18",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-common-ground.webp": {
+   "source": "public/app-icons/common-ground.png",
+   "kind": "icon",
+   "date": "2026-07-13",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-playlist-hunter.webp": {
+   "source": "public/app-icons/playlist-hunter.png",
+   "kind": "icon",
+   "date": "2026-07-13",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-pastport.webp": {
+   "source": "public/app-icons/pastport.png",
+   "kind": "icon",
+   "date": "2026-07-26",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-flickpot.webp": {
+   "source": "public/app-icons/flickpot.png",
+   "kind": "icon",
+   "date": "2026-07-13",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-flyleaf.webp": {
+   "source": "public/app-icons/flyleaf.png",
+   "kind": "icon",
+   "date": "2026-07-13",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-clocktower-table.webp": {
+   "source": "public/app-icons/clocktower-table.png",
+   "kind": "icon",
+   "date": "2026-07-13",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-checkmate-academy.webp": {
+   "source": "public/app-icons/checkmate-academy.png",
+   "kind": "icon",
+   "date": "2026-07-13",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-feedloom.webp": {
+   "source": "public/app-icons/feedloom.jpg",
+   "kind": "icon",
+   "date": "2026-10-18",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-getnod.webp": {
+   "source": "public/app-icons/getnod.jpg",
+   "kind": "icon",
+   "date": "2026-10-18",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-best-face-forward.webp": {
+   "source": "public/app-icons/best-face-forward.jpg",
+   "kind": "icon",
+   "date": "2026-10-18",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-breakline-surf.webp": {
+   "source": "public/app-icons/breakline-surf.jpg",
+   "kind": "icon",
+   "date": "2026-10-18",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-docpolish.webp": {
+   "source": "public/app-icons/docpolish.jpg",
+   "kind": "icon",
+   "date": "2026-10-18",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-lineage-mirror.webp": {
+   "source": "public/app-icons/lineage-mirror.jpg",
+   "kind": "icon",
+   "date": "2026-10-18",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-pinprint.webp": {
+   "source": "public/app-icons/pinprint.jpg",
+   "kind": "icon",
+   "date": "2026-10-18",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-roamproof.webp": {
+   "source": "public/app-icons/roamproof.jpg",
+   "kind": "icon",
+   "date": "2026-10-18",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-swell-window.webp": {
+   "source": "public/app-icons/swell-window.jpg",
+   "kind": "icon",
+   "date": "2026-10-18",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "icon-the-match-room.webp": {
+   "source": "public/app-icons/the-match-room.jpg",
+   "kind": "icon",
+   "date": "2026-10-18",
+   "date_basis": "git commit date of the icon file",
+   "frozen": false
+  },
+  "orbits-plan.webp": {
+   "source": "artifacts/orbits-duo-2026-10-22/duo-folded-dark-plan-front-door.png",
+   "kind": "capture",
+   "date": "2026-10-22",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "rifflet-make-dark.webp": {
+   "source": "KeyMuse/screenshots/2026-10-21/make-iphone17-dark.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "echohunt-chat.webp": {
+   "source": "MySongs/screenshots/2026-10-21/iphone17-dark-echohunt-chat.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "pinprint-today.webp": {
+   "source": "tools/showcase/src-assets/apps/pinprint-today.png",
+   "kind": "capture",
+   "date": "2026-10-25",
+   "date_basis": "taken in this session",
+   "frozen": false,
+   "note": "iPhone Duo simulator (iOS 27.1), light, clock set to 9:41. Built from Pinprint branch claude/pinprint-native-mac at 830991f (22 Oct), Debug, unsigned. The trip is the sample trip bundled in the app. The Duo side panel (clock, signal, tab bar) is part of the capture. Today tab."
+  },
+  "pinprint-map.webp": {
+   "source": "tools/showcase/src-assets/apps/pinprint-map.png",
+   "kind": "capture",
+   "date": "2026-10-25",
+   "date_basis": "taken in this session",
+   "frozen": false,
+   "note": "iPhone Duo simulator (iOS 27.1), light, clock set to 9:41. Built from Pinprint branch claude/pinprint-native-mac at 830991f (22 Oct), Debug, unsigned. The trip is the sample trip bundled in the app. The Duo side panel (clock, signal, tab bar) is part of the capture. Map tab: Apple Maps with the bundled sample trip's pins."
+  },
+  "pastport-home.webp": {
+   "source": "Pastport/docs/screenshots/after/mac-home-light.png",
+   "kind": "capture",
+   "date": "2026-10-21",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "pastport-answer.webp": {
+   "source": "Pastport/docs/screenshots/after/mac-answer-dark.png",
+   "kind": "capture",
+   "date": "2026-10-21",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "feedloom-library.webp": {
+   "source": "Feedloom/docs/screenshots/1.3/skins/default-dark-library.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "threadmark-board.webp": {
+   "source": "threadmark-swift/docs/shots/duo-2026-10-22/iphone17-dark-board.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "preview-orbits-launch.webp": {
+   "source": "share-kit/renderpreview/orbits-launch-hero-iphone-duo.png",
+   "kind": "render",
+   "date": "2026-10-24",
+   "date_basis": "stated on the page (24 October 2026)",
+   "frozen": true
+  },
+  "preview-quorion-storyteller.webp": {
+   "source": "share-kit/renderpreview/quorion-storyteller-dark.png",
+   "kind": "render",
+   "date": "2026-10-24",
+   "date_basis": "stated on the page (24 October 2026)",
+   "frozen": true
+  },
+  "preview-glint-portfolio.webp": {
+   "source": "share-kit/renderpreview/glint-portfolio-iphone-duo.png",
+   "kind": "render",
+   "date": "2026-10-24",
+   "date_basis": "stated on the page (24 October 2026)",
+   "frozen": true
+  },
+  "glint-1.webp": {
+   "source": "tools/showcase/src-assets/glint/1-market-overview.png",
+   "kind": "render",
+   "date": "2026-10-24",
+   "date_basis": "stated on the page (24 October 2026)",
+   "frozen": false
+  },
+  "glint-2.webp": {
+   "source": "tools/showcase/src-assets/glint/2-sector-heatmap.png",
+   "kind": "render",
+   "date": "2026-10-24",
+   "date_basis": "stated on the page (24 October 2026)",
+   "frozen": false
+  },
+  "glint-3.webp": {
+   "source": "tools/showcase/src-assets/glint/3-portfolio.png",
+   "kind": "render",
+   "date": "2026-10-24",
+   "date_basis": "stated on the page (24 October 2026)",
+   "frozen": false
+  },
+  "glint-scorecard.webp": {
+   "source": "tools/showcase/src-assets/glint/scorecard-lockscreen.png",
+   "kind": "render",
+   "date": "2026-10-24",
+   "date_basis": "stated on the page (24 October 2026)",
+   "frozen": false
+  },
+  "glint-live-welcome.webp": {
+   "source": "tools/showcase/src-assets/glint/0-welcome.png",
+   "kind": "capture",
+   "date": "2026-10-24",
+   "date_basis": "stated on the page (24 October 2026)",
+   "frozen": false
+  },
+  "glint-live-watchlist.webp": {
+   "source": "tools/showcase/src-assets/glint/live-watchlist.png",
+   "kind": "capture",
+   "date": "2026-10-24",
+   "date_basis": "stated on the page (24 October 2026)",
+   "frozen": false
+  },
+  "glint-live-ask.webp": {
+   "source": "tools/showcase/src-assets/glint/live-ask.png",
+   "kind": "capture",
+   "date": "2026-10-24",
+   "date_basis": "stated on the page (24 October 2026)",
+   "frozen": false
+  },
+  "orbits-g-plan.webp": {
+   "source": "artifacts/orbits-duo-2026-10-22/iphone17-dark-plan-front-door.png",
+   "kind": "capture",
+   "date": "2026-10-22",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "orbits-g-saved.webp": {
+   "source": "artifacts/orbits-duo-2026-10-22/iphone17-dark-saved-list.png",
+   "kind": "capture",
+   "date": "2026-10-22",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "orbits-g-more.webp": {
+   "source": "artifacts/orbits-duo-2026-10-22/iphone17-dark-more-like-this.png",
+   "kind": "capture",
+   "date": "2026-10-22",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "orbits-g-taste.webp": {
+   "source": "artifacts/orbits-duo-2026-10-22/iphone17-dark-taste-answer.png",
+   "kind": "capture",
+   "date": "2026-10-22",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "orbits-g-tools-on.webp": {
+   "source": "artifacts/orbits-duo-2026-10-22/iphone17-dark-tools-sheet-all-on.png",
+   "kind": "capture",
+   "date": "2026-10-22",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "orbits-g-tools-off.webp": {
+   "source": "artifacts/orbits-duo-2026-10-22/iphone17-dark-tools-sheet-weather-off.png",
+   "kind": "capture",
+   "date": "2026-10-22",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "orbits-g-refused.webp": {
+   "source": "artifacts/orbits-duo-2026-10-22/iphone17-dark-weather-refused-while-off.png",
+   "kind": "capture",
+   "date": "2026-10-22",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "orbits-g-history.webp": {
+   "source": "artifacts/orbits-duo-2026-10-22/iphone17-dark-history.png",
+   "kind": "capture",
+   "date": "2026-10-22",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "quorion-g-hub.webp": {
+   "source": "ClocktowerTable/receipts/playtest-1.4/clocktower-00-launch.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "quorion-g-seat.webp": {
+   "source": "ClocktowerTable/receipts/playtest-1.4/clocktower-01-bag-phones.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "quorion-g-reveal.webp": {
+   "source": "ClocktowerTable/receipts/playtest-1.4/clocktower-03-reveal.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "quorion-g-night.webp": {
+   "source": "ClocktowerTable/receipts/playtest-1.4/clocktower-04-first-night.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "quorion-g-mark.webp": {
+   "source": "ClocktowerTable/receipts/playtest-1.4/clocktower-05-poisoner-marks-seat.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "quorion-g-day.webp": {
+   "source": "ClocktowerTable/receipts/playtest-1.4/clocktower-07-day.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "quorion-g-vote.webp": {
+   "source": "ClocktowerTable/receipts/playtest-1.4/clocktower-08-nomination-on-the-block.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "quorion-g-night2.webp": {
+   "source": "ClocktowerTable/receipts/playtest-1.4/clocktower-09-night-two.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "xthlete-g-discover.webp": {
+   "source": "XthleteDemo/Artifacts/discover.png",
+   "kind": "capture",
+   "date": "2026-10-05",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "xthlete-g-event.webp": {
+   "source": "XthleteDemo/Artifacts/tournament.png",
+   "kind": "capture",
+   "date": "2026-10-05",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "xthlete-g-rankings.webp": {
+   "source": "XthleteDemo/Artifacts/rankings.png",
+   "kind": "capture",
+   "date": "2026-10-05",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "xthlete-g-profile.webp": {
+   "source": "XthleteDemo/Artifacts/profile.png",
+   "kind": "capture",
+   "date": "2026-10-05",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "xthlete-g-entry.webp": {
+   "source": "XthleteDemo/Artifacts/local-pass-20261006/registration.png",
+   "kind": "capture",
+   "date": "2026-10-06",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "xthlete-g-mine.webp": {
+   "source": "XthleteDemo/Artifacts/local-pass-20261006/my-events.png",
+   "kind": "capture",
+   "date": "2026-10-06",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "maskmen-g-maskmen.webp": {
+   "source": "ClocktowerTable/receipts/playtest-1.4/maskmen-01-first-play.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "maskmen-g-ninja.webp": {
+   "source": "ClocktowerTable/receipts/playtest-1.4/ninja-01-four-players.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true
+  },
+  "glint-line-rising.webp": {
+   "source": "tools/showcase/src-assets/glint/line-rising.png",
+   "kind": "render",
+   "date": "2026-10-24",
+   "date_basis": "date of the price line commit d01f433a",
+   "frozen": false,
+   "crop": [
+    0,
+    0,
+    1030,
+    1180
+   ],
+   "note": "Xcode RenderPreview of the chart sheet from Glint main (price line, commit d01f433a). The numbers are a fixed sample walk, and the picture says so. Cropped to the top 1180 px: the empty area below the chart is removed."
+  },
+  "glint-line-falling-dark.webp": {
+   "source": "tools/showcase/src-assets/glint/line-falling-dark.png",
+   "kind": "render",
+   "date": "2026-10-24",
+   "date_basis": "date of the price line commit d01f433a",
+   "frozen": false,
+   "crop": [
+    0,
+    0,
+    1030,
+    1180
+   ],
+   "note": "Xcode RenderPreview of the chart sheet from Glint main (price line, commit d01f433a). The numbers are a fixed sample walk, and the picture says so. Dark mode, 1M range. Cropped like the light one."
+  },
+  "glint-line-scrubbing.webp": {
+   "source": "tools/showcase/src-assets/glint/line-scrubbing.png",
+   "kind": "render",
+   "date": "2026-10-24",
+   "date_basis": "date of the price line commit d01f433a",
+   "frozen": false,
+   "crop": [
+    0,
+    0,
+    1030,
+    1180
+   ],
+   "note": "Xcode RenderPreview of the chart sheet from Glint main (price line, commit d01f433a). The numbers are a fixed sample walk, and the picture says so. Scrubbing: the cursor reads the price and time under the finger. Cropped like the light one."
+  },
+  "glint-live-line.webp": {
+   "source": "tools/showcase/src-assets/glint/live-line-chart.png",
+   "kind": "capture",
+   "date": "2026-10-24",
+   "date_basis": "inferred: the simulator clock reads 2:32 and the price line commit is 14:36 IST that day; the file carries no capture time",
+   "frozen": false,
+   "crop": [
+    0,
+    0,
+    1398,
+    1625
+   ],
+   "note": "iPhone Duo simulator, signed out, public Binance BTCUSDT prices (live). Cropped to remove the stats table and the half-cut buttons below the range chips."
+  },
+  "glint-ask-answer.webp": {
+   "source": "tools/showcase/src-assets/glint/ask-answer-live.png",
+   "kind": "capture",
+   "date": "2026-10-25",
+   "date_basis": "simulator clock reads 3:26 PM; the Ask session's note is dated 25 Oct",
+   "frozen": false,
+   "note": "iPhone Duo simulator, signed out, on-device model, public Binance prices. From glint-swift branch claude/ask-polish-0ddb5f at 121daedb, which is not merged. Original file: ask-polish-snapshots/ios-ask-light-live-answer.png in that session's notes."
+  },
+  "glint-candles-native.webp": {
+   "source": "tools/showcase/src-assets/glint/candles-native-dark.png",
+   "kind": "render",
+   "date": "2026-10-24",
+   "date_basis": "commit date of e067b7f2",
+   "frozen": false,
+   "crop": [
+    0,
+    0,
+    1030,
+    1000
+   ],
+   "note": "Xcode RenderPreview of the native candle chart, sample data (the picture says so). glint-swift branch claude/native-candle-chart, commit e067b7f2, not merged. Cropped to the chart."
+  },
+  "orbits-tools.webp": {
+   "source": "artifacts/orbits-duo-2026-10-22/duo-folded-dark-tools-sheet-all-on.png",
+   "kind": "capture",
+   "date": "2026-10-22",
+   "date_basis": "source file modified",
+   "frozen": true,
+   "note": "Encoded 25 Oct 2026 with cwebp -q 82 -resize 0 1100. Orbits Tools for this plan sheet, iPhone Duo folded, dark, with all four tools on. Build in development."
+  },
+  "feedloom-comic-library.webp": {
+   "source": "Feedloom/docs/screenshots/1.3/skins/comic-dark-library.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true,
+   "note": "Encoded 25 Oct 2026 with cwebp -q 82 -resize 0 1100. Feedloom 1.3 comic skin (next version), library, dark. Sample bookmarks, as the screen says."
+  },
+  "feedloom-newsprint-library.webp": {
+   "source": "Feedloom/docs/screenshots/1.3/skins/newsprint-light-library.png",
+   "kind": "capture",
+   "date": "2026-10-23",
+   "date_basis": "source file modified",
+   "frozen": true,
+   "note": "Encoded 25 Oct 2026 with cwebp -q 82 -resize 0 1100. Feedloom 1.3 newsprint skin (next version), library, light. Sample bookmarks, as the screen says."
+  },
+  "pinprint-search.webp": {
+   "source": "tools/showcase/src-assets/apps/pinprint-search.png",
+   "kind": "capture",
+   "date": "2026-10-25",
+   "date_basis": "taken in this session",
+   "frozen": false,
+   "note": "iPhone Duo simulator (iOS 27.1), light, clock set to 9:41. Built from Pinprint branch claude/pinprint-native-mac at 830991f (22 Oct), Debug, unsigned. The trip is the sample trip bundled in the app. The Duo side panel (clock, signal, tab bar) is part of the capture. Search tab: Ask your trip and Ask Places."
+  },
+  "lineage-mirror-pattern.webp": {
+   "source": "tools/showcase/src-assets/apps/lineage-mirror-pattern.png",
+   "kind": "capture",
+   "date": "2026-10-25",
+   "date_basis": "taken in this session",
+   "frozen": false,
+   "note": "iPhone Duo simulator (iOS 27.1), clock set to 9:41. Debug build, unsigned. The Duo side panel (clock, signal, tab bar) is part of the capture. Lineage Mirror, Mirror tab, light, as the app opens. Built from branch claude/lineage-native-mac at 28c06f0 (22 Oct)."
+  },
+  "lineage-mirror-journal.webp": {
+   "source": "tools/showcase/src-assets/apps/lineage-mirror-journal.png",
+   "kind": "capture",
+   "date": "2026-10-25",
+   "date_basis": "taken in this session",
+   "frozen": false,
+   "note": "iPhone Duo simulator (iOS 27.1), clock set to 9:41. Debug build, unsigned. The Duo side panel (clock, signal, tab bar) is part of the capture. Lineage Mirror, Journal tab, light. Same build."
+  },
+  "flickpot-table.webp": {
+   "source": "tools/showcase/src-assets/apps/flickpot-table.png",
+   "kind": "capture",
+   "date": "2026-10-25",
+   "date_basis": "taken in this session",
+   "frozen": false,
+   "note": "iPhone Duo simulator (iOS 27.1), clock set to 9:41. Debug build, unsigned. The Duo side panel (clock, signal, tab bar) is part of the capture. Flickpot, two-player table, dark. Built from branch feature/f1-trackbet-prototype at 0a2e59e (22 Oct) of the heft repo (Heft scheme). The coins carry market tickers."
+  },
+  "flickpot-how-to-play.webp": {
+   "source": "tools/showcase/src-assets/apps/flickpot-how-to-play.png",
+   "kind": "capture",
+   "date": "2026-10-25",
+   "date_basis": "taken in this session",
+   "frozen": false,
+   "note": "iPhone Duo simulator (iOS 27.1), clock set to 9:41. Debug build, unsigned. The Duo side panel (clock, signal, tab bar) is part of the capture. Flickpot, How to Play step 1, dark, shown on the first Play tap. Same build."
+  }
+ }
+}

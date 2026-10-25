@@ -1,7 +1,7 @@
 {
   "owner": "Anupam Chugh",
   "source": "https://anupamchugh.github.io/apps/",
-  "asOf": "2026-10-23",
+  "asOf": "2026-10-25",
   "apps": [
     {
       "name": "Rifflet",
@@ -13,21 +13,21 @@
       "version": "1.5"
     },
     {
-      "name": "Orbits",
-      "pitch": "plan your own trips and meetups. the store listing is find common ground.",
+      "name": "Orbits: Find Common Ground",
+      "pitch": "plan your own trips and meetups.",
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/find-common-ground/id6759101340",
+      "appStoreUrl": "https://apps.apple.com/us/app/orbits-find-common-ground/id6759101340",
       "version": "1.6"
     },
     {
-      "name": "EchoHunt",
+      "name": "EchoHunt Music",
       "pitch": "i play music at random hours and never knew why the algorithm picked it, so now i just ask.",
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/in/app/playlist-hunter/id6756028972",
+      "appStoreUrl": "https://apps.apple.com/us/app/echohunt-music/id6756028972",
       "version": "1.7"
     },
     {
@@ -57,12 +57,12 @@
       "version": "1.0"
     },
     {
-      "name": "ClocktowerTable",
+      "name": "Quorion Table",
       "pitch": "a storyteller console and table companion for social deduction nights.",
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/clocktowertable/id6761296328",
+      "appStoreUrl": "https://apps.apple.com/us/app/quorion-table/id6761296328",
       "version": "1.3.0"
     },
     {

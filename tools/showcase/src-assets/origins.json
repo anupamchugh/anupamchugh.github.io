@@ -1,0 +1,78 @@
+{
+ "CheckmateAcademy": {
+  "commits": "38",
+  "first": "2026-03-17"
+ },
+ "ClocktowerTable": {
+  "commits": "186",
+  "first": "2026-03-28"
+ },
+ "Crossing": {
+  "commits": "4",
+  "first": "2026-06-20"
+ },
+ "DocPolish": {
+  "commits": "4",
+  "first": "2026-05-29"
+ },
+ "FaceFrame": {
+  "commits": "14",
+  "first": "2026-06-11"
+ },
+ "Feedloom": {
+  "commits": "98",
+  "first": "2026-10-11"
+ },
+ "KeyMuse": {
+  "commits": "94",
+  "first": "2026-05-07"
+ },
+ "LineageMirror": {
+  "commits": "5",
+  "first": "2026-05-29"
+ },
+ "MySongs": {
+  "commits": "172",
+  "first": "2025-11-22"
+ },
+ "Pastport": {
+  "commits": "24",
+  "first": "2026-07-25"
+ },
+ "Pinprint": {
+  "commits": "16",
+  "first": "2026-06-13"
+ },
+ "PlaceMatch": {
+  "commits": "903",
+  "first": "2026-02-12"
+ },
+ "RoamProof": {
+  "commits": "10",
+  "first": "2026-06-16"
+ },
+ "SurfCoach": {
+  "commits": "87",
+  "first": "2026-06-30"
+ },
+ "cupcompass-26": {
+  "commits": "19",
+  "first": "2026-06-20"
+ },
+ "flyleaf": {
+  "commits": "12",
+  "first": "2026-04-28"
+ },
+ "glint-swift": {
+  "commits": "4045",
+  "first": "2026-08-06"
+ },
+ "nod": {
+  "commits": "2",
+  "first": "2026-07-13"
+ },
+ "threadmark-swift": {
+  "commits": "232",
+  "first": "2026-08-05"
+ }
+}

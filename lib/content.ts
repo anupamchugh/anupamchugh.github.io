@@ -47,7 +47,11 @@ export const heroStats: Stat[] = [
   { label: "writing", value: "2015–23", description: "archive, not a current blog" },
   { label: "open source", value: "900+", description: "stars on iowncode" },
   { label: "archive", value: "300+", description: "articles and drafts under review" },
-  { label: "apps", value: "18", description: "small shipped experiments" },
+  {
+    label: "apps",
+    value: String(appRecords.filter((record) => record.status === "live").length),
+    description: "small shipped experiments",
+  },
 ];
 
 export type AppItem = {
