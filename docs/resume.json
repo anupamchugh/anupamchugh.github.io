@@ -5,7 +5,7 @@
     "label": "iOS & macOS engineer",
     "email": "anupam.chugh@gmail.com",
     "url": "https://anupamchugh.github.io",
-    "summary": "iOS & macOS engineer with 11+ years shipping native mobile, computer vision, and on-device AI apps. Previously led mobile at MOBEY (Australia) and Agricx, managing editor of Better Programming (reviewed thousands of submissions, millions of words read), and since 2024 ships high-craft native Apple apps.",
+    "summary": "iOS & macOS engineer. Eleven years building apps, starting with Android tutorials at JournalDev, and two and a half editing other engineers as managing editor of Better Programming. Since 2024 I ship small Apple apps to the App Store.",
     "profiles": [
       {
         "network": "GitHub",
@@ -21,6 +21,11 @@
         "network": "LinkedIn",
         "username": "anupamchugh",
         "url": "https://linkedin.com/in/anupamchugh"
+      },
+      {
+        "network": "Medium",
+        "username": "anupamchugh",
+        "url": "https://medium.com/@anupamchugh"
       }
     ]
   },
@@ -30,39 +35,42 @@
       "position": "iOS & macOS app developer",
       "url": "https://anupamchugh.github.io/apps/",
       "startDate": "2024",
-      "summary": "Ships 18 native Apple apps to the App Store, specializing in Swift 6 concurrency, on-device Apple Foundation Models, Vision kinematics, and local-first architecture."
+      "summary": "Small Apple apps, each from one human moment. Rifflet, Orbits and EchoHunt are on the App Store."
     },
     {
       "name": "Better Programming",
       "position": "Managing Editor",
       "startDate": "2021",
       "endDate": "2023",
-      "summary": "Directed editorial standards, author growth, and technical review across thousands of monthly engineering submissions. Led the publication to multiple HN front-page hits and millions of reads."
+      "summary": "Took over from Zack Shapiro in 2021 and ran it until September 2023; it has been on hiatus since I left. Read thousands of submissions a month with a small editor team. Started Coffee Bytes, a Medium newsletter that put other writers in front of readers: weekly picks, roundups, author interviews, and a list of writers from age 10 to a septuagenarian learning Java. Over its life the publication carried 4.6K authors, 16.8K stories and 151M views, and paid writers close to $1M."
     },
     {
-      "name": "Agricx Lab",
-      "position": "Mobile Lead",
-      "startDate": "2019",
-      "endDate": "2021",
-      "summary": "Led Android engineering and shipped the company\u2019s first iOS app, applying computer vision and image processing to agricultural quality assessment."
+      "name": "Agricx",
+      "position": "Android Team Lead & iOS Developer",
+      "startDate": "2018",
+      "endDate": "2019",
+      "summary": "Led the Android team and planned work with the web and ML teams. Built the company\u2019s first iOS app alone: a camera that grades crops on the device with OpenCV and AVFoundation."
     },
     {
       "name": "MOBEY (Gold Coast, Australia)",
-      "position": "Lead Mobile Developer",
-      "startDate": "2016",
-      "endDate": "2019",
-      "summary": "Built on-demand delivery customer and driver apps from scratch on Android, and redesigned their native iOS applications (featured on 7 News Brisbane)."
+      "position": "Lead Android Developer",
+      "startDate": "2015",
+      "endDate": "2017",
+      "summary": "Built MOBEY\u2019s alcohol-delivery apps, customer and driver, from nothing on Android, and redesigned their iOS apps in 2017. Featured on 7 News Brisbane.",
+      "url": "https://www.youtube.com/watch?v=-VCwMGz0Zvw"
     },
     {
       "name": "JournalDev",
-      "position": "Technical Writer & Android Lead",
-      "summary": "Authored 300+ in-depth tutorials on Android, Core Java, and mobile architectures, and built the official Android app."
+      "position": "Android Developer & Technical Writer",
+      "startDate": "2015",
+      "endDate": "2019",
+      "summary": "Taught myself Android by writing it up as I learned: 300+ tutorials on Android, Java, Kotlin and Swift. Built JournalDev\u2019s first Android app from scratch; the site was later acquired by DigitalOcean."
     }
   ],
   "projects": [
     {
       "name": "Glint",
-      "description": "Institutional-grade market execution companion in pure Swift 6 concurrency with live Binance WebSocket ribbons, Dynamic Island Live Activities, and offline statement tax auditing.",
+      "description": "Read-only market research for Indian F&O and crypto on iPhone and Mac, in development. Ask in plain language and it answers with charts, scans and option chains from its own market data. It never places an order.",
       "url": "https://anupamchugh.github.io/showcase/"
     },
     {
@@ -79,6 +87,21 @@
       "name": "VisionCreditScan & Swipeless Tinder",
       "description": "Open-source Apple Vision prototypes demonstrating real-time card OCR and touchless hand-pose gesture navigation.",
       "url": "https://github.com/anupamchugh/iOS14VisionHandPose"
+    },
+    {
+      "name": "Coffee Bytes",
+      "description": "A Medium newsletter (2022\u20132023) that featured other writers' work: weekly picks, hand-picked roundups, author interviews, and \u201cIt's never too late or early to start something\u201d.",
+      "url": "https://medium.com/@coffee_bytes"
+    },
+    {
+      "name": "MOBEY on 7 News Brisbane",
+      "description": "The alcohol-delivery apps I built for MOBEY, on the evening news in 2016.",
+      "url": "https://www.youtube.com/watch?v=-VCwMGz0Zvw"
+    },
+    {
+      "name": "App showcase",
+      "description": "Screens and stories of the apps I've built.",
+      "url": "https://anupamchugh.github.io/showcase/"
     }
   ],
   "skills": [

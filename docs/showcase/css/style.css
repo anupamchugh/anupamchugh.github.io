@@ -300,9 +300,6 @@ h3 { font-size: clamp(1.9rem, 3.2vw, 3rem); font-stretch: 114%; line-height: 1.0
 .a-orbits { grid-column: 1 / 8; }
 .a-orbits .shots { display: flex; gap: 10px; flex: 1.5 1 0; min-width: 0; }
 .a-orbits .shots .phone { flex: 1 1 0; min-width: 0; }
-.a-glint { grid-column: 8 / 13; }
-.a-glint .phone { flex: 0 0 min(190px, 40%); margin-inline: 0; }
-.a-quorion { grid-column: 1 / -1; }
 .a-quorion .a-copy { max-width: 70ch; }
 
 /* ---- glint: what is live, what is sample ---------------------------------------------------------------------- */
@@ -329,7 +326,7 @@ h3 { font-size: clamp(1.9rem, 3.2vw, 3rem); font-stretch: 114%; line-height: 1.0
 .p-small .mini .phone { --w: 170px; flex: 1 1 0; max-width: 170px; }
 
 @media (max-width: 1100px) {
-  .a-orbits, .a-glint { grid-column: 1 / -1; }
+  .a-orbits { grid-column: 1 / -1; }
   .p-live, .p-truth { grid-column: 1 / -1; }
 }
 @media (max-width: 880px) {
@@ -342,7 +339,6 @@ h3 { font-size: clamp(1.9rem, 3.2vw, 3rem); font-stretch: 114%; line-height: 1.0
   .p-gallery .phone { --w: 170px; }
   .p-assist { flex-direction: column; }
   .a-orbits .shots { width: 100%; }
-  .a-glint .phone { flex: none; width: 190px; }
   .p-live .phone { --w: 200px; }
 }
 @media print {
@@ -362,3 +358,84 @@ h3 { font-size: clamp(1.9rem, 3.2vw, 3rem); font-stretch: 114%; line-height: 1.0
 @media print { .p-gallery summary::after { content: none; } }
 
 .lit h2, .lit h3 { color: inherit; }
+
+/* ---- glint chart sheet and native candles (added 25 Oct 2026) -------------------------------------------------- */
+.stack.n4 .p-screen { grid-column: span 3; }
+.studio.chart .p-screen, .studio.candles .p-screen { flex-direction: column; gap: 0.8rem; padding-inline: 12px; }
+.studio.chart .p-screen .phone { --w: 250px; }
+.studio.chart figcaption, .studio.candles figcaption { font-size: 0.88rem; text-align: center; color: var(--ink); }
+.studio.glint .phone img { background: transparent; } /* Xcode previews have round, transparent corners: the bezel shows through */
+.studio.candles .p-screen { grid-column: span 4; }
+.studio.candles .p-screen .phone { --w: 270px; }
+.studio.candles .p-text { grid-column: span 8; display: flex; flex-direction: column; justify-content: center; gap: 1rem; padding: clamp(22px, 3vw, 48px); }
+
+/* assistants: Orbits and Quorion share the first row; Glint has the second to itself */
+.a-quorion { grid-column: 8 / 13; flex-direction: column; }
+.a-quorion .a-copy { max-width: none; }
+.a-quorion .a-tools { flex: none; width: 100%; }
+.a-glint { grid-column: 1 / -1; }
+.a-glint .shots { display: flex; justify-content: flex-end; gap: clamp(12px, 2vw, 28px); flex: 1.2 1 0; min-width: 0; }
+.a-glint .shots > div { flex: 1 1 0; max-width: 260px; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+.a-glint .shots .phone { flex: none; width: min(100%, var(--w)); margin-inline: auto; }
+.a-glint .shots p { font-size: 0.88rem; text-align: center; color: var(--ink); }
+@media (max-width: 1100px) { .a-quorion { grid-column: 1 / -1; } }
+@media (max-width: 880px) { .a-glint .shots { width: 100%; justify-content: center; } .a-glint .shots .phone { --w: 160px; } }
+
+/* ---- Work with me: a floating action pane and the dialog, both on the wall's own grammar (added 25 Oct 2026) ---- */
+.dock { position: fixed; right: var(--bar-w); bottom: var(--bar-w); z-index: 20; display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; background: var(--cobalt); color: #fff; font-weight: 620; font-stretch: 114%; text-decoration: none; box-shadow: 0 0 0 var(--bar-w) var(--bar); transition: opacity 0.3s var(--ease), transform 0.3s var(--ease); }
+.dock:hover { filter: brightness(1.12); }
+.dock.is-away { opacity: 0; transform: translateY(12px); visibility: hidden; pointer-events: none; }
+.dock:focus-visible { outline: 3px solid #fff; outline-offset: -8px; box-shadow: 0 0 0 var(--bar-w) var(--bar), inset 0 0 0 5px var(--bar); }
+
+html.modal-open { overflow: hidden; }
+.contact-modal { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: var(--bar-w); overflow-y: auto; }
+.contact-modal[hidden] { display: none; }
+.modal-backdrop { position: fixed; inset: 0; background: rgba(12, 13, 15, 0.9); }
+.modal-dialog { position: relative; width: min(100%, 580px); max-height: 100%; overflow-y: auto; display: grid; gap: 1.1rem; padding: clamp(22px, 3vw, 40px); background: var(--glass); color: var(--ink-2); }
+.modal-dialog h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); padding-right: 5.5rem; }
+.modal-lede { font-size: 1rem; }
+.modal-close, .copy-btn { font: inherit; font-weight: 640; color: var(--ink); background: none; border: 0; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.3em; cursor: pointer; }
+.modal-close { position: absolute; top: 10px; right: 10px; min-height: 44px; min-width: 44px; padding: 0 14px; }
+.copy-btn { min-height: 44px; padding: 0 6px; }
+.form-group { display: grid; gap: 0.4rem; margin-bottom: 1rem; }
+.form-group label { font-weight: 640; color: var(--ink); }
+.form-group input, .form-group textarea { width: 100%; min-height: 48px; padding: 12px 14px; font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 2px solid var(--bar); border-radius: 0; }
+.form-group input:focus-visible, .form-group textarea:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 2px; }
+.btn-submit { width: 100%; min-height: 52px; padding: 0 22px; font: inherit; font-weight: 620; font-stretch: 114%; text-align: left; color: #fff; background: var(--cobalt); border: 0; border-radius: 0; cursor: pointer; }
+.btn-submit:hover { filter: brightness(1.12); }
+.btn-submit:focus-visible, .modal-close:focus-visible, .copy-btn:focus-visible, .modal-dialog a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; box-shadow: none; }
+.direct-email { margin-top: 0.9rem; font-size: 1rem; }
+.direct-email a { color: var(--ink); font-weight: 640; }
+.contact-status { min-height: 1.5em; margin-top: 0.4rem; color: var(--ink); font-weight: 560; }
+@media (prefers-reduced-motion: reduce) { .dock { transition: none; } }
+@media print { .dock, .contact-modal { display: none; } }
+
+/* links in the transom and the close pane are 44 px tall; give the short ones 44 px of width as well */
+.transom nav a, .p-links a { min-width: 44px; justify-content: center; }
+.mark { display: inline-flex; align-items: center; min-height: 44px; }
+@media (max-width: 880px) { .dock { min-height: 48px; padding: 0 16px; font-size: 0.95rem; } }
+
+/* ---- two more live apps, up close (added 25 Oct 2026) ---- */
+.more .p-title { grid-column: 1 / -1; display: grid; gap: 0.6rem; }
+.more .p-title p { color: var(--ink-2); }
+.p-more { grid-column: span 6; display: flex; flex-direction: column; gap: 1.4rem; }
+.p-more .m-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+.p-more h3 { font-size: clamp(1.6rem, 2.4vw, 2.3rem); }
+.p-more .plate, .p-more .blurb { color: inherit; }
+.p-more .shots { display: flex; justify-content: center; gap: clamp(12px, 1.6vw, 24px); margin-top: auto; }
+.p-more figure { margin: 0; flex: 1 1 0; max-width: 240px; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+.p-more figcaption { font-size: 0.88rem; text-align: center; }
+.lit .go { color: inherit; }
+.lit .go:hover { color: inherit; opacity: 0.85; }
+@media (max-width: 880px) { .p-more .phone { --w: 150px; } }
+
+/* ---- the Glint chart block can be folded; it starts closed on a phone (added 25 Oct 2026) ---- */
+.fold > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px; cursor: pointer; list-style: none; color: var(--ink); font-size: 1.15rem; font-weight: 620; font-stretch: 114%; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary::after { content: "Hide"; flex: none; font-size: 0.95rem; font-weight: 560; font-stretch: 100%; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.3em; }
+.fold:not([open]) > summary::after { content: "Show"; }
+.fold > summary:focus-visible { outline: 3px solid var(--ink); outline-offset: -8px; }
+.fold-t { display: grid; gap: 0.25rem; }
+.fold-t .plate { font-weight: 500; font-stretch: 100%; }
+.fold-body { display: grid; gap: var(--bar-w); margin-top: var(--bar-w); }
+@media print { .fold > summary::after { content: none; } }
