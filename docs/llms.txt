@@ -22,12 +22,12 @@ This is the public portfolio and writing archive of a software engineer, writer,
 
 - [Match Box](https://anupamchugh.github.io/match-box/): A local macOS companion for reviewing owner-selected visible dating context. Status: building.
 - [Rifflet](https://apps.apple.com/us/app/rifflet/id6767064984): turns a short music idea into a playable piano, guitar, or ukulele lesson. Status: live.
-- [Orbits](https://apps.apple.com/us/app/find-common-ground/id6759101340): plan your own trips and meetups. the store listing is find common ground. Status: live.
-- [EchoHunt](https://apps.apple.com/in/app/playlist-hunter/id6756028972): i play music at random hours and never knew why the algorithm picked it, so now i just ask. Status: live.
+- [Orbits: Find Common Ground](https://apps.apple.com/us/app/orbits-find-common-ground/id6759101340): plan your own trips and meetups. Status: live.
+- [EchoHunt Music](https://apps.apple.com/us/app/echohunt-music/id6756028972): i play music at random hours and never knew why the algorithm picked it, so now i just ask. Status: live.
 - [Pastport](https://github.com/anupamchugh/pastport/releases/latest): on-device Safari history intelligence for macOS: movements, bookings, threads, and grounded local answers. Status: live.
 - [Flickpot](https://apps.apple.com/us/app/flickpot/id6766531373): a small iOS flicking game, live on the app store. Status: live.
 - [Flyleaf Notes](https://apps.apple.com/us/app/flyleaf-notes/id6764307755): a markdown writing desk for local folders, archives, and eventually github publishing. Status: live.
-- [ClocktowerTable](https://apps.apple.com/us/app/clocktowertable/id6761296328): a storyteller console and table companion for social deduction nights. Status: live.
+- [Quorion Table](https://apps.apple.com/us/app/quorion-table/id6761296328): a storyteller console and table companion for social deduction nights. Status: live.
 - [Checkmate Academy](https://apps.apple.com/us/app/checkmate-academy/id6760925352): a chess learning app with lessons, puzzles, ai games, and review tools. Status: live.
 - [Feedloom](https://apps.apple.com/us/app/feedloom/id6761685952): an rss reader for keeping up with links and feeds. Status: live.
 - [getNod](https://apps.apple.com/us/app/getnod/id6761169513): a small app for sending a nod to someone who knows. Status: live.
