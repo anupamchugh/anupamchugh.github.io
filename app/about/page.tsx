@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { siteConfig, timeline } from '@/lib/content';
+import ContactPing from '@/components/contact-ping';
 
 export const metadata: Metadata = {
   title: 'about',
@@ -66,6 +67,8 @@ export default function AboutPage() {
           </a>
         </p>
       </section>
+
+      <ContactPing />
     </div>
   );
 }

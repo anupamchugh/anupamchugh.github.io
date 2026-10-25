@@ -427,15 +427,15 @@
 </main>
 <script src="js/main.js"></script>
 
-<!-- Contact / Telegram Ping Modal -->
+<!-- Email contact modal -->
 <div id="contact-modal" class="contact-modal" style="display:none;">
   <div class="modal-backdrop" onclick="closeContactModal()"></div>
   <div class="modal-dialog">
     <button class="modal-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
     <div class="modal-header">
-      <span class="modal-badge">Direct Ping</span>
+      <span class="modal-badge">Get in touch</span>
       <h3>Work with me</h3>
-      <p>Have an on-device AI app, high-craft Apple experience, or financial tool that should exist? Drop a line here—it pings my phone instantly.</p>
+      <p>Have an on-device AI app, high-craft Apple experience, or financial tool that should exist? Drop a line here and your email app will open a ready-to-send draft.</p>
     </div>
     <form id="contact-form" onsubmit="submitContact(event)">
       <div class="form-group">
@@ -447,7 +447,7 @@
         <textarea id="contact-msg" rows="4" required placeholder="Tell me about the app, the constraints, and the timeline..."></textarea>
       </div>
       <div class="form-actions">
-        <button type="submit" id="contact-btn" class="btn-submit">Send direct ping &rarr;</button>
+        <button type="submit" id="contact-btn" class="btn-submit">Open email draft &rarr;</button>
         <span class="direct-email">Or email directly: <a href="mailto:anupamchugh@gmail.com">anupamchugh@gmail.com</a></span>
       </div>
       <div id="contact-status" class="contact-status"></div>
@@ -482,47 +482,20 @@
 <script>
 function openContactModal(e) { if(e) e.preventDefault(); document.getElementById("contact-modal").style.display = "flex"; }
 function closeContactModal() { document.getElementById("contact-modal").style.display = "none"; }
-async function submitContact(e) {
+function submitContact(e) {
   e.preventDefault();
-  var btn = document.getElementById("contact-btn");
-  var status = document.getElementById("contact-status");
   var from = document.getElementById("contact-from").value.trim();
   var msg = document.getElementById("contact-msg").value.trim();
-  btn.disabled = true;
-  btn.textContent = "Pinging Anupam...";
-  status.className = "contact-status";
-  status.textContent = "";
-  
-  var text = "💼 PORTFOLIO INQUIRY
+  var subject = encodeURIComponent("Work with me");
+  var body = encodeURIComponent("From: " + from + "
 
-👤 From: " + from + "
-💬 Message: " + msg + "
-🕒 Sent via anupamchugh.github.io";
-  var token = "8258630104:AAHJ4otFZQTegS7lB8F0S7gQZGzKE_NaaII";
-  var chatId = "8570503757";
-  
-  try {
-    var res = await fetch("https://api.telegram.org/bot" + token + "/sendMessage", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text: text })
-    });
-    var data = await res.json();
-    if (data.ok) {
-      status.className = "contact-status success";
-      status.textContent = "✓ Ping delivered to Anupam's phone! He will get back to you shortly.";
-      document.getElementById("contact-form").reset();
-      setTimeout(closeContactModal, 2800);
-    } else {
-      throw new Error(data.description || "Delivery failed");
-    }
-  } catch (err) {
-    status.className = "contact-status error";
-    status.textContent = "Could not ping Telegram directly. Please email anupamchugh@gmail.com";
-  } finally {
-    btn.disabled = false;
-    btn.textContent = "Send direct ping →";
-  }
+" + msg + "
+
+Sent via anupamchugh.github.io");
+  var status = document.getElementById("contact-status");
+  window.location.href = "mailto:anupamchugh@gmail.com?subject=" + subject + "&body=" + body;
+  status.className = "contact-status success";
+  status.textContent = "Your email app should open with a draft. Nothing is sent until you choose to send it.";
 }
 </script>
 
