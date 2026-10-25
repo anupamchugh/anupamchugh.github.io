@@ -40,7 +40,8 @@ coverage/
 # PhotoKit review exports stay local until explicitly approved.
 .photo-review/
 
-# Specs and private-notes now tracked (repo is private)
+# Specs are tracked. The repo is public, so private notes stay local.
+private-notes/
 
 # Beads / Dolt files (added by bd init)
 .dolt/
