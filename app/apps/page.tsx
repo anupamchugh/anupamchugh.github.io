@@ -20,6 +20,16 @@ export default function AppsPage() {
         live store apps first: rifflet, orbits, echohunt. the rest of the shelf is shipped too.
         live means live. preview means it still needs real shipping work.
       </p>
+      <p className="mt-3 max-w-2xl text-secondary">
+        want to see them working? the showcase has real screens from the shipped apps, their store
+        links, and what is still in the studio.
+      </p>
+      <a
+        href="/showcase/"
+        className="mt-4 inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-muted"
+      >
+        open the showcase
+      </a>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2">
         {[matchBoxApp, ...apps].map((app) => (

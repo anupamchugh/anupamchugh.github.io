@@ -1,0 +1,545 @@
+{
+ "schemaVersion": 2,
+ "generatedAt": "2026-10-24T13:40:21+05:30",
+ "title": "Design System: Anupam Chugh showcase",
+ "extensions": {
+  "colorMeta": {
+   "bar": {
+    "role": "neutral",
+    "displayName": "Bar",
+    "canonical": "#0c0d0f",
+    "tonalRamp": [
+     "#22252a",
+     "#393d47",
+     "#4f5663",
+     "#666e80",
+     "#8890a0",
+     "#b0b5c0",
+     "#d2d5db",
+     "#f1f2f4"
+    ]
+   },
+   "glass": {
+    "role": "neutral",
+    "displayName": "Glass",
+    "canonical": "#eff3f2",
+    "tonalRamp": [
+     "#212c29",
+     "#374944",
+     "#4d6660",
+     "#62837b",
+     "#85a39c",
+     "#adc2bd",
+     "#d0dcd9",
+     "#f0f4f3"
+    ]
+   },
+   "seed": {
+    "role": "neutral",
+    "displayName": "Seed",
+    "canonical": "#e3eae9",
+    "tonalRamp": [
+     "#212c2a",
+     "#374946",
+     "#4c6662",
+     "#62837e",
+     "#85a39f",
+     "#adc2bf",
+     "#d0dcda",
+     "#f0f4f4"
+    ]
+   },
+   "frost": {
+    "role": "neutral",
+    "displayName": "Frost",
+    "canonical": "#dde6e5",
+    "tonalRamp": [
+     "#202c2b",
+     "#364947",
+     "#4c6764",
+     "#618480",
+     "#84a4a1",
+     "#adc2c0",
+     "#d0dcdb",
+     "#f0f4f4"
+    ]
+   },
+   "ink": {
+    "role": "neutral",
+    "displayName": "Ink",
+    "canonical": "#0c0d0f",
+    "tonalRamp": [
+     "#22252a",
+     "#393d47",
+     "#4f5663",
+     "#666e80",
+     "#8890a0",
+     "#b0b5c0",
+     "#d2d5db",
+     "#f1f2f4"
+    ]
+   },
+   "ink-2": {
+    "role": "neutral",
+    "displayName": "Ink 2",
+    "canonical": "#38413f",
+    "tonalRamp": [
+     "#232928",
+     "#3b4442",
+     "#53605d",
+     "#6a7b77",
+     "#8c9c98",
+     "#b2bdbb",
+     "#d3d9d8",
+     "#f1f3f3"
+    ]
+   },
+   "cobalt": {
+    "role": "secondary",
+    "displayName": "Cobalt",
+    "canonical": "#1d4ed8",
+    "tonalRamp": [
+     "#091843",
+     "#0f2970",
+     "#15399d",
+     "#1b49ca",
+     "#426de6",
+     "#819eee",
+     "#b7c7f5",
+     "#e9eefc"
+    ]
+   },
+   "oxblood": {
+    "role": "secondary",
+    "displayName": "Oxblood",
+    "canonical": "#7a1627",
+    "tonalRamp": [
+     "#410c15",
+     "#6c1323",
+     "#971b30",
+     "#c2233e",
+     "#de4a63",
+     "#e98697",
+     "#f3bac3",
+     "#fbe9ec"
+    ]
+   },
+   "phone-bezel": {
+    "role": "neutral",
+    "displayName": "Phone Bezel",
+    "canonical": "#050506",
+    "tonalRamp": [
+     "#23232a",
+     "#3a3a46",
+     "#515161",
+     "#68687d",
+     "#8a8a9e",
+     "#b1b1be",
+     "#d2d2da",
+     "#f1f1f3"
+    ]
+   },
+   "lit-rifflet": {
+    "role": "tertiary",
+    "displayName": "Rifflet glass",
+    "canonical": "#f2b01e",
+    "tonalRamp": [
+     "#483304",
+     "#795507",
+     "#a9770a",
+     "#d9990d",
+     "#f3b834",
+     "#f7d078",
+     "#fbe4b2",
+     "#fef7e7"
+    ]
+   },
+   "lit-common-ground": {
+    "role": "tertiary",
+    "displayName": "Common Ground glass",
+    "canonical": "#6d2fd9",
+    "tonalRamp": [
+     "#1f0c41",
+     "#34146c",
+     "#491c97",
+     "#5d23c2",
+     "#804ade",
+     "#aa86e9",
+     "#cfbaf2",
+     "#f0e9fb"
+    ]
+   },
+   "lit-playlist-hunter": {
+    "role": "tertiary",
+    "displayName": "Playlist Hunter glass",
+    "canonical": "#19a7b0",
+    "tonalRamp": [
+     "#0a4043",
+     "#106a70",
+     "#16949c",
+     "#1dbfc9",
+     "#43dbe4",
+     "#82e7ed",
+     "#b8f1f5",
+     "#e9fbfc"
+    ]
+   },
+   "lit-pinprint": {
+    "role": "tertiary",
+    "displayName": "Pinprint glass",
+    "canonical": "#b9733c",
+    "tonalRamp": [
+     "#3a2413",
+     "#603c1f",
+     "#87542c",
+     "#ad6c38",
+     "#cb8d5d",
+     "#dcb393",
+     "#ebd4c1",
+     "#f9f1ec"
+    ]
+   },
+   "lit-pastport": {
+    "role": "tertiary",
+    "displayName": "Pastport glass",
+    "canonical": "#1f6f7a",
+    "tonalRamp": [
+     "#0f373d",
+     "#1a5c66",
+     "#24818e",
+     "#2ea6b7",
+     "#54c4d4",
+     "#8dd8e2",
+     "#bee9ee",
+     "#ebf8fa"
+    ]
+   },
+   "lit-feedloom": {
+    "role": "tertiary",
+    "displayName": "Feedloom glass",
+    "canonical": "#4a35d8",
+    "tonalRamp": [
+     "#130c40",
+     "#20156b",
+     "#2c1d96",
+     "#3925c0",
+     "#5e4bdc",
+     "#9487e8",
+     "#c2bbf2",
+     "#eceafb"
+    ]
+   },
+   "lit-flickpot": {
+    "role": "tertiary",
+    "displayName": "Flickpot glass",
+    "canonical": "#2f8f46",
+    "tonalRamp": [
+     "#133a1c",
+     "#20602f",
+     "#2c8642",
+     "#39ad55",
+     "#5eca78",
+     "#94dca5",
+     "#c2ebcb",
+     "#ecf9ef"
+    ]
+   },
+   "lit-flyleaf": {
+    "role": "tertiary",
+    "displayName": "Flyleaf glass",
+    "canonical": "#12907c",
+    "tonalRamp": [
+     "#08443b",
+     "#0e7162",
+     "#149f89",
+     "#19ccb0",
+     "#41e7cd",
+     "#80efde",
+     "#b6f6ec",
+     "#e8fcf9"
+    ]
+   },
+   "lit-getnod": {
+    "role": "tertiary",
+    "displayName": "Getnod glass",
+    "canonical": "#6b4bd6",
+    "tonalRamp": [
+     "#190e3e",
+     "#2a1868",
+     "#3b2191",
+     "#4c2bbb",
+     "#7051d7",
+     "#9f8be5",
+     "#c8bdf0",
+     "#eeeafa"
+    ]
+   },
+   "lit-best-face-forward": {
+    "role": "tertiary",
+    "displayName": "Best Face Forward glass",
+    "canonical": "#1d7a9a",
+    "tonalRamp": [
+     "#0c3340",
+     "#14556b",
+     "#1c7796",
+     "#2499c1",
+     "#4bb8dd",
+     "#87cfe8",
+     "#bae4f2",
+     "#eaf6fb"
+    ]
+   },
+   "lit-breakline-surf": {
+    "role": "tertiary",
+    "displayName": "Breakline Surf glass",
+    "canonical": "#0a8fa8",
+    "tonalRamp": [
+     "#043d48",
+     "#076678",
+     "#0a8fa8",
+     "#0db8d9",
+     "#35d5f3",
+     "#78e3f7",
+     "#b2effa",
+     "#e7fafe"
+    ]
+   },
+   "lit-checkmate-academy": {
+    "role": "tertiary",
+    "displayName": "Checkmate Academy glass",
+    "canonical": "#6a3fd1",
+    "tonalRamp": [
+     "#1d0f3e",
+     "#301967",
+     "#432290",
+     "#562cb9",
+     "#7952d6",
+     "#a68ce3",
+     "#ccbdef",
+     "#efeafa"
+    ]
+   },
+   "lit-clocktower-table": {
+    "role": "tertiary",
+    "displayName": "Clocktower Table glass",
+    "canonical": "#3b3f8f",
+    "tonalRamp": [
+     "#161836",
+     "#25285a",
+     "#34387e",
+     "#4348a2",
+     "#676cc0",
+     "#9a9dd5",
+     "#c5c7e7",
+     "#ededf8"
+    ]
+   },
+   "lit-docpolish": {
+    "role": "tertiary",
+    "displayName": "Docpolish glass",
+    "canonical": "#1b8cff",
+    "tonalRamp": [
+     "#00264c",
+     "#003f80",
+     "#0058b2",
+     "#0072e6",
+     "#2993ff",
+     "#70b7ff",
+     "#add6ff",
+     "#e5f2ff"
+    ]
+   },
+   "lit-lineage-mirror": {
+    "role": "tertiary",
+    "displayName": "Lineage Mirror glass",
+    "canonical": "#4f8a6e",
+    "tonalRamp": [
+     "#1c3127",
+     "#2e5141",
+     "#41725a",
+     "#549274",
+     "#77b195",
+     "#a4cbb9",
+     "#cbe1d7",
+     "#eff6f2"
+    ]
+   },
+   "lit-roamproof": {
+    "role": "tertiary",
+    "displayName": "Roamproof glass",
+    "canonical": "#1f6f55",
+    "tonalRamp": [
+     "#113c2e",
+     "#1c644c",
+     "#278c6b",
+     "#32b389",
+     "#58d0a9",
+     "#8fe0c6",
+     "#bfedde",
+     "#ebf9f5"
+    ]
+   },
+   "lit-swell-window": {
+    "role": "tertiary",
+    "displayName": "Swell Window glass",
+    "canonical": "#1f7fc4",
+    "tonalRamp": [
+     "#0a2b42",
+     "#11476e",
+     "#18649a",
+     "#1f80c6",
+     "#46a1e2",
+     "#84c0eb",
+     "#b9dbf4",
+     "#e9f4fc"
+    ]
+   },
+   "lit-the-match-room": {
+    "role": "tertiary",
+    "displayName": "The Match Room glass",
+    "canonical": "#1a7a58",
+    "tonalRamp": [
+     "#0d3f2d",
+     "#16694c",
+     "#1f936a",
+     "#28bd88",
+     "#4ed9a8",
+     "#89e6c5",
+     "#bcf1de",
+     "#eafbf5"
+    ]
+   }
+  },
+  "typographyMeta": {
+   "display": {
+    "displayName": "Display",
+    "purpose": "The one headline."
+   },
+   "headline": {
+    "displayName": "Headline",
+    "purpose": "Section titles and closing statement."
+   },
+   "title": {
+    "displayName": "Title",
+    "purpose": "App names on panes."
+   },
+   "body": {
+    "displayName": "Body",
+    "purpose": "Descriptions, 62ch max."
+   },
+   "label": {
+    "displayName": "Plate",
+    "purpose": "First commit and commit count under each name."
+   }
+  },
+  "shadows": [
+   {
+    "name": "phone",
+    "value": "0 24px 34px -20px rgba(0,0,0,0.6)",
+    "purpose": "The only shadow: under each phone bezel."
+   }
+  ],
+  "motion": [
+   {
+    "name": "ease-out-expo",
+    "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "purpose": "The one slow brightening of lit panes on load (1.3s, 55ms stagger); removed under reduced motion."
+   }
+  ],
+  "breakpoints": [
+   {
+    "name": "single-column",
+    "value": "880px"
+   },
+   {
+    "name": "apps-one-up",
+    "value": "480px"
+   }
+  ]
+ },
+ "components": [
+  {
+   "name": "Lit pane",
+   "kind": "custom",
+   "refersTo": "pane-lit",
+   "description": "An app that is out in the world, lit in its own colour.",
+   "html": "<a class=\"ds-lit\" href=\"#\"><span class=\"ds-nm\">Orbits</span><span class=\"ds-ds\">Plan your own trips and meetups.</span></a>",
+   "css": ".ds-lit{display:flex;flex-direction:column;justify-content:flex-end;gap:.5rem;min-height:200px;padding:28px;background:#6d2fd9 radial-gradient(120% 80% at 50% 0%,rgba(255,255,255,.26),rgba(255,255,255,0) 62%);color:#fff;text-decoration:none;position:relative} .ds-lit:hover{filter:brightness(1.08)} .ds-lit:focus-visible{outline:3px solid #fff;outline-offset:-9px;box-shadow:inset 0 0 0 6px #0c0d0f} .ds-nm{font-size:1.45rem;font-weight:580;font-stretch:114%} .ds-ds{font-size:.95rem}"
+  },
+  {
+   "name": "Cobalt note",
+   "kind": "button",
+   "refersTo": "note-cobalt",
+   "description": "The primary action pane.",
+   "html": "<a class=\"ds-note\" href=\"#\"><span>Work with me</span><svg width=\"30\" height=\"30\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 12h17M14 5.5l6.5 6.5-6.5 6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\"/></svg></a>",
+   "css": ".ds-note{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:28px;background:#1d4ed8;color:#fff;font-size:1.5rem;font-weight:600;font-stretch:118%;text-decoration:none} .ds-note:hover{filter:brightness(1.12)} .ds-note:focus-visible{outline:3px solid #fff;outline-offset:-9px;box-shadow:inset 0 0 0 6px #0c0d0f}"
+  },
+  {
+   "name": "Frost pane",
+   "kind": "card",
+   "refersTo": "pane-frost",
+   "description": "Work in development: frosted glass with full-ink text.",
+   "html": "<article class=\"ds-frost\"><h3>Threadmark</h3><p>An evidence board that turns one question into sources you can check.</p></article>",
+   "css": ".ds-frost{padding:28px;background:#dde6e5;color:#0c0d0f} .ds-frost h3{margin:0 0 .5rem;font-size:1.6rem;font-weight:560;font-stretch:114%}"
+  },
+  {
+   "name": "Device frame",
+   "kind": "custom",
+   "refersTo": "phone",
+   "description": "A real screenshot in a thin black bezel.",
+   "html": "<div class=\"ds-phone\"><div style=\"height:260px;background:#fff;border-radius:30px\"></div></div>",
+   "css": ".ds-phone{width:200px;padding:6px;background:#050506;border-radius:36px;box-shadow:0 24px 34px -20px rgba(0,0,0,.6)}"
+  },
+  {
+   "name": "Store link",
+   "kind": "custom",
+   "refersTo": "pane",
+   "description": "Underlined text link with a drawn arrow.",
+   "html": "<a class=\"ds-go\" href=\"#\">View on the App Store<svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M4.5 11.5l7-7M6 4.5h5.5V10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"square\"/></svg></a>",
+   "css": ".ds-go{display:inline-flex;align-items:center;min-height:44px;font-weight:640;color:#0c0d0f;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.3em} .ds-go svg{margin-left:.4em} .ds-go:hover{color:#1d4ed8}"
+  }
+ ],
+ "narrative": {
+  "northStar": "The Glass Wall",
+  "overview": "The page is one steel-framed glass partition. Matte black glazing bars are the only line ink; every app is a pane in the grid. Clear, seeded-white glass is the resting state. An app that is out in the world is lit from behind in its own icon colour. Work still in development is frosted.",
+  "keyCharacteristics": [
+   "Black bars at a constant 8px (6px on phones); text sits inside a pane and never crosses a bar.",
+   "One grotesque (Archivo, variable width and weight) for everything.",
+   "Real screens in thin black bezels, sometimes cropped by the pane edge like a window.",
+   "One slow brightening on load; no flashing, no looping motion."
+  ],
+  "rules": [
+   {
+    "name": "The Lit Means Live Rule",
+    "body": "A saturated pane is an app that is out in the world. Unreleased work is frosted and never lit.",
+    "section": "colors"
+   },
+   {
+    "name": "The Two Notes Rule",
+    "body": "Only the action panes use cobalt or oxblood; neither colours an app.",
+    "section": "colors"
+   },
+   {
+    "name": "The Pane Type Rule",
+    "body": "Type is set inside a pane and never across a glazing bar.",
+    "section": "typography"
+   },
+   {
+    "name": "The Flat Wall Rule",
+    "body": "Panes never lift; only the phones inside them cast a shadow.",
+    "section": "elevation"
+   }
+  ],
+  "dos": [
+   "Do keep every claim traceable to a link, a number from git, or a real screenshot.",
+   "Do label sample data and in-development work on the pane itself.",
+   "Do leave one slow brightening as the only load motion, and remove it under reduced motion."
+  ],
+  "donts": [
+   "Don't light a pane for unreleased work, or frost a live app.",
+   "Don't add kickers, section numbers or icon-over-heading card rows; the wall is the structure.",
+   "Don't use glyph arrows or emoji as icons; draw them.",
+   "Don't let a pane carry a hard offset shadow or gradient text."
+  ]
+ }
+}

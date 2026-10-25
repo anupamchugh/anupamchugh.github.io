@@ -48,6 +48,8 @@ export default function ResumePage() {
           </span>
         ))}
         {' · '}
+        <a href="/resume.pdf">pdf</a>
+        {' · '}
         <a href="/resume.json">resume.json</a>
       </p>
 

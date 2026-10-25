@@ -1,15 +1,15 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Support — Playlist Hunter',
-  description: 'Get help with the Playlist Hunter iOS app.',
+  title: 'Support — EchoHunt Music',
+  description: 'Get help with the EchoHunt Music iOS app.',
 };
 
 export default function SupportPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
       <div className="prose">
-        <h1>Playlist Hunter Support</h1>
+        <h1>EchoHunt Music Support</h1>
         <p>
           Need help with the app? Here are answers to common questions.
         </p>
