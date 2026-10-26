@@ -21,8 +21,8 @@ if start < 0:
 window = html[start:start + 450]
 if "present" in window.lower():
     sys.exit("JournalDev line contains present")
-if 'children\\":\\"\\"' not in window and 'children":""' not in window:
-    sys.exit("JournalDev date was not the empty value")
+if "2015–2019" not in html:
+    sys.exit("JournalDev years 2015–2019 missing from the built resume")
 PY
 
 # Fail closed: any secret-shaped text or private file in the export, a scan that cannot run, and a scan that
