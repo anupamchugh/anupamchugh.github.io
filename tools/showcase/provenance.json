@@ -571,6 +571,30 @@
    "date_basis": "taken in this session",
    "frozen": false,
    "note": "iPhone Duo simulator (iOS 27.1), clock set to 9:41. Debug build, unsigned. The Duo side panel (clock, signal, tab bar) is part of the capture. Flickpot, How to Play step 1, dark, shown on the first Play tap. Same build."
+  },
+  "breakline-home.webp": {
+   "source": "tools/showcase/src-assets/apps/breakline-home.png",
+   "kind": "capture",
+   "date": "2026-10-28",
+   "date_basis": "taken in the PoseKit check session",
+   "frozen": false,
+   "note": "iPhone Duo simulator (iOS 27.1), light. Built from SurfCoach (Breakline) main at 72d1a68 (28 Oct, the PoseKit merge), Debug, unsigned. The smash is the sample session in the app, not a real person. The Duo side panel (clock, signal, controls) is part of the capture. Captured by an agy agent for the PoseKit before/after check. Home tab."
+  },
+  "breakline-pose-overlay.webp": {
+   "source": "tools/showcase/src-assets/apps/breakline-pose-overlay.png",
+   "kind": "capture",
+   "date": "2026-10-28",
+   "date_basis": "taken in the PoseKit check session",
+   "frozen": false,
+   "note": "iPhone Duo simulator (iOS 27.1), light. Built from SurfCoach (Breakline) main at 72d1a68 (28 Oct, the PoseKit merge), Debug, unsigned. The smash is the sample session in the app, not a real person. The Duo side panel (clock, signal, controls) is part of the capture. Captured by an agy agent for the PoseKit before/after check. Pose overlay at contact."
+  },
+  "breakline-result.webp": {
+   "source": "tools/showcase/src-assets/apps/breakline-result.png",
+   "kind": "capture",
+   "date": "2026-10-28",
+   "date_basis": "taken in the PoseKit check session",
+   "frozen": false,
+   "note": "iPhone Duo simulator (iOS 27.1), light. Built from SurfCoach (Breakline) main at 72d1a68 (28 Oct, the PoseKit merge), Debug, unsigned. The smash is the sample session in the app, not a real person. The Duo side panel (clock, signal, controls) is part of the capture. Captured by an agy agent for the PoseKit before/after check. Session card sheet."
   }
  }
 }
