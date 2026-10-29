@@ -21,6 +21,9 @@ export default function Hero() {
               textareaClassName="min-h-40 text-4xl leading-tight sm:text-5xl"
             />
           </h1>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-secondary">
+            avg coder, above avg manager. engineered managers and managed engineers.
+          </p>
           <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <Link href="/work/" className="text-primary hover:underline underline-offset-4">
               see my work

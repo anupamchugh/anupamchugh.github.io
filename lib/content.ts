@@ -22,12 +22,14 @@ export type NavItem = { href: string; label: string };
 export const navItems: NavItem[] = [
   { href: "/posts/", label: "writing" },
   { href: "/work/", label: "work" },
+  { href: "/showcase/", label: "showcase" },
   { href: "/apps/", label: "apps" },
   { href: "/photos/", label: "photos" },
   { href: "/notes/", label: "notes" },
   { href: "/reviews/", label: "reviews" },
   { href: "/review/", label: "review" },
   { href: "/about/", label: "about" },
+  { href: "/resume/", label: "resume" },
 ];
 
 export const heroContent = {
