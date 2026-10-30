@@ -43,8 +43,8 @@ export default function ResumePage() {
       <section className="mt-12 border-t border-border pt-8">
         <h2 className="text-xl font-semibold text-primary">What I&apos;m building now</h2>
         <p className="mt-4 leading-7 text-secondary">
-          Glint and TradeShot are an in-development exploration of personalized trading agents and better mental models for a trading day.
-          The goal is to bring evidence, risk and context into decisions. I also take on freelance work: right now I&apos;m helping my landlord with <a className="underline" href="https://meamistays.com/">Meami Stays</a>, a personal booking platform for his homes. I help with the website, bookings, guest communication and marketing.
+          Glint and TradeShot are an in-development trading companion for when the market feels like a casino.
+          The idea: revisit trades on a chart, spot habits, and reward sticking to a plan. Good decisions deserve attention too. I also take on freelance work: right now I&apos;m helping my landlord with <a className="underline" href="https://meamistays.com/">Meami Stays</a>, a personal booking platform for his homes. I help with the website, bookings, guest communication and marketing.
         </p>
         <p className="mt-4 leading-7 text-secondary">When I&apos;m not building, I write online, take photographs, watch films and follow cricket. These days I talk to agents, too.</p>
         <p className="mt-3 text-sm text-secondary"><a className="underline" href="/work/">Selected work</a>{' · '}<a className="underline" href="https://medium.com/@anupamchugh/list/my-tech-articles-like-sort-of-okay-cfc0750bb50e">My tech articles</a>{' · '}<a className="underline" href="https://iosdevie.substack.com">iOSDevie</a>{' · '}<a className="underline" href="https://humorbytes.substack.com">Humor Bytes</a>{' · '}<a className="underline" href="https://thebigtech.substack.com">Big Tech</a></p>
