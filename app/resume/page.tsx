@@ -1,99 +1,51 @@
 import { Metadata } from 'next';
-import { resume } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'resume',
-  description: 'resume of anupam chugh, ios and macos engineer.',
+  title: 'career & resume',
+  description: 'Anupam Chugh: building products, scouting ideas, and helping people tell their stories.',
 };
-
-type Resume = {
-  basics: {
-    name: string;
-    label: string;
-    email: string;
-    summary: string;
-    profiles: { network: string; url: string }[];
-  };
-  work: {
-    name: string;
-    position: string;
-    startDate?: string;
-    endDate?: string;
-    summary: string;
-  }[];
-  projects: { name: string; description: string; url: string }[];
-  skills: { name: string; keywords: string[] }[];
-};
-
-function dates(start?: string, end?: string) {
-  if (!start) return '';
-  return `${start}–${end ?? 'present'}`;
-}
 
 export default function ResumePage() {
-  const pageResume: Resume = resume;
-  const { basics, work, projects, skills } = pageResume;
-
   return (
-    <div className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
-      <h1 className="text-3xl font-semibold text-primary">{basics.name.toLowerCase()}</h1>
-      <p className="mt-2 text-secondary">{basics.label.toLowerCase()}</p>
-      <p className="mt-4 text-sm leading-6 text-secondary">{basics.summary}</p>
-      <p className="mt-3 text-sm leading-6 text-secondary">
-        <a href={`mailto:${basics.email}`}>{basics.email}</a>
-        {basics.profiles.map((profile) => (
-          <span key={profile.network}>
-            {' · '}
-            <a href={profile.url}>{profile.network.toLowerCase()}</a>
-          </span>
-        ))}
-        {' · '}
-        <a href="/resume.pdf">pdf</a>
-        {' · '}
-        <a href="/resume.json">resume.json</a>
+    <main className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
+      <p className="text-sm text-secondary">product · engineering · community</p>
+      <h1 className="mt-3 text-3xl font-semibold text-primary">Anupam Chugh</h1>
+      <p className="mt-2 text-secondary">Average programmer. Above-average manager.</p>
+      <p className="mt-6 leading-7 text-secondary">
+        I build apps. I find writers. I like the work between an idea and the person it reaches.
+        That has taken me from delivery apps and crop cameras to running an engineering publication, and now to building with AI agents.
       </p>
-
+      <p className="mt-5 text-sm leading-7 text-secondary">
+        <a className="underline" href="/resume-product.pdf">Download product résumé (PDF)</a>{' · '}
+        <a className="underline" href="/resume.pdf">Download the earlier story résumé (PDF)</a>{' · '}
+        <a className="underline" href="/posts/ten-years-of-doing-stuff/">Read the longer career story</a>{' · '}
+        <a className="underline" href="/work/">Explore selected work</a>
+      </p>
       <section className="mt-12 border-t border-border pt-8">
-        <h2 className="text-sm font-semibold text-primary">work</h2>
-        <div className="mt-5 space-y-5">
-          {work.map((job) => (
-            <div key={job.name} className="grid grid-cols-[6rem_1fr] gap-4">
-              <div className="text-sm text-tertiary tabular-nums">{dates(job.startDate, job.endDate)}</div>
-              <div>
-                <h3 className="font-medium text-primary">
-                  {job.position.toLowerCase()}, {job.name.toLowerCase()}
-                </h3>
-                <p className="mt-1 text-sm leading-6 text-secondary">{job.summary}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <h2 className="text-xl font-semibold text-primary">The builder</h2>
+        <p className="mt-4 leading-7 text-secondary">
+          At MOBEY I built customer and driver apps. At Aged Care Decisions I shipped white-label apps for different teams,
+          changing layouts, skins and configurations around a shared app. At Agricx I led Android work and built its first iOS app.
+        </p>
+        <p className="mt-3 text-sm text-secondary"><a className="underline" href="https://www.youtube.com/watch?v=-VCwMGz0Zvw">MOBEY on 7 News</a>{' · '}<a className="underline" href="/posts/ten-years-of-doing-stuff/">MOBEY and Agricx in the career story</a></p>
       </section>
-
       <section className="mt-12 border-t border-border pt-8">
-        <h2 className="text-sm font-semibold text-primary">projects</h2>
-        <div className="mt-5 space-y-4">
-          {projects.map((project) => (
-            <div key={project.name}>
-              <h3 className="font-medium text-primary">
-                <a href={project.url}>{project.name.toLowerCase()}</a>
-              </h3>
-              <p className="mt-1 text-sm leading-6 text-secondary">{project.description}</p>
-            </div>
-          ))}
-        </div>
+        <h2 className="text-xl font-semibold text-primary">The scout</h2>
+        <p className="mt-4 leading-7 text-secondary">
+          As Managing Editor of Better Programming, I worked with Medium on curation, distribution, product feedback and editorial tools.
+          I found writers, reached out, helped them onboard and supported their work. Coffee Bytes grew out of the same instinct: put other people in front of readers.
+        </p>
+        <p className="mt-3 text-sm text-secondary"><a className="underline" href="https://medium.com/@coffee_bytes">Coffee Bytes</a>{' · '}<a className="underline" href="https://medium.com/better-programming/better-programming-has-a-new-editor-4f4ee04fa899">My farewell</a></p>
       </section>
-
       <section className="mt-12 border-t border-border pt-8">
-        <h2 className="text-sm font-semibold text-primary">skills</h2>
-        <div className="mt-5 space-y-2 text-sm leading-6 text-secondary">
-          {skills.map((skill) => (
-            <p key={skill.name}>
-              <span className="text-primary">{skill.name.toLowerCase()}</span>: {skill.keywords.join(', ').toLowerCase()}
-            </p>
-          ))}
-        </div>
+        <h2 className="text-xl font-semibold text-primary">What I&apos;m building now</h2>
+        <p className="mt-4 leading-7 text-secondary">
+          Glint and TradeShot are an in-development exploration of personalized trading agents and better mental models for a trading day.
+          The goal is to bring evidence, risk and context into decisions. I also take on freelance work: right now I&apos;m helping my landlord with <a className="underline" href="https://meamistays.com/">Meami Stays</a>, a personal booking platform for his homes. I help with the website, bookings, guest communication and marketing.
+        </p>
+        <p className="mt-4 leading-7 text-secondary">When I&apos;m not building, I write online, take photographs, watch films and follow cricket. These days I talk to agents, too.</p>
+        <p className="mt-3 text-sm text-secondary"><a className="underline" href="/work/">Selected work</a>{' · '}<a className="underline" href="https://medium.com/@anupamchugh/list/my-tech-articles-like-sort-of-okay-cfc0750bb50e">My tech articles</a>{' · '}<a className="underline" href="https://iosdevie.substack.com">iOSDevie</a>{' · '}<a className="underline" href="https://humorbytes.substack.com">Humor Bytes</a>{' · '}<a className="underline" href="https://thebigtech.substack.com">Big Tech</a></p>
       </section>
-    </div>
+    </main>
   );
 }
