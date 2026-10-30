@@ -17,7 +17,10 @@ export default function ResumePage() {
       </p>
       <p className="mt-5 text-sm leading-7 text-secondary">
         <a className="underline" href="/resume-product.pdf">Download product résumé (PDF)</a>{' · '}
-        <a className="underline" href="/resume.pdf">Download the earlier story résumé (PDF)</a>{' · '}
+        <a className="underline" href="/resume.pdf">Earlier story résumé</a>{' · '}
+        <a className="underline" href="/resume-wave.pdf">Wave résumé (earlier version)</a>{' · '}
+        <a className="underline" href="/resume-logbook.pdf">Logbook résumé (earlier version)</a>{' · '}
+        <a className="underline" href="/resume-tidechart.pdf">Tidechart résumé (earlier version)</a>{' · '}
         <a className="underline" href="/posts/ten-years-of-doing-stuff/">Read the longer career story</a>{' · '}
         <a className="underline" href="/work/">Explore selected work</a>
       </p>
