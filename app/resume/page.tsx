@@ -18,7 +18,8 @@ export default function ResumePage() {
       <p className="mt-5 text-sm leading-7 text-secondary">
         <a className="underline" href="/resume-product.pdf">Download product résumé (PDF)</a>{' · '}
         <a className="underline" href="/posts/ten-years-of-doing-stuff/">Read the longer career story</a>{' · '}
-        <a className="underline" href="/showcase/">Explore the app showcase</a>
+        <a className="underline" href="/showcase/">Explore the app showcase</a>{' · '}
+        <a className="underline" href="/posts/Moving-On-From-BP/">Editorial story</a>
       </p>
       <section className="mt-12 border-t border-border pt-8">
         <h2 className="text-xl font-semibold text-primary">The builder</h2>

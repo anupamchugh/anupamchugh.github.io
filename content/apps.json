@@ -17,11 +17,11 @@
     "version": "1.5"
   },
   {
-    "name": "Orbits",
+    "name": "Orbits: Find Common Ground",
     "slug": "common-ground",
-    "description": "plan your own trips and meetups. the store listing is find common ground.",
+    "description": "plan your own trips and meetups.",
     "status": "live",
-    "href": "https://apps.apple.com/us/app/find-common-ground/id6759101340",
+    "href": "https://apps.apple.com/us/app/orbits-find-common-ground/id6759101340",
     "icon": "/app-icons/common-ground.png",
     "tags": [
       "places",
@@ -33,11 +33,11 @@
     "version": "1.6"
   },
   {
-    "name": "EchoHunt",
+    "name": "EchoHunt Music",
     "slug": "playlist-hunter",
     "description": "i play music at random hours and never knew why the algorithm picked it, so now i just ask.",
     "status": "live",
-    "href": "https://apps.apple.com/in/app/playlist-hunter/id6756028972",
+    "href": "https://apps.apple.com/us/app/echohunt-music/id6756028972",
     "icon": "/app-icons/playlist-hunter.png",
     "tags": [
       "music",
@@ -97,11 +97,11 @@
     "version": "1.0"
   },
   {
-    "name": "ClocktowerTable",
+    "name": "Quorion Table",
     "slug": "clocktower-table",
     "description": "a storyteller console and table companion for social deduction nights.",
     "status": "live",
-    "href": "https://apps.apple.com/us/app/clocktowertable/id6761296328",
+    "href": "https://apps.apple.com/us/app/quorion-table/id6761296328",
     "icon": "/app-icons/clocktower-table.png",
     "tags": [
       "game aid",

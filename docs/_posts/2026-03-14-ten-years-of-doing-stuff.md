@@ -50,6 +50,7 @@ I was the lead Android developer, working alongside Nishant on iOS. We shipped a
 [The MOBEY notification video](https://www.youtube.com/watch?v=-VCwMGz0Zvw)
 
 ![MOBEY delivery app showing food, convenience, alcohol, marketplace and pickup categories](/screenshots/career-journey/mobey-2016.png)
+
 *MOBEY's Android app, captured in 2016.*
 
 The company shut down in August 2017. But I'd learned what it felt like to own a product end-to-end -- from architecture decisions to last-minute rebrands to the sound a driver hears when an order lands.
@@ -65,6 +66,7 @@ My JournalDev presence led to Agricx, an agri-tech startup using computer vision
 More importantly, I taught myself iOS development here and shipped their first enterprise iPad app solo. That single decision reshaped my career. I went from Android developer to mobile developer to, eventually, a SwiftUI early adopter who'd go on to write some of the framework's most-read tutorials.
 
 ![Agricx crop images prepared for analysis](/screenshots/career-journey/agricx-crop-camera.jpg)
+
 ![Agricx crop analysis screen with a marker and a count](/screenshots/career-journey/agricx-crop-analysis.jpg)
 *Cropped frames from a 2019 Agricx demo: collecting crop images and viewing an analysis. Historical screens, not a current product.*
 
@@ -134,27 +136,29 @@ Then I started building again -- differently this time.
 
 I spent time building trading tools for myself. No grand reveal here. It taught me more about systems, risk, and the difference between automation and trust than I expected.
 
-### Find Common Ground
+### Find Common Ground, now Orbits
 
 A question I kept asking friends: "Where should we eat?" Not "what's rated highest on Google Maps" but "where do *we* actually overlap?" Every group dinner started with twenty minutes of negotiation. I wanted to skip straight to the answer.
 
-[**Find Common Ground**](https://apps.apple.com/us/app/find-common-ground/id6759101340) is an iOS app that started as a place-matching experiment and kept growing. SwiftUI, SwiftData, MapKit, CloudKit, Multipeer Connectivity -- I kept finding excuses to wire in more frameworks. It now does route planning with timed timelines, trip journals with photo export, nearby discovery via MapKit search, and an async "vibe check" feature where two people react to each other's planned routes over CloudKit. The matching algorithm was the fun part; getting two people to actually complete any flow was the hard part. The one thing I got right: every shared route is a link that only opens in the app -- so the product spreads every time someone plans a Saturday with a friend.
+[**Orbits: Find Common Ground**](https://apps.apple.com/us/app/orbits-find-common-ground/id6759101340) is an iOS app that started as a place-matching experiment and kept growing. SwiftUI, SwiftData, MapKit, CloudKit, Multipeer Connectivity -- I kept finding excuses to wire in more frameworks. It now does route planning with timed timelines, trip journals with photo export, nearby discovery via MapKit search, and an async "vibe check" feature where two people react to each other's planned routes over CloudKit. The matching algorithm was the fun part; getting two people to actually complete any flow was the hard part. The one thing I got right: every shared route is a link that only opens in the app -- so the product spreads every time someone plans a Saturday with a friend.
 
 ![Common Ground welcome screen](/screenshots/career-journey/common-ground-welcome.png)
 
 ![Common Ground match results](/screenshots/career-journey/common-ground-match.png)
 
-On the [App Store](https://apps.apple.com/us/app/find-common-ground/id6759101340) now.
+See the current [App Store listing](https://apps.apple.com/us/app/orbits-find-common-ground/id6759101340) and [showcase](/showcase/#common-ground). The screens above are from an earlier build.
 
-### Playlist Hunter
+### Playlist Hunter, now EchoHunt
 
 I kept describing playlists to friends in vibes -- "late night drive through the city," "Sunday morning coffee" -- and then spending thirty minutes manually searching for songs. So I built an app that takes the vibe and does the rest.
 
-**[Playlist Hunter](https://apps.apple.com/in/app/playlist-hunter/id6756028972)** uses AI to generate Apple Music playlists from a text prompt. Room Mode lets multiple people contribute to the same playlist -- useful when everyone in the room has opinions about the aux.
+**[EchoHunt Music](https://apps.apple.com/us/app/echohunt-music/id6756028972)** began as Playlist Hunter, an app for generating Apple Music playlists from a text prompt. Room Mode let multiple people contribute to the same playlist -- useful when everyone in the room has opinions about the aux.
 
 ![Playlist Hunter](/screenshots/career-journey/playlist-hunter-login.png)
 
 ![Playlist Hunter AI](/screenshots/career-journey/playlist-hunter-ai.png)
+
+*Earlier Playlist Hunter screens. See [EchoHunt in the showcase](/showcase/#playlist-hunter) for the current name and a labelled demo.*
 
 ### Shadowbook
 

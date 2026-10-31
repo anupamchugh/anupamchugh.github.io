@@ -17,9 +17,19 @@ export default function AppsPage() {
       <JsonLd data={appsJsonLd()} />
       <h1 className="text-3xl font-semibold text-primary">apps</h1>
       <p className="mt-3 max-w-2xl text-secondary">
-        live store apps first: rifflet, orbits, echohunt. the rest of the shelf is shipped too.
-        live means live. preview means it still needs real shipping work.
+        a shelf of apps and experiments, from music and travel to private on-device tools.
+        each status says what is live and what is still being built.
       </p>
+      <p className="mt-3 max-w-2xl text-secondary">
+        want to see them working? the showcase has real screens from the shipped apps, their store
+        links, and what is still in the studio.
+      </p>
+      <a
+        href="/showcase/"
+        className="mt-4 inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-muted"
+      >
+        open the showcase
+      </a>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2">
         {[matchBoxApp, ...apps].map((app) => (

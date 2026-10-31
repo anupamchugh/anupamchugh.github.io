@@ -10,7 +10,7 @@ export default function HomeWorkTabs() {
         <Link href="/work/" className="text-sm text-secondary hover:text-primary">directory →</Link>
       </div>
 
-      <div className="mt-5 flex gap-1 border-b border-border" role="tablist" aria-label="work directory">
+      <div className="mt-5 flex gap-1 border-b border-border" role="radiogroup" aria-label="work directory">
         <input id="home-work-projects" name="home-work" type="radio" defaultChecked className="home-work-tab-input" />
         <label htmlFor="home-work-projects" className="home-work-tab-label">projects</label>
         <input id="home-work-apps" name="home-work" type="radio" className="home-work-tab-input" />
@@ -20,7 +20,7 @@ export default function HomeWorkTabs() {
       </div>
 
       <div className="mt-5 space-y-4">
-        <div id="home-work-panel-projects" role="tabpanel" aria-labelledby="home-work-projects" className="home-work-panel home-work-panel-projects">
+        <div id="home-work-panel-projects" className="home-work-panel home-work-panel-projects">
           {recentlyReviewedProjects.map((item) => (
           <Link key={item.name} href={item.href} className="group block">
             <div className="flex items-baseline justify-between gap-4">
@@ -32,7 +32,7 @@ export default function HomeWorkTabs() {
           ))}
         </div>
 
-        <div id="home-work-panel-apps" role="tabpanel" aria-labelledby="home-work-apps" className="home-work-panel home-work-panel-apps">
+        <div id="home-work-panel-apps" className="home-work-panel home-work-panel-apps">
           {apps.slice(0, 5).map((app) => (
           <Link key={app.slug} href={app.href} className="group flex gap-3">
             {app.icon && <Image src={app.icon} alt="" width={40} height={40} className="h-10 w-10 shrink-0 rounded-lg border border-border" />}
@@ -50,7 +50,7 @@ export default function HomeWorkTabs() {
           </Link>
         </div>
 
-        <div id="home-work-panel-archive" role="tabpanel" aria-labelledby="home-work-archive" className="home-work-panel home-work-panel-archive">
+        <div id="home-work-panel-archive" className="home-work-panel home-work-panel-archive">
           {selectedWork.map((item) => (
           <Link key={item.name} href={item.href} className="group block">
             <div className="flex items-baseline justify-between gap-4">

@@ -12,6 +12,9 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
       <h1 className="text-3xl font-semibold text-primary">about</h1>
+      <p className="mt-4 text-lg leading-relaxed text-secondary">
+        avg coder, above avg manager. engineered managers and managed engineers.
+      </p>
 
       <div className="prose mt-8">
         <p>
@@ -45,6 +48,14 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="mt-12 border-t border-border pt-8">
+        <h2 className="text-sm font-semibold text-primary">coffee bytes</h2>
+        <p className="mt-3 text-sm leading-6 text-secondary">
+          a Medium newsletter from 2022–2023 featuring other writers through weekly picks,
+          roundups and interviews. <a href="https://medium.com/@coffee_bytes">Explore the archive on Medium →</a>
+        </p>
       </section>
 
       <section className="mt-12 border-t border-border pt-8">

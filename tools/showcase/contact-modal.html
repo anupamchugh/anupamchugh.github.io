@@ -1,0 +1,24 @@
+
+<!-- Email contact dialog: builds a mailto draft in the visitor's own mail app. Nothing is sent by this page. -->
+<div id="contact-modal" class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-h" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-dialog">
+    <button type="button" class="modal-close" data-close>Close</button>
+    <h2 id="contact-h">Work with me</h2>
+    <p class="modal-lede">Have an on-device AI app, high-craft Apple experience, or financial tool that should exist? Drop a line here and your email app will open a ready-to-send draft. Nothing is sent until you press send.</p>
+    <form id="contact-form">
+      <div class="form-group">
+        <label for="contact-from">Your name and contact (email or X handle)</label>
+        <input type="text" id="contact-from" required autocomplete="name" placeholder="Name, then email or @handle">
+      </div>
+      <div class="form-group">
+        <label for="contact-msg">What should we build?</label>
+        <textarea id="contact-msg" rows="4" required placeholder="The app, who it is for, and when you need it"></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Open email draft</button>
+      <p class="direct-email">No mail app on this device? Write to <a href="mailto:anupamchugh@gmail.com">anupamchugh@gmail.com</a> <button type="button" class="copy-btn" id="contact-copy">Copy address</button></p>
+      <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+

@@ -5,9 +5,9 @@ export const resume = resumeRecord;
 
 export const siteConfig = {
   name: "Anupam Chugh",
-  title: "anupam chugh - ios & macos engineer",
+  title: "anupam chugh - app builder & editorial leader",
   description:
-    "eleven years of apps, two and a half editing other engineers. the writing is an archive. the work is shipping.",
+    "apps, writing, and editorial leadership: work, stories, and experiments by anupam chugh.",
   url: "https://anupamchugh.github.io",
   caseStyle: "lowercase",
   social: {
@@ -22,12 +22,14 @@ export type NavItem = { href: string; label: string };
 export const navItems: NavItem[] = [
   { href: "/posts/", label: "writing" },
   { href: "/work/", label: "work" },
+  { href: "/showcase/", label: "showcase" },
   { href: "/apps/", label: "apps" },
   { href: "/photos/", label: "photos" },
   { href: "/notes/", label: "notes" },
   { href: "/reviews/", label: "reviews" },
   { href: "/review/", label: "review" },
   { href: "/about/", label: "about" },
+  { href: "/resume/", label: "resume" },
 ];
 
 export const heroContent = {
@@ -47,7 +49,11 @@ export const heroStats: Stat[] = [
   { label: "writing", value: "2015–23", description: "archive, not a current blog" },
   { label: "open source", value: "900+", description: "stars on iowncode" },
   { label: "archive", value: "300+", description: "articles and drafts under review" },
-  { label: "apps", value: "18", description: "small shipped experiments" },
+  {
+    label: "apps",
+    value: String(appRecords.filter((record) => record.status === "live").length),
+    description: "small shipped experiments",
+  },
 ];
 
 export type AppItem = {

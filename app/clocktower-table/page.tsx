@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'ClocktowerTable',
+  title: 'Quorion Table',
   description: 'A dark storyteller console for script setup, role mapping, and live table play.',
 };
 
@@ -38,13 +38,13 @@ export default function ClocktowerTablePage() {
       <section className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
         <div>
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-tertiary">
-            ClocktowerTable
+            Quorion Table
           </p>
           <h1 className="mt-3 text-4xl font-semibold tracking-tight text-primary sm:text-5xl">
             A dark storyteller console for the table.
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-secondary">
-            ClocktowerTable is the host-facing companion for script setup, player mapping, role
+            Quorion Table is the host-facing companion for script setup, player mapping, role
             reference, and phase flow. The browser version mirrors the same data model as iOS so
             the prep and play surfaces stay in sync.
           </p>
