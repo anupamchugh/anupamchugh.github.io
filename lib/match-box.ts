@@ -7,6 +7,7 @@ export const matchBoxApp: AppItem = {
   href: '/match-box/',
   status: 'building',
   tags: ['macOS', 'privacy', 'on-device'],
+  platforms: ['macOS'],
   icon: '/apps/match-box-fictional-demo.png',
 };
 

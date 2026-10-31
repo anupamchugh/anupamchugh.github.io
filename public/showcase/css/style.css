@@ -193,6 +193,24 @@ h3 { font-size: clamp(1.9rem, 3.2vw, 3rem); font-stretch: 114%; line-height: 1.0
 .p-app .nm { font-size: 1.45rem; font-weight: 580; font-stretch: 114%; line-height: 1.1; }
 .p-app .ds { font-size: 0.95rem; line-height: 1.4; max-width: 38ch; }
 
+/* ---- origins: creator stories stay distinct from product premises ----------------------------- */
+.origins .p-title { grid-column: 1 / -1; display: grid; gap: 0.6rem; }
+.origins .p-title p { color: var(--ink-2); }
+.p-origin { grid-column: span 4; display: flex; flex-direction: column; gap: 0.8rem; min-height: 250px; }
+.origin-demo { margin: 0; padding: 0.6rem; border: 1px solid var(--line); border-radius: 12px; background: #f8f7f4; }
+.origin-demo img { display: block; width: 100%; max-height: 260px; object-fit: contain; border-radius: 7px; }
+.origin-demo figcaption { margin-top: 0.45rem; color: var(--muted); font-size: 0.75rem; line-height: 1.35; text-align: center; }
+.origin-id { display: flex; align-items: center; gap: 0.8rem; }
+.origin-id img, .origin-initial { width: 56px; height: 56px; flex: none; border-radius: 14px; object-fit: cover; box-shadow: 0 8px 14px -8px rgba(0, 0, 0, 0.38); }
+.origin-initial { display: grid; place-items: center; background: var(--cobalt); color: #fff; font-size: 1.05rem; font-weight: 650; }
+.origin-id h3 { font-size: 1.35rem; line-height: 1.12; }
+.origin-kind { color: var(--ink-2); font-size: 0.73rem; font-weight: 620; letter-spacing: 0.06em; text-transform: uppercase; }
+.origin-kind.premise { color: #465450; }
+.p-origin > p:not(.origin-kind) { font-size: 0.96rem; line-height: 1.45; }
+.p-origin > .go, .origin-links { margin-top: auto; }
+.origin-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
+.origin-links .go { font-size: 0.88rem; }
+
 /* ---- in the studio: frosted glass = in development ------------------------------------------------------ */
 .frost { isolation: isolate; background-color: #dde6e5; background-image: none; }
 .bgblur { position: absolute; inset: -40px; z-index: -1; width: calc(100% + 80px); max-width: none; height: calc(100% + 80px); object-fit: cover; filter: blur(28px) saturate(0.55); opacity: 0.24; }

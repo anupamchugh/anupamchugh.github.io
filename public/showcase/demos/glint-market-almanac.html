@@ -1,0 +1,919 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Glint Market Almanac</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap">
+<style>
+/* Layout: an almanac page for a product system. Day Strip masthead → state vocabulary → iPhone → Mac → web → parts → Orbit → order of work. */
+:root{
+  --paper:#FBFBF8; --ink:#16181D; --ink-2:#5A5F6B; --rule:#D9DAD4; --wash:#F0F0EB;
+  --session:#2B3A8C; --session-wash:#E6E8F4;
+  --up:#157F45; --down:#C8302E; --stale:#B86A00; --papermode:#6B4FD8; --live:#D2401F; --on-pill:#FFFFFF;
+  --orbit-bg:#0D0B12; --orbit-surface:#1D1A24; --orbit-ink:#F3F0F7; --orbit-muted:#9B95A6; --orbit:#B77CFF;
+  --numerals:"Teko","Arial Narrow",system-ui,sans-serif;
+  --ui:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121211; --ink:#ECEAE3; --ink-2:#A3A19A; --rule:#2E2D2A; --wash:#1B1A18;
+  --session:#8F99E0; --session-wash:#1E2036;
+  --up:#3BAF6E; --down:#E35A50; --stale:#D99A3C; --papermode:#A08BEA; --live:#E8765A; --on-pill:#121211; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#121211; --ink:#ECEAE3; --ink-2:#A3A19A; --rule:#2E2D2A; --wash:#1B1A18;
+  --session:#8F99E0; --session-wash:#1E2036;
+  --up:#3BAF6E; --down:#E35A50; --stale:#D99A3C; --papermode:#A08BEA; --live:#E8765A; --on-pill:#121211; color-scheme:dark}
+*{box-sizing:border-box}
+::selection{background:var(--session);color:var(--paper)}
+html{scrollbar-color:var(--rule) var(--paper)}
+body{background:var(--paper);color:var(--ink);font:15px/1.55 var(--ui);padding-inline:16px;padding-block:32px 72px;font-variant-numeric:tabular-nums}
+a{color:var(--session);text-underline-offset:3px}
+a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--session);outline-offset:3px}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:64px}
+section,.mast{grid-template-columns:minmax(0,1fr)}
+section>*,.mast>*{min-width:0}
+h1,h2{font-family:var(--numerals);font-weight:500;line-height:.92;letter-spacing:.005em;margin:0;text-wrap:balance}
+h1{font-size:clamp(56px,9vw,104px)}
+h2{font-size:clamp(38px,5vw,54px)}
+h3{font:600 16px/1.3 var(--ui);margin:0}
+p{margin:0;max-width:68ch}
+.muted{color:var(--ink-2)}
+code{font:13px ui-monospace,"SF Mono",Menlo,monospace}
+
+/* masthead */
+.mast{display:grid;gap:22px;border-bottom:2px solid var(--ink);padding-bottom:28px}
+.mast-top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.date{display:grid;justify-items:end;text-align:right}
+.date .d{font:500 96px/.8 var(--numerals);color:var(--session)}
+.date .m{font:500 22px/1 var(--numerals);letter-spacing:.06em}
+.lead{font-size:18px;color:var(--ink-2)}
+.strip-frame{display:grid;gap:6px}
+.strip-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2)}
+.strip-legend span{display:inline-flex;align-items:center;gap:6px}
+.key{width:14px;height:10px;display:inline-block;border:1px solid var(--rule)}
+.key.pre{background:repeating-linear-gradient(135deg,var(--ink-2) 0 1px,transparent 1px 4px)}
+.key.sess{background:var(--session-wash);border-color:var(--session)}
+.key.pin{width:10px;height:10px;border-radius:50%;background:var(--session);border:0}
+.key.now{width:2px;height:12px;background:var(--ink);border:0}
+svg.daystrip{width:100%;display:block;overflow:visible}
+nav.toc{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px}
+nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:1px}
+nav.toc a:hover{border-color:var(--session);color:var(--session)}
+
+section{display:grid;gap:22px;scroll-margin-top:20px}
+.sec-head{display:grid;gap:10px;padding-top:16px;border-top:3px solid var(--ink);position:relative}
+.sec-head::before{content:"";position:absolute;left:0;right:0;top:3px;border-top:1px solid var(--ink)}
+.sec-head p{color:var(--ink-2)}
+
+/* state vocabulary */
+.vocab{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.v{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 16px;display:grid;gap:8px;align-content:start;min-width:0}
+.v .sample{display:flex;gap:8px;align-items:center;flex-wrap:wrap;min-height:28px}
+.v p{font-size:13.5px;color:var(--ink-2)}
+.tokens{overflow-x:auto;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:13.5px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:middle}
+th{font:500 15px/1 var(--numerals);letter-spacing:.06em;color:var(--ink-2);background:var(--wash)}
+tr:last-child td{border-bottom:0}
+.chip2{display:inline-flex;gap:0;border:1px solid var(--rule)}
+.chip2 i{width:26px;height:18px;display:block}
+.typeset{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0;border:1px solid var(--rule)}
+.typeset>div{padding:16px;border-right:1px solid var(--rule);display:grid;gap:6px;min-width:0}
+.typeset>div:last-child{border-right:0}
+.typeset .big{font:500 64px/.85 var(--numerals)}
+
+/* shared atoms (used in phone, mac, web) */
+.tag{display:inline-flex;align-items:center;gap:5px;font:600 11px/1 var(--ui);letter-spacing:.05em;text-transform:uppercase;padding:3px 6px;border:1px solid currentColor;white-space:nowrap}
+.tag.fresh{color:var(--session)}
+.tag.stale{color:var(--stale)}
+.tag.gap{color:var(--stale);background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--stale) 35%,transparent) 0 1px,transparent 1px 4px)}
+.tag.paper{color:var(--papermode)}
+.tag.live{color:var(--live)}
+.tag.lock{color:var(--ink-2)}
+.pill{font:600 11.5px/1 var(--ui);padding:4px 6px;min-width:60px;text-align:right;color:var(--on-pill);display:inline-block}
+.pill.up{background:var(--up);color:var(--on-pill)} .pill.down{background:var(--down);color:var(--on-pill)}
+.up{color:var(--up)} .down{color:var(--down)}
+.rows{display:grid;border-top:1px solid var(--ink)}
+.r{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--rule);font-size:12.5px}
+.r .sym{font-weight:600;letter-spacing:.01em}
+.r .sub{font-size:11px;color:var(--ink-2)}
+.r.gaprow{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--stale) 30%,transparent) 0 1px,transparent 1px 7px)}
+.r.gaprow.dense{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--stale) 40%,transparent) 0 1px,transparent 1px 3px)}
+.fresh-line{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--ink-2)}
+.rng{display:flex;gap:2px;font:500 15px/1 var(--numerals);letter-spacing:.04em;color:var(--ink-2)}
+.rng span{padding:4px 8px 2px;border:1px solid transparent}
+.rng .on{border-color:var(--ink);color:var(--ink)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.stat-grid div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:6px 8px;display:grid}
+.stat-grid .k{font-size:11px;color:var(--ink-2)} .stat-grid .val{font-size:13px;font-weight:600}
+.price{font:500 40px/.85 var(--numerals);letter-spacing:.01em}
+.ans{font-size:12.5px;line-height:1.45}
+.ask{border:1px solid var(--rule);padding:8px 10px;font-size:12.5px;color:var(--ink-2);background:var(--wash)}
+.seg{display:flex;border:1px solid var(--ink);font-size:11.5px;font-weight:600}
+.seg span{flex:1;text-align:center;padding:5px 4px;color:var(--ink-2)}
+.seg .on{background:var(--ink);color:var(--paper)}
+.mode{display:flex;justify-content:space-between;gap:8px;padding:7px 9px;font-size:11.5px;font-weight:600;border:1px solid currentColor}
+.mode.paper{color:var(--papermode);background:color-mix(in srgb,var(--papermode) 8%,transparent)}
+.ledger{border:1px solid var(--ink);display:grid}
+.ledger .lr{display:flex;justify-content:space-between;gap:8px;padding:6px 9px;border-bottom:1px solid var(--rule);font-size:12px}
+.ledger .lr:last-child{border-bottom:0}
+.ledger .lr span:first-child{color:var(--ink-2)}
+.approve{background:var(--session);color:var(--paper);text-align:center;font-weight:600;font-size:14px;padding:12px;border-radius:12px}
+.decline{text-align:center;font-weight:600;font-size:13px;color:var(--ink-2);padding:8px}
+svg.chart{width:100%;display:block}
+.chain{display:grid;grid-template-columns:1fr auto 1fr;font-size:11px}
+.chain div{padding:4px 2px;border-bottom:1px solid var(--rule)}
+.chain .h{font:500 13px/1 var(--numerals);letter-spacing:.05em;color:var(--ink-2)}
+.chain .k{font-weight:700;text-align:center;padding-inline:10px}
+.chain .c{text-align:right}
+.chain .atm{background:var(--session-wash)}
+.oi{height:5px;display:inline-block;vertical-align:middle;margin-inline:4px;background:var(--up)}
+.oi.put{background:var(--down)}
+
+/* phones */
+.phones{display:flex;flex-wrap:wrap;gap:26px}
+figure{margin:0;display:grid;gap:10px;align-content:start;width:320px;max-width:100%}
+figure.wide{width:100%}
+figcaption{font-size:13px;color:var(--ink-2);max-width:60ch}
+figcaption b{display:block;color:var(--ink);font:500 22px/1 var(--numerals);letter-spacing:.02em;margin-bottom:3px}
+.phone{width:100%;aspect-ratio:320/700;background:var(--paper);color:var(--ink);border:1px solid var(--ink);border-radius:40px;padding:12px 14px 10px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.sb{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:600;padding:3px 12px 2px}
+.sbi{display:inline-flex;gap:5px;align-items:center}
+.lt{font:700 26px/1.05 var(--ui);letter-spacing:-.02em}
+.sub-lt{font-size:11px;color:var(--ink-2);margin-top:-4px}
+.tabs{margin-top:auto;display:flex;justify-content:space-around;padding:7px 2px 3px;border-top:1px solid var(--rule);font-size:11px;color:var(--ink-2)}
+.tabs span{display:grid;justify-items:center;gap:2px}
+.tabs svg{width:20px;height:20px}
+.tabs .on{color:var(--session)}
+.icon{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* mac */
+.mac{border:1px solid var(--ink);border-radius:12px;overflow:hidden;background:var(--paper)}
+.scroll-x{overflow-x:auto}
+.mac-bar{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid var(--rule);background:var(--wash);min-width:960px}
+.mac-bar i{width:11px;height:11px;border-radius:50%;background:var(--rule);display:inline-block}
+.mac-bar .title{flex:1;text-align:center;font-size:12px;font-weight:600}
+.mac-body{display:grid;grid-template-columns:190px minmax(0,1fr) 230px;min-width:960px;min-height:470px}
+.mac-body>div{padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.side{background:var(--wash);border-right:1px solid var(--rule);font-size:12.5px}
+.side .grp{font:500 14px/1 var(--numerals);letter-spacing:.06em;color:var(--ink-2);margin-top:6px}
+.side .it{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px}
+.side .it svg{width:16px;height:16px;color:var(--session)}
+.side .it.on{background:var(--session);color:var(--paper)}
+.side .it.on svg{color:var(--paper)}
+.margin{border-left:1px solid var(--ink);font-size:12px}
+.margin .mh{font:500 16px/1 var(--numerals);letter-spacing:.06em;color:var(--ink-2)}
+.rec{display:grid;gap:2px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+.rec span:first-child{font-size:11px;color:var(--ink-2)}
+
+/* web */
+.browser{border:1px solid var(--ink);border-radius:10px;overflow:hidden;background:var(--paper)}
+.wbar{display:flex;gap:8px;align-items:center;padding:8px 12px;background:var(--wash);border-bottom:1px solid var(--rule);min-width:960px;font-size:11px;color:var(--ink-2)}
+.wbar i{width:10px;height:10px;border-radius:50%;background:var(--rule);display:inline-block}
+.wbar .url{flex:1;background:var(--paper);border:1px solid var(--rule);padding:3px 10px;font-family:ui-monospace,Menlo,monospace;font-size:11px}
+.wnav{display:flex;align-items:center;gap:22px;padding:10px 16px;border-bottom:2px solid var(--ink);min-width:960px;font-size:13px}
+.wnav b{font:500 26px/1 var(--numerals);letter-spacing:.02em}
+.wnav .on{color:var(--session);font-weight:600;border-bottom:2px solid var(--session);padding-bottom:2px}
+.wnav .sp{flex:1}
+.cmdk{border:1px solid var(--rule);padding:5px 10px;font-size:12px;color:var(--ink-2);min-width:240px;display:flex;justify-content:space-between}
+.wstrip{padding:8px 16px 4px;border-bottom:1px solid var(--rule);min-width:960px}
+.wbody{display:grid;grid-template-columns:260px minmax(0,1fr) 250px;min-width:1000px}
+.wbody>div{padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-width:0;border-right:1px solid var(--rule)}
+.wbody>div:last-child{border-right:0;border-left:1px solid var(--ink)}
+.wl-h{font:500 15px/1 var(--numerals);letter-spacing:.06em;color:var(--ink-2)}
+
+/* parts */
+.parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,268px),1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.part{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px;display:grid;gap:10px;align-content:start;min-width:0}
+.part .nm{font:600 13px ui-monospace,"SF Mono",Menlo,monospace}
+.part p{font-size:12.5px;color:var(--ink-2)}
+
+/* orbit (its own world, shown in its own tokens) */
+.ophone{width:100%;aspect-ratio:320/700;background:var(--orbit-bg);color:var(--orbit-ink);border:1px solid var(--ink);border-radius:40px;padding:12px 14px 10px;display:flex;flex-direction:column;gap:9px;overflow:hidden;font-family:var(--ui)}
+.ophone .lt{color:var(--orbit-ink)}
+.oask{background:var(--orbit-surface);border-radius:14px;padding:9px 11px;font-size:12.5px}
+.oseg{display:flex;background:var(--orbit-surface);border-radius:10px;padding:2px;font-size:11.5px;font-weight:600}
+.oseg span{flex:1;text-align:center;padding:5px;border-radius:8px;color:var(--orbit-muted)}
+.oseg .on{background:#2C2836;color:var(--orbit-ink)}
+.omap{height:150px;border-radius:16px;background:var(--orbit-surface);overflow:hidden}
+.omap svg{width:100%;height:100%;display:block}
+.oplace{display:grid;grid-template-columns:52px 1fr;gap:9px;align-items:center;padding:8px;border-radius:14px;background:var(--orbit-surface)}
+.othumb{width:52px;height:52px;border-radius:10px;background:#2C2836;display:grid;place-items:center}
+.oplace .t{font-size:13px;font-weight:600}.oplace .m{font-size:11px;color:var(--orbit-muted)}.oplace .w{font-size:11px;color:var(--orbit)}
+.obtn{border-radius:14px;padding:11px;text-align:center;font-size:13px;font-weight:600;background:var(--orbit);color:#16091F}
+.obtn.g{background:var(--orbit-surface);color:var(--orbit-ink)}
+.otabs{margin-top:auto;display:flex;justify-content:space-around;padding:7px 2px 3px;border-top:1px solid #2C2836;font-size:11px;color:var(--orbit-muted)}
+.otabs .on{color:var(--orbit)}
+.oreceipt{border:1px dashed #3A3545;border-radius:14px;padding:10px;display:grid;gap:5px;font-size:12px}
+.oreceipt div{display:flex;justify-content:space-between}
+.oreceipt span:first-child{color:var(--orbit-muted)}
+
+/* feature map */
+.fmap{overflow-x:auto;border:1px solid var(--rule)}
+.fmap table{min-width:880px}
+.fmap td:nth-child(2){min-width:240px}
+.fmap td.job{font:500 20px/1 var(--numerals);letter-spacing:.03em;width:96px;color:var(--session)}
+.s{font:600 11px/1 var(--ui);letter-spacing:.04em;text-transform:uppercase;padding:3px 6px;white-space:nowrap;display:inline-block;border:1px solid currentColor}
+.s.b{color:var(--up)} .s.p{color:var(--stale)} .s.n{color:var(--ink-2);border-style:dashed} .s.l{color:var(--ink-2)}
+/* chat */
+.bub{max-width:88%;padding:7px 10px;font-size:12px;line-height:1.4}
+.bub.me{align-self:flex-end;background:var(--session);color:var(--paper);border-radius:14px 14px 3px 14px}
+.bub.gl{align-self:flex-start;border:1px solid var(--rule);border-radius:14px 14px 14px 3px;background:var(--paper)}
+.toolrun{font-size:11px;color:var(--ink-2);display:flex;gap:6px;flex-wrap:wrap}
+.toolrun span{border:1px solid var(--rule);padding:2px 6px}
+.composer{display:flex;gap:6px;align-items:center;border:1px solid var(--ink);border-radius:18px;padding:6px 6px 6px 12px;font-size:12px;color:var(--ink-2)}
+.composer .send{margin-left:auto;width:26px;height:26px;border-radius:50%;background:var(--session)}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chips span{font-size:11px;border:1px solid var(--rule);padding:3px 8px;border-radius:12px}
+/* ticket */
+.bs{display:grid;grid-template-columns:1fr 1fr;font-weight:700;font-size:13px}
+.bs span{text-align:center;padding:8px;border:1px solid var(--ink)}
+.bs .buy{background:var(--session);color:var(--paper);border-color:var(--session)}
+.field{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.fld{border:1px solid var(--rule);padding:5px 8px;display:grid}
+.fld .k{font-size:11px;color:var(--ink-2)} .fld .val{font-size:14px;font-weight:600}
+.opts{display:flex;gap:4px;font-size:11px;font-weight:600}
+.opts span{flex:1;text-align:center;padding:5px 2px;border:1px solid var(--rule);color:var(--ink-2)}
+.opts .on{border-color:var(--ink);color:var(--ink)}
+/* heat */
+.heat{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.heat div{padding:6px 5px;font-size:11px;font-weight:600;display:grid;gap:1px;min-height:44px;align-content:end}
+.heat div span{font-weight:500}
+.heat .weak-up{background:color-mix(in srgb,var(--up) 22%,var(--paper));color:var(--ink)}
+.heat .weak-down{background:color-mix(in srgb,var(--down) 22%,var(--paper));color:var(--ink)}
+/* scan builder + chart workspace */
+.rule{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:7px 0;border-bottom:1px solid var(--rule);font-size:12.5px}
+.rule .tok{border:1px solid var(--ink);padding:3px 8px;background:var(--paper)}
+.rule .op{color:var(--session);font-weight:700}
+.rule .and{font:500 15px/1 var(--numerals);color:var(--ink-2);letter-spacing:.05em;width:34px}
+.btn-s{border:1px solid var(--session);color:var(--session);padding:6px 12px;font-size:12px;font-weight:600;display:inline-block}
+.btn-s.fill{background:var(--session);color:var(--paper)}
+.cw{display:grid;grid-template-columns:44px minmax(0,1fr) 230px;min-width:960px}
+.tools{border-right:1px solid var(--rule);display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 0}
+.tools svg{width:22px;height:22px;padding:2px;color:var(--ink-2)}
+.tools .on{color:var(--paper);background:var(--session)}
+.ctop{display:flex;gap:14px;align-items:center;padding:8px 14px;border-bottom:1px solid var(--rule);font-size:12px;min-width:960px;flex-wrap:wrap}
+.ctop .sp{flex:1}
+.grid4{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+.grid4>div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:8px 10px;display:grid;gap:4px;min-width:0}
+.grid4>div:nth-child(2n){border-right:0}
+.ind{display:flex;justify-content:space-between;font-size:11.5px;padding:5px 0;border-bottom:1px solid var(--rule)}
+
+/* order of work */
+.work{display:grid;border-top:1px solid var(--ink)}
+.w{display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.w .when{font:500 30px/.9 var(--numerals);color:var(--session)}
+.w p{font-size:14px;color:var(--ink-2)}
+.w .gate{font-size:13px;color:var(--ink);margin-top:6px}
+@media (max-width:640px){.w{grid-template-columns:1fr;gap:4px}.date{justify-items:start;text-align:left}.date .d{font-size:72px}}
+@media (prefers-reduced-motion:no-preference){.nowline{transition:transform .6s cubic-bezier(.16,1,.3,1)}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-term" viewBox="0 0 24 24"><path class="icon" d="M4 19V5M4 19h16M7 15l4-5 3 3 5-7"/></symbol>
+  <symbol id="i-research" viewBox="0 0 24 24"><circle class="icon" cx="10.5" cy="10.5" r="5.5"/><path class="icon" d="M15 15l5 5M8.5 10.5h4M10.5 8.5v4"/></symbol>
+  <symbol id="i-port" viewBox="0 0 24 24"><rect class="icon" x="3.5" y="7" width="17" height="12" rx="1.5"/><path class="icon" d="M9 7V5h6v2M3.5 12h17"/></symbol>
+  <symbol id="i-watch" viewBox="0 0 24 24"><path class="icon" d="M12 4l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 16.4 7.2 18.9l.9-5.4L4.2 9.7l5.4-.8z"/></symbol>
+  <symbol id="i-acct" viewBox="0 0 24 24"><circle class="icon" cx="12" cy="8.5" r="3.5"/><path class="icon" d="M5 19.5c1.2-3.3 3.8-5 7-5s5.8 1.7 7 5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path class="icon" d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5h4"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path class="icon" d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4 4v-4h0.5A2.5 2.5 0 0 1 4 13.5z"/></symbol>
+  <symbol id="t-cross" viewBox="0 0 24 24"><path class="icon" d="M12 4v16M4 12h16"/></symbol>
+  <symbol id="t-trend" viewBox="0 0 24 24"><path class="icon" d="M5 18L19 6"/><circle class="icon" cx="5" cy="18" r="1.6"/><circle class="icon" cx="19" cy="6" r="1.6"/></symbol>
+  <symbol id="t-hline" viewBox="0 0 24 24"><path class="icon" d="M3 12h18M7 9v6"/></symbol>
+  <symbol id="t-fib" viewBox="0 0 24 24"><path class="icon" d="M4 5h16M4 10h16M4 14h16M4 19h16"/></symbol>
+  <symbol id="t-rect" viewBox="0 0 24 24"><rect class="icon" x="4.5" y="6.5" width="15" height="11"/></symbol>
+  <symbol id="t-text" viewBox="0 0 24 24"><path class="icon" d="M6 6h12M12 6v13"/></symbol>
+  <symbol id="t-measure" viewBox="0 0 24 24"><path class="icon" d="M4 20L20 4M7 17l2 2M10 14l2 2M13 11l2 2M16 8l2 2"/></symbol>
+  <symbol id="t-alert" viewBox="0 0 24 24"><path class="icon" d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/></symbol>
+  <symbol id="t-replay" viewBox="0 0 24 24"><path class="icon" d="M5 12a7 7 0 1 0 2-5M5 4v4h4"/></symbol>
+</svg>
+
+<main>
+<header class="mast">
+  <div class="mast-top">
+    <div style="display:grid;gap:12px">
+      <h1>Glint Market Almanac</h1>
+      <p class="lead">One design system for Glint on iPhone, Mac and the web. Every number is dated to the trading day it belongs to, the way an almanac dates every hour. The masthead strip below is the system's signature: today's NSE session, drawn live from your clock.</p>
+    </div>
+    <div class="date" aria-label="Today"><span class="d" id="mast-day">3</span><span class="m" id="mast-month">OCT 2026 · SATURDAY</span></div>
+  </div>
+  <div class="strip-frame">
+    <svg class="daystrip" data-strip="live" data-h="76" aria-label="Today's NSE session from 9:00 to 15:30 IST"></svg>
+    <div class="strip-legend"><span><i class="key pre"></i>Pre-open 9:00–9:15</span><span><i class="key sess"></i>Session 9:15–15:30 IST</span><span><i class="key pin"></i>Snapshot</span><span><i class="key now"></i>Now</span><span id="strip-state"></span></div>
+  </div>
+  <p class="muted" style="font-size:13px">All prices, positions, scans and option data on this page are illustrative, not market data.</p>
+  <nav class="toc" aria-label="Sections"><a href="#world">The world</a><a href="#features">Every trading job</a><a href="#iphone">iPhone: market</a><a href="#trade">iPhone: chat and trade</a><a href="#mac">Mac</a><a href="#web">TradeShot web</a><a href="#scan">Scan builder</a><a href="#charting">Chart workspace</a><a href="#parts">Parts</a><a href="#orbit">Orbit</a><a href="#work">Order of work</a></nav>
+</header>
+
+<section id="world">
+  <div class="sec-head"><h2>Two inks and one day</h2><p>The almanac prints in black and one festival ink. Glint keeps that discipline: black for facts, indigo for the trading day. The almanac's red becomes indigo, because in Glint red only ever means a loss. Every other colour has one job and never borrows another's.</p></div>
+  <div class="vocab">
+    <div class="v"><h3>Fresh</h3><div class="sample"><span class="tag fresh">Fresh</span><span class="fresh-line">Snapshot 15:25 IST · Kite · complete</span></div><p>Indigo, the session ink. The snapshot pin on the Day Strip is the same mark.</p></div>
+    <div class="v"><h3>Stale</h3><div class="sample"><span class="tag stale">Stale</span><span class="fresh-line">2 h old · market closed</span></div><p>Amber. Says how old the data is, never just "outdated".</p></div>
+    <div class="v"><h3>Gap</h3><div class="sample"><span class="tag gap">Gap</span><span class="fresh-line">2 symbols had no 5m bars</span></div><p>Amber with hatching, so missing data reads in greyscale and for colour-blind users. Denser hatching means more is missing.</p></div>
+    <div class="v"><h3>Up and down</h3><div class="sample"><span class="pill up">+3.12%</span><span class="pill down">−1.41%</span></div><p>Green and red, only for price and P&amp;L, and always with a sign.</p></div>
+    <div class="v"><h3>Paper</h3><div class="sample"><span class="tag paper">Paper</span><span class="fresh-line">₹10,00,000 simulated</span></div><p>Violet on every surface, so simulated money never looks real.</p></div>
+    <div class="v"><h3>Live</h3><div class="sample"><span class="tag live">Live</span><span class="fresh-line">Approval sheet only</span></div><p>Vermilion, shown on the iPhone approval sheet and nowhere else.</p></div>
+  </div>
+  <div class="tokens"><table>
+    <thead><tr><th>Token</th><th>Light · dark</th><th>SwiftUI</th><th>Web</th><th>Job</th></tr></thead>
+    <tbody>
+      <tr><td>paper / ink</td><td><span class="chip2"><i style="background:#FBFBF8"></i><i style="background:#16181D"></i><i style="background:#0F1116"></i><i style="background:#ECEBE6"></i></span></td><td><code>colors.background / primaryText</code></td><td><code>--paper / --ink</code></td><td>Ground and facts</td></tr>
+      <tr><td>session</td><td><span class="chip2"><i style="background:#2B3A8C"></i><i style="background:#8E9CFF"></i></span></td><td><code>colors.session</code> (app tint)</td><td><code>--session</code></td><td>The trading day, primary action, fresh</td></tr>
+      <tr><td>up / down</td><td><span class="chip2"><i style="background:#157F45"></i><i style="background:#C8302E"></i><i style="background:#39C77A"></i><i style="background:#FF6B63"></i></span></td><td><code>colors.positive / negative</code></td><td><code>--up / --down</code></td><td>Price and P&amp;L only</td></tr>
+      <tr><td>stale</td><td><span class="chip2"><i style="background:#B86A00"></i><i style="background:#F0A83A"></i></span></td><td><code>colors.stale</code></td><td><code>--stale</code></td><td>Old snapshot, partial data, gaps</td></tr>
+      <tr><td>paper mode / live</td><td><span class="chip2"><i style="background:#6B4FD8"></i><i style="background:#D2401F"></i><i style="background:#A892FF"></i><i style="background:#FF7A5C"></i></span></td><td><code>colors.paperMode / live</code></td><td><code>--papermode / --live</code></td><td>Simulated and real money</td></tr>
+      <tr><td>rule / wash</td><td><span class="chip2"><i style="background:#D9DAD4"></i><i style="background:#F0F0EB"></i><i style="background:#2A2D35"></i><i style="background:#191C23"></i></span></td><td><code>colors.divider / surface</code></td><td><code>--rule / --wash</code></td><td>One-pixel rules and quiet fills</td></tr>
+    </tbody>
+  </table></div>
+  <div class="typeset">
+    <div><span class="big">15:25</span><p class="muted">Times, dates and big prices are set in Teko, a condensed face from the Indian Type Foundry with the narrow numerals of a wall calendar. On iPhone it appears in display moments only.</p></div>
+    <div><span style="font:700 26px/1.1 var(--ui)">Portfolio</span><span style="font:15px/1.4 var(--ui)">Body text, labels and controls stay in SF Pro with Dynamic Type, using tabular figures so prices line up in columns.</span></div>
+    <div><span style="font:600 13px/1.4 var(--ui)">Rules, not boxes</span><span class="muted" style="font-size:14px">Groups are separated by one-pixel rules and a heavier black rule under each heading. Cards are kept for sheets and the approval ledger.</span></div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="sec-head"><h2>Every trading job, one place</h2><p>Glint and TradeShot should cover what a trader today splits across Kite, TradingView, Chartink, Sensibull and a notes app. The map is grouped by the trader's job. Statuses come from type and file names in <code>Sources</code> and <code>VPS/Sources</code>; nothing here has been checked running.</p></div>
+  <div class="fmap"><table>
+    <thead><tr><th>Job</th><th>Feature</th><th>Learned from</th><th>Glint today</th><th>Where it lives</th></tr></thead>
+    <tbody>
+      <tr><td class="job" rowspan="4">Find</td><td>Rule-based scan: "close above EMA 20 and volume 2× average"</td><td>Chartink, TradingView screener</td><td><span class="s p">Partial</span> typed screen language; radar presets</td><td>TradeShot Scan, iPhone Research</td></tr>
+      <tr><td>Ask in plain words and get a scan</td><td>Glint's own</td><td><span class="s b">Built</span> Query, on-device model</td><td>Chat on every platform</td></tr>
+      <tr><td>Market overview: sector heatmap, gainers and losers, breadth</td><td>Kite, Moneycontrol</td><td><span class="s p">Partial</span> MarketOverviewView</td><td>iPhone Market, web home</td></tr>
+      <tr><td>News, filings and corporate actions</td><td>Moneycontrol, Tickertape</td><td><span class="s n">Missing</span></td><td>"Why it moved" segment</td></tr>
+      <tr><td class="job" rowspan="5">Analyse</td><td>Candles, line, area, Heikin-Ashi; log scale; timeframes 1m to 1M</td><td>TradingView</td><td><span class="s b">Built</span> CandleChart, Lightweight Charts</td><td>Chart workspace</td></tr>
+      <tr><td>Indicators and your own formulas</td><td>TradingView, Pine</td><td><span class="s p">Partial</span> GlintCore indicators and formula language</td><td>Chart workspace, scan builder</td></tr>
+      <tr><td>Drawing tools: trend line, horizontal level, Fibonacci, rectangle, measure, text</td><td>TradingView</td><td><span class="s n">Missing</span></td><td>Chart workspace tool rail</td></tr>
+      <tr><td>Multi-chart layouts, symbol compare, bar replay</td><td>TradingView</td><td><span class="s p">Partial</span> replay exists in code</td><td>Mac and web chart workspace</td></tr>
+      <tr><td>Option chain, OI, PCR, max pain; strategy payoff</td><td>Sensibull, Opstra</td><td><span class="s p">Partial</span> chain built, no payoff</td><td>Instrument → Options</td></tr>
+      <tr><td class="job" rowspan="3">Decide</td><td>Chat that shows its tools and evidence</td><td>Glint's own</td><td><span class="s b">Built</span> ChatView, agent plan card</td><td>Chat</td></tr>
+      <tr><td>Position size and risk-reward calculator</td><td>Kite margin calculator</td><td><span class="s n">Missing</span></td><td>Order ticket</td></tr>
+      <tr><td>Alerts on price, indicator or scan</td><td>Kite, TradingView</td><td><span class="s b">Built</span> MarketAlertCenter</td><td>Watchlist, chart</td></tr>
+      <tr><td class="job" rowspan="4">Act</td><td>Order ticket: market, limit, SL, SL-M; CNC, MIS, NRML</td><td>Kite</td><td><span class="s p">Paper only</span> TradeTicketSheet</td><td>iPhone ticket → Face ID</td></tr>
+      <tr><td>Bracket stop-loss and target, GTT, baskets</td><td>Kite</td><td><span class="s n">Missing</span></td><td>iPhone ticket</td></tr>
+      <tr><td>Agent proposal → one-use approval</td><td>Glint's own</td><td><span class="s l">Locked</span> gs-ac2b.18, gs-ac2b.19</td><td>iPhone approval sheet only</td></tr>
+      <tr><td>Paper trading with its own P&amp;L</td><td>TradingView paper</td><td><span class="s b">Built</span> PaperTradingComposition</td><td>Every surface, in violet</td></tr>
+      <tr><td class="job" rowspan="3">Track</td><td>Orders book, trades, positions with M2M</td><td>Kite</td><td><span class="s p">Partial</span> AccountOrder read</td><td>iPhone Portfolio → Orders</td></tr>
+      <tr><td>Holdings, P&amp;L against an index, funds and margins</td><td>Kite Console, Origin</td><td><span class="s p">Partial</span> waits on gs-3j2u.5</td><td>Portfolio</td></tr>
+      <tr><td>Tax P&amp;L and trade journal</td><td>Kite Console, Tradervue</td><td><span class="s p">Partial</span> tax view built, no journal</td><td>Portfolio → P&amp;L</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="iphone">
+  <div class="sec-head"><h2>iPhone: market screens, one strip</h2><p>Native tab bar, large titles, system sheets. The Day Strip sits under the title on every market screen, so you always know where in the session an answer was taken. Mobbin references: Origin (benchmark line), Fidelity and Public (price header and ranges), Yahoo (last refresh), Stake and Copilot (rows with pills), Sumeria (stat rows), Revolut (single decision sheet).</p></div>
+  <div class="phones">
+    <figure>
+      <div class="phone">
+        <div class="sb"><span>15:26</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+        <div class="lt">Chat</div>
+        <svg class="daystrip" data-strip="15:25" data-h="34" data-events="11:40 Breakout" aria-label="Session strip, snapshot at 15:25"></svg>
+        <div class="ask">Strongest 5m movers in the Nifty 100</div>
+        <p class="ans"><b>8 of 100 match.</b> Metals lead; TATASTEEL and HINDALCO traded above twice their usual volume.</p>
+        <div class="rows">
+          <div class="r"><div><div class="sym">TATASTEEL</div><div class="sub">Vol 2.4× avg</div></div><span>168.40</span><span class="pill up">+3.12%</span></div>
+          <div class="r"><div><div class="sym">HINDALCO</div><div class="sub">Vol 2.1× avg</div></div><span>712.05</span><span class="pill up">+2.64%</span></div>
+          <div class="r"><div><div class="sym">JSWSTEEL</div><div class="sub">Vol 1.3× avg</div></div><span>1,004.20</span><span class="pill up">+1.98%</span></div>
+          <div class="r"><div><div class="sym">ADANIENT</div><div class="sub">Vol 0.9× avg</div></div><span>2,318.00</span><span class="pill down">−1.41%</span></div>
+          <div class="r gaprow"><div><div class="sym">2 skipped</div><div class="sub">No 5m bars after 14:50</div></div><span></span><span class="tag gap">Gap</span></div>
+        </div>
+        <div class="fresh-line"><span class="tag fresh">Fresh</span>Snapshot 15:25 · Kite · 98 of 100</div>
+        <div class="tabs"><span><svg><use href="#i-term"/></svg>Terminal</span><span class="on"><svg><use href="#i-chat"/></svg>Chat</span><span><svg><use href="#i-port"/></svg>Portfolio</span><span><svg><use href="#i-watch"/></svg>Watchlist</span><span><svg><use href="#i-acct"/></svg>Account</span></div>
+      </div>
+      <figcaption><b>Chat answer with a scan</b>The answer comes first, then the rows. Skipped symbols get a hatched row of their own, so the gap is a fact on the page.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="phone">
+        <div class="sb"><span>15:26</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="lt" style="font-size:22px">TATASTEEL</div><span class="sub-lt">NSE · EQ</span></div>
+        <div style="display:flex;align-items:baseline;gap:8px"><span class="price">168.40</span><span class="up" style="font-size:12.5px;font-weight:600">+5.10 (+3.12%)</span></div>
+        <svg class="daystrip" data-strip="15:25" data-h="26" data-bare="1" aria-label="Session strip"></svg>
+        <svg class="chart" data-chart="intraday" viewBox="0 0 260 110" preserveAspectRatio="none" aria-label="Price through today's session"></svg>
+        <div class="rng"><span class="on">1D</span><span>5D</span><span>1M</span><span>6M</span><span>1Y</span><span>5Y</span></div>
+        <div class="stat-grid">
+          <div><span class="k">RSI 14</span><span class="val">68.2</span></div>
+          <div><span class="k">Volume</span><span class="val">2.4× avg</span></div>
+          <div><span class="k">Day range</span><span class="val">162.90–169.10</span></div>
+          <div><span class="k">52-week high</span><span class="val">184.60</span></div>
+        </div>
+        <div class="seg"><span class="on">Overview</span><span>Options</span><span>Why it moved</span></div>
+        <div class="tabs"><span class="on"><svg><use href="#i-term"/></svg>Terminal</span><span><svg><use href="#i-chat"/></svg>Chat</span><span><svg><use href="#i-port"/></svg>Portfolio</span><span><svg><use href="#i-watch"/></svg>Watchlist</span><span><svg><use href="#i-acct"/></svg>Account</span></div>
+      </div>
+      <figcaption><b>Instrument</b>The chart's x-axis is the Day Strip's scale, so 11:40 on the chart sits directly under 11:40 on the strip.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="phone">
+        <div class="sb"><span>15:26</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="lt" style="font-size:22px">NIFTY</div><span class="sub-lt">Weekly · Tue 6 Oct</span></div>
+        <div class="fresh-line">Spot 25,184 · ATM 25,200 · PCR 1.12</div>
+        <div class="chain">
+          <div class="h c">CALL OI</div><div class="h k">STRIKE</div><div class="h">PUT OI</div>
+          <div class="c">41k<span class="oi" style="width:22px"></span></div><div class="k">25,100</div><div><span class="oi put" style="width:40px"></span>72k</div>
+          <div class="c atm">58k<span class="oi" style="width:31px"></span></div><div class="k atm">25,200</div><div class="atm"><span class="oi put" style="width:35px"></span>63k</div>
+          <div class="c">84k<span class="oi" style="width:46px"></span></div><div class="k">25,300</div><div><span class="oi put" style="width:19px"></span>35k</div>
+          <div class="c">99k<span class="oi" style="width:54px"></span></div><div class="k">25,400</div><div><span class="oi put" style="width:10px"></span>19k</div>
+          <div class="c">63k<span class="oi" style="width:34px"></span></div><div class="k">25,500</div><div><span class="oi put" style="width:6px"></span>11k</div>
+        </div>
+        <p class="ans">The most call open interest is at <b>25,400</b> and the most put open interest at <b>25,100</b>. Option writers are holding that range into Tuesday's expiry.</p>
+        <div class="fresh-line"><span class="tag fresh">Fresh</span>Chain 15:20 IST · NFO</div>
+        <div class="tabs"><span class="on"><svg><use href="#i-term"/></svg>Terminal</span><span><svg><use href="#i-chat"/></svg>Chat</span><span><svg><use href="#i-port"/></svg>Portfolio</span><span><svg><use href="#i-watch"/></svg>Watchlist</span><span><svg><use href="#i-acct"/></svg>Account</span></div>
+      </div>
+      <figcaption><b>Option chain</b>Calls in green and puts in red, the ATM row in the session wash, and a one-line read under the chain.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="phone">
+        <div class="sb"><span>15:31</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+        <div class="lt">Portfolio</div>
+        <div class="seg"><span class="on">Holdings</span><span>P&amp;L</span><span>Funds</span></div>
+        <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap"><span class="price">₹4,82,310</span><span class="up" style="font-size:12px;font-weight:600">+₹6,240 today</span></div>
+        <div class="fresh-line" style="gap:12px"><span><b style="color:var(--session)">━</b> You +9.0%</span><span><b style="color:var(--ink-2)">┄</b> Nifty 50 +4.2%</span><span>1M</span></div>
+        <svg class="chart" data-chart="bench" viewBox="0 0 260 110" preserveAspectRatio="none" aria-label="Portfolio against Nifty 50 over one month"></svg>
+        <div class="rng"><span>1W</span><span class="on">1M</span><span>3M</span><span>6M</span><span>YTD</span><span>1Y</span></div>
+        <div class="rows">
+          <div class="r"><div><div class="sym">RELIANCE</div><div class="sub">40 sh · avg 2,812</div></div><span>1,18,420</span><span class="pill up">+1.1%</span></div>
+          <div class="r"><div><div class="sym">INFY</div><div class="sub">55 sh · avg 1,540</div></div><span>96,140</span><span class="pill down">−0.4%</span></div>
+        </div>
+        <div class="fresh-line"><span class="tag stale">Stale</span>Broker read 15:29 · market closed</div>
+        <div class="tabs"><span><svg><use href="#i-term"/></svg>Terminal</span><span><svg><use href="#i-chat"/></svg>Chat</span><span class="on"><svg><use href="#i-port"/></svg>Portfolio</span><span><svg><use href="#i-watch"/></svg>Watchlist</span><span><svg><use href="#i-acct"/></svg>Account</span></div>
+      </div>
+      <figcaption><b>Portfolio</b>Your line against the Nifty 50, the Origin idea. After the close the read turns stale and says why.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="phone">
+        <div class="sb"><span>15:26</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+        <div class="lt">Watchlist</div>
+        <div class="seg"><span class="on">Metals</span><span>Banks</span><span>Crypto</span></div>
+        <div class="rows">
+          <div class="r"><div><div class="sym">VEDL</div><div class="sub" style="color:var(--session)">Alert hit 14:02 · RSI above 70</div></div><span>462.30</span><span class="pill up">+1.12%</span></div>
+          <div class="r"><div><div class="sym">TATASTEEL</div><div class="sub">Alert · above 170.00</div></div><span>168.40</span><span class="pill up">+3.12%</span></div>
+          <div class="r"><div><div class="sym">HINDALCO</div><div class="sub">No alert</div></div><span>712.05</span><span class="pill up">+2.64%</span></div>
+          <div class="r"><div><div class="sym">NMDC</div><div class="sub">Alert · volume 2× avg</div></div><span>218.75</span><span class="pill down">−0.62%</span></div>
+          <div class="r"><div><div class="sym">SAIL</div><div class="sub">No alert</div></div><span>131.10</span><span class="pill down">−0.88%</span></div>
+        </div>
+        <svg class="daystrip" data-strip="15:26" data-h="30" data-events="14:02 VEDL" aria-label="Session strip with one alert at 14:02"></svg>
+        <div class="mode paper"><span>Paper P&amp;L today</span><span>+₹1,240</span></div>
+        <div class="tabs"><span><svg><use href="#i-term"/></svg>Terminal</span><span><svg><use href="#i-chat"/></svg>Chat</span><span><svg><use href="#i-port"/></svg>Portfolio</span><span class="on"><svg><use href="#i-watch"/></svg>Watchlist</span><span><svg><use href="#i-acct"/></svg>Account</span></div>
+      </div>
+      <figcaption><b>Watchlist and alerts</b>Alerts that fired are marked on the strip at the time they fired. Paper P&amp;L sits under the list, in violet.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="phone" style="background:color-mix(in srgb,var(--ink) 18%,var(--paper));padding-top:46px">
+        <div style="background:var(--paper);border-radius:22px 22px 0 0;margin:0 -14px -10px;padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--ink)">
+          <div style="width:36px;height:4px;border-radius:3px;background:var(--rule);margin:0 auto"></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 18px var(--ui)">Review order</span><span class="tag paper">Paper</span></div>
+          <div class="sub-lt" style="margin:0">Proposed in Chat · 15:26 IST</div>
+          <div class="ledger">
+            <div class="lr"><span>Order</span><b>BUY 10 TATASTEEL</b></div>
+            <div class="lr"><span>Type</span><span>Limit 168.00 · CNC</span></div>
+            <div class="lr"><span>Value</span><span>₹1,680.00</span></div>
+            <div class="lr"><span>Ceiling</span><span>₹2,000 · one use</span></div>
+            <div class="lr"><span>Reason</span><span>Breakout on 2.4× volume</span></div>
+            <div class="lr"><span>Quote</span><span>15:26 IST · fresh</span></div>
+          </div>
+          <div style="flex:1"></div>
+          <div class="approve">Approve with Face ID</div>
+          <div class="decline">Decline</div>
+          <div class="fresh-line" style="justify-content:center">1 of 2 proposals · swipe for the next</div>
+        </div>
+      </div>
+      <figcaption><b>Approval sheet</b>The only place an order can be approved. One proposal per sheet, Approve on its own with space around it, and paper by default. Live switches the tag to vermilion.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="trade">
+  <div class="sec-head"><h2>iPhone: chat, market and trade</h2><p>Chat is how most questions start, so its answers are the same parts as every other screen: rows, charts and proposals, each with its receipt. The order ticket follows Kite's fields and ends at Face ID, on iPhone only. Live submission stays locked until gs-ac2b.18.</p></div>
+  <div class="phones">
+    <figure>
+      <div class="phone">
+        <div class="sb"><span>11:46</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+        <div class="lt">Chat</div>
+        <div class="bub me">Why is TATASTEEL up? Should I add?</div>
+        <div class="toolrun"><span>scan metals 5m</span><span>chart 1D</span><span>filings</span><span>portfolio</span></div>
+        <div class="bub gl">It broke Tuesday's high of <b>166.20</b> at 11:40 on 2.4× volume, along with HINDALCO and JSWSTEEL. No filings today. You hold 40 shares at 151.20.</div>
+        <svg class="chart" data-chart="intraday" viewBox="0 0 260 80" preserveAspectRatio="none" aria-label="Intraday chart in the answer"></svg>
+        <div class="fresh-line"><span class="tag fresh">Fresh</span>Kite · 11:45 IST · complete</div>
+        <div class="bub gl" style="display:grid;gap:6px">Adding 10 at 168.00 with a stop at 164.00 risks ₹40.<div class="ledger"><div class="lr"><span>Proposal</span><b>BUY 10 · limit 168.00</b></div></div><span style="color:var(--session);font-weight:600">Review on this iPhone</span></div>
+        <div class="chips"><span>Show options</span><span>Set alert at 170</span><span>Compare with Nifty</span></div>
+        <div class="composer">Ask about any market<span class="send" aria-label="Send"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 17V7M7.5 11.5L12 7l4.5 4.5" fill="none" stroke="var(--paper)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      </div>
+      <figcaption><b>Chat</b>Chips show which tools ran, the answer cites the snapshot, and a proposal arrives as a ledger with one way forward: review it on iPhone.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="phone">
+        <div class="sb"><span>11:47</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 18px var(--ui)">TATASTEEL</span><span class="tag paper">Paper</span></div>
+        <div class="fresh-line">NSE · LTP 168.40 · bid 168.35 · ask 168.45</div>
+        <div class="bs"><span class="buy">BUY</span><span>SELL</span></div>
+        <div class="opts"><span class="on">CNC</span><span>MIS</span><span>NRML</span></div>
+        <div class="field"><div class="fld"><span class="k">Quantity</span><span class="val">10</span></div><div class="fld"><span class="k">Price</span><span class="val">168.00</span></div></div>
+        <div class="opts"><span>Market</span><span class="on">Limit</span><span>SL</span><span>SL-M</span></div>
+        <div class="field"><div class="fld"><span class="k">Stop-loss</span><span class="val">164.00</span></div><div class="fld"><span class="k">Target</span><span class="val">176.00</span></div></div>
+        <div class="ledger">
+          <div class="lr"><span>Value</span><span>₹1,680.00</span></div>
+          <div class="lr"><span>Risk to stop</span><b>₹40.00 · 0.08% of capital</b></div>
+          <div class="lr"><span>Reward : risk</span><b>2.0</b></div>
+          <div class="lr"><span>Margin available</span><span>₹48,210.00</span></div>
+        </div>
+        <div style="flex:1"></div>
+        <div class="approve">Buy 10 · Face ID</div>
+        <div class="fresh-line" style="justify-content:center">Live orders are locked. This order is simulated.</div>
+      </div>
+      <figcaption><b>Order ticket</b>Kite's fields, plus the risk line Kite leaves to a calculator. Buy and Approve use the session ink, never green, so a button is never mistaken for a gain. Face ID guards every order.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="phone">
+        <div class="sb"><span>14:05</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+        <div class="lt">Orders</div>
+        <div class="seg"><span class="on">Open 2</span><span>Executed</span><span>GTT</span><span>Positions</span></div>
+        <div class="rows">
+          <div class="r"><div><div class="sym">BUY TATASTEEL</div><div class="sub">10 · limit 168.00 · CNC · 11:47</div></div><span></span><span class="tag paper">Paper</span></div>
+          <div class="r"><div><div class="sym">SELL HINDALCO</div><div class="sub">25 · SL 698.00 · MIS · 12:10</div></div><span></span><span class="tag paper">Paper</span></div>
+        </div>
+        <div style="font:500 16px/1 var(--numerals);letter-spacing:.05em;color:var(--ink-2);margin-top:4px">POSITIONS · M2M</div>
+        <div class="rows">
+          <div class="r"><div><div class="sym">NIFTY 25300 CE</div><div class="sub">75 · avg 112.40 · NRML</div></div><span>131.80</span><span class="pill up">+₹1,455</span></div>
+          <div class="r"><div><div class="sym">VEDL</div><div class="sub">50 · avg 466.10 · MIS</div></div><span>462.30</span><span class="pill down">−₹190</span></div>
+        </div>
+        <div class="mode paper"><span>Day M2M</span><span>+₹1,265</span></div>
+        <svg class="daystrip" data-strip="14:05" data-h="30" data-events="11:47 Buy TATASTEEL|12:10 SL HINDALCO" aria-label="Session strip with order times"></svg>
+        <div class="tabs"><span><svg><use href="#i-term"/></svg>Terminal</span><span><svg><use href="#i-chat"/></svg>Chat</span><span class="on"><svg><use href="#i-port"/></svg>Portfolio</span><span><svg><use href="#i-watch"/></svg>Watchlist</span><span><svg><use href="#i-acct"/></svg>Account</span></div>
+      </div>
+      <figcaption><b>Orders and positions</b>Kite's order book, GTT and positions in one segmented screen. Order times are marked on the Day Strip.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="phone">
+        <div class="sb"><span>13:10</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+        <div class="lt">Market</div>
+        <svg class="daystrip" data-strip="13:10" data-h="30" data-events="11:40 Metals" aria-label="Session strip"></svg>
+        <div style="display:flex;gap:14px;font-size:12px;flex-wrap:wrap"><span><b>NIFTY</b> 25,184 <span class="up">+0.41%</span></span><span><b>BANK</b> 55,912 <span class="down">−0.18%</span></span><span><b>VIX</b> 12.8</span></div>
+        <div class="heat">
+          <div style="background:var(--up);color:var(--on-pill)">Metal<span>+2.4%</span></div>
+          <div style="background:var(--up);color:var(--on-pill)">Auto<span>+0.9%</span></div>
+          <div class="weak-up">IT<span>+0.3%</span></div>
+          <div class="weak-down">Bank<span>−0.2%</span></div>
+          <div class="weak-down">FMCG<span>−0.6%</span></div>
+          <div class="weak-up">Pharma<span>+0.6%</span></div>
+          <div style="background:var(--down);color:var(--on-pill)">Realty<span>−1.3%</span></div>
+          <div class="weak-up">Energy<span>+0.2%</span></div>
+        </div>
+        <div class="fresh-line">Advance 1,412 · decline 1,086 · unchanged 92</div>
+        <div class="seg"><span class="on">Gainers</span><span>Losers</span><span>Volume</span><span>52w</span></div>
+        <div class="rows">
+          <div class="r"><span class="sym">TATASTEEL</span><span>168.40</span><span class="pill up">+3.12%</span></div>
+          <div class="r"><span class="sym">HINDALCO</span><span>712.05</span><span class="pill up">+2.64%</span></div>
+        </div>
+        <div class="tabs"><span class="on"><svg><use href="#i-term"/></svg>Terminal</span><span><svg><use href="#i-chat"/></svg>Chat</span><span><svg><use href="#i-port"/></svg>Portfolio</span><span><svg><use href="#i-watch"/></svg>Watchlist</span><span><svg><use href="#i-acct"/></svg>Account</span></div>
+      </div>
+      <figcaption><b>Market</b>A sector heatmap with signed values, breadth, and movers. Weak moves use lighter tints with dark text so every cell stays readable.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="mac">
+  <div class="sec-head"><h2>Mac: sidebar, work, receipts</h2><p>A native split view. The sidebar holds the same five areas plus Alerts. The work column holds the strip, chart and answer. The ruled right margin holds the receipts: source, snapshot, completeness and gaps for whatever is selected.</p></div>
+  <figure class="wide">
+    <div class="mac"><div class="scroll-x">
+      <div class="mac-bar"><i></i><i></i><i></i><span class="title">Glint — TATASTEEL</span><span class="tag lock">Orders locked</span></div>
+      <div class="mac-body">
+        <div class="side">
+          <span class="grp">MARKETS</span>
+          <span class="it on"><svg><use href="#i-term"/></svg>Terminal</span>
+          <span class="it"><svg><use href="#i-chat"/></svg>Chat</span>
+          <span class="it"><svg><use href="#i-alert"/></svg>Alerts</span>
+          <span class="grp">YOU</span>
+          <span class="it"><svg><use href="#i-port"/></svg>Portfolio</span>
+          <span class="it"><svg><use href="#i-watch"/></svg>Watchlist</span>
+          <span class="it"><svg><use href="#i-acct"/></svg>Account</span>
+          <span class="grp">METALS</span>
+          <div class="rows" style="border-top:0">
+            <div class="r"><span class="sym">TATASTEEL</span><span></span><span class="up">+3.12%</span></div>
+            <div class="r"><span class="sym">HINDALCO</span><span></span><span class="up">+2.64%</span></div>
+            <div class="r"><span class="sym">NMDC</span><span></span><span class="down">−0.62%</span></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><b style="font-size:18px">TATASTEEL</b><span class="price" style="font-size:44px">168.40</span><span class="up" style="font-weight:600">+5.10 (+3.12%)</span></div>
+          <svg class="daystrip" data-strip="15:25" data-h="40" data-events="10:00 RBI policy|11:40 Breakout|14:02 VEDL alert" aria-label="Session strip"></svg>
+          <svg class="chart" data-chart="intraday" viewBox="0 0 520 150" preserveAspectRatio="none" aria-label="Price through today's session"></svg>
+          <div class="rng"><span class="on">1D</span><span>5D</span><span>1M</span><span>6M</span><span>1Y</span><span>5Y</span></div>
+          <div class="ask">Why did TATASTEEL move today?</div>
+          <p class="ans">It broke above Tuesday's high of 166.20 at 11:40 on 2.4× its usual volume, together with HINDALCO and JSWSTEEL. The move was sector-wide; there were no company filings today.</p>
+        </div>
+        <div class="margin">
+          <span class="mh">RECEIPT</span>
+          <div class="rec"><span>Snapshot</span><b>3 Oct 2026, 15:25:00 IST</b></div>
+          <div class="rec"><span>Source</span><b>Kite · NSE · 5 minute</b></div>
+          <div class="rec"><span>Completeness</span><b>75 of 75 bars</b></div>
+          <div class="rec"><span>Peers compared</span><b>HINDALCO, JSWSTEEL</b></div>
+          <div class="rec"><span>Filings checked</span><b>None today</b></div>
+          <div class="rec"><span>Gaps</span><b>None</b></div>
+          <div style="margin-top:auto" class="fresh-line"><span class="tag fresh">Fresh</span>Updated 1 min ago</div>
+        </div>
+      </div>
+    </div></div>
+    <figcaption><b>Mac terminal</b>The receipt margin is the centre-rail idea made useful: every fact behind the answer, ruled in place and never hidden behind a tap.</figcaption>
+  </figure>
+</section>
+
+<section id="web">
+  <div class="sec-head"><h2>TradeShot web: the same almanac, read-only</h2><p>TradeShot (tradeshot.co) is Glint's website. It uses the same tokens through <code>tokens.css</code>, with the strip running full width under the nav. It replaces the current navy and mint look, where losses showed in yellow. Orders never appear on the web; "Review on iPhone" sends the proposal to the phone.</p></div>
+  <figure class="wide">
+    <div class="browser"><div class="scroll-x">
+      <div class="wbar"><i></i><i></i><i></i><span class="url">tradeshot.co/web/terminal</span></div>
+      <div class="wnav"><b>TradeShot</b><span class="on">Terminal</span><span>Scan</span><span>Charts</span><span>Chat</span><span>Portfolio</span><span class="sp"></span><span class="cmdk"><span>Ask a market question</span><span>⌘K</span></span><span class="tag lock">Orders locked</span></div>
+      <div class="wstrip"><svg class="daystrip" data-strip="15:25" data-h="44" data-events="10:00 RBI policy|11:40 TATASTEEL breakout|14:02 VEDL alert|15:20 Results: TCS after close" aria-label="Session strip"></svg></div>
+      <div class="wbody">
+        <div>
+          <span class="wl-h">METALS</span>
+          <div class="rows">
+            <div class="r"><span class="sym">TATASTEEL</span><span>168.40</span><span class="pill up">+3.12%</span></div>
+            <div class="r"><span class="sym">HINDALCO</span><span>712.05</span><span class="pill up">+2.64%</span></div>
+            <div class="r"><span class="sym">VEDL</span><span>462.30</span><span class="pill up">+1.12%</span></div>
+            <div class="r"><span class="sym">NMDC</span><span>218.75</span><span class="pill down">−0.62%</span></div>
+          </div>
+          <span class="wl-h">INDICES</span>
+          <div class="rows">
+            <div class="r"><span class="sym">NIFTY 50</span><span>25,184</span><span class="pill up">+0.41%</span></div>
+            <div class="r"><span class="sym">BANKNIFTY</span><span>55,912</span><span class="pill down">−0.18%</span></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><b style="font-size:17px">TATASTEEL</b><span class="price" style="font-size:44px">168.40</span><span class="up" style="font-weight:600;font-size:13px">+5.10 (+3.12%)</span></div>
+          <svg class="chart" data-chart="candles" viewBox="0 0 600 220" preserveAspectRatio="none" aria-label="Five-minute candles through the session"></svg>
+          <div class="rng"><span class="on">5m</span><span>15m</span><span>1h</span><span>1D</span><span>1W</span></div>
+          <p class="ans">Broke above Tuesday's high of 166.20 at 11:40 on 2.4× usual volume, alongside HINDALCO and JSWSTEEL. Sector-wide; no filings today.</p>
+        </div>
+        <div>
+          <span class="wl-h">RECEIPT</span>
+          <div class="rec"><span>Snapshot</span><b>15:25:00 IST · 75 of 75 bars</b></div>
+          <div class="rec"><span>Source</span><b>Kite · NSE</b></div>
+          <div class="stat-grid">
+            <div><span class="k">RSI 14</span><span class="val">68.2</span></div>
+            <div><span class="k">VWAP</span><span class="val">166.90</span></div>
+            <div><span class="k">ATR 14</span><span class="val">3.80</span></div>
+            <div><span class="k">Volume</span><span class="val">2.4× avg</span></div>
+          </div>
+          <div class="ledger"><div class="lr"><span>Your position</span><span>40 sh · avg 151.20</span></div><div class="lr"><span>Unrealised</span><b class="up">+₹688.00</b></div></div>
+          <div class="approve" style="margin-top:auto;background:transparent;color:var(--session);border:1px solid var(--session)">Review on iPhone</div>
+        </div>
+      </div>
+    </div></div>
+    <figcaption><b>Web terminal</b>Below 900 px the three columns stack in this order: strip, chart and answer, receipt, watchlist. That makes the phone-width site read like the iPhone Instrument screen.</figcaption>
+  </figure>
+</section>
+
+<section id="scan">
+  <div class="sec-head"><h2>Scan builder: Chartink rules, receipts attached</h2><p>Rules read like a sentence and compile to Glint's typed screen language. The same scan can be typed as a question in Chat. Each result row says which rule it passed, and the scan reports how many symbols it could evaluate.</p></div>
+  <figure class="wide">
+    <div class="browser"><div class="scroll-x">
+      <div class="wbar"><i></i><i></i><i></i><span class="url">tradeshot.co/web/scan</span></div>
+      <div class="wnav"><b>TradeShot</b><span>Terminal</span><span class="on">Scan</span><span>Charts</span><span>Chat</span><span>Portfolio</span><span class="sp"></span><span class="cmdk"><span>Ask a market question</span><span>⌘K</span></span></div>
+      <div class="wbody" style="grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) 240px">
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:12.5px"><b>Universe</b><span class="tok" style="border:1px solid var(--ink);padding:3px 8px">Nifty 500</span><b>Timeframe</b><span style="border:1px solid var(--ink);padding:3px 8px">Daily · closed bars</span></div>
+          <div class="rule"><span class="and">IF</span><span class="tok">Close</span><span class="op">crosses above</span><span class="tok">EMA(20)</span></div>
+          <div class="rule"><span class="and">AND</span><span class="tok">Volume</span><span class="op">greater than</span><span class="tok">2 × SMA(Volume, 20)</span></div>
+          <div class="rule"><span class="and">AND</span><span class="tok">RSI(14)</span><span class="op">between</span><span class="tok">55</span><span class="tok">75</span></div>
+          <div class="rule"><span class="and">AND</span><span class="tok">Market cap</span><span class="op">greater than</span><span class="tok">₹5,000 Cr</span></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="btn-s">Add rule</span><span class="btn-s fill">Run scan</span><span class="btn-s">Save as alert</span></div>
+          <div class="fresh-line">Same as typing: "Nifty 500 stocks crossing EMA 20 on double volume, RSI 55 to 75"</div>
+        </div>
+        <div>
+          <span class="wl-h">14 MATCHES OF 500</span>
+          <div class="rows">
+            <div class="r"><div><div class="sym">TATASTEEL</div><div class="sub">All 4 rules · RSI 68.2</div></div><span>168.40</span><span class="pill up">+3.12%</span></div>
+            <div class="r"><div><div class="sym">HINDALCO</div><div class="sub">All 4 rules · RSI 64.9</div></div><span>712.05</span><span class="pill up">+2.64%</span></div>
+            <div class="r"><div><div class="sym">BEL</div><div class="sub">All 4 rules · RSI 61.0</div></div><span>412.80</span><span class="pill up">+1.84%</span></div>
+            <div class="r"><div><div class="sym">TVSMOTOR</div><div class="sub">All 4 rules · RSI 58.3</div></div><span>2,744.00</span><span class="pill up">+1.21%</span></div>
+            <div class="r gaprow dense"><div><div class="sym">6 not evaluated</div><div class="sub">Fewer than 20 daily bars</div></div><span></span><span class="tag gap">Gap</span></div>
+          </div>
+        </div>
+        <div>
+          <span class="wl-h">RECEIPT</span>
+          <div class="rec"><span>Evaluated</span><b>494 of 500 symbols</b></div>
+          <div class="rec"><span>Snapshot</span><b>Close of 2 Oct 2026 · Kite</b></div>
+          <div class="rec"><span>Compiled as</span><b>strict-v2 screen plan</b></div>
+          <div class="fresh-line"><span class="tag stale">Stale</span>Previous close · market closed</div>
+          <svg class="chart" data-chart="bench" viewBox="0 0 220 90" preserveAspectRatio="none" aria-label="Selected match against Nifty 50"></svg>
+        </div>
+      </div>
+    </div></div>
+    <figcaption><b>TradeShot scan</b>Chartink's rule rows, Glint's receipts. A scan that skipped symbols says how many and why.</figcaption>
+  </figure>
+</section>
+
+<section id="charting">
+  <div class="sec-head"><h2>Chart workspace: TradingView depth, almanac calm</h2><p>On Mac and the web: a drawing-tool rail, indicator legend, four-chart layouts, compare, alerts on the chart and bar replay. The Day Strip shares the chart's time axis, so session marks and events line up with the bars.</p></div>
+  <figure class="wide">
+    <div class="browser"><div class="scroll-x">
+      <div class="wbar"><i></i><i></i><i></i><span class="url">tradeshot.co/web/charts</span></div>
+      <div class="ctop"><b style="font-size:14px">TATASTEEL</b><span class="rng"><span>1m</span><span class="on">5m</span><span>15m</span><span>1h</span><span>1D</span><span>1W</span></span><span>Candles</span><span>Indicators · 3</span><span>Compare: NIFTY METAL</span><span class="sp"></span><span>Layout 2×2</span><span class="tag lock">Orders locked</span></div>
+      <div class="cw">
+        <div class="tools">
+          <svg class="on"><use href="#t-cross"/></svg><svg><use href="#t-trend"/></svg><svg><use href="#t-hline"/></svg><svg><use href="#t-fib"/></svg><svg><use href="#t-rect"/></svg><svg><use href="#t-measure"/></svg><svg><use href="#t-text"/></svg><svg><use href="#t-alert"/></svg><svg><use href="#t-replay"/></svg>
+        </div>
+        <div class="grid4">
+          <div><div class="fresh-line"><b style="color:var(--ink)">TATASTEEL 5m</b> EMA 20 · VWAP</div><svg class="chart" data-chart="candles" viewBox="0 0 600 200" preserveAspectRatio="none" aria-label="Five-minute candles"></svg><svg class="daystrip" data-strip="15:25" data-h="26" data-bare="1"></svg></div>
+          <div><div class="fresh-line"><b style="color:var(--ink)">TATASTEEL 1D</b> trend line from 148.20</div><svg class="chart" data-chart="bench" viewBox="0 0 600 200" preserveAspectRatio="none" aria-label="Daily chart with compare line"></svg></div>
+          <div><div class="fresh-line"><b style="color:var(--ink)">HINDALCO 5m</b></div><svg class="chart" data-chart="intraday" viewBox="0 0 600 160" preserveAspectRatio="none" aria-label="Intraday line"></svg></div>
+          <div><div class="fresh-line"><b style="color:var(--ink)">RSI 14</b> 68.2</div><svg class="chart" data-chart="rsi" viewBox="0 0 600 160" preserveAspectRatio="none" aria-label="RSI 14 between 30 and 70 bands"></svg></div>
+        </div>
+        <div style="border-left:1px solid var(--ink);padding:12px 14px;display:flex;flex-direction:column;gap:8px;font-size:12px">
+          <span class="wl-h">ON THIS CHART</span>
+          <div class="ind"><span>EMA 20</span><b>166.10</b></div>
+          <div class="ind"><span>VWAP</span><b>166.90</b></div>
+          <div class="ind"><span>Volume</span><b>2.4× avg</b></div>
+          <div class="ind"><span>Alert · crosses 170.00</span><b style="color:var(--session)">Armed</b></div>
+          <div class="ind"><span>Level · Tuesday high</span><b>166.20</b></div>
+          <span class="wl-h" style="margin-top:6px">RECEIPT</span>
+          <div class="rec"><span>Snapshot</span><b>15:25 IST · 75 of 75 bars</b></div>
+          <div class="fresh-line"><span class="tag fresh">Fresh</span>Kite · NSE</div>
+        </div>
+      </div>
+    </div></div>
+    <figcaption><b>Chart workspace</b>TradingView's tool rail and layouts, with Glint's discipline: indicators listed with their values, levels and alerts named, and the receipt kept beside the chart.</figcaption>
+  </figure>
+</section>
+
+<section id="parts">
+  <div class="sec-head"><h2>Twelve parts</h2><p>Each part is built once in <code>GlintUI/Design</code> and once in <code>tokens.css</code>; screens only arrange them. The Day Strip is the new part, and it carries the system.</p></div>
+  <div class="parts">
+    <div class="part"><span class="nm">DayStrip</span><svg class="daystrip" data-strip="13:10" data-h="34" data-events="11:40 Breakout"></svg><p>The session as a ruled band: pre-open hatched, snapshot pin, now line, event marks. Shares its scale with intraday charts.</p></div>
+    <div class="part"><span class="nm">PriceHeader</span><div style="display:flex;align-items:baseline;gap:8px"><span class="price">168.40</span><span class="up" style="font-size:12px;font-weight:600">+5.10 (+3.12%)</span></div><p>Teko numerals, signed change, period.</p></div>
+    <div class="part"><span class="nm">ChangePill</span><div style="display:flex;gap:6px"><span class="pill up">+3.12%</span><span class="pill down">−1.41%</span></div><p>Up and down colours only, always signed.</p></div>
+    <div class="part"><span class="nm">FreshnessLine</span><div class="fresh-line"><span class="tag fresh">Fresh</span>Snapshot 15:25 · Kite · complete</div><p>Snapshot time and source in words, next to the number they qualify.</p></div>
+    <div class="part"><span class="nm">GapRow</span><div class="rows"><div class="r gaprow"><div><div class="sym">2 skipped</div><div class="sub">No 5m bars after 14:50</div></div><span></span><span class="tag gap">Gap</span></div></div><p>A hatched row that sits in the list like any other row.</p></div>
+    <div class="part"><span class="nm">RangePicker</span><div class="rng"><span>1D</span><span class="on">1M</span><span>3M</span><span>1Y</span><span>5Y</span></div><p>Calendar numerals with a ruled selection. A segmented Picker on iOS.</p></div>
+    <div class="part"><span class="nm">CompareChart</span><svg class="chart" data-chart="bench" viewBox="0 0 260 90" preserveAspectRatio="none"></svg><p>Your line in indigo, the benchmark dashed in grey.</p></div>
+    <div class="part"><span class="nm">InstrumentRow</span><div class="rows"><div class="r"><div><div class="sym">TATASTEEL</div><div class="sub">Vol 2.4× avg</div></div><span>168.40</span><span class="pill up">+3.12%</span></div></div><p>Used in Research, Watchlist, Portfolio and the screener.</p></div>
+    <div class="part"><span class="nm">StatGrid</span><div class="stat-grid"><div><span class="k">RSI 14</span><span class="val">68.2</span></div><div><span class="k">VWAP</span><span class="val">166.90</span></div></div><p>Indicators as ruled label/value cells, the Sumeria pattern.</p></div>
+    <div class="part"><span class="nm">ReceiptMargin</span><div class="rec"><span>Source</span><b>Kite · NSE · 5 minute</b></div><p>The receipt column on Mac and the web. On iPhone it is a sheet.</p></div>
+    <div class="part"><span class="nm">ModeBanner</span><div class="mode paper"><span>Paper account</span><span>₹10,00,000</span></div><p>Paper and live can never be confused.</p></div>
+    <div class="part"><span class="nm">ApprovalLedger</span><div class="ledger"><div class="lr"><span>Order</span><b>BUY 10 TATASTEEL</b></div><div class="lr"><span>Ceiling</span><span>₹2,000 · one use</span></div></div><p>The proposal as a ruled ledger, then one isolated Approve.</p></div>
+  </div>
+</section>
+
+<section id="orbit">
+  <div class="sec-head"><h2>Orbit keeps its own world</h2><p>Orbit has its own token file (<code>orbit-theme.json</code>) and dark violet identity, so the almanac does not apply. Its rehaul is one journey: ask, nearby options, approve, saved to History. The current Discovery screen opens on a paragraph about Foundation Models; these screens open on the question and the map. You asked for Orbit alongside Glint. The Apple Maps, Airbnb and Google Maps references still need a Mobbin pull from a session with the connector.</p></div>
+  <div class="phones">
+    <figure><div class="ophone">
+      <div class="sb"><span>9:41</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+      <div class="lt">Discovery</div>
+      <div class="oask">Quiet coffee near work, before 10</div>
+      <div class="oseg"><span class="on">Just me</span><span>With someone</span></div>
+      <div class="omap"><svg viewBox="0 0 260 150" data-map="many" aria-label="Map with four nearby places"></svg></div>
+      <div style="font-size:11px;color:var(--orbit-muted)">4 places within 800 m · from MapKit</div>
+      <div class="oplace"><div class="othumb"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 21s-6-5.6-6-10.5A6 6 0 0 1 18 10.5C18 15.4 12 21 12 21z" fill="none" stroke="#B77CFF" stroke-width="1.7"/><circle cx="12" cy="10.5" r="2.2" fill="none" stroke="#B77CFF" stroke-width="1.7"/></svg></div><div><div class="t">Blue Tokai, Indiranagar</div><div class="m">350 m · open until 22:00</div><div class="w">Quiet seating, opens 8:00</div></div></div>
+      <div class="otabs"><span class="on">Discovery</span><span>Places</span><span>Gather</span><span>Receipt</span></div>
+    </div><figcaption><b>Ask</b>The question at the top and the map as the answer. Where the data came from shrinks to one line.</figcaption></figure>
+    <figure><div class="ophone">
+      <div class="sb"><span>9:41</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+      <div class="lt">4 options</div>
+      <div class="oplace"><div class="othumb"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 21s-6-5.6-6-10.5A6 6 0 0 1 18 10.5C18 15.4 12 21 12 21z" fill="none" stroke="#B77CFF" stroke-width="1.7"/><circle cx="12" cy="10.5" r="2.2" fill="none" stroke="#B77CFF" stroke-width="1.7"/></svg></div><div><div class="t">Blue Tokai</div><div class="m">350 m · rated 4.5 · open now</div><div class="w">Quiet · opens 8:00</div></div></div>
+      <div class="oplace"><div class="othumb"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 21s-6-5.6-6-10.5A6 6 0 0 1 18 10.5C18 15.4 12 21 12 21z" fill="none" stroke="#B77CFF" stroke-width="1.7"/><circle cx="12" cy="10.5" r="2.2" fill="none" stroke="#B77CFF" stroke-width="1.7"/></svg></div><div><div class="t">Third Wave</div><div class="m">520 m · rated 4.3 · open now</div><div class="w">Laptop-friendly</div></div></div>
+      <div class="oplace"><div class="othumb"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 21s-6-5.6-6-10.5A6 6 0 0 1 18 10.5C18 15.4 12 21 12 21z" fill="none" stroke="#B77CFF" stroke-width="1.7"/><circle cx="12" cy="10.5" r="2.2" fill="none" stroke="#B77CFF" stroke-width="1.7"/></svg></div><div><div class="t">Dyu Art Café</div><div class="m">780 m · rated 4.6 · opens 9:00</div><div class="w">Garden seating</div></div></div>
+      <div class="oplace"><div class="othumb"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 21s-6-5.6-6-10.5A6 6 0 0 1 18 10.5C18 15.4 12 21 12 21z" fill="none" stroke="#B77CFF" stroke-width="1.7"/><circle cx="12" cy="10.5" r="2.2" fill="none" stroke="#B77CFF" stroke-width="1.7"/></svg></div><div><div class="t">Matteo</div><div class="m">640 m · rated 4.1 · open now</div><div class="w">Closest to the office</div></div></div>
+      <div class="otabs"><span class="on">Discovery</span><span>Places</span><span>Gather</span><span>Receipt</span></div>
+    </div><figcaption><b>Options</b>Every card has the same three lines: name, meta, and why it matched.</figcaption></figure>
+    <figure><div class="ophone">
+      <div class="sb"><span>9:41</span><span class="sbi"><svg viewBox="0 0 18 12" width="18" height="12"><rect x="0" y="8" width="3" height="4" fill="currentColor"/><rect x="5" y="5" width="3" height="7" fill="currentColor"/><rect x="10" y="2" width="3" height="10" fill="currentColor"/><rect x="15" y="0" width="3" height="12" fill="currentColor" opacity=".35"/></svg><svg viewBox="0 0 26 12" width="24" height="12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor"/></svg></span></div>
+      <div class="lt">Blue Tokai</div>
+      <div class="omap" style="height:120px"><svg viewBox="0 0 260 150" data-map="one" aria-label="Map with the chosen place"></svg></div>
+      <div class="oreceipt"><div><span>Matched</span><span>Quiet · before 10</span></div><div><span>Source</span><span>MapKit</span></div><div><span>Interpreted</span><span>On device</span></div></div>
+      <div class="obtn">Save to History</div>
+      <div class="obtn g">Share with someone</div>
+      <div class="otabs"><span class="on">Discovery</span><span>Places</span><span>Gather</span><span>Receipt</span></div>
+    </div><figcaption><b>Approve</b>One primary action, with a small receipt in place of the explanation paragraph.</figcaption></figure>
+  </div>
+</section>
+
+<section id="work">
+  <div class="sec-head"><h2>Order of work</h2><p>Each stage gets its own branch and its own check before the next one starts. iPhone and web can run in parallel once the parts land.</p></div>
+  <div class="work">
+    <div class="w"><span class="when">Tokens</span><div><p>Write <code>Design/tokens.json</code> and generate <code>DesignTokens.swift</code> (adding session, stale, paperMode and live) and <code>WebAssets/tokens.css</code>. Bundle Teko for display numerals. Remove the web's navy, mint and yellow-loss palette.</p><div class="gate">Check: GlintUI builds; site.css has no colour literals; both themes render.</div></div></div>
+    <div class="w"><span class="when">Parts</span><div><p>Build the twelve parts, starting with DayStrip and its shared session scale, in <code>GlintUI/Design</code> and as matching CSS.</p><div class="gate">Check: SwiftUI previews in light, dark and the largest Dynamic Type size.</div></div></div>
+    <div class="w"><span class="when">iPhone</span><div><p>Research and Instrument first, since they only change display. Then the option chain and Watchlist. Portfolio waits for gs-3j2u.5; the approval sheet ships with gs-ac2b.19.</p><div class="gate">Check: xcodebuild test on Glint.xcworkspace, plus simulator screenshots in both appearances.</div></div></div>
+    <div class="w"><span class="when">Trading</span><div><p>Order ticket with risk-to-stop and reward-to-risk, the orders book, GTT and positions on iPhone, and paper first everywhere. Live submission stays locked until gs-ac2b.18 and gs-ac2b.19 land with their own approval.</p><div class="gate">Check: ticket maths tested with Decimal values; paper and live render differently in every state.</div></div></div>
+    <div class="w"><span class="when">Charts</span><div><p>Drawing tools, indicator legend, 2×2 layouts, compare and replay on Mac and TradeShot, sharing the Day Strip's time axis.</p><div class="gate">Check: drawings and alerts survive reload; bars line up with strip times.</div></div></div>
+    <div class="w"><span class="when">Scan</span><div><p>The TradeShot rule builder compiling to the strict-v2 screen plan, with saved scans that can become alerts (gs-zcmfh.2, gs-ggpj.7).</p><div class="gate">Check: one scan gives the same rows on web, iPhone, CLI and MCP.</div></div></div>
+    <div class="w"><span class="when">Mac</span><div><p>The sidebar and receipt-margin split view, reusing the iPhone parts at compact density.</p><div class="gate">Check: GlintApp macOS build and a window screenshot.</div></div></div>
+    <div class="w"><span class="when">Web</span><div><p>The terminal in three columns with the strip, then the signed-out landing. Fix the Kite connect bug gs-zi0qn along the way.</p><div class="gate">Check: VPS tests, desktop and phone-width screenshots. Deploying needs your approval.</div></div></div>
+    <div class="w"><span class="when">Orbit</span><div><p>Pull the Mobbin maps references, then rebuild Discovery in its own worktree. PlaceMatch <code>main</code> has another agent's uncommitted work.</p><div class="gate">Check: run-orbit-unit-tests.sh and run-orbit-ui-tests.sh.</div></div></div>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  function el(t,a,txt){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt)e.textContent=txt;return e}
+  function mins(s){var p=s.split(':');return +p[0]*60+ +p[1]}
+  var START=mins('9:00'),OPEN=mins('9:15'),CLOSE=mins('15:30'),END=CLOSE;
+  // One session scale shared by every strip and every intraday chart.
+  function sx(m,w){return (m-START)/(END-START)*w}
+  function istNow(){var d=new Date(),u=d.getTime()+d.getTimezoneOffset()*60000,i=new Date(u+330*60000);return {day:i.getDay(),m:i.getHours()*60+i.getMinutes(),date:i}}
+
+  function drawStrip(svg){
+    var w=Math.max(200,svg.getBoundingClientRect().width||600),h=+svg.dataset.h||40,bare=svg.dataset.bare;
+    svg.setAttribute('viewBox','0 0 '+w+' '+h);svg.setAttribute('height',h);
+    var band=bare?h-8:Math.round(h*(svg.dataset.strip==='live'?.55:.42)),top=bare?2:Math.round(h*.18);
+    svg.appendChild(el('rect',{x:0,y:top,width:sx(OPEN,w),height:band,fill:'url(#hatch)'}));
+    svg.appendChild(el('rect',{x:sx(OPEN,w),y:top,width:w-sx(OPEN,w),height:band,fill:'var(--session-wash)'}));
+    svg.appendChild(el('line',{x1:0,x2:w,y1:top+band+.5,y2:top+band+.5,stroke:'var(--ink)','stroke-width':1}));
+    var narrow=w<420;
+    for(var hr=10;hr<=15;hr++){var x=sx(hr*60,w);if(narrow&&hr%2)continue;svg.appendChild(el('line',{x1:x,x2:x,y1:top+band-5,y2:top+band,stroke:'var(--ink)','stroke-width':1}));
+      if(!bare&&h>=30)svg.appendChild(el('text',{x:x,y:top+band+13,'text-anchor':'middle','font-size':11,fill:'var(--ink-2)','font-family':'Teko, Arial Narrow, sans-serif','letter-spacing':'.04em'},hr+':00'))}
+    [OPEN,CLOSE].forEach(function(m){var x=Math.min(w-.5,sx(m,w));svg.appendChild(el('line',{x1:x,x2:x,y1:top-3,y2:top+band,stroke:'var(--session)','stroke-width':2}))});
+    var ev=(svg.dataset.events||'').split('|').filter(Boolean);
+    var lastX=-999,row=0;
+    ev.forEach(function(s){var sp=s.indexOf(' '),t=s.slice(0,sp),lab=s.slice(sp+1),x=sx(mins(t),w);
+      row=(x-lastX<(narrow?90:150))?row+1:0;lastX=x;
+      svg.appendChild(el('path',{d:'M'+(x-4)+' '+(top-1)+' L'+(x+4)+' '+(top-1)+' L'+x+' '+(top+6)+' Z',fill:'var(--session)'}));
+      var nearEnd=x>w-150;if(!bare&&h>=30)svg.appendChild(el('text',{x:nearEnd?x-6:x+6,'text-anchor':nearEnd?'end':'start',y:top+band-4-row*12,'font-size':11,fill:'var(--session)','font-weight':600,'font-family':'-apple-system, system-ui, sans-serif'},lab))});
+    var snap=svg.dataset.strip;
+    if(snap==='live'){
+      var n=istNow(),open=n.day>0&&n.day<6&&n.m>=START&&n.m<=END,lbl=document.getElementById('strip-state');
+      if(open){var x=sx(n.m,w);svg.appendChild(el('line',{class:'nowline',x1:x,x2:x,y1:0,y2:top+band+2,stroke:'var(--ink)','stroke-width':1.5}));if(lbl)lbl.textContent='Market open';}
+      else{var HOL={'2026-10-02':1},last=new Date(n.date.getTime()-(n.m<START||n.day===0||n.day===6?86400000:0));
+        function key(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+        while(last.getDay()===0||last.getDay()===6||HOL[key(last)])last=new Date(last.getTime()-86400000);
+        var dn=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][last.getDay()]+' '+last.getDate()+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][last.getMonth()];
+        var cx=sx(CLOSE,w)-1;
+        svg.appendChild(el('circle',{cx:cx-8,cy:top+band/2,r:band*.32,fill:'var(--session)',stroke:'var(--paper)','stroke-width':1.5}));
+        svg.appendChild(el('text',{x:cx-22,y:top+band/2+6,'text-anchor':'end','font-size':18,fill:'var(--session)','font-family':'Teko, Arial Narrow, sans-serif','letter-spacing':'.05em'},'LAST CLOSE · '+dn.toUpperCase()+' · 15:30 IST'));
+        if(lbl)lbl.textContent='Market closed now. Showing the last session; the next opens at 9:15 IST on the next trading day.';}
+      var mo=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],da=['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+      document.getElementById('mast-day').textContent=n.date.getDate();
+      document.getElementById('mast-month').textContent=mo[n.date.getMonth()]+' '+n.date.getFullYear()+' · '+da[n.day];
+    } else if(snap){
+      var x=sx(mins(snap),w);
+      svg.appendChild(el('circle',{cx:x,cy:top+band/2,r:Math.max(3.5,band*.32),fill:'var(--session)',stroke:'var(--paper)','stroke-width':1.5}));
+      if(!bare&&h>=30)svg.appendChild(el('text',{x:x-7,y:top-3,'text-anchor':'end','font-size':11,fill:'var(--session)','font-family':'Teko, Arial Narrow, sans-serif','letter-spacing':'.04em'},snap));
+    }
+  }
+  function defs(){var s=el('svg',{width:0,height:0,style:'position:absolute','aria-hidden':'true'}),d=el('defs',{}),p=el('pattern',{id:'hatch',width:4,height:4,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'});
+    p.appendChild(el('line',{x1:0,y1:0,x2:0,y2:4,stroke:'var(--ink-2)','stroke-width':1}));d.appendChild(p);s.appendChild(d);document.body.appendChild(s)}
+
+  function rnd(seed){return function(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}}
+  function walk(n,seed,drift,vol,bump){var r=rnd(seed),v=50,o=[];for(var i=0;i<n;i++){v+=drift+(r()-.5)*vol+(bump&&i>bump[0]&&i<bump[1]?bump[2]:0);o.push(v)}return o}
+  function line(vals,w,h,lo,hi,x0,x1){return vals.map(function(v,i){var x=x0+i/(vals.length-1)*(x1-x0),y=h-8-(v-lo)/(hi-lo)*(h-16);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}).join(' ')}
+  function drawChart(svg){
+    var vb=svg.viewBox.baseVal,w=vb.width,h=vb.height,kind=svg.dataset.chart;
+    for(var g=1;g<4;g++)svg.appendChild(el('line',{x1:0,x2:w,y1:g*h/4,y2:g*h/4,stroke:'var(--rule)','stroke-width':1,'vector-effect':'non-scaling-stroke'}));
+    if(kind==='candles'){
+      var n=75,r=rnd(29),v=160,b=[];for(var i=0;i<n;i++){var o=v,c=o+(r()-.45)*1.6+(i>30&&i<40?.7:0),hi=Math.max(o,c)+r()*.9,lo=Math.min(o,c)-r()*.9;b.push([o,hi,lo,c]);v=c}
+      var mn=Math.min.apply(0,b.map(function(x){return x[2]})),mx=Math.max.apply(0,b.map(function(x){return x[1]}));function y(p){return h-10-(p-mn)/(mx-mn)*(h-20)}
+      var x0=sx(OPEN,w),bw=(w-x0)/n;
+      svg.appendChild(el('rect',{x:0,y:0,width:x0,height:h,fill:'url(#hatch)',opacity:.35}));
+      b.forEach(function(k,i){var x=x0+i*bw+bw/2,col=k[3]>=k[0]?'var(--up)':'var(--down)';svg.appendChild(el('line',{x1:x,x2:x,y1:y(k[1]),y2:y(k[2]),stroke:col,'stroke-width':1}));var t=y(Math.max(k[0],k[3])),bt=y(Math.min(k[0],k[3]));svg.appendChild(el('rect',{x:x-bw*.33,y:t,width:bw*.66,height:Math.max(1,bt-t),fill:col}))});
+      var sxp=sx(mins('11:40'),w);svg.appendChild(el('line',{x1:sxp,x2:sxp,y1:0,y2:h,stroke:'var(--session)','stroke-width':1,'stroke-dasharray':'3 3'}));
+      return;
+    }
+    if(kind==='rsi'){
+      var rv=walk(75,41,.12,9).map(function(v){return Math.max(22,Math.min(82,v+8))});
+      function ry(v){return h-6-(v/100)*(h-12)}
+      svg.appendChild(el('rect',{x:0,y:ry(70),width:w,height:ry(30)-ry(70),fill:'var(--session-wash)'}));
+      [30,70].forEach(function(b){svg.appendChild(el('line',{x1:0,x2:w,y1:ry(b),y2:ry(b),stroke:'var(--session)','stroke-width':1,'stroke-dasharray':'4 3','vector-effect':'non-scaling-stroke'}))});
+      var x0=sx(OPEN,w),x1=sx(mins('15:25'),w);
+      svg.appendChild(el('path',{d:rv.map(function(v,i){return (i?'L':'M')+(x0+i/(rv.length-1)*(x1-x0)).toFixed(1)+' '+ry(v).toFixed(1)}).join(' '),fill:'none',stroke:'var(--ink)','stroke-width':1.6,'vector-effect':'non-scaling-stroke'}));
+      return;
+    }
+    if(kind==='intraday'){
+      var a=walk(75,23,.05,1.6,[30,40,.9]),lo=Math.min.apply(0,a),hi=Math.max.apply(0,a),x0=sx(OPEN,w),x1=sx(mins('15:25'),w);
+      svg.appendChild(el('rect',{x:0,y:0,width:x0,height:h,fill:'url(#hatch)',opacity:.35}));
+      var d=line(a,w,h,lo,hi,x0,x1);
+      svg.appendChild(el('path',{d:d+' L'+x1+' '+h+' L'+x0+' '+h+' Z',fill:'var(--up)',opacity:.1}));
+      svg.appendChild(el('path',{d:d,fill:'none',stroke:'var(--up)','stroke-width':2,'stroke-linejoin':'round','vector-effect':'non-scaling-stroke'}));
+      var bx=sx(mins('11:40'),w);svg.appendChild(el('line',{x1:bx,x2:bx,y1:0,y2:h,stroke:'var(--session)','stroke-width':1,'stroke-dasharray':'3 3','vector-effect':'non-scaling-stroke'}));
+      return;
+    }
+    var a2=walk(60,11,.35,4),bm=walk(60,7,.16,2.4),all=a2.concat(bm),l2=Math.min.apply(0,all),h2=Math.max.apply(0,all);
+    svg.appendChild(el('path',{d:line(bm,w,h,l2,h2,0,w),fill:'none',stroke:'var(--ink-2)','stroke-width':1.5,'stroke-dasharray':'4 3','vector-effect':'non-scaling-stroke'}));
+    svg.appendChild(el('path',{d:line(a2,w,h,l2,h2,0,w),fill:'none',stroke:'var(--session)','stroke-width':2.2,'stroke-linejoin':'round','vector-effect':'non-scaling-stroke'}));
+  }
+  function drawMap(svg){
+    var one=svg.dataset.map==='one';
+    [[0,40,260,55],[0,110,260,95],[70,0,95,150],[180,0,160,150]].forEach(function(r){svg.appendChild(el('line',{x1:r[0],y1:r[1],x2:r[2],y2:r[3],stroke:'#2C2836','stroke-width':6,'stroke-linecap':'round'}))});
+    svg.appendChild(el('rect',{x:196,y:62,width:50,height:34,rx:8,fill:'#1F3A2A'}));
+    (one?[[118,72]]:[[118,72],[150,40],[205,118],[60,92]]).forEach(function(p,i){svg.appendChild(el('circle',{cx:p[0],cy:p[1],r:i?6:8,fill:'#B77CFF',opacity:i?.7:1,stroke:'#0D0B12','stroke-width':2}))});
+    svg.appendChild(el('circle',{cx:88,cy:120,r:5,fill:'#6FA8FF',stroke:'#0D0B12','stroke-width':2}));
+  }
+  function render(){
+    document.querySelectorAll('svg.daystrip').forEach(function(s){while(s.firstChild)s.removeChild(s.firstChild);drawStrip(s)});
+  }
+  defs();
+  render();
+  document.querySelectorAll('svg[data-chart]').forEach(drawChart);
+  document.querySelectorAll('svg[data-map]').forEach(drawMap);
+  var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(render,120)});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(render);
+})();
+</script>
+
+</body></html>

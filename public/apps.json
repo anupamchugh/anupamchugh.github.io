@@ -1,13 +1,15 @@
 {
   "owner": "Anupam Chugh",
   "source": "https://anupamchugh.github.io/apps/",
-  "asOf": "2026-10-23",
+  "asOf": "2026-10-25",
   "apps": [
     {
       "name": "Rifflet",
-      "pitch": "turns a short music idea into a playable piano, guitar, or ukulele lesson.",
+      "pitch": "generate a riff from a short idea, get a coach tip, and learn it with piano, guitar, or ukulele lessons and local playback.",
       "platforms": [
-        "iOS"
+        "iOS",
+        "macOS",
+        "watchOS"
       ],
       "appStoreUrl": "https://apps.apple.com/us/app/rifflet/id6767064984",
       "version": "1.5"
@@ -23,7 +25,7 @@
     },
     {
       "name": "EchoHunt",
-      "pitch": "i play music at random hours and never knew why the algorithm picked it, so now i just ask.",
+      "pitch": "find songs for a mood or moment, refine suggestions in conversation, preview clips, and save a playlist when you choose.",
       "platforms": [
         "iOS"
       ],
@@ -40,7 +42,7 @@
     },
     {
       "name": "Flickpot",
-      "pitch": "a small iOS flicking game, live on the app store.",
+      "pitch": "a coin-flick game that reveals live market charts, with trick shots, daily challenges, and Pocket Racing.",
       "platforms": [
         "iOS"
       ],
@@ -112,7 +114,7 @@
     },
     {
       "name": "DocPolish",
-      "pitch": "a private document cleanup app for passports, visas, ids, receipts, and forms.",
+      "pitch": "scan or import document pages on iPhone and iPad, clean them on device, and export PDFs or images. processing stays private on device; a native Mac version is in development.",
       "platforms": [
         "iOS"
       ],

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { siteConfig, timeline } from '@/lib/content';
+import ContactPing from '@/components/contact-ping';
 
 export const metadata: Metadata = {
   title: 'about',
@@ -20,10 +21,10 @@ export default function AboutPage() {
           company&apos;s mission.
         </p>
         <p>
-          i led android at agricx and shipped their first ios app. from 2021 to 2023 i was
-          managing editor of better programming. a small editor team and i read thousands of
-          submissions a month. the job was holding a piece back until the writer understood what
-          they set out to explain.
+          i led mobile at mobey in australia and agricx, where i shipped the first ios app. from
+          2021 to 2023 i was managing editor of better programming. a small editor team and i
+          reviewed thousands of submissions a month and read millions of words. the job was
+          holding a piece back until the writer understood what they set out to explain.
         </p>
         <p>
           since 2024 i ship small apple apps. rifflet, orbits, and echohunt are on the store.
@@ -66,6 +67,8 @@ export default function AboutPage() {
           </a>
         </p>
       </section>
+
+      <ContactPing />
     </div>
   );
 }

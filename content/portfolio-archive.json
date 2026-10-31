@@ -1,0 +1,82 @@
+[
+  {
+    "name": "First Contact Duet",
+    "category": "Games",
+    "summary": "A cooperative storytelling game featuring an original alien character.",
+    "recordedPlatforms": ["iPhone", "iPad", "Mac"],
+    "evidence": "Saved App Store artwork",
+    "evidenceNote": "The project repository is private. The saved artwork is not tied to a current source revision or build."
+  },
+  {
+    "name": "Glint",
+    "category": "Markets",
+    "summary": "Native market intelligence and read-only trading research.",
+    "recordedPlatforms": ["iPhone"],
+    "evidence": "Store art and local captures",
+    "evidenceNote": "The source repository is private. Captures are not pinned to a current source revision."
+  },
+  {
+    "name": "Grain & Light",
+    "category": "Photography",
+    "summary": "A photography app project.",
+    "recordedPlatforms": ["iPhone", "iPad", "Mac"],
+    "evidence": "Saved App Store artwork",
+    "evidenceNote": "The current project checkout is not mapped in the portfolio record. Platform labels are archived metadata."
+  },
+  {
+    "name": "Maskmen",
+    "category": "Games",
+    "summary": "A card-game prototype with local bot opponents, also included in Quorion.",
+    "recordedPlatforms": ["Web"],
+    "evidence": "Local web build and game capture",
+    "evidenceNote": "The source repository is private. Project notes describe a login-gated demo; no fresh public serving check is recorded."
+  },
+  {
+    "name": "Night of the Ninja",
+    "category": "Games",
+    "summary": "A physical-card companion mode included in Quorion.",
+    "recordedPlatforms": ["Web"],
+    "evidence": "Local web build and game capture",
+    "evidenceNote": "No fresh public serving check or source revision is recorded."
+  },
+  {
+    "name": "PaperSky",
+    "category": "Spatial",
+    "summary": "A seated sci-fi flight game for Apple Vision Pro.",
+    "recordedPlatforms": ["Mac", "Vision Pro"],
+    "evidence": "Saved App Store artwork",
+    "evidenceNote": "The source repository is private. The saved artwork is not tied to a current source revision or build."
+  },
+  {
+    "name": "SpideyRadar · HALFTONE",
+    "category": "Experiments",
+    "summary": "A static HTML concept.",
+    "recordedPlatforms": ["Web"],
+    "evidence": "Static HTML concept",
+    "evidenceNote": "A saved local concept, not evidence of a currently served web app."
+  },
+  {
+    "name": "StockShots",
+    "category": "Markets",
+    "summary": "A market signal client for snapshots, candles, signal history, alerts, and positions.",
+    "recordedPlatforms": ["Mac"],
+    "evidence": "Saved App Store artwork",
+    "evidenceNote": "The source repository is private. The saved artwork is not tied to a current source revision or build."
+  },
+  {
+    "name": "Threadmark",
+    "category": "Tools",
+    "summary": "An evidence-thread archive for owner-selected source links.",
+    "recordedPlatforms": ["iPhone", "iPad"],
+    "evidence": "Local app and sample capture",
+    "evidenceNote": "The source repository is private. The sample capture is not attached to a source revision."
+  },
+  {
+    "name": "ChughGPT",
+    "category": "Tools",
+    "summary": "A private portfolio and blog editor for managing app details, saving local drafts, and preparing posts on a review branch.",
+    "recordedPlatforms": ["iOS", "macOS"],
+    "evidence": "Uncommitted local source worktree",
+    "evidenceNote": "The Mac build and Write screen were verified locally on 25 October 2026. iOS compilation succeeds, but CoreSimulator installation still fails with a missing-bundle-ID error even though the built app contains a valid bundle ID. The source remains uncommitted."
+  }
+]
