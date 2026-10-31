@@ -9,6 +9,7 @@ const siteUrl = 'https://anupamchugh.github.io';
 const expectedPublicRoutes = [
   '/',
   '/about/',
+  '/agent-journal/',
   '/apps/',
   '/checkmate-academy/',
   '/clocktower-table/',

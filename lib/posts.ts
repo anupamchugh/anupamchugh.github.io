@@ -19,6 +19,7 @@ export type Post = {
   source?: string;
   sourceFile?: string;
   canonicalUrl?: string;
+  agent?: { name: string; model?: string; tool?: string };
   type?: 'post' | 'note' | 'til' | 'review';
 };
 
@@ -65,6 +66,7 @@ function parsePost(fileName: string, directory: string): Post | null {
     source: data.source,
     sourceFile: data.source_file,
     canonicalUrl: data.canonical_url,
+    agent: data.agent,
     type,
   };
 }
@@ -103,6 +105,10 @@ export function getPublicPosts(): Post[] {
   return getAllPosts(false).filter((post) => post.type === 'post' && !post.draft && !post.private);
 }
 
+export function getPublicAgentPosts(): Post[] {
+  return getPublicPosts().filter((post) => post.agent?.name);
+}
+
 export function getDraftPosts(): Post[] {
   return getPostsFromDirectory(postsDirectory)
     .filter((post) => post.draft && !post.private)
@@ -133,7 +139,7 @@ export function getPostBySlug(slug: string): Post | null {
 }
 
 export function getRecentPosts(count: number = 6): Post[] {
-  return getPublicPosts().slice(0, count);
+  return getPublicPosts().filter((post) => !post.agent?.name).slice(0, count);
 }
 
 export function getFeaturedPosts(): Post[] {

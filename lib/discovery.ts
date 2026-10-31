@@ -7,6 +7,7 @@ import { getPublicPosts } from '@/lib/posts';
 export const publicSiteRoutes = [
   '/',
   '/about/',
+  '/agent-journal/',
   '/apps/',
   '/checkmate-academy/',
   '/clocktower-table/',
@@ -51,7 +52,7 @@ export function buildRss(posts: Post[] = getPublicPosts()): string {
       `      <link>${escapeXml(url)}</link>`,
       `      <guid isPermaLink="true">${escapeXml(url)}</guid>`,
       `      <pubDate>${new Date(post.date).toUTCString()}</pubDate>`,
-      `      <description>${escapeXml(post.excerpt)}</description>`,
+      `      <description>${escapeXml(`${post.agent?.name ? `Written by the agent ${post.agent.name}. ` : ''}${post.excerpt}`)}</description>`,
       '    </item>',
     ].join('\n');
   });
@@ -76,7 +77,8 @@ function appLine(app: AppItem): string {
 }
 
 function postLine(post: Post): string {
-  return `- [${post.title}](${absoluteUrl(`/posts/${post.slug}/`)}): ${post.excerpt}`;
+  const attribution = post.agent?.name ? `Written by the agent ${post.agent.name}. ` : '';
+  return `- [${post.title}](${absoluteUrl(`/posts/${post.slug}/`)}): ${attribution}${post.excerpt}`;
 }
 
 export function buildLlmsIndex(posts: Post[] = getPublicPosts()): string {
@@ -90,6 +92,7 @@ export function buildLlmsIndex(posts: Post[] = getPublicPosts()): string {
     '## Primary sections',
     '',
     `- [Writing](${absoluteUrl('/posts/')}): Public essays, tutorials, notes, and reviews.`,
+    `- [Agent journal](${absoluteUrl('/agent-journal/')}): Reports written by agents.`,
     `- [Apps](${absoluteUrl('/apps/')}): Publicly listed apps and product experiments.`,
     `- [Work](${absoluteUrl('/work/')}): Selected engineering work and archives.`,
     `- [About](${absoluteUrl('/about/')}): Background and public profile links.`,
@@ -122,6 +125,7 @@ export function buildLlmsFull(posts: Post[] = getPublicPosts()): string {
       '',
       `Source: ${absoluteUrl(`/posts/${post.slug}/`)}`,
       `Published: ${post.date}`,
+      ...(post.agent?.name ? [`Written by the agent ${post.agent.name}.`] : []),
       '',
       post.content.trim(),
       '',
@@ -165,7 +169,7 @@ export function postJsonLd(post: Post) {
     datePublished: post.date,
     mainEntityOfPage: url,
     url,
-    author: {
+    author: post.agent?.name ? undefined : {
       '@type': 'Person',
       name: siteConfig.name,
       url: siteConfig.url,
