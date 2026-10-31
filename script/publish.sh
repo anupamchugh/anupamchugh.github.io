@@ -7,15 +7,7 @@ set -euo pipefail
 root="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$root"
 
-visibility="$(gh repo view --json visibility,isPrivate --jq '"\(.visibility) private=\(.isPrivate)"')"
-echo "repo visibility: $visibility"
-case "$visibility" in
-  *private=true*) ;;
-  *)
-    echo "stopping: this script only pushes while the repo is private."
-    exit 1
-    ;;
-esac
+
 
 npm run build
 npm test

@@ -18,11 +18,11 @@ I graduated without a job. Turned down a PPO from Syniverse during placement sea
 
 My first app was a movie review RSS feed reader. Lifetime earnings: $2. The minimum payout threshold was $100. My second was a Harry Potter Unity lesson with graphics that looked like they were drawn during a turbulent flight. I never returned to it. Both eventually vanished from the Play Store.
 
-<div class="image-grid">
-  <img src="/screenshots/career-journey/movie-reviews-app.png" alt="Movie Reviews app" />
-  <img src="/screenshots/career-journey/gimics-app.png" alt="Gimics game" />
-  <figcaption>The last remaining screenshots of Movie Reviews and Gimics. For the archives.</figcaption>
-</div>
+![Movie Reviews app](/screenshots/career-journey/movie-reviews-app.png)
+
+![Gimics game](/screenshots/career-journey/gimics-app.png)
+
+*The last remaining screenshots of Movie Reviews and Gimics. For the archives.*
 
 **What I learned:** Shipping is easy. Shipping something people want is the actual job.
 
@@ -41,7 +41,7 @@ Over three years, I wrote **350+ Android tutorials**. The JournalDev Android app
 
 Before joining a startup, I wanted to build one to see how it breaks. Dourier was a courier and print delivery service I built with a few friends -- purely to get my hands dirty with a real product. We shipped it, learned what we needed to learn, and let it go. Not everything has to become a company. Sometimes a project's job is just to teach you how to build one.
 
-## MOBEY (2016-2017)
+## MOBEY (2015-2017)
 
 An Australian startup originally called MUBER hired me to build their delivery app. A week before launch, an official legal notice arrived from Uber about the name. I spent the next few days refactoring the entire Android codebase -- every string, every asset, every reference -- to rebrand as MOBEY.
 
@@ -49,9 +49,12 @@ I was the lead Android developer, working alongside Nishant on iOS. We shipped a
 
 [The MOBEY notification video](https://www.youtube.com/watch?v=-VCwMGz0Zvw)
 
+![MOBEY delivery app showing food, convenience, alcohol, marketplace and pickup categories](/screenshots/career-journey/mobey-2016.png)
+*MOBEY's Android app, captured in 2016.*
+
 The company shut down in August 2017. But I'd learned what it felt like to own a product end-to-end -- from architecture decisions to last-minute rebrands to the sound a driver hears when an order lands.
 
-## Aged Care Decisions (2017-2018)
+## Aged Care Decisions (2020-2021)
 
 A freelance contract with a Gold Coast company led to one of my more interesting projects: building server-driven iOS and Android apps for [Aged Care Decisions](https://agedcaredecisions.com.au), Australia's largest aged care placement service. The architecture was white-labelled -- one codebase, multiple vendor apps deployed from the same platform. It was my first exposure to shipping apps at scale for a non-tech industry, and to the discipline of building systems that other businesses depend on.
 
@@ -60,6 +63,10 @@ A freelance contract with a Gold Coast company led to one of my more interesting
 My JournalDev presence led to Agricx, an agri-tech startup using computer vision for crop quality assessment. I managed their Android team and coordinated across the ML and web teams -- part developer, part orchestrator, bridging the gap between mobile and AI. The work involved integrating OpenCV and ArUco marker detection into the mobile pipeline.
 
 More importantly, I taught myself iOS development here and shipped their first enterprise iPad app solo. That single decision reshaped my career. I went from Android developer to mobile developer to, eventually, a SwiftUI early adopter who'd go on to write some of the framework's most-read tutorials.
+
+![Agricx crop images prepared for analysis](/screenshots/career-journey/agricx-crop-camera.jpg)
+![Agricx crop analysis screen with a marker and a count](/screenshots/career-journey/agricx-crop-analysis.jpg)
+*Cropped frames from a 2019 Agricx demo: collecting crop images and viewing an analysis. Historical screens, not a current product.*
 
 Agricx shut down during COVID.
 
@@ -133,10 +140,9 @@ A question I kept asking friends: "Where should we eat?" Not "what's rated highe
 
 [**Find Common Ground**](https://apps.apple.com/us/app/find-common-ground/id6759101340) is an iOS app that started as a place-matching experiment and kept growing. SwiftUI, SwiftData, MapKit, CloudKit, Multipeer Connectivity -- I kept finding excuses to wire in more frameworks. It now does route planning with timed timelines, trip journals with photo export, nearby discovery via MapKit search, and an async "vibe check" feature where two people react to each other's planned routes over CloudKit. The matching algorithm was the fun part; getting two people to actually complete any flow was the hard part. The one thing I got right: every shared route is a link that only opens in the app -- so the product spreads every time someone plans a Saturday with a friend.
 
-<div class="image-grid">
-  <img src="/screenshots/career-journey/common-ground-welcome.png" alt="Common Ground Welcome" />
-  <img src="/screenshots/career-journey/common-ground-match.png" alt="Common Ground Match Results" />
-</div>
+![Common Ground welcome screen](/screenshots/career-journey/common-ground-welcome.png)
+
+![Common Ground match results](/screenshots/career-journey/common-ground-match.png)
 
 On the [App Store](https://apps.apple.com/us/app/find-common-ground/id6759101340) now.
 
@@ -146,10 +152,9 @@ I kept describing playlists to friends in vibes -- "late night drive through the
 
 **[Playlist Hunter](https://apps.apple.com/in/app/playlist-hunter/id6756028972)** uses AI to generate Apple Music playlists from a text prompt. Room Mode lets multiple people contribute to the same playlist -- useful when everyone in the room has opinions about the aux.
 
-<div class="image-grid">
-  <img src="/screenshots/career-journey/playlist-hunter-login.png" alt="Playlist Hunter" />
-  <img src="/screenshots/career-journey/playlist-hunter-ai.png" alt="Playlist Hunter AI" />
-</div>
+![Playlist Hunter](/screenshots/career-journey/playlist-hunter-login.png)
+
+![Playlist Hunter AI](/screenshots/career-journey/playlist-hunter-ai.png)
 
 ### Shadowbook
 
