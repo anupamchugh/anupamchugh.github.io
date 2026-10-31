@@ -1,7 +1,7 @@
 {
   "owner": "Anupam Chugh",
   "source": "https://anupamchugh.github.io/apps/",
-  "asOf": "2026-10-25",
+  "asOf": "2026-11-01",
   "apps": [
     {
       "name": "Rifflet",
@@ -32,11 +32,13 @@
     },
     {
       "name": "Pastport",
-      "pitch": "on-device Safari history intelligence for macOS: movements, bookings, threads, and grounded local answers.",
+      "pitch": "on-device Safari history and travel intelligence: intent radar, Siri App Intents, booking gap detection, and two-way Feedloom reading bridge.",
       "platforms": [
-        "macOS"
+        "macOS",
+        "iOS"
       ],
-      "appStoreUrl": "https://github.com/anupamchugh/pastport/releases/latest"
+      "appStoreUrl": "https://github.com/anupamchugh/pastport/releases/latest",
+      "version": "2.0"
     },
     {
       "name": "Flickpot",
@@ -103,12 +105,23 @@
     },
     {
       "name": "Breakline Surf",
-      "pitch": "compares visible surfing body position in your own photos and videos, privately on device.",
+      "pitch": "compares visible surfing body position in your own photos and videos with spotter transfer, multi-clip scrub, and private on-device coaching.",
       "platforms": [
-        "iOS"
+        "iOS",
+        "macOS"
       ],
       "appStoreUrl": "https://apps.apple.com/us/app/breakline-surf/id6785873182",
-      "version": "1.3.1"
+      "version": "1.4"
+    },
+    {
+      "name": "ScreenRoom",
+      "pitch": "an Apple Intelligence comic creator and frame director: generates multi-panel comic strips, guides visual composition, and crafts stories privately on device.",
+      "platforms": [
+        "iOS",
+        "iPadOS"
+      ],
+      "appStoreUrl": "https://apps.apple.com/us/app/screenroom/id6786000000",
+      "version": "1.0"
     },
     {
       "name": "DocPolish",
