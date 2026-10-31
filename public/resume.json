@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Anupam Chugh",
-    "label": "iOS & macOS engineer",
+    "label": "App builder & editorial leader",
     "email": "anupam.chugh@gmail.com",
     "url": "https://anupamchugh.github.io",
-    "summary": "iOS & macOS engineer. Eleven years building apps, starting with Android tutorials at JournalDev, and two and a half editing other engineers as managing editor of Better Programming. Since 2024 I ship small Apple apps to the App Store.",
+    "summary": "I build apps, write about technology, and lead editorial work. I started with Android tutorials at JournalDev, led Better Programming as managing editor, and now build small Apple apps.",
     "profiles": [
       {
         "network": "GitHub",

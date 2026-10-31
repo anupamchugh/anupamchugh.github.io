@@ -266,7 +266,7 @@ CASES = [
          body="Describe a tune in a few words, get a four-bar riff, then learn it with Listen, Watch and Play lessons.",
          shots=[(S["rifflet1"], "Rifflet's Make screen with a prompt box, quick idea chips, instrument tabs and a four-bar riff")]),
     dict(slug="playlist-hunter", flip=False, extra=store_name_note("playlist-hunter") + " The screen is from a demo build with a fixed sample catalog, as it says.",
-         body="Ask in plain words, get songs ready to play, and save them as a playlist.",
+         body="Ask in plain words, get songs ready to play, and save them as a playlist. It grew from the idea of a music agent you can ask instead of guessing why an algorithm picked a song.",
          shots=[(S["echo1"], "EchoHunt's chat suggesting four songs from a demo catalog, with a button to save them as a playlist")]),
     dict(slug="clocktower-table", flip=True, extra="Screens are from the 1.4 playtest build.",
          body="Seat the table, deal each character in private, step through the night in order, then keep the day's nominations and votes. The host runs the table instead of the paperwork.",
@@ -279,7 +279,7 @@ CASES = [
                 (S["pin2"], "Pinprint's map of the sample Bali 2026 trip, with blue pins for saved places and counts of places, sources and logged"),
                 (S["pin3"], "Pinprint's Search screen with an Ask your trip box, a note that the on-device model is available, and an Ask Places box")]),
     dict(slug="breakline-surf", flip=False, extra="The screens were captured on 28 October 2026 from the current source, on the iPhone Duo simulator, with a sample badminton smash. Body position is read on the device.",
-         body="Pick a clip of your surf, skate, golf, tennis or badminton move and see your body position frame by frame, with the angles that matter and nothing uploaded.",
+         body="I started Breakline for my own surfing while recovering from a broken back. Pick a clip of your surf, skate, golf, tennis or badminton move and see your body position frame by frame, with the angles that matter and nothing uploaded.",
          shots=[(S["brk1"], "Breakline home screen: sport chips for surf, skate, golf and tennis, and buttons to choose surf photos or clips, find surf media or practise a land drill"),
                 (S["brk2"], "Breakline pose overlay of a badminton smash at contact, with the elbow at 165 degrees and the front knee at 141 degrees"),
                 (S["brk3"], "Breakline session card for the smash: elbow at contact 165 degrees, front knee 141 degrees, 0.70 seconds from load to contact, and a Share with coach button")]),
@@ -288,7 +288,7 @@ CASES = [
          shots=[(S["pas1"], "Pastport on macOS showing what you have been into this week, a privacy check and booking pages"),
                 (S["pas2"], "Pastport on macOS answering which sites were visited most, in dark mode")], wide=True),
     dict(slug="feedloom", flip=False, extra="All three screens are from the next version, which is not on the App Store yet.",
-         body="Keep up with links and feeds in a reader with four looks: comic, newsprint, noir and default.",
+         body="Keep up with links and feeds in a reader with four looks: comic, newsprint, noir and default. A connection to Threadmark for following sources and research is an idea being explored, not a demonstrated integration.",
          shots=[(S["feed1"], "Feedloom's library in its comic skin, dark, with sample bookmarks"),
                 (S["feed2"], "Feedloom's library in its newsprint skin, light, with sample bookmarks"),
                 (S["feed3"], "Feedloom's library in the default skin, dark")]),
@@ -318,7 +318,7 @@ def head_html():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{NAME} · iOS apps with on-device AI</title>
-<meta name="description" content="{NAME} builds iOS and macOS apps with on-device AI. Eighteen apps live, with App Store links, real screens and the work in progress.">
+<meta name="description" content="{NAME} builds iOS and macOS apps. Explore real screens, App Store and GitHub links, and work in progress.">
 <meta name="theme-color" content="#0c0d0f">
 <link rel="icon" href="img/icon-common-ground.webp" type="image/webp">
 <link rel="preload" href="fonts/Archivo-Variable.ttf" as="font" type="font/ttf" crossorigin>
@@ -345,7 +345,7 @@ def hero_html():
     cells.append(f"""<section class="wall hero" id="top" aria-labelledby="h1">
   <div class="pane p-head">
     <h1 id="h1">I build iOS apps with <span class="nb">on-device</span> AI, and I ship them.</h1>
-    <p class="lede">Eighteen apps live, from music to travel to chess. Here is the work: real screens, App Store links, and what is still in the studio.</p>
+    <p class="lede">Apps from music to travel to chess. Here is the work: real screens, App Store and GitHub links, and what is still in the studio.</p>
   </div>
   <a class="pane note cobalt p-cta" href="{CONTACT}" onclick="openContactModal(event)" rel="noopener"><span>Work with me</span><span class="arrow">{ARROW_R}</span></a>""")
     for k, slug in enumerate(HERO_ORDER):
@@ -354,7 +354,7 @@ def hero_html():
         cells.append(f"""  <a class="pane lit p-shot s{k + 1}" {lit_style(slug, k)} href="#{slug}" aria-label="{esc(DISPLAY.get(slug, a['name']))}: see the case">
     {phone(nw, alt, eager=(k == 0))}
   </a>""")
-    cells.append(f"""  <div class="pane p-note"><p>{esc('Seventeen on the App Store, one on GitHub for Mac. Every colour below is an app that is out in the world.')}</p></div>""")
+    cells.append(f"""  <div class="pane p-note"><p>{esc('The app shelf links to App Store listings and a Mac release on GitHub. Screens from development builds are labelled.')}</p></div>""")
     strip = ["playlist-hunter", "feedloom"]
     for k, slug in enumerate(strip):
         a = app_by_slug[slug]
@@ -479,7 +479,7 @@ def apps_html():
     <span class="ds">{esc(app_desc(slug))}</span>
   </a>""".replace(' style-span="%d"' % sp, ""))
     return f"""<section class="wall apps" id="apps" aria-labelledby="apps-h">
-  <div class="pane p-title"><h2 id="apps-h">All eighteen</h2><p>Each pane links to the app on the App Store, or to the download for the Mac app.</p></div>
+  <div class="pane p-title"><h2 id="apps-h">The app shelf</h2><p>Each pane links to the app on the App Store, or to the download for the Mac app.</p></div>
   {chr(10).join('  ' + c for c in cells)}
 </section>"""
 
@@ -595,7 +595,7 @@ def studio_html():
     <dl>
       <div><dt>Live</dt><dd>Prices for BTC, ETH and gold come straight from Binance's public stream.</dd></div>
       <div><dt>Sample</dt><dd>Positions, profit and loss, the NIFTY chart, the sector heatmap and the Live Activity are Xcode previews with made-up numbers.</dd></div>
-      <div><dt>Paper only</dt><dd>Trade tickets are simulated. Nothing in the app sends an order.</dd></div>
+      <div><dt>Paper only</dt><dd>Trade tickets in this captured build are simulated; orders are locked.</dd></div>
       <div><dt>Never shown</dt><dd>Any real account, balance or position.</dd></div>
     </dl>
   </div>
@@ -631,6 +631,11 @@ def studio_html():
     return gl + "\n" + xt + f"""
 <section class="wall studio small" aria-label="More work in development">
   {chr(10).join('  ' + x for x in smalls)}
+  <article class="pane frost p-small">
+    <h3>Spotter</h3>
+    <p>A fitness app that began with an idea for my gym trainer and his bigger plans. It explores on-device movement analysis and coaching.</p>
+    <p class="plate">In development</p>
+  </article>
 </section>"""
 
 

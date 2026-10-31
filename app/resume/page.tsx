@@ -3,7 +3,7 @@ import { resume } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'resume',
-  description: 'resume of anupam chugh, ios and macos engineer.',
+  description: 'Anupam Chugh: app builder, writer and editorial leader.',
 };
 
 type Resume = {
@@ -51,6 +51,11 @@ export default function ResumePage() {
         <a href="/resume.pdf">pdf</a>
         {' · '}
         <a href="/resume.json">resume.json</a>
+      </p>
+      <p className="mt-3 text-sm leading-6 text-secondary">
+        <a href="/posts/ten-years-of-doing-stuff/">career story →</a>{' · '}
+        <a href="/showcase/">app showcase →</a>{' · '}
+        <a href="/posts/Moving-On-From-BP/">editorial story →</a>
       </p>
 
       <section className="mt-12 border-t border-border pt-8">

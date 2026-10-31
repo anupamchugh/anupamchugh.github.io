@@ -24,12 +24,18 @@ export default function Hero() {
           <p className="mt-4 max-w-xl text-base leading-relaxed text-secondary">
             avg coder, above avg manager. engineered managers and managed engineers.
           </p>
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-secondary">
+            i build apps, lead editorial work, and help other people tell their stories.
+          </p>
           <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <Link href="/work/" className="text-primary hover:underline underline-offset-4">
               see my work
             </Link>
             <Link href="/posts/" className="text-primary hover:underline underline-offset-4">
               read writing →
+            </Link>
+            <Link href="/resume/" className="text-primary hover:underline underline-offset-4">
+              my story →
             </Link>
           </div>
         </div>
