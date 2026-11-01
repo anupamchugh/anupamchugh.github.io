@@ -10,7 +10,7 @@ export default function PrivacyPage() {
     <div className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
       <div className="prose">
         <h1>Privacy Policy</h1>
-        <p className="text-sm opacity-60">Last updated: July 22, 2026</p>
+        <p className="text-sm opacity-60">Last updated: November 1, 2026</p>
         <p>
           This privacy policy describes how apps built by Anupam Chugh handle your
           information. Some apps have app-specific sections below.
@@ -105,6 +105,69 @@ export default function PrivacyPage() {
           Breakline does not send media, Vision results, prompts, or personal data to
           OpenAI, Anthropic, Google, advertising networks, analytics services, or other
           third-party AI services. It does not include advertising or tracking SDKs.
+        </p>
+
+        <h2>Screen Room</h2>
+        <p>
+          Screen Room is a film companion: search films, read spoiler-guarded recaps,
+          talk about a film on your device, identify a film from a screenshot, and make
+          comic pages. It has no account, no advertising and no analytics, and the
+          developer runs no server for it.
+        </p>
+
+        <h3>What Leaves Your Device</h3>
+        <ul>
+          <li>
+            <strong>Searches and film lookups go to TMDB.</strong> When you search for a
+            film or a person, open a film, or browse the home shelves, Screen Room asks The
+            Movie Database (TMDB) for the results, using the app&apos;s TMDB key or your own
+            if you added one. TMDB receives the search text and that key. See{' '}
+            <a href="https://www.themoviedb.org/privacy-policy">TMDB&apos;s privacy policy</a>.
+          </li>
+          <li>
+            <strong>Recaps come from Wikipedia.</strong> When you open a film, Screen Room
+            asks Wikipedia for its article, and for a screenshot it may search Wikipedia
+            with text read from it. Wikipedia receives those requests. See the{' '}
+            <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">
+              Wikimedia privacy policy
+            </a>
+            .
+          </li>
+          <li>
+            <strong>Images TMDB serves</strong>, such as posters and portraits, are loaded
+            from TMDB&apos;s image servers.
+          </li>
+        </ul>
+
+        <h3>What Stays on Your Device</h3>
+        <ul>
+          <li>
+            <strong>Your own TMDB key</strong>, if you add one, is stored in your
+            device&apos;s Keychain.
+          </li>
+          <li>
+            <strong>Screenshots you choose for &ldquo;What film is this?&rdquo;</strong> are
+            read on your device with Apple Vision or Apple&apos;s on-device model. Only text
+            found in the image (for example a title card or a subtitle line) is sent to TMDB
+            and Wikipedia as a search term. The image itself is not uploaded. Screen Room
+            does not identify people from their faces.
+          </li>
+          <li>
+            <strong>Summaries, film conversations and comic scripts</strong> are written by
+            Apple&apos;s on-device model. Prompts and answers are not sent to the developer
+            or to any third-party AI service.
+          </li>
+          <li>
+            <strong>Person cutouts and comic illustrations</strong> are made on your device
+            with Apple Vision and Image Playground. They stay on your device unless you
+            share them, and then the destination you choose receives them.
+          </li>
+        </ul>
+
+        <h3>Contact</h3>
+        <p>
+          Questions about Screen Room&apos;s privacy:{' '}
+          <a href="mailto:anupam.chugh@gmail.com">anupam.chugh@gmail.com</a>.
         </p>
 
         <h2>General Data Sharing</h2>
