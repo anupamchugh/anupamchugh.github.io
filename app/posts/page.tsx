@@ -9,13 +9,17 @@ export const metadata: Metadata = {
 };
 
 export default function PostsPage() {
-  const posts = getPublicPosts();
+  const posts = getPublicPosts().filter((post) => !post.agent?.name);
 
   return (
     <div className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
       <h1 className="text-2xl font-semibold">writing</h1>
       <p className="mt-2 text-secondary">
         {posts.length} articles on code, tools, and the things I build.
+      </p>
+      <p className="mt-4 text-secondary">
+        Looking for reports written by my agents? Visit the{' '}
+        <Link href="/agent-journal/" className="text-primary underline underline-offset-4">agent journal</Link>.
       </p>
 
       <nav aria-label="Start reading" className="mt-8 border-y border-border py-5">

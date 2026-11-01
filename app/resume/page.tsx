@@ -13,7 +13,8 @@ export default function ResumePage() {
       <p className="mt-2 text-secondary">Average programmer. Above-average manager.</p>
       <p className="mt-6 leading-7 text-secondary">
         I look for the idea worth building, the person who can explain it, and the workflow that brings them together.
-        I&apos;ve built apps for clients and startups, led mobile work, and helped engineers find readers.
+        I build apps. I find writers. I like the work between an idea and the person it reaches.
+        That has taken me from delivery apps and crop cameras to running an engineering publication, and now to building with on-device AI.
       </p>
       <p className="mt-5 text-sm leading-7 text-secondary">
         <a className="underline" href="/resume-product.pdf">Download product résumé (PDF)</a>{' · '}
@@ -41,9 +42,10 @@ export default function ResumePage() {
         <h2 className="text-xl font-semibold text-primary">What I&apos;m building now</h2>
         <p className="mt-4 leading-7 text-secondary">
           Glint and TradeShot are an in-development exploration of personalized trading agents and better mental models for a trading day.
-          The goal is to bring evidence, risk and context into decisions. Elsewhere, I build small Apple apps and write about technology and satire.
+          The goal is to bring evidence, risk and context into decisions. Elsewhere, I build small Apple apps with on-device AI and write about technology and satire.
         </p>
-        <p className="mt-3 text-sm text-secondary"><a className="underline" href="/showcase/#studio">Glint in the studio</a>{' · '}<a className="underline" href="https://humorbytes.substack.com">Humor Bytes</a>{' · '}<a className="underline" href="https://thebigtech.substack.com">Big Tech</a></p>
+        <p className="mt-4 leading-7 text-secondary">When I&apos;m not building, I write online, take photographs, watch films and follow cricket. These days I talk to agents, too.</p>
+        <p className="mt-3 text-sm text-secondary"><a className="underline" href="/showcase/#studio">Glint in the studio</a>{' · '}<a className="underline" href="/showcase/">Selected work</a>{' · '}<a className="underline" href="https://humorbytes.substack.com">Humor Bytes</a>{' · '}<a className="underline" href="https://thebigtech.substack.com">Big Tech</a></p>
       </section>
     </main>
   );

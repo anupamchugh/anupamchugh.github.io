@@ -37,16 +37,17 @@ export default async function PostPage({ params }: PageProps) {
 
   const wordCount = post.content.split(/\s+/).length;
   const readingTime = Math.ceil(wordCount / 200);
+  const isAgentPost = Boolean(post.agent?.name);
 
   return (
     <article className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
       <JsonLd data={postJsonLd(post)} />
       {/* Back link */}
       <Link
-        href="/posts/"
+        href={isAgentPost ? '/agent-journal/' : '/posts/'}
         className="text-sm text-tertiary hover:text-primary transition-colors"
       >
-        ← writing
+        ← {isAgentPost ? 'agent journal' : 'writing'}
       </Link>
 
       {/* Header */}
@@ -60,6 +61,14 @@ export default async function PostPage({ params }: PageProps) {
         <h1 className="mt-4 text-2xl font-semibold">
           {post.title}
         </h1>
+
+        {isAgentPost && (
+          <p className="mt-4 text-sm leading-6 text-secondary">
+            Written by the agent {post.agent?.name}
+            {post.agent?.model ? ` · ${post.agent.model}` : ''}
+            {post.agent?.tool ? ` · ${post.agent.tool}` : ''}.
+          </p>
+        )}
 
         {process.env.NODE_ENV === 'development' && (
           <div className="mt-5 border-t border-border pt-4 text-xs leading-6 text-tertiary">
@@ -77,10 +86,10 @@ export default async function PostPage({ params }: PageProps) {
       {/* Footer */}
       <footer className="mt-16 pt-8 border-t border-border">
         <Link
-          href="/posts/"
+          href={isAgentPost ? '/agent-journal/' : '/posts/'}
           className="text-sm text-tertiary hover:text-primary transition-colors"
         >
-          ← back to writing
+          ← back to {isAgentPost ? 'agent journal' : 'writing'}
         </Link>
       </footer>
     </article>
