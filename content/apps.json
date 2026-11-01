@@ -51,18 +51,21 @@
   {
     "name": "Pastport",
     "slug": "pastport",
-    "description": "on-device Safari history intelligence for macOS: movements, bookings, threads, and grounded local answers.",
+    "description": "on-device Safari history and travel intelligence: intent radar, Siri App Intents, booking gap detection, and two-way Feedloom reading bridge.",
     "status": "live",
     "href": "https://github.com/anupamchugh/pastport/releases/latest",
     "icon": "/app-icons/pastport.png",
     "tags": [
       "macOS",
+      "iOS",
       "on-device",
       "Foundation Models"
     ],
     "platforms": [
-      "macOS"
-    ]
+      "macOS",
+      "iOS"
+    ],
+    "version": "2.0"
   },
   {
     "name": "Flickpot",

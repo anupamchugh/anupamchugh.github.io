@@ -105,23 +105,12 @@
     },
     {
       "name": "Breakline Surf",
-      "pitch": "compares visible surfing body position in your own photos and videos with spotter transfer, multi-clip scrub, and private on-device coaching.",
+      "pitch": "compares visible surfing body position in your own photos and videos, privately on device.",
       "platforms": [
-        "iOS",
-        "macOS"
+        "iOS"
       ],
       "appStoreUrl": "https://apps.apple.com/us/app/breakline-surf/id6785873182",
-      "version": "1.4"
-    },
-    {
-      "name": "ScreenRoom",
-      "pitch": "an Apple Intelligence comic creator and frame director: generates multi-panel comic strips, guides visual composition, and crafts stories privately on device.",
-      "platforms": [
-        "iOS",
-        "iPadOS"
-      ],
-      "appStoreUrl": "https://apps.apple.com/us/app/screenroom/id6786000000",
-      "version": "1.0"
+      "version": "1.3.1"
     },
     {
       "name": "DocPolish",
