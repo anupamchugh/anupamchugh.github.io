@@ -1,4 +1,5 @@
 import appRecords from "../content/apps.json";
+import portfolioArchiveRecords from "../content/portfolio-archive.json";
 import resumeRecord from "../content/resume.json";
 
 export const resume = resumeRecord;
@@ -64,6 +65,7 @@ export type AppItem = {
   href: string;
   icon?: string;
   tags: string[];
+  platforms: string[];
 };
 
 export const apps: AppItem[] = appRecords.map((record) => {
@@ -79,8 +81,20 @@ export const apps: AppItem[] = appRecords.map((record) => {
     href: record.href,
     icon: record.icon,
     tags: [...record.tags],
+    platforms: [...(record.platforms ?? [])],
   };
 });
+
+export type PortfolioArchiveItem = {
+  name: string;
+  category: string;
+  summary: string;
+  recordedPlatforms: string[];
+  evidence: string;
+  evidenceNote: string;
+};
+
+export const portfolioArchive: PortfolioArchiveItem[] = portfolioArchiveRecords;
 
 export type WorkItem = {
   name: string;
@@ -95,7 +109,7 @@ export const selectedWork: WorkItem[] = [
   {
     name: "vision credit scan",
     description:
-      "real-time credit card scanning using rectangle detection and OCR on the selected region.",
+      "a Vision experiment for detecting a credit card and reading the selected region. The GitHub repository had 29 stars when checked on 2026-10-25.",
     href: "https://github.com/anupamchugh/VisionCreditScan",
     status: "archive",
     tags: ["vision", "ocr"],
@@ -111,7 +125,7 @@ export const selectedWork: WorkItem[] = [
   {
     name: "swipeless tinder",
     description:
-      "a tinder-style card stack controlled by vision hand pose and face gestures. thumbs up, swipe right.",
+      "a Tinder-style card stack controlled by Vision hand poses. The GitHub repository had 29 stars when checked on 2026-10-25.",
     href: "https://github.com/anupamchugh/iOS14VisionHandPose",
     status: "archive",
     tags: ["vision", "swiftui"],

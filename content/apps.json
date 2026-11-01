@@ -2,7 +2,7 @@
   {
     "name": "Rifflet",
     "slug": "rifflet",
-    "description": "turns a short music idea into a playable piano, guitar, or ukulele lesson.",
+    "description": "generate a riff from a short idea, get a coach tip, and learn it with piano, guitar, or ukulele lessons and local playback.",
     "status": "live",
     "href": "https://apps.apple.com/us/app/rifflet/id6767064984",
     "icon": "/app-icons/rifflet.jpg",
@@ -12,7 +12,9 @@
       "on-device"
     ],
     "platforms": [
-      "iOS"
+      "iOS",
+      "macOS",
+      "watchOS"
     ],
     "version": "1.5"
   },
@@ -35,7 +37,7 @@
   {
     "name": "EchoHunt Music",
     "slug": "playlist-hunter",
-    "description": "i play music at random hours and never knew why the algorithm picked it, so now i just ask.",
+    "description": "find songs for a mood or moment, refine suggestions in conversation, preview clips, and save a playlist when you choose.",
     "status": "live",
     "href": "https://apps.apple.com/us/app/echohunt-music/id6756028972",
     "icon": "/app-icons/playlist-hunter.png",
@@ -70,7 +72,7 @@
   {
     "name": "Flickpot",
     "slug": "flickpot",
-    "description": "a small iOS flicking game, live on the app store.",
+    "description": "a coin-flick game that reveals live market charts, with trick shots, daily challenges, and Pocket Racing.",
     "status": "live",
     "href": "https://apps.apple.com/us/app/flickpot/id6766531373",
     "icon": "/app-icons/flickpot.png",
@@ -200,7 +202,7 @@
   {
     "name": "DocPolish",
     "slug": "docpolish",
-    "description": "a private document cleanup app for passports, visas, ids, receipts, and forms.",
+    "description": "scan or import document pages on iPhone and iPad, clean them on device, and export PDFs or images. processing stays private on device; a native Mac version is in development.",
     "status": "live",
     "href": "https://apps.apple.com/us/app/docpolish/id6774345224",
     "icon": "/app-icons/docpolish.jpg",
