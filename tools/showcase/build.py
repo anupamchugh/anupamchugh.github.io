@@ -166,6 +166,7 @@ S = {
     "tm1": webp("threadmark-board.webp"),
     "mq1": webp("maquette-tower-unit.webp"),
     "mq2": webp("maquette-send.webp"),
+    "wo1": webp("wearover-linen-fitted.webp"),
     "rp1": webp("preview-orbits-launch.webp"),
     "rp2": webp("preview-quorion-storyteller.webp"),
     "rp3": webp("preview-glint-portfolio.webp"),
@@ -297,6 +298,9 @@ CASES = [
 ]
 
 STUDIO = [
+    dict(id="wearover", name="Wearover", plate=plate_for("", "Wardrobe") + " · in development",
+         body="Change what you are wearing in a photo of yourself, on your iPhone: Apple Intelligence reads the outfit, the clothes are recoloured on the device or redrawn by Image Playground, and your face and hair stay exactly as photographed. Image Playground only ever receives the clothes, cut off below the face.",
+         shot=[(S["wo1"], "Wearover on the owner's own photo: before in a white T-shirt, after in a cream linen shirt redrawn by Image Playground with the face kept, and Apple Intelligence reading the outfit as a white t-shirt and grey shorts")], color="#121316"),
     dict(id="maquette", name="Maquette", plate=plate_for("", "Maquette") + " · in development",
          body="Photograph the scale model in a property sales office and get a 3D tower: tap a floor and the floors above lift away, tap a flat for its price and availability, then send the buyer a brochure and a site-visit slot.",
          shot=[(S["mq1"], "Maquette's sample Tower B with floor 13 lifted and flat B-1304's card: 3.5 BHK, 1,745 sq ft, available"),

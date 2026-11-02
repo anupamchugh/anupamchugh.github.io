@@ -611,6 +611,14 @@
    "date_basis": "taken in this session",
    "frozen": false,
    "note": "iPhone 17 simulator (iOS 27.2), dark, clock set to 9:41. Built from Maquette main at ff66d17 (2 Nov), Debug, unsigned. Tower B and its flats, prices and site-visit slots are the sample tower bundled in the app. Frame taken from the screen recording ~/Desktop/Media/maquette-preview/maquette-preview-raw-cut.mp4 (1080 px wide), made in this session. Send to buyer sheet: site-visit slots, message and brochure."
+  },
+  "wearover-linen-fitted.webp": {
+   "source": "tools/showcase/src-assets/apps/wearover-linen-fitted.png",
+   "kind": "capture",
+   "date": "2026-11-03",
+   "date_basis": "taken in this session",
+   "frozen": false,
+   "note": "Chugh iPhone 17 (iOS 27.0.1), the owner's own photo, published with the owner's permission. Wearover built from Wardrobe claude/recursing-hypatia-bceb79 (73fe328 era, Debug). Try it on after Image Playground redrew the shirt crop as cream linen and Wearover fitted it back with the face kept; the 'Apple Intelligence sees' card is the on-device Foundation Models read. Screenshot via iphone-use."
   }
  }
 }
