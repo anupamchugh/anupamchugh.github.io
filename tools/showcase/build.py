@@ -164,6 +164,8 @@ S = {
     "feed2": webp("feedloom-newsprint-library.webp"),
     "feed3": webp("feedloom-library.webp"),
     "tm1": webp("threadmark-board.webp"),
+    "mq1": webp("maquette-tower-unit.webp"),
+    "mq2": webp("maquette-send.webp"),
     "rp1": webp("preview-orbits-launch.webp"),
     "rp2": webp("preview-quorion-storyteller.webp"),
     "rp3": webp("preview-glint-portfolio.webp"),
@@ -295,6 +297,10 @@ CASES = [
 ]
 
 STUDIO = [
+    dict(id="maquette", name="Maquette", plate=plate_for("", "Maquette") + " · in development",
+         body="Photograph the scale model in a property sales office and get a 3D tower: tap a floor and the floors above lift away, tap a flat for its price and availability, then send the buyer a brochure and a site-visit slot.",
+         shot=[(S["mq1"], "Maquette's sample Tower B with floor 13 lifted and flat B-1304's card: 3.5 BHK, 1,745 sq ft, available"),
+               (S["mq2"], "Maquette's Send to buyer sheet with two weekend site-visit slots, the message and a one-page brochure")], color="#0b1220"),
     dict(id="maskmen", name="Maskmen and Night of the Ninja", plate="Inside the 1.4 hub · in development",
          body="Two card games in one place: play Maskmen against two bots on this device, or run Night of the Ninja as a companion for the physical cards.",
          shot=[MN["maskmen"][:2], MN["ninja"][:2]], color="#7a1627"),

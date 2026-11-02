@@ -595,6 +595,22 @@
    "date_basis": "taken in the PoseKit check session",
    "frozen": false,
    "note": "iPhone Duo simulator (iOS 27.1), light. Built from SurfCoach (Breakline) main at 72d1a68 (28 Oct, the PoseKit merge), Debug, unsigned. The smash is the sample session in the app, not a real person. The Duo side panel (clock, signal, controls) is part of the capture. Captured by an agy agent for the PoseKit before/after check. Session card sheet."
+  },
+  "maquette-tower-unit.webp": {
+   "source": "tools/showcase/src-assets/apps/maquette-tower-unit.png",
+   "kind": "capture",
+   "date": "2026-11-02",
+   "date_basis": "taken in this session",
+   "frozen": false,
+   "note": "iPhone 17 simulator (iOS 27.2), dark, clock set to 9:41. Built from Maquette main at ff66d17 (2 Nov), Debug, unsigned. Tower B and its flats, prices and site-visit slots are the sample tower bundled in the app. Frame taken from the screen recording ~/Desktop/Media/maquette-preview/maquette-preview-raw-cut.mp4 (1080 px wide), made in this session. Floor 13 lifted, unit B-1304's card open."
+  },
+  "maquette-send.webp": {
+   "source": "tools/showcase/src-assets/apps/maquette-send.png",
+   "kind": "capture",
+   "date": "2026-11-02",
+   "date_basis": "taken in this session",
+   "frozen": false,
+   "note": "iPhone 17 simulator (iOS 27.2), dark, clock set to 9:41. Built from Maquette main at ff66d17 (2 Nov), Debug, unsigned. Tower B and its flats, prices and site-visit slots are the sample tower bundled in the app. Frame taken from the screen recording ~/Desktop/Media/maquette-preview/maquette-preview-raw-cut.mp4 (1080 px wide), made in this session. Send to buyer sheet: site-visit slots, message and brochure."
   }
  }
 }
