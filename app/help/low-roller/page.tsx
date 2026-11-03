@@ -52,12 +52,14 @@ export default function LowRollerSupportPage() {
         <h2>Can I use Siri?</h2>
         <p>Say "Pause my trading in Low Roller" or "How big can my trade be in Low Roller".</p>
 
-        <h2>My purchase didn't go through</h2>
+        <h2>Can I try it without my own trades?</h2>
         <p>
-          Open the Pro screen and tap Restore Purchases. Manage or cancel in Settings › your name ›
-          Subscriptions. Refunds are requested from Apple at{' '}
-          <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.
+          Yes. In Your trades, tap Try a sample day to load a made-up day and see the review and
+          What-if. Remove it any time with Remove the sample day.
         </p>
+
+        <h2>Does it cost anything?</h2>
+        <p>No. Low Roller is free, with no in-app purchases, subscriptions or ads.</p>
 
         <h2>How do I delete my data?</h2>
         <p>

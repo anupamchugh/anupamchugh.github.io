@@ -47,11 +47,8 @@ export default function LowRollerPrivacyPage() {
           data to me or to anyone else.
         </p>
 
-        <h2>In-App Purchases</h2>
-        <p>
-          Low Roller Pro is a subscription processed entirely through Apple's App Store. I do not
-          collect or store any payment information.
-        </p>
+        <h2>Purchases</h2>
+        <p>The App is free and has no in-app purchases, so it handles no payment information.</p>
 
         <h2>Crash Reports</h2>
         <p>

@@ -42,18 +42,8 @@ export default function LowRollerTermsPage() {
         <h2>No Trading Through the App</h2>
         <p>The App can't place, change or cancel orders and doesn't connect to your broker to trade.</p>
 
-        <h2>Low Roller Pro</h2>
-        <ul>
-          <li>Pro is an auto-renewing subscription, monthly or yearly, sold by Apple. The price is shown before you buy.</li>
-          <li>
-            Payment is charged to your Apple Account when you confirm. It renews automatically unless
-            turned off at least 24 hours before the end of the current period.
-          </li>
-          <li>
-            Manage or cancel it in Settings › your name › Subscriptions. Refunds are handled by Apple
-            under its policies.
-          </li>
-        </ul>
+        <h2>Price</h2>
+        <p>The App is free. It has no in-app purchases, subscriptions or ads.</p>
 
         <h2>Liability</h2>
         <p>
