@@ -32,6 +32,7 @@ export default function ContactPing() {
             <p className="mt-1 text-sm text-secondary">
               Share what you want to build, who it is for, and any constraints.
             </p>
+            <a href="https://cal.com/anupam-chugh-n9xuec/meet" className="mt-3 inline-block text-sm font-semibold text-primary underline underline-offset-4">Book a 15-minute call →</a>
           </div>
           <button
             type="button"

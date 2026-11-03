@@ -7,7 +7,8 @@ export default function Footer() {
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <div className="flex flex-col items-center justify-between gap-4 text-sm text-tertiary sm:flex-row">
           <p>&copy; {new Date().getFullYear()} {siteConfig.name}</p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
+            <a href="https://cal.com/anupam-chugh-n9xuec/meet" className="hover:text-primary">book a call</a>
             <a
               href={siteConfig.social.github}
               target="_blank"
