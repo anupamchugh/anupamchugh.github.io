@@ -355,7 +355,7 @@ def hero_html():
     cells.append(f"""<section class="wall hero" id="top" aria-labelledby="h1">
   <div class="pane p-head">
     <h1 id="h1">I build iOS apps with <span class="nb">on-device</span> AI, and I ship them.</h1>
-    <p class="lede">Apps from music to travel to chess. Here is the work: real screens, App Store and GitHub links, and what is still in the studio.</p>
+    <p class="lede">Apps from music to travel to chess. Here is the work: real screens, App Store and GitHub links, and what is still in the studio. <a href="#wearover">Explore Wearover, an in-development wardrobe experiment using Image Playground.</a></p>
   </div>
   <a class="pane note cobalt p-cta" href="{CONTACT}" onclick="openContactModal(event)" rel="noopener"><span>Work with me</span><span class="arrow">{ARROW_R}</span></a>""")
     for k, slug in enumerate(HERO_ORDER):
@@ -632,7 +632,7 @@ def studio_html():
         shot = s["shot"]
         bgs = f'<img class="bgblur" src="img/{shot[0][0][0]}" alt="" aria-hidden="true">'
         ph = "".join(phone(nw, alt, width=170) for nw, alt in shot)
-        smalls.append(f"""<article class="pane frost p-small">{bgs}
+        smalls.append(f"""<article id="{esc(s['id'])}" class="pane frost p-small">{bgs}
     <h3>{esc(s['name'])}</h3>
     <p>{esc(s['body'])}</p>
     <p class="plate">{esc(s['plate'])}</p>
