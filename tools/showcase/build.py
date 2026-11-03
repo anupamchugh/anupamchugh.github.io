@@ -313,7 +313,7 @@ STUDIO = [
          shot=[(S["tm1"], "Threadmark evidence board on a sample question about native Swift agent dashboards")], color="#1f6f7a"),
 ]
 
-HERO_ORDER = ["common-ground", "rifflet"]
+HERO_ORDER = ["wearover", "common-ground"]
 
 
 def lit_style(slug_or_hex, i=0):
@@ -343,6 +343,7 @@ def head_html():
 
 def hero_html():
     shots = {
+        "wearover": (S["wo1"], "Wearover: a clothing change shown on the owner’s photo, in development"),
         "common-ground": (S["orbits1"], "Orbits plan screen asking Where to?"),
         "rifflet": (S["rifflet1"], "Rifflet's Make screen in dark mode"),
         "pinprint": (S["pin1"], "Pinprint App Store screenshot: Plan the day from your saved proof"),
@@ -360,9 +361,10 @@ def hero_html():
   <a class="pane note cobalt p-cta" href="{CONTACT}" onclick="openContactModal(event)" rel="noopener"><span>Work with me</span><span class="arrow">{ARROW_R}</span></a>""")
     for k, slug in enumerate(HERO_ORDER):
         nw, alt = shots[slug]
-        a = app_by_slug[slug]
-        cells.append(f"""  <a class="pane lit p-shot s{k + 1}" {lit_style(slug, k)} href="#{slug}" aria-label="{esc(DISPLAY.get(slug, a['name']))}: see the case">
+        name = "Wearover, in development" if slug == "wearover" else DISPLAY.get(slug, app_by_slug[slug]["name"])
+        cells.append(f"""  <a class="pane lit p-shot s{k + 1}" {lit_style("#121316" if slug == "wearover" else slug, k)} href="#{slug}" aria-label="{esc(name)}: see the case">
     {phone(nw, alt, eager=(k == 0))}
+    {'<span style="position:absolute;bottom:12px;left:12px;background:#121316;color:white;padding:6px 10px;border-radius:6px">Wearover · in development</span>' if slug == "wearover" else ""}
   </a>""")
     cells.append(f"""  <div class="pane p-note"><p>{esc('The app shelf links to App Store listings and a Mac release on GitHub. Screens from development builds are labelled.')}</p></div>""")
     strip = ["playlist-hunter", "feedloom"]
