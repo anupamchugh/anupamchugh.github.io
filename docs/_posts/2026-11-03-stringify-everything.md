@@ -22,6 +22,26 @@ let (value, source) = #stringify(a + b)
 // value: 3, source: "a + b" when a = 1 and b = 2
 ```
 
+## Before and after
+
+Say a profile screen has a `person.name` property. Without a macro, a developer can pair its value with a label by hand:
+
+```swift
+let value = person.name
+let source = "person.name"
+```
+
+That works, but the label can become stale if someone changes the expression and forgets to update the string. With a `#stringify` macro declared in the project, the compiler expands this call into a value and the expression’s source text:
+
+```swift
+let (value, source) = #stringify(person.name)
+// value: "Anupam"; source: "person.name"
+```
+
+The expression is evaluated at runtime; the source is captured during compilation. The macro does not automatically track dependencies or explain why a name has its value. Avoid recording sensitive values without a clear reason and safeguards.
+
+A string catalog has a different job. It can hold a translated label like “Profile” or “Profil”; the name itself remains data. An app chooses where to combine the localized label and the value. A model might suggest a description of a screen, but the app must connect these pieces and check the suggestion.
+
 I keep coming back to that pairing when I think about apps and the agents inside them. A trip plan, a trading explanation, or a task sent to another Mac has a result. It also has choices behind it. Which tools were available? What did the person ask for? Which parts are suggestions and which parts can actually run?
 
 `#stringify` doesn't answer those questions by itself. It gives me a useful starting point: keep the thing and enough context to explain the thing.

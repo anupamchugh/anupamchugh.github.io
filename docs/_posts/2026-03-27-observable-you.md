@@ -139,8 +139,10 @@ Your face unlocks the phone.
 30,000 infrared dots mapping you in the dark.
 
 In Westworld, every host had a pearl.
-The Secure Enclave is yours.
-*Extractable. Copyable. Theirs.*
+The Secure Enclave is designed to keep sensitive keys isolated.
+*The pearl is a metaphor, not a copy of your secrets.*
+
+[Apple explains the Secure Enclave](https://support.apple.com/guide/security/the-secure-enclave-sec59b0b31ff/web) and its hardware protections.
 
 AirPods whisper in your ear.
 Spatial Audio tracks your head.
