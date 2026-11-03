@@ -18,6 +18,17 @@ export default function WorkPage() {
         writing systems, and a few things still being built.
       </p>
 
+      <section className="mt-10 grid gap-4 sm:grid-cols-2" aria-label="current projects">
+        <Link href="https://getalcor.com/" className="group block rounded-lg border border-border p-4 transition-colors hover:border-secondary">
+          <h2 className="font-medium text-primary group-hover:underline underline-offset-4">alcor ↗</h2>
+          <p className="mt-2 text-sm leading-6 text-secondary">my independent app studio: small Apple apps that can hand work to each other.</p>
+        </Link>
+        <Link href="https://macit.work/" className="group block rounded-lg border border-border p-4 transition-colors hover:border-secondary">
+          <h2 className="font-medium text-primary group-hover:underline underline-offset-4">macitwork ↗</h2>
+          <p className="mt-2 text-sm leading-6 text-secondary">an early Mac app that uses Apple Intelligence to plan bounded work, asks for approval, and records a signed receipt.</p>
+        </Link>
+      </section>
+
       <section className="mt-12 border-y border-border py-8">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <div>
