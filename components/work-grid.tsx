@@ -38,7 +38,7 @@ export default function WorkGrid() {
               <Image src={item.image} alt={item.alt ?? ''} width={460} height={1000} className="h-[220px] w-full bg-[var(--bg-tertiary)] object-cover object-top" />
             ) : (
               <div className="flex h-[220px] items-center justify-center bg-[var(--bg-tertiary)] font-mono text-xs text-tertiary">
-                {item.href ? 'code only' : 'no screens survive'}
+                {item.href ? 'code only' : item.kind === 'client' ? 'no screens survive' : 'no public screens yet'}
               </div>
             )}
             <div className="flex flex-1 flex-col gap-2 p-4">

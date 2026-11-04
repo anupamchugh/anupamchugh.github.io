@@ -57,17 +57,17 @@ const breakline = (
 );
 
 const glint = (
-  <Chapter id="glint" kicker="live activities · dynamic island" status="in development · orders locked">
+  <Chapter id="glint" kicker="trading · live activities" status="in development">
     <Panel className="bg-[#16161A] text-[#F7F7F4]">
       <div className="flex flex-wrap justify-center gap-4">
-        <Shot src="/home/glint-island.webp" alt="Glint NIFTY call and put pair in the Dynamic Island" />
-        <Shot src="/home/glint-lock.webp" alt="Glint pair on the Lock Screen" className="h-[420px] w-[200px] shrink-0 rounded-[26px] object-cover object-bottom" />
+        <Shot src="/home/glint-island.webp" alt="Glint showing a sample trade in the Dynamic Island" />
+        <Shot src="/home/glint-lock.webp" alt="Glint showing a sample trade on the Lock Screen" className="h-[420px] w-[200px] shrink-0 rounded-[26px] object-cover object-bottom" />
       </div>
       <div>
-        <p className={panelTitle}>Watch the trade,<br />not the app.</p>
+        <p className={panelTitle}>Rules first,<br />then the trade.</p>
         <p className="mt-4 max-w-md leading-relaxed text-[#C8C8D0]">
-          Glint puts a NIFTY call and put pair in the Dynamic Island and on the Lock Screen. Ask it in plain words to start or stop.
-          It writes the plan first and never places an order on its own. Part of TradeShot.
+          I trade by following algorithms that have worked for me, unless I end up gambling manually. TradeShot and Glint are my
+          customizable tools for practicing trading and building better habits, and Glint keeps the trade on your Lock Screen.
         </p>
         <a href="https://tradeshot.co/" className={`${button} mt-5 bg-[#F7F7F4] text-[#16161A]`}>tradeshot.co ↗</a>
       </div>
