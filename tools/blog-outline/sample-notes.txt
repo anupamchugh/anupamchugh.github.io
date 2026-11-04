@@ -1,0 +1,1 @@
+A fictional app helps people find pages in their own browser history. It reads a local copy. Visits to a hotel page do not prove a booking. A model can summarize counts that the app computed.
