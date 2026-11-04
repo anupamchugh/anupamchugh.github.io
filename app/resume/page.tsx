@@ -40,11 +40,16 @@ export default function ResumePage() {
       <section className="mt-12 border-t border-border pt-8">
         <h2 className="text-xl font-semibold text-primary">What I&apos;m building now</h2>
         <p className="mt-4 leading-7 text-secondary">
+          Consumer apps with on-device AI, from idea to App Store: 19 live, 65 approved releases since December 2025.
+          Breakline reads how your body moves in your own clips across seven sports; in testing, a 3D humanoid robot replays your surf pop-up or push-up.
+          Wearover changes the clothes in your photo and keeps your face exactly as it is; version 3.0 is in App Review.
+        </p>
+        <p className="mt-4 leading-7 text-secondary">
           Glint and TradeShot are an in-development exploration of personalized trading agents and better mental models for a trading day.
-          The goal is to bring evidence, risk and context into decisions. Elsewhere, I build small Apple apps with on-device AI and write about technology and satire.
+          The goal is to bring evidence, risk and context into decisions. I also write about technology and satire.
         </p>
         <p className="mt-4 leading-7 text-secondary">When I&apos;m not building, I write online, take photographs, watch films and follow cricket. These days I talk to agents, too.</p>
-        <p className="mt-3 text-sm text-secondary"><a className="underline" href="/showcase/#studio">Glint in the studio</a>{' · '}<a className="underline" href="/showcase/">Selected work</a>{' · '}<a className="underline" href="https://humorbytes.substack.com">Humor Bytes</a>{' · '}<a className="underline" href="https://thebigtech.substack.com">Big Tech</a></p>
+        <p className="mt-3 text-sm text-secondary"><a className="underline" href="/showcase/#wearover">Wearover</a>{' · '}<a className="underline" href="https://getalcor.com/breakline/">Breakline</a>{' · '}<a className="underline" href="/showcase/#studio">Glint in the studio</a>{' · '}<a className="underline" href="/showcase/">Selected work</a>{' · '}<a className="underline" href="https://humorbytes.substack.com">Humor Bytes</a>{' · '}<a className="underline" href="https://thebigtech.substack.com">Big Tech</a></p>
       </section>
     </main>
   );
