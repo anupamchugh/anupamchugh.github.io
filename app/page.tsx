@@ -164,6 +164,14 @@ const demos = (
         <Shot src="/home/pencilkit-mnist.gif" alt="Digits drawn on a PencilKit canvas, each recognised by a Core ML model" width={269} height={480} className="h-[420px] w-[236px] rounded-[26px] object-cover object-top" />
         <p className="mt-2 text-sm"><strong className="text-primary">PencilKit + Core ML</strong> <span className="text-secondary">· draw a digit and an MNIST model on the phone reads it, from 2019. <a href="https://iosdevie.substack.com/p/pencilkit-coreml-ios13">Post</a> · <a href="https://github.com/anupamchugh/iowncode/tree/master/iOSPencilKitCoreMLMNIST">code</a>.</span></p>
       </li>
+      <li className="w-[200px] shrink-0 snap-start">
+        <Clip src="/home/headset-tilt.mp4" poster="/home/headset-tilt-poster.webp" label="Headphone tilt: tilting your head to vote yay or nay, under a RealityKit face mask" />
+        <p className="mt-2 text-sm"><strong className="text-primary">Headphone tilt</strong> <span className="text-secondary">· tilt your head to vote yay or nay. Headphone motion plus a RealityKit face mask, from 2023.</span></p>
+      </li>
+      <li className="w-[200px] shrink-0 snap-start">
+        <Clip src="/home/cloth-segmentation.mp4" poster="/home/cloth-segmentation-poster.webp" label="Clothes segmentation: a photo, then only the dress in colour, then the model's mask" />
+        <p className="mt-2 text-sm"><strong className="text-primary">Clothes segmentation</strong> <span className="text-secondary">· a Core ML model picks out the clothes in a photo, from 2022. Photo: Unsplash.</span></p>
+      </li>
       <li className="w-[340px] shrink-0 snap-start">
         <Shot src="/home/pastport.webp" alt="Pastport answering from Safari history on the Mac" width={812} height={1000} className="h-[420px] w-[340px] rounded-[26px] object-cover object-top" />
         <p className="mt-2 text-sm"><strong className="text-primary">Pastport</strong> <span className="text-secondary">· answers from your own Safari history, on the Mac.</span></p>
