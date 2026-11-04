@@ -180,6 +180,7 @@ const newsletters = [
   { name: 'Coffee Bytes', href: 'https://medium.com/@coffee_bytes', line: 'putting other writers in front of readers, on Medium' },
   { name: 'Big Tech', href: 'https://thebigtech.substack.com', line: 'what the big platforms are really doing' },
   { name: 'Humor Bytes', href: 'https://humorbytes.substack.com', line: 'tech satire' },
+  { name: 'iOSDevie', href: 'https://iosdevie.substack.com', line: 'iOS tutorials: SwiftUI, Core ML, Vision and ARKit' },
 ];
 
 function Writing() {
@@ -197,7 +198,7 @@ function Writing() {
             <a href="https://medium.com/@anupamchugh">Medium ↗</a>
             <Link href="/agent-journal/">Agent journal</Link>
           </p>
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {newsletters.map((n) => (
               <a key={n.name} href={n.href} className="rounded-2xl border border-border p-4 no-underline hover:border-[var(--fg-subtle)]">
                 <strong className="block text-primary">{n.name} ↗</strong>

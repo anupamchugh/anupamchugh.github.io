@@ -44,7 +44,7 @@ const roles: Role[] = [
     headline: 'Over 1 million views on Medium, and editing Better Programming from 2021 to 2023.',
     points: [
       ['medium', 'Tutorials and tech essays on iOS, AI and Big Tech; several reached the Hacker News front page.'],
-      ['newsletters', 'Big Tech and Humor Bytes on Substack; Coffee Bytes on Medium.'],
+      ['newsletters', 'Big Tech, Humor Bytes and iOSDevie on Substack; Coffee Bytes on Medium.'],
       ['editing', 'Took over Better Programming from Zack Shapiro in 2021 and ran it until 2023.'],
       ['voice', 'Sometimes funny. The long version is ten years of doing stuff.'],
     ],
