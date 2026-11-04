@@ -12,7 +12,7 @@ export default function ResumePage() {
       <h1 className="mt-3 text-3xl font-semibold text-primary">Anupam Chugh</h1>
       <p className="mt-2 text-secondary">Average programmer. Above-average manager.</p>
       <p className="mt-6 leading-7 text-secondary">
-        I build apps. I work with writers. I like the work between an idea and the person it reaches.
+        I build apps and write about them. Sometimes funny. Good at helping manage engineers, better with engineering managers.
         That has taken me from delivery apps and crop cameras to running an engineering publication, and now to building with AI agents.
       </p>
       <p className="mt-5 text-sm leading-7 text-secondary">
@@ -24,8 +24,10 @@ export default function ResumePage() {
       <section className="mt-12 border-t border-border pt-8">
         <h2 className="text-xl font-semibold text-primary">The editor</h2>
         <p className="mt-4 leading-7 text-secondary">
-          As Managing Editor of Better Programming, I worked with Medium on curation, distribution, product feedback and editorial tools.
-          I found writers, reached out, helped them onboard and supported their work. Coffee Bytes grew out of the same instinct: put other people in front of readers.
+          I took over Better Programming from Zack Shapiro in 2021 and ran it until 2023, while it grew from 50 million to 150 million lifetime pageviews.
+          I was the user and the builder: my own feed reader and author tracker, built on Apple&apos;s Natural Language framework, used semantic search to sort
+          thousands of submissions a month into lanes by topic, author and trajectory, so the best reached me first. I found writers, helped them onboard and
+          supported their work. Coffee Bytes grew out of the same instinct: put other people in front of readers.
         </p>
         <p className="mt-3 text-sm text-secondary"><a className="underline" href="https://medium.com/@coffee_bytes">Coffee Bytes</a>{' · '}<a className="underline" href="https://medium.com/better-programming/better-programming-has-a-new-editor-4f4ee04fa899">My farewell</a></p>
       </section>
@@ -42,13 +44,13 @@ export default function ResumePage() {
         <p className="mt-4 leading-7 text-secondary">
           Consumer apps with on-device AI, from idea to App Store: 19 live, 65 approved releases since December 2025.
           Breakline reads how your body moves in your own clips across seven sports; in testing, a 3D humanoid robot replays your surf pop-up or push-up.
-          Wearover changes the clothes in your photo and keeps your face exactly as it is; version 3.0 is in App Review.
+          Wearover changes clothes, hair, glasses and face paint in your photo on the iPhone and keeps your face as photographed; version 3.0 is in App Review.
         </p>
         <p className="mt-4 leading-7 text-secondary">
-          Glint and TradeShot are an in-development exploration of personalized trading agents and better mental models for a trading day.
-          The goal is to bring evidence, risk and context into decisions. I also write about technology and satire.
+          <a className="underline" href="https://tradeshot.co">TradeShot</a> and Glint are a calmer way to trade consciously: each move explained from evidence on live Kite,
+          Binance and OpenAlgo data, and live trades locked until you approve them. I also write about technology and satire.
         </p>
-        <p className="mt-4 leading-7 text-secondary">When I&apos;m not building, I write online, take photographs, watch films and follow cricket. These days I talk to agents, too.</p>
+        <p className="mt-4 leading-7 text-secondary">Off the clock: surfing, which started Breakline, Swell Window and Contour Lab&apos;s surfboard mode; chess, cricket, table tennis, board games and films. These days I talk to agents, too.</p>
         <p className="mt-3 text-sm text-secondary"><a className="underline" href="/showcase/#wearover">Wearover</a>{' · '}<a className="underline" href="https://getalcor.com/breakline/">Breakline</a>{' · '}<a className="underline" href="/showcase/#studio">Glint in the studio</a>{' · '}<a className="underline" href="/showcase/">Selected work</a>{' · '}<a className="underline" href="https://humorbytes.substack.com">Humor Bytes</a>{' · '}<a className="underline" href="https://thebigtech.substack.com">Big Tech</a></p>
       </section>
     </main>
