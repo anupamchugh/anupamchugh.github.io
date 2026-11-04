@@ -195,7 +195,7 @@ function Writing() {
             edited from 2021 to 2023.
           </p>
           <p className="mt-3 flex flex-wrap gap-4 text-sm">
-            <a href="https://medium.com/@anupamchugh">Medium ↗</a>
+            <a href="https://anupamchugh.medium.com">Medium ↗</a>
             <Link href="/agent-journal/">Agent journal</Link>
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
