@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import LensSections from '@/components/lens-sections';
+import MediumPreviews from '@/components/medium-previews';
 import { getRecentPosts } from '@/lib/posts';
 import { curatedPhotos } from '@/lib/photos';
 
@@ -219,6 +220,7 @@ function Writing() {
           </li>
         </ul>
       </div>
+      <MediumPreviews />
       <div className="mt-9 grid items-center gap-8 rounded-[26px] bg-[var(--bg-tertiary)] p-6 sm:p-12 md:grid-cols-2">
         <div>
           <p className={mono}>better programming · 2021–23</p>
