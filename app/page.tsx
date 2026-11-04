@@ -225,10 +225,8 @@ function Writing() {
           <p className={mono}>better programming · 2021–23</p>
           <p className="mt-2 text-3xl font-bold leading-tight tracking-[-0.03em] text-primary sm:text-4xl">Finding the writers before they find us.</p>
           <p className="mt-4 leading-relaxed text-secondary">
-            Zack Shapiro built Better Publishing, the editors&apos; app for our Trello review queue, and I modified it when I took over in 2021.
-            Then I built my own: MediumRSS, a SwiftUI app that pulled each day&apos;s posts across more than 100 Medium topics with the
-            author, their bio, claps and reading time. Grouped by topic, author or reading time, it let us spot promising writers and reach
-            out and onboard them faster for the publication and its newsletters.
+            I modified Zack Shapiro&apos;s Better Publishing app when I took over in 2021, then built my own, MediumRSS: each day&apos;s posts
+            across 100+ Medium topics, grouped by topic or author, so we could find writers and reach out faster.
           </p>
         </div>
         <figure>
