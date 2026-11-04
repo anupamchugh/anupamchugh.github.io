@@ -1,84 +1,311 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Hero from '@/components/hero';
-import HomeWorkTabs from '@/components/home-work-tabs';
-import { curatedPhotos } from '@/lib/photos';
+import { ReactNode } from 'react';
+import LensSections from '@/components/lens-sections';
 import { getRecentPosts } from '@/lib/posts';
-import { formatDate } from '@/lib/utils';
+
+const mono = 'font-mono text-xs uppercase tracking-[0.08em] text-tertiary';
+const panelTitle = 'text-4xl font-bold leading-none tracking-[-0.035em] sm:text-5xl';
+const phone = 'h-[420px] w-[200px] shrink-0 rounded-[26px] object-cover object-top';
+const button = 'inline-flex min-h-11 items-center rounded-xl px-4 text-sm font-semibold no-underline';
+
+function Chapter({ id, kicker, status, children }: { id: string; kicker: string; status: ReactNode; children: ReactNode }) {
+  return (
+    <article id={id} className="scroll-mt-24 pb-20 pt-2">
+      <div className={`mb-3.5 flex flex-wrap justify-between gap-2 ${mono}`}>
+        <span>{kicker}</span>
+        <span>{status}</span>
+      </div>
+      {children}
+    </article>
+  );
+}
+
+function Panel({ className, children }: { className: string; children: ReactNode }) {
+  return <div className={`grid items-center gap-8 rounded-[26px] p-6 sm:p-12 md:grid-cols-2 ${className}`}>{children}</div>;
+}
+
+function Shot({ src, alt, className = phone, width = 460, height = 1000 }: { src: string; alt: string; className?: string; width?: number; height?: number }) {
+  return <Image src={src} alt={alt} width={width} height={height} className={className} />;
+}
+
+function Clip({ src, poster, label }: { src: string; poster: string; label: string }) {
+  return <video src={src} poster={poster} controls muted playsInline preload="none" aria-label={label} className={`${phone} bg-black`} />;
+}
+
+const breakline = (
+  <Chapter
+    id="breakline"
+    kicker="vision · realitykit"
+    status={<a href="https://apps.apple.com/us/app/breakline-surf/id6785873182" className="text-[#1C7A3F] no-underline">● on the app store · 1.6 in build</a>}
+  >
+    <Panel className="bg-[#DDE8F2] text-[#16161A]">
+      <div>
+        <p className={panelTitle}>Your pop-up,<br />on a robot.</p>
+        <p className="mt-4 max-w-md leading-relaxed text-[#34404D]">
+          Breakline reads your pose from a surf or gym clip, then a humanoid built in RealityKit replays it beside you. Measurements only,
+          never a score. The clip never leaves the phone.
+        </p>
+      </div>
+      <div className="flex flex-wrap justify-center gap-4">
+        <Clip src="/home/breakline-robot.mp4" poster="/home/breakline-robot.webp" label="Breakline robot replay of a surf pop-up" />
+        <Shot src="/home/breakline-home.webp" alt="Breakline home: surf, skate, golf and tennis" />
+      </div>
+    </Panel>
+  </Chapter>
+);
+
+const glint = (
+  <Chapter id="glint" kicker="live activities · dynamic island" status="in development · orders locked">
+    <Panel className="bg-[#16161A] text-[#F7F7F4]">
+      <div className="flex flex-wrap justify-center gap-4">
+        <Shot src="/home/glint-island.webp" alt="Glint NIFTY call and put pair in the Dynamic Island" />
+        <Shot src="/home/glint-lock.webp" alt="Glint pair on the Lock Screen" className="h-[420px] w-[200px] shrink-0 rounded-[26px] object-cover object-bottom" />
+      </div>
+      <div>
+        <p className={panelTitle}>Watch the trade,<br />not the app.</p>
+        <p className="mt-4 max-w-md leading-relaxed text-[#C8C8D0]">
+          Glint puts a NIFTY call and put pair in the Dynamic Island and on the Lock Screen. Ask it in plain words to start or stop.
+          It writes the plan first and never places an order on its own. Part of TradeShot.
+        </p>
+        <a href="https://tradeshot.co/" className={`${button} mt-5 bg-[#F7F7F4] text-[#16161A]`}>tradeshot.co ↗</a>
+      </div>
+    </Panel>
+  </Chapter>
+);
+
+const contour = (
+  <Chapter id="contour" kicker="open source · vision · realitykit" status="mit · since 2020">
+    <Panel className="bg-[var(--bg-tertiary)] text-primary">
+      <div>
+        <p className={panelTitle}>51 coins.<br />One photo.</p>
+        <pre className="mt-5 overflow-x-auto rounded-2xl bg-[#16161A] p-5 font-mono text-[13px] leading-relaxed text-[#E8E6DF]">
+          <span className="text-[#8FB4F0]">let</span> request = <span className="text-[#E8B86B]">VNDetectContoursRequest</span>(){'\n'}
+          request.detectsDarkOnLight = <span className="text-[#8FB4F0]">true</span>{'\n'}
+          <span className="text-[#8A8A93]">{'// then group by size, count, measure'}</span>
+        </pre>
+        <p className="mt-4 leading-relaxed text-secondary">
+          Contour Lab started as a 2020 sample for Vision&apos;s contour request. Now it counts coins, leaves and odd shapes, measures a
+          surfboard from one photo, and lays the count out as tokens on a RealityKit table. Guess first, then ask the on-device model,
+          which is never allowed to say a number.
+        </p>
+        <a href="https://github.com/anupamchugh/iOS14VisionContourDetection" className={`${button} mt-4 bg-[#16161A] text-[#F7F7F4]`}>Explore on GitHub</a>
+      </div>
+      <div className="flex gap-4 overflow-x-auto pb-2">
+        <Shot src="/home/contour-3d.webp" alt="51 coins as tokens on a 3D table" />
+        <Shot src="/home/contour-surfboard.webp" alt="A 6 foot 2 surfboard measured from one photo" />
+        <Shot src="/home/contour-leaves.webp" alt="Five leaves outlined and measured" />
+        <Shot src="/home/contour-anything.webp" alt="Seven objects of any shape counted" />
+      </div>
+    </Panel>
+  </Chapter>
+);
+
+const screenRoom = (
+  <Chapter id="screenroom" kicker="iphone + mac" status="live · remote is open source">
+    <Panel className="bg-[#2A1414] text-[#F7F2EE]">
+      <div>
+        <p className={panelTitle}>Screen Room.</p>
+        <p className="mt-4 max-w-md leading-relaxed text-[#E2CFC8]">
+          What to watch next, from what you already browse. Recaps that stop where you stopped, and a comic of the plot drawn on the
+          device. Screen Room Remote drives a Fire TV from the Mac.
+        </p>
+        <a href="https://github.com/anupamchugh/ScreenRoomRemote" className={`${button} mt-5 bg-[#F7F2EE] text-[#2A1414]`}>Remote on GitHub ↗</a>
+      </div>
+      <div className="flex flex-wrap justify-center gap-4">
+        <Shot src="/home/screenroom-home.webp" alt="Screen Room home" />
+        <Shot src="/home/screenroom-comic.webp" alt="Screen Room comic recap" />
+      </div>
+    </Panel>
+  </Chapter>
+);
+
+const studioItems = [
+  { src: '/home/feedloom-duo.webp', alt: 'Feedloom unfolded on iPhone Duo', name: 'Feedloom', line: 'save this, find the thread. On iPhone Duo.', w: 1200, h: 844 },
+  { src: '/showcase/img/wearover-linen-fitted.webp', alt: 'Wearover fitted linen outfit', name: 'Wearover 3.0', line: 'a new look from one photo. In App Review.', w: 506, h: 1100 },
+  { src: '/home/quorion-reveal.webp', alt: 'Quorion telling one player their role', name: 'Quorion', line: "a storyteller's table for social deduction nights.", w: 460, h: 1000 },
+  { src: '/gallery/studio/trayce-01-trip.webp', alt: 'Trayce trip screen', name: 'Trayce', line: 'the newest booking copy wins. Open source.', w: 460, h: 1000 },
+];
+
+const studio = (
+  <Chapter id="studio" kicker="more from the studio" status={<a href="https://getalcor.com/" className="text-tertiary">all on getalcor.com ↗</a>}>
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {studioItems.map((item) => (
+        <figure key={item.name}>
+          <Shot src={item.src} alt={item.alt} width={item.w} height={item.h} className="h-[280px] w-full rounded-2xl border border-border object-cover object-left-top" />
+          <figcaption className="mt-2 text-sm"><strong className="text-primary">{item.name}</strong> <span className="text-secondary">· {item.line}</span></figcaption>
+        </figure>
+      ))}
+    </div>
+    <figure className="mt-4">
+      <Shot src="/home/checkmate-board.webp" alt="Checkmate Academy redesign, the full flow in dark and light" width={1600} height={1066} className="w-full rounded-2xl" />
+      <figcaption className="mt-2 text-sm"><strong className="text-primary">Checkmate Academy</strong> <span className="text-secondary">· the redesign, every screen in dark and light.</span></figcaption>
+    </figure>
+  </Chapter>
+);
+
+const demos = (
+  <Chapter id="demos" kicker="demos · hands, pictures, places" status="tap a video to play">
+    <ul className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3" aria-label="Demos, scroll sideways">
+      <li className="w-[200px] shrink-0 snap-start">
+        <Clip src="/home/rifflet.mp4" poster="/home/rifflet-poster.webp" label="Rifflet: playing piano with a hand pose" />
+        <p className="mt-2 text-sm"><strong className="text-primary">Rifflet</strong> <span className="text-secondary">· play the piano with your hand in the air. Live on iPhone and Mac.</span></p>
+      </li>
+      <li className="w-[200px] shrink-0 snap-start">
+        <Clip src="/home/folio.mp4" poster="/home/folio-poster.webp" label="Folio: the on-device model choosing which app gets a picture" />
+        <p className="mt-2 text-sm"><strong className="text-primary">Folio</strong> <span className="text-secondary">· the on-device model picks which app a picture goes to. Prototype.</span></p>
+      </li>
+      <li className="w-[236px] shrink-0 snap-start">
+        <Shot src="/home/vision-swipe.gif" alt="Swiping cards with a hand gesture using Vision hand pose" width={309} height={550} className="h-[420px] w-[236px] rounded-[26px] object-cover" />
+        <p className="mt-2 text-sm"><strong className="text-primary">Vision swipe</strong> <span className="text-secondary">· Tinder-style swipes with your hand, from 2020. <a href="https://github.com/anupamchugh/iOS14VisionHandPose">29 stars</a>.</span></p>
+      </li>
+      <li className="w-[340px] shrink-0 snap-start">
+        <Shot src="/home/pastport.webp" alt="Pastport answering from Safari history on the Mac" width={812} height={1000} className="h-[420px] w-[340px] rounded-[26px] object-cover object-top" />
+        <p className="mt-2 text-sm"><strong className="text-primary">Pastport</strong> <span className="text-secondary">· answers from your own Safari history, on the Mac.</span></p>
+      </li>
+      <li className="w-[560px] shrink-0 snap-start">
+        <Shot src="/home/orbits-duo.webp" alt="Find Common Ground unfolded on iPhone Duo with its tools sheet" width={1400} height={984} className="h-[420px] w-[560px] rounded-[26px] object-cover" />
+        <p className="mt-2 text-sm"><strong className="text-primary">Find Common Ground</strong> <span className="text-secondary">· plans a meetup, and shows which tools it used. On iPhone Duo.</span></p>
+      </li>
+    </ul>
+  </Chapter>
+);
+
+const newsletters = [
+  { name: 'Coffee Bytes', href: 'https://medium.com/@coffee_bytes', line: 'putting other writers in front of readers, on Medium' },
+  { name: 'Big Tech', href: 'https://thebigtech.substack.com', line: 'what the big platforms are really doing' },
+  { name: 'Humor Bytes', href: 'https://humorbytes.substack.com', line: 'tech satire' },
+];
+
+function Writing() {
+  const posts = getRecentPosts(3);
+  return (
+    <section id="writing" className="scroll-mt-24 border-t border-border pb-20 pt-8">
+      <div className="grid gap-9 md:grid-cols-2">
+        <div>
+          <h2 className="text-4xl font-bold leading-tight tracking-[-0.03em] text-primary">Notes along the way.</h2>
+          <p className="mt-3 leading-relaxed text-secondary">
+            Over 1 million views on Medium, a few Hacker News front pages, the Coffee Bytes newsletter, and Better Programming, which I
+            edited from 2021 to 2023.
+          </p>
+          <p className="mt-3 flex flex-wrap gap-4 text-sm">
+            <a href="https://medium.com/@anupamchugh">Medium ↗</a>
+            <Link href="/agent-journal/">Agent journal</Link>
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            {newsletters.map((n) => (
+              <a key={n.name} href={n.href} className="rounded-2xl border border-border p-4 no-underline hover:border-[var(--fg-subtle)]">
+                <strong className="block text-primary">{n.name} ↗</strong>
+                <span className="mt-1 block text-sm leading-snug text-secondary">{n.line}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+        <ul>
+          {posts.map((post) => (
+            <li key={post.slug} className="border-b border-border">
+              <Link href={`/posts/${post.slug}/`} className="block py-4 font-medium text-primary no-underline hover:underline">
+                {post.title}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <Link href="/posts/" className="inline-flex min-h-11 items-center text-sm font-semibold">All writing →</Link>
+          </li>
+        </ul>
+      </div>
+      <div className="mt-9 grid items-center gap-8 rounded-[26px] bg-[var(--bg-tertiary)] p-6 sm:p-12 md:grid-cols-2">
+        <div>
+          <p className={mono}>better programming · 2021–23</p>
+          <p className="mt-2 text-3xl font-bold leading-tight tracking-[-0.03em] text-primary sm:text-4xl">Finding the writers before they find us.</p>
+          <p className="mt-4 leading-relaxed text-secondary">
+            Zack Shapiro built Better Publishing, the editors&apos; app for our Trello review queue. When I took over in 2021 I modified it,
+            then tuned our workflow around RSS feeds of Medium topics and authors, so we could track promising writers and reach out and
+            onboard them faster for the publication and its newsletters.
+          </p>
+        </div>
+        <figure>
+          <Shot src="/home/bp-preview.webp" alt="Better Publishing review list and article screen, redrawn from the app's source" width={700} height={595} className="w-full rounded-2xl" />
+          <figcaption className="mt-2 text-[13px] text-secondary">Redrawn from the app&apos;s source code. Sample names, not real submissions.</figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
+const alongCards = [
+  { href: '/work/gallery/#mobey', src: '/gallery/mobey/driver-07.webp', alt: 'MOBEY driver app with a customer tip', when: '2015–17 · android and ios', name: 'MOBEY', line: 'Customer and driver apps for a Gold Coast company delivering alcohol, flowers and more. Built remotely.', w: 562, h: 1000 },
+  { href: '/work/gallery/#agricx', src: '/gallery/agricx/agricx-inspection-poster.webp', alt: 'Agricx inspection report', when: '2019 · ios and android', name: 'Agricx', line: 'Crop inspection: photograph a sample, then count, size and grade it.', w: 562, h: 1000 },
+  { href: '/work/gallery/#journaldev', src: '/screenshots/career-journey/journaldev-playstore.png', alt: 'JournalDev on the Play Store', when: '2015–18 · android', name: 'JournalDev', line: 'The Android app: 4.4 stars, 10K+ downloads.', w: 1992, h: 1424 },
+];
+
+const along = (
+  <section id="along" className="scroll-mt-24 border-t border-border pb-20 pt-8">
+    <h2 className="text-4xl font-bold leading-tight tracking-[-0.03em] text-primary">Along the way.</h2>
+    <p className="mt-3 text-secondary">Dourier, a courier MVP with friends, was my first app. Movie Reviews, an Android app on RSS feeds, was my second.</p>
+    <div className="mt-6 grid gap-4 md:grid-cols-3">
+      {alongCards.map((card) => (
+        <Link key={card.name} href={card.href} className="flex flex-col gap-2.5 rounded-[20px] bg-[var(--bg-tertiary)] p-5 no-underline">
+          <Shot src={card.src} alt={card.alt} width={card.w} height={card.h} className="h-60 w-full rounded-xl object-cover object-left-top" />
+          <span className="font-mono text-xs text-tertiary">{card.when}</span>
+          <strong className="text-lg text-primary">{card.name}</strong>
+          <span className="text-sm leading-relaxed text-secondary">{card.line}</span>
+        </Link>
+      ))}
+    </div>
+    <Link href="/work/gallery/" className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold">The whole gallery →</Link>
+  </section>
+);
 
 export default function HomePage() {
-  const recentPosts = getRecentPosts(5);
-  const homePhotos = curatedPhotos.slice(0, 3);
-
   return (
-    <>
-      <Hero />
-
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="grid gap-12 border-b border-border pb-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <div className="flex items-center justify-between gap-4">
-              <h2 className="text-xl font-semibold text-primary">latest writing</h2>
-              <Link href="/posts/" className="text-sm text-secondary hover:text-primary">
-                view all →
-              </Link>
-            </div>
-
-            <div className="mt-6 divide-y divide-border">
-              {recentPosts.map((post) => (
-                <Link key={post.slug} href={`/posts/${post.slug}/`} className="group flex gap-4 py-4">
-                  <time className="w-24 shrink-0 text-sm text-tertiary" dateTime={post.date}>
-                    {formatDate(post.date)}
-                  </time>
-                  <div>
-                    <h3 className="font-medium text-primary group-hover:underline underline-offset-4">
-                      {post.title}
-                    </h3>
-                    <p className="mt-1 line-clamp-2 text-sm leading-6 text-secondary">{post.excerpt}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-            <HomeWorkTabs />
+    <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <section className="pb-14 pt-28">
+        <p className={mono}>alcor studio · apple apps that run on the device</p>
+        <h1 className="mt-6 text-5xl font-bold leading-[0.98] tracking-[-0.045em] text-primary sm:text-7xl lg:text-8xl">
+          Software engineer.<br /><span className="text-[#0B62A4]">On-device</span> AI.
+        </h1>
+        <div className="mt-11 grid gap-10 md:grid-cols-2">
+          <p className="text-2xl font-medium leading-snug text-primary">Small Apple apps I want to use.<br />Notes on how they&apos;re built.</p>
+          <div className="leading-relaxed text-secondary">
+            <p>
+              I&apos;m Anupam. I started on Android in 2014, moved to iOS, and now run Alcor, a one-person studio of Apple apps. I&apos;m good at
+              helping manage engineers, and better with engineering managers.
+            </p>
+            <p className="mt-3 flex flex-wrap gap-4 text-sm">
+              <a href="https://github.com/anupamchugh">GitHub</a>
+              <a href="https://getalcor.com/">getalcor.com</a>
+              <Link href="/work/">All work</Link>
+              <Link href="/resume/">Résumé</Link>
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-12 sm:px-6">
-        <div className="grid gap-12 border-b border-border pb-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="flex items-center justify-between gap-4">
-            <p className="max-w-md text-sm leading-6 text-secondary">the work directory is intentionally small: reviewed projects first, shipped apps next, and older experiments in the archive.</p>
-            <Link href="/apps/" className="shrink-0 text-sm text-secondary hover:text-primary">apps →</Link>
-          </div>
+      <LensSections
+        tiles={[
+          { id: 'breakline', label: 'Breakline', src: '/home/breakline-robot.webp' },
+          { id: 'glint', label: 'Glint', src: '/home/glint-island.webp' },
+          { id: 'contour', label: 'Contour Lab', src: '/home/contour-3d.webp' },
+          { id: 'screenroom', label: 'Screen Room', src: '/home/screenroom-comic.webp' },
+          { id: 'studio', label: 'Studio', src: '/home/quorion-reveal.webp' },
+          { id: 'demos', label: 'Demos', src: '/home/rifflet-poster.webp' },
+          { id: 'writing', label: 'Writing', src: '/home/bp-preview.webp' },
+          { id: 'along', label: '2015–19', src: '/gallery/mobey/driver-07.webp' },
+        ]}
+        sections={[
+          { id: 'breakline', lenses: ['ios', 'product'], node: breakline },
+          { id: 'glint', lenses: ['ios'], node: glint },
+          { id: 'contour', lenses: ['ios'], node: contour },
+          { id: 'screenroom', lenses: ['ios', 'product'], node: screenRoom },
+          { id: 'studio', lenses: ['ios', 'product'], node: studio },
+          { id: 'demos', lenses: ['ios', 'product'], node: demos },
+          { id: 'writing', lenses: ['writer'], node: <Writing /> },
+          { id: 'along', lenses: ['android', 'product'], node: along },
+        ]}
+      />
 
-          <div className="border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-            <div className="flex items-center justify-between gap-4">
-              <h2 className="text-xl font-semibold text-primary">photos</h2>
-              <Link href="/photos/" className="text-sm text-secondary hover:text-primary">
-                view all →
-              </Link>
-            </div>
-
-            <div className="mt-6 grid grid-cols-3 gap-3">
-              {homePhotos.map((photo) => (
-                <Link key={photo.src} href="/photos/" className="group block">
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    width={photo.width}
-                    height={photo.height}
-                    sizes="(max-width: 1024px) 33vw, 180px"
-                    className="aspect-square w-full object-cover transition-opacity group-hover:opacity-90"
-                  />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+      <p className="border-t border-border py-8 text-sm text-tertiary">Off the clock: surfing, chess, cricket, table tennis, board games, films.</p>
+    </div>
   );
 }

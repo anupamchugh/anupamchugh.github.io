@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import RoleLens from '@/components/role-lens';
 
 export const metadata: Metadata = {
   title: 'career & resume',
@@ -21,20 +22,23 @@ export default function ResumePage() {
         <a className="underline" href="/showcase/">Explore the app showcase</a>{' · '}
         <a className="underline" href="/posts/Moving-On-From-BP/">Editorial story</a>
       </p>
+      <RoleLens />
       <section className="mt-12 border-t border-border pt-8">
         <h2 className="text-xl font-semibold text-primary">The editor</h2>
         <p className="mt-4 leading-7 text-secondary">
           I took over Better Programming from Zack Shapiro in 2021 and ran it until 2023, while it grew from 50 million to 150 million lifetime pageviews.
-          I was the user and the builder: my own feed reader and author tracker, built on Apple&apos;s Natural Language framework, used semantic search to sort
-          thousands of submissions a month into lanes by topic, author and trajectory, so the best reached me first. I found writers, helped them onboard and
-          supported their work. Coffee Bytes grew out of the same instinct: put other people in front of readers.
+          Zack had built Better Publishing, an editors&apos; app for our Trello review queue. I modified it and tuned our workflow around RSS feeds of
+          Medium topics and authors, so we could track promising writers and reach out and onboard them faster for the publication and its newsletters.
+          I found writers, helped them onboard and supported their work. Coffee Bytes grew out of the same instinct: put other people in front of readers.
         </p>
         <p className="mt-3 text-sm text-secondary"><a className="underline" href="https://medium.com/@coffee_bytes">Coffee Bytes</a>{' · '}<a className="underline" href="https://medium.com/better-programming/better-programming-has-a-new-editor-4f4ee04fa899">My farewell</a></p>
       </section>
       <section className="mt-12 border-t border-border pt-8">
         <h2 className="text-xl font-semibold text-primary">The builder</h2>
         <p className="mt-4 leading-7 text-secondary">
-          At MOBEY I built customer and driver apps. At Aged Care Decisions I shipped white-label apps for different teams,
+          I started at MOBEY, a Gold Coast delivery company, building its Android customer and driver apps end to end, remotely. Thanks to{' '}
+          <a className="underline" href="https://www.linkedin.com/in/nishantshrestha/">Nishant Shrestha</a> for helping me find my feet in app building
+          and onboarding me into iOS. At Aged Care Decisions I shipped white-label apps for different teams,
           changing layouts, skins and configurations around a shared app. At Agricx I led Android work and built its first iOS app.
         </p>
         <p className="mt-3 text-sm text-secondary"><a className="underline" href="https://www.youtube.com/watch?v=-VCwMGz0Zvw">MOBEY on 7 News</a>{' · '}<a className="underline" href="/posts/ten-years-of-doing-stuff/">MOBEY and Agricx in the career story</a></p>

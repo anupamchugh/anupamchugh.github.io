@@ -42,7 +42,7 @@ const chapters: Chapter[] = [
     id: 'mobey',
     years: '2015–17',
     title: 'mobey',
-    note: 'delivery for Australia, built remotely: food, convenience, alcohol, marketplace and pick-up anything. I worked on the customer and driver apps. These driver screens are from a test run in September 2016.',
+    note: 'a Gold Coast company delivering food, convenience items, alcohol, flowers and more. My first app job: I built the Android customer and driver apps end to end, remotely. These driver screens are from a test run in September 2016.',
     slides: [
       { kind: 'image', src: `${cj}/mobey-2016.png`, width: 1080, height: 1920, alt: 'MOBEY customer app home with five delivery categories', caption: 'Customer app: five kinds of delivery' },
       { kind: 'image', src: `${g}/mobey/driver-01.webp`, ...phone, alt: 'Driver app: go online, vehicle and request types', caption: 'Driver goes online and picks what they will carry' },
