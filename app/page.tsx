@@ -234,7 +234,7 @@ function Writing() {
 }
 
 const alongCards = [
-  { href: '/work/gallery/#mobey', src: '/gallery/mobey/driver-07.webp', alt: 'MOBEY driver app with a customer tip', when: '2015–17 · android and ios', name: 'MOBEY', line: 'Customer and driver apps for a Gold Coast company delivering alcohol, flowers and more. Built remotely.', w: 562, h: 1000 },
+  { href: '/work/gallery/#mobey', src: '/gallery/mobey/02-customer-home-categories.webp', alt: 'MOBEY customer app with five kinds of delivery', when: '2015–17 · android and ios', name: 'MOBEY', line: 'Customer and driver apps for a Gold Coast company delivering alcohol, flowers and more. Built remotely.', w: 562, h: 1000 },
   { href: '/work/gallery/#agricx', src: '/gallery/agricx/agricx-inspection-poster.webp', alt: 'Agricx inspection report', when: '2019 · ios and android', name: 'Agricx', line: 'Crop inspection: photograph a sample, then count, size and grade it.', w: 562, h: 1000 },
   { href: '/work/gallery/#journaldev', src: '/screenshots/career-journey/journaldev-playstore.png', alt: 'JournalDev on the Play Store', when: '2015–18 · android', name: 'JournalDev', line: 'The Android app: 4.4 stars, 10K+ downloads.', w: 1992, h: 1424 },
 ];
@@ -291,7 +291,7 @@ export default function HomePage() {
           { id: 'studio', label: 'Studio', src: '/home/quorion-reveal.webp' },
           { id: 'demos', label: 'Demos', src: '/home/rifflet-poster.webp' },
           { id: 'writing', label: 'Writing', src: '/home/bp-preview.webp' },
-          { id: 'along', label: '2015–19', src: '/gallery/mobey/driver-07.webp' },
+          { id: 'along', label: '2015–19', src: '/gallery/mobey/02-customer-home-categories.webp' },
         ]}
         sections={[
           { id: 'breakline', lenses: ['ios', 'product'], node: breakline },
