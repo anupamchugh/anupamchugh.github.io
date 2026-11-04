@@ -36,9 +36,9 @@ And three reference repos that aren't my apps:
 - Rudrank Riyam's [**Foundation Lab**](https://github.com/rudrankriyam/Foundation-Models-Framework-Lab), a workbench app with a lab for nearly every API, plus an `fmf.md` that diffs the Xcode 27 Swift interface.
 - **ChughyFMStack**, my small package that runs one feature on device, in the Simulator or in previews.
 
-The companion app for this post is **Crease**, a cricket companion that demonstrates every API below in one place.
+The companion app for this post is **Crease**, a cricket prototype built to demonstrate these APIs in one place; some surfaces remain planned or unverified, as noted below.
 
-> **Crease is still being built.** When it's public I'll link its README, which maps each API in this post to the file that uses it. Until then, the "In Crease" notes below say what it will show.
+> **Crease is a working local prototype.** Its simulator runs have exercised the match, commentary, captain and umpire flows; the repository is not public yet. The scorecard reader still needs a real-photo check, Image Playground needs a supported device, and Private Cloud Compute needs its entitlement. I'll link the README and its API-to-code map when the repository is public.
 
 ---
 
@@ -899,7 +899,7 @@ Two habits:
 
 ---
 
-## 11. MCP: it lives in Xcode, not in your app
+## 11. MCP: the coding booth and your app
 
 Plainly: **WWDC26 did not add MCP to the Foundation Models framework.** None of the Foundation Models sessions I read (241, 242, 319, 339) mention it. MCP arrived in **Xcode 27**, for the coding agents that help you build your app ([102](https://developer.apple.com/videos/play/wwdc2026/102/), [382](https://developer.apple.com/videos/play/wwdc2026/382/)):
 
@@ -909,7 +909,7 @@ Plainly: **WWDC26 did not add MCP to the Foundation Models framework.** None of 
 
 So there are two different "skills" in this post. The app-side `Skills` type in Foundation Models utilities loads procedural context into *your app's* model. Xcode plugin skills teach *your coding agent*. Same idea, different booth.
 
-If you want an MCP server's data inside your app, you write a `Tool` (or a server-side tool in a custom `LanguageModelExecutor`, [339](https://developer.apple.com/videos/play/wwdc2026/339/)) that calls it — and every rule from sections 4 and 7 applies, because that output is untrusted content.
+MCP is not limited to Xcode: the [official Swift SDK](https://github.com/modelcontextprotocol/swift-sdk) supports app-side clients and servers. To bring an MCP server's data into a Foundation Models conversation, your app can adapt an admitted server call as a `Tool` (or use an appropriate provider or workflow adapter). Treat server output as untrusted content and keep access and write decisions in app code. Connecting a server does not give the model authority to perform every action it exposes.
 
 ---
 
