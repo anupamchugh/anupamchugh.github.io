@@ -287,7 +287,7 @@ CASES = [
                 (S["brk2"], "Breakline pose overlay of a badminton smash at contact, with the elbow at 165 degrees and the front knee at 141 degrees"),
                 (S["brk3"], "Breakline session card for the smash: elbow at contact 165 degrees, front knee 141 degrees, 0.70 seconds from load to contact, and a Share with coach button")]),
     dict(slug="pastport", flip=True, extra="The screens use a sample history, not anyone's real browsing.",
-         body="Search your Safari history in plain words, privately on your Mac. Answers are counted from what is on the device.",
+         body="Find pages, browsing threads, privacy clues and booking-like visits in your Safari history on Mac. The newer source adds grounded answers and a separate assistant with optional connected tools. On iPhone, the timeline uses photo activity and screenshots you add; iOS does not expose Safari history. The GitHub download is the released Mac app, which may not include every feature described here.",
          shots=[(S["pas1"], "Pastport on macOS showing what you have been into this week, a privacy check and booking pages"),
                 (S["pas2"], "Pastport on macOS answering which sites were visited most, in dark mode")], wide=True),
     dict(slug="feedloom", flip=False, extra="All three screens are from the next version, which is not on the App Store yet.",
@@ -375,6 +375,7 @@ def hero_html():
     {img(icons[slug], nm + " app icon")}<span>{esc(nm)}</span>
   </a>""")
     cells.append("</section>")
+    cells.append('''<section class="wall" id="wearover-demo" aria-label="Wearover demonstration"><div class="pane p-text" style="padding:24px"><h2>Wearover: ask for a look</h2><p>A real iPhone recording: a Diwali shirt request and suggested actions. The proposal is not a finished outfit.</p><video controls preload="metadata" playsinline style="width:min(100%,360px);border-radius:12px" src="media/wearover-diwali-demo.mp4">Your browser cannot play this video.</video><p><a href="media/wearover-diwali-demo.mp4">Download the recording</a> · <a href="#wearover">See the Wearover case</a></p><div style="display:flex;gap:12px;flex-wrap:wrap"><figure><img src="media/diwali-redraw.jpg" alt="Wearover proposes redrawing the top as a festive Diwali shirt" loading="lazy" style="max-width:160px;width:100%"><figcaption>Redraw proposal</figcaption></figure><figure><img src="media/diwali-colour.jpg" alt="Wearover proposes recolouring the top yellow" loading="lazy" style="max-width:160px;width:100%"><figcaption>Colour proposal</figcaption></figure></div></div></section>''')
     return "\n".join(cells)
 
 
@@ -382,14 +383,14 @@ def case_html(c, idx):
     slug = c["slug"]
     a = app_by_slug[slug]
     nm = DISPLAY.get(slug, a["name"])
-    desc = sentence(a["description"]) if slug != "common-ground" else "Plan your own trips and meetups."
+    desc = "Private Safari history search on Mac, with a newer timeline and assistant in development." if slug == "pastport" else (sentence(a["description"]) if slug != "common-ground" else "Plan your own trips and meetups.")
     shots = c["shots"]
     n = len(shots)
     layout = "stack" if (n >= 3 or c.get("wide")) else "side"
     text = f"""<div class="pane p-text">
     <div class="t-a">
       <h3 id="{slug}-h">{esc(nm)}</h3>
-      <p class="plate">{esc(fact_plate(slug))}</p>
+      <p class="plate">{esc('Mac release on GitHub · newer iPhone and Mac work in development' if slug == 'pastport' else fact_plate(slug))}</p>
     </div>
     <div class="t-b">
       <p class="blurb">{esc(desc)}</p>
@@ -465,7 +466,7 @@ def more_html():
         out.append(f"""<article class="pane lit p-more" {lit_style(slug, i)}>
     <div class="m-copy">
       <h3>{esc(a['name'])}</h3>
-      <p class="plate">{esc(fact_plate(slug))}</p>
+      <p class="plate">{esc('Mac release on GitHub · newer iPhone and Mac work in development' if slug == 'pastport' else fact_plate(slug))}</p>
       <p class="blurb">{esc(sentence(a['description']))}</p>
       <p>{esc(note)}</p>
       {store_link(slug)}

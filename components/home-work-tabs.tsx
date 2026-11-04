@@ -10,6 +10,14 @@ export default function HomeWorkTabs() {
         <Link href="/work/" className="text-sm text-secondary hover:text-primary">directory →</Link>
       </div>
 
+      <div className="mt-5 rounded-lg border border-border p-4">
+        <p className="text-xs uppercase tracking-wide text-tertiary">currently exploring · Wearover</p>
+        <h3 className="mt-2 font-medium text-primary">A different look, from a photo of you.</h3>
+        <p className="mt-1 text-sm leading-6 text-secondary">An iPhone experiment in changing an outfit while keeping your face. See a real request and the suggested actions.</p>
+        <Link href="/showcase/#wearover-demo" className="mt-3 inline-block text-sm text-primary underline underline-offset-4">watch the demo →</Link>
+      </div>
+      <p className="mt-4 text-sm leading-6 text-secondary">The story behind another app: <Link href="/posts/pastport-what-safari-remembers/" className="text-primary underline underline-offset-4">what Safari remembered →</Link></p>
+
       <div className="mt-5 flex gap-1 border-b border-border" role="radiogroup" aria-label="work directory">
         <input id="home-work-projects" name="home-work" type="radio" defaultChecked className="home-work-tab-input" />
         <label htmlFor="home-work-projects" className="home-work-tab-label">projects</label>
