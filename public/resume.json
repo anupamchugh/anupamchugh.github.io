@@ -25,7 +25,7 @@
       {
         "network": "Medium",
         "username": "anupamchugh",
-        "url": "https://medium.com/@anupamchugh"
+        "url": "https://anupamchugh.medium.com"
       }
     ]
   },
@@ -42,7 +42,7 @@
       "position": "Managing Editor",
       "startDate": "2021",
       "endDate": "2023",
-      "summary": "Took over from Zack Shapiro in 2021 and ran it until September 2023; it has been on hiatus since I left. Built my own feed reader and author tracker on Apple's Natural Language framework: semantic search sorted thousands of submissions a month into lanes by topic, author and trajectory, so the best reached me first. Started Coffee Bytes, a Medium newsletter that put other writers in front of readers: weekly picks, roundups, author interviews, and a list of writers from age 10 to a septuagenarian learning Java. Over its life the publication carried 4.6K authors, 16.8K stories and 151M views, and paid writers close to $1M."
+      "summary": "Took over from Zack Shapiro in 2021 and ran it until September 2023; it has been on hiatus since I left. Modified Zack's Better Publishing app for our Trello review queue, and built our outreach around RSS feeds of Medium topics and authors to find and onboard strong writers faster. Started Coffee Bytes, a Medium newsletter that put other writers in front of readers: weekly picks, roundups, author interviews, and a list of writers from age 10 to a septuagenarian learning Java. Over its life the publication carried 4.6K authors, 16.8K stories and 151M views, and paid writers close to $1M."
     },
     {
       "name": "Agricx",

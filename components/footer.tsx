@@ -9,6 +9,7 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} {siteConfig.name}</p>
           <div className="flex flex-wrap justify-center gap-6">
             <a href="https://cal.com/anupam-chugh-n9xuec/meet" className="hover:text-primary">book a call</a>
+            <a href="https://www.producthunt.com/@anupam_chugh" className="hover:text-primary">product hunt</a>
             <a
               href={siteConfig.social.github}
               target="_blank"

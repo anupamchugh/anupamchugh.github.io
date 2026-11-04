@@ -6,7 +6,7 @@ export const resume = resumeRecord;
 
 export const siteConfig = {
   name: "Anupam Chugh",
-  title: "anupam chugh - app builder & editorial leader",
+  title: "anupam chugh - software engineer",
   description:
     "apps, writing, and editorial leadership: work, stories, and experiments by anupam chugh.",
   url: "https://anupamchugh.github.io",

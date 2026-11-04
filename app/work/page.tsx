@@ -1,139 +1,27 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
-import { apps, recentlyReviewedProjects, selectedWork } from '@/lib/content';
-import { matchBoxApp, matchBoxReviewedProject } from '@/lib/match-box';
+import WorkGrid from '@/components/work-grid';
 
 export const metadata: Metadata = {
   title: 'work',
-  description: 'selected apps, open source, writing, and experiments.',
+  description: 'Apps on the App Store, code on GitHub, and the client apps from before.',
 };
 
 export default function WorkPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-16 pt-32 sm:px-6">
-      <h1 className="text-3xl font-semibold text-primary">work</h1>
-      <p className="mt-3 max-w-2xl text-secondary">
-        a smaller shelf for the work that still explains me: shipped apps, old ios experiments,
-        writing systems, and a few things still being built.
-      </p>
-      <p className="mt-3 text-sm">
-        <Link href="/work/gallery" className="text-secondary underline underline-offset-4 hover:text-primary">
-          see the work gallery →
-        </Link>{' '}
-        <span className="text-tertiary">screens and recordings from mobey, agricx, journaldev and alcor.</span>
+    <div className="mx-auto max-w-6xl px-4 pb-16 pt-28 sm:px-6">
+      <h1 className="text-5xl font-bold leading-none tracking-[-0.04em] text-primary sm:text-6xl">Work.</h1>
+      <p className="mt-4 max-w-2xl text-lg leading-relaxed text-secondary">
+        Apps on the App Store, code on GitHub, and the client apps from before. Every card links to where you can check it.
       </p>
 
-      <section className="mt-10 grid gap-4 sm:grid-cols-2" aria-label="current projects">
-        <Link href="https://getalcor.com/" className="group block rounded-lg border border-border p-4 transition-colors hover:border-secondary">
-          <h2 className="font-medium text-primary group-hover:underline underline-offset-4">alcor ↗</h2>
-          <p className="mt-2 text-sm leading-6 text-secondary">my independent app studio: small Apple apps that can hand work to each other.</p>
-        </Link>
-        <Link href="https://macit.work/" className="group block rounded-lg border border-border p-4 transition-colors hover:border-secondary">
-          <h2 className="font-medium text-primary group-hover:underline underline-offset-4">macitwork ↗</h2>
-          <p className="mt-2 text-sm leading-6 text-secondary">an early Mac app that uses Apple Intelligence to plan bounded work, asks for approval, and records a signed receipt.</p>
-        </Link>
-      </section>
+      <WorkGrid />
 
-      <section className="mt-12 border-y border-border py-8">
-        <div className="flex flex-wrap items-baseline justify-between gap-3">
-          <div>
-            <h2 className="text-sm font-semibold text-primary">recently reviewed</h2>
-            <p className="mt-1 text-sm text-tertiary">
-              public projects I have checked recently for ownership, status, and a clean link.
-            </p>
-          </div>
-          <span className="font-mono text-xs text-tertiary">reviewed shelf / 2026</span>
-        </div>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {[matchBoxReviewedProject, ...recentlyReviewedProjects].map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="group block rounded-lg border border-border p-4 transition-colors hover:border-secondary"
-            >
-              <div className="flex items-baseline justify-between gap-3">
-                <h3 className="font-medium text-primary group-hover:underline underline-offset-4">
-                  {item.name}
-                </h3>
-                <span className="text-xs text-tertiary">{item.status}</span>
-              </div>
-              <p className="mt-2 text-sm leading-6 text-secondary">{item.description}</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {item.tags.map((tag) => (
-                  <span key={tag} className="font-mono text-[11px] text-tertiary">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-12">
-        <h2 className="text-sm font-semibold text-primary">apps</h2>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2">
-          {[matchBoxApp, ...apps].map((app) => (
-            <Link
-              id={app.slug}
-              key={app.slug}
-              href={app.href}
-              className="group flex gap-4 rounded-lg border border-border p-4 transition-colors hover:border-secondary"
-            >
-              {app.icon && (
-                <Image
-                  src={app.icon}
-                  alt=""
-                  width={56}
-                  height={56}
-                  className="h-14 w-14 rounded-xl border border-border"
-                />
-              )}
-              <div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="font-medium text-primary group-hover:underline underline-offset-4">
-                    {app.name.toLowerCase()}
-                  </h3>
-                  <span className="text-xs text-tertiary">{app.status}</span>
-                </div>
-                <p className="mt-1 text-sm leading-6 text-secondary">{app.description}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-14">
-        <div className="flex flex-wrap items-baseline justify-between gap-3">
-          <h2 className="text-sm font-semibold text-primary">project archive</h2>
-          <span className="text-xs text-tertiary">vision, core ml, experiments</span>
-        </div>
-        <div className="mt-5 space-y-5">
-          {selectedWork.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="group block border-b border-border pb-5 last:border-b-0"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <h3 className="font-medium text-primary group-hover:underline underline-offset-4">
-                  {item.name.toLowerCase()}
-                </h3>
-                <span className="text-xs text-tertiary">{item.status}</span>
-              </div>
-              <p className="mt-1 text-sm leading-6 text-secondary">{item.description}</p>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {item.tags.map((tag) => (
-                  <span key={tag} className="text-xs text-tertiary">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <p className="mt-10 text-sm text-secondary">
+        Screens from 2015 to 2019 are in the <Link href="/work/gallery/">work gallery</Link>. Every app with its store link is on the{' '}
+        <Link href="/apps/">apps page</Link>. What my coding agents changed, and who checked it, is in the{' '}
+        <Link href="/agent-journal/">agent journal</Link>.
+      </p>
     </div>
   );
 }
