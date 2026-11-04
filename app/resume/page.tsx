@@ -27,8 +27,9 @@ export default function ResumePage() {
         <h2 className="text-xl font-semibold text-primary">The editor</h2>
         <p className="mt-4 leading-7 text-secondary">
           I took over Better Programming from Zack Shapiro in 2021 and ran it until 2023, while it grew from 50 million to 150 million lifetime pageviews.
-          Zack had built Better Publishing, an editors&apos; app for our Trello review queue. I modified it and tuned our workflow around RSS feeds of
-          Medium topics and authors, so we could track promising writers and reach out and onboard them faster for the publication and its newsletters.
+          Zack had built Better Publishing, an editors&apos; app for our Trello review queue, and I modified it. I also built MediumRSS, my own SwiftUI app
+          that pulled each day&apos;s posts across more than 100 Medium topics with author details, so we could track promising writers and reach out
+          and onboard them faster for the publication and its newsletters.
           I found writers, helped them onboard and supported their work. Coffee Bytes grew out of the same instinct: put other people in front of readers.
         </p>
         <p className="mt-3 text-sm text-secondary"><a className="underline" href="https://medium.com/@coffee_bytes">Coffee Bytes</a>{' · '}<a className="underline" href="https://medium.com/better-programming/better-programming-has-a-new-editor-4f4ee04fa899">My farewell</a></p>

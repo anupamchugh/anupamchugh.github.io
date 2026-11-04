@@ -225,14 +225,18 @@ function Writing() {
           <p className={mono}>better programming · 2021–23</p>
           <p className="mt-2 text-3xl font-bold leading-tight tracking-[-0.03em] text-primary sm:text-4xl">Finding the writers before they find us.</p>
           <p className="mt-4 leading-relaxed text-secondary">
-            Zack Shapiro built Better Publishing, the editors&apos; app for our Trello review queue. When I took over in 2021 I modified it,
-            then tuned our workflow around RSS feeds of Medium topics and authors, so we could track promising writers and reach out and
-            onboard them faster for the publication and its newsletters.
+            Zack Shapiro built Better Publishing, the editors&apos; app for our Trello review queue, and I modified it when I took over in 2021.
+            Then I built my own: MediumRSS, a SwiftUI app that pulled each day&apos;s posts across more than 100 Medium topics with the
+            author, their bio, claps and reading time. Grouped by topic, author or reading time, it let us spot promising writers and reach
+            out and onboard them faster for the publication and its newsletters.
           </p>
         </div>
         <figure>
-          <Shot src="/home/bp-preview.webp" alt="Better Publishing review list and article screen, redrawn from the app's source" width={700} height={595} className="w-full rounded-2xl" />
-          <figcaption className="mt-2 text-[13px] text-secondary">Redrawn from the app&apos;s source code. Sample names, not real submissions.</figcaption>
+          <div className="flex justify-center gap-4">
+            <Shot src="/home/mediumrss-by-tag.webp" alt="MediumRSS listing posts grouped by topic, with sample data" />
+            <Shot src="/home/mediumrss-by-author.webp" alt="MediumRSS listing posts grouped by author, with sample data" />
+          </div>
+          <figcaption className="mt-2 text-center text-[13px] text-secondary">MediumRSS (2023), shown with sample data: Medium now blocks the feed it read.</figcaption>
         </figure>
       </div>
     </section>
@@ -308,7 +312,7 @@ export default function HomePage() {
           { id: 'screenroom', label: 'Screen Room', src: '/home/screenroom-comic.webp' },
           { id: 'studio', label: 'Studio', src: '/home/quorion-reveal.webp' },
           { id: 'demos', label: 'Demos', src: '/home/rifflet-poster.webp' },
-          { id: 'writing', label: 'Writing', src: '/home/bp-preview.webp' },
+          { id: 'writing', label: 'Writing', src: '/home/mediumrss-by-tag.webp' },
           { id: 'along', label: '2015–19', src: '/gallery/mobey/02-customer-home-categories.webp' },
           { id: 'photos', label: 'Photos', src: curatedPhotos[0].src },
         ]}

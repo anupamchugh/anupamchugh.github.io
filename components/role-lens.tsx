@@ -54,7 +54,7 @@ const roles: Role[] = [
     kicker: 'engineering · editorial lead',
     headline: 'Good at helping manage engineers, better with engineering managers.',
     points: [
-      ['outreach', "Modified Zack's Better Publishing app and built our outreach around RSS feeds of Medium topics and authors, to find and onboard strong writers faster."],
+      ['outreach', "Modified Zack's Better Publishing app, and built MediumRSS, a SwiftUI app tracking each day's posts across 100+ Medium topics, to find and onboard strong writers faster."],
       ['agents', 'Today I run coding agents like a small team: briefs, reviews, and a public agent journal of what each did.'],
       ['remote', 'Built the MOBEY apps remotely for a Gold Coast company.'],
       ['standards', 'Claims checked before they ship: tests, App Review, receipts.'],

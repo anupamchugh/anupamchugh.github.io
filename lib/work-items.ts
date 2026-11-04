@@ -43,5 +43,6 @@ export const workItems: WorkItem[] = [
   { kind: 'client', name: 'Aged Care Decisions', status: '2020–21', line: 'White-label iOS and Android apps for families choosing aged and dementia care.' },
   { kind: 'client', name: 'JournalDev', status: '2015–18', image: '/screenshots/career-journey/journaldev-playstore.png', alt: 'JournalDev on the Play Store', line: 'The Android app: 4.4 stars, 10K+ downloads.', href: '/work/gallery/#journaldev', cta: 'Gallery' },
   { kind: 'client', name: 'Better Publishing', status: '2021–23', image: '/home/bp-preview.webp', alt: 'Better Publishing redrawn from its source code', line: "Zack Shapiro's editors' app, which I modified for Better Programming's writer outreach." },
+  { kind: 'client', name: 'MediumRSS', status: '2023', image: '/home/mediumrss-by-tag.webp', alt: 'MediumRSS posts grouped by topic, sample data', line: 'My SwiftUI tool for Better Programming: each day\'s posts across 100+ Medium topics, grouped by topic, author or reading time, to find writers. Shown with sample data.' },
   { kind: 'client', name: 'Dourier', status: 'first app', line: 'A courier MVP built with friends.' },
 ];
