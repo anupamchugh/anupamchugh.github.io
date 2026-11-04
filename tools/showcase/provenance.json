@@ -619,6 +619,20 @@
    "date_basis": "taken in this session",
    "frozen": false,
    "note": "Chugh iPhone 17 (iOS 27.0.1), the owner's own photo, published with the owner's permission. Wearover built from Wardrobe claude/recursing-hypatia-bceb79 (73fe328 era, Debug). Try it on after Image Playground redrew the shirt crop as cream linen and Wearover fitted it back with the face kept; the 'Apple Intelligence sees' card is the on-device Foundation Models read. Screenshot via iphone-use."
+  },
+  "trayce-pack.webp": {
+   "source": "trayce/docs/screens/bag.png",
+   "kind": "capture",
+   "date": "2026-11-03",
+   "date_basis": "source commit date",
+   "frozen": true
+  },
+  "trayce-trip.webp": {
+   "source": "trayce/docs/screens/trip.png",
+   "kind": "capture",
+   "date": "2026-11-03",
+   "date_basis": "source commit date",
+   "frozen": true
   }
  }
 }

@@ -17,6 +17,12 @@ export default function WorkPage() {
         a smaller shelf for the work that still explains me: shipped apps, old ios experiments,
         writing systems, and a few things still being built.
       </p>
+      <p className="mt-3 text-sm">
+        <Link href="/work/gallery" className="text-secondary underline underline-offset-4 hover:text-primary">
+          see the work gallery →
+        </Link>{' '}
+        <span className="text-tertiary">screens and recordings from mobey, agricx, journaldev and alcor.</span>
+      </p>
 
       <section className="mt-10 grid gap-4 sm:grid-cols-2" aria-label="current projects">
         <Link href="https://getalcor.com/" className="group block rounded-lg border border-border p-4 transition-colors hover:border-secondary">
