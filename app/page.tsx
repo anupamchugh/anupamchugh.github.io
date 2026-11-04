@@ -160,6 +160,10 @@ const demos = (
         <Shot src="/home/vision-swipe.gif" alt="Swiping cards with a hand gesture using Vision hand pose" width={309} height={550} className="h-[420px] w-[236px] rounded-[26px] object-cover" />
         <p className="mt-2 text-sm"><strong className="text-primary">Vision swipe</strong> <span className="text-secondary">· Tinder-style swipes with your hand, from 2020. <a href="https://github.com/anupamchugh/iOS14VisionHandPose">29 stars</a>.</span></p>
       </li>
+      <li className="w-[236px] shrink-0 snap-start">
+        <Shot src="/home/pencilkit-mnist.gif" alt="Digits drawn on a PencilKit canvas, each recognised by a Core ML model" width={269} height={480} className="h-[420px] w-[236px] rounded-[26px] object-cover object-top" />
+        <p className="mt-2 text-sm"><strong className="text-primary">PencilKit + Core ML</strong> <span className="text-secondary">· draw a digit and an MNIST model on the phone reads it, from 2019. <a href="https://iosdevie.substack.com/p/pencilkit-coreml-ios13">Post</a> · <a href="https://github.com/anupamchugh/iowncode/tree/master/iOSPencilKitCoreMLMNIST">code</a>.</span></p>
+      </li>
       <li className="w-[340px] shrink-0 snap-start">
         <Shot src="/home/pastport.webp" alt="Pastport answering from Safari history on the Mac" width={812} height={1000} className="h-[420px] w-[340px] rounded-[26px] object-cover object-top" />
         <p className="mt-2 text-sm"><strong className="text-primary">Pastport</strong> <span className="text-secondary">· answers from your own Safari history, on the Mac.</span></p>
