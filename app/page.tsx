@@ -279,25 +279,20 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
       <section className="pb-14 pt-28">
-        <p className={mono}>alcor studio · apple apps that run on the device</p>
-        <h1 className="mt-6 text-5xl font-bold leading-[0.98] tracking-[-0.045em] text-primary sm:text-7xl lg:text-8xl">
-          Software engineer.<br /><span className="text-[#0B62A4]">On-device</span> AI.
+        <p className={mono}>apps · writing · experiments</p>
+        <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.02] tracking-[-0.045em] text-primary sm:text-7xl">
+          i build random things.
         </h1>
-        <div className="mt-11 grid gap-10 md:grid-cols-2">
-          <p className="text-2xl font-medium leading-snug text-primary">Small Apple apps I want to use.<br />Notes on how they&apos;re built.</p>
-          <div className="leading-relaxed text-secondary">
-            <p>
-              I&apos;m Anupam. I started on Android in 2014, moved to iOS, and now run Alcor, a one-person studio of Apple apps. I&apos;m good at
-              helping manage engineers, and better with engineering managers.
-            </p>
-            <p className="mt-3 flex flex-wrap gap-4 text-sm">
-              <a href="https://github.com/anupamchugh">GitHub</a>
-              <a href="https://getalcor.com/">getalcor.com</a>
-              <Link href="/work/">All work</Link>
-              <Link href="/resume/">Résumé</Link>
-            </p>
-          </div>
+        <p className="mt-7 text-xl font-medium text-[#0B62A4]">software engineer · app builder · editor</p>
+        <div className="mt-6 max-w-2xl space-y-3 text-lg leading-relaxed text-secondary">
+          <p>avg coder, above avg manager. engineered managers and managed engineers.</p>
+          <p>i started on android, moved to ios, and now build apple apps through alcor. i ran better programming, help other people tell their stories, and write about technology and films.</p>
         </div>
+        <p className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
+          <Link href="/work/">see my work →</Link>
+          <Link href="/posts/">read writing →</Link>
+          <Link href="/resume/">my story →</Link>
+        </p>
       </section>
 
       <LensSections
