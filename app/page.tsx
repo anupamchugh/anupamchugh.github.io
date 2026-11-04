@@ -235,6 +235,8 @@ function Writing() {
             <Shot src="/home/mediumrss-by-author.webp" alt="MediumRSS listing posts grouped by author, with sample data" />
           </div>
           <figcaption className="mt-2 text-center text-[13px] text-secondary">MediumRSS (2023), shown with sample data: Medium now blocks the feed it read.</figcaption>
+          <Shot src="/home/bp-preview.webp" alt="Better Publishing review list and article screen, redrawn from the app's source" width={700} height={595} className="mt-6 w-full rounded-2xl" />
+          <figcaption className="mt-2 text-center text-[13px] text-secondary">Better Publishing, Zack&apos;s app that I modified, redrawn from its source. Sample names.</figcaption>
         </figure>
       </div>
     </section>
