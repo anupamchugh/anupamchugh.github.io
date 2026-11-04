@@ -51,8 +51,8 @@ export default function ResumePage() {
           Wearover changes clothes, hair, glasses and face paint in your photo on the iPhone and keeps your face as photographed; version 3.0 is in App Review.
         </p>
         <p className="mt-4 leading-7 text-secondary">
-          <a className="underline" href="https://tradeshot.co">TradeShot</a> and Glint are a calmer way to trade consciously: each move explained from evidence on live Kite,
-          Binance and OpenAlgo data, and live trades locked until you approve them. I also write about technology and satire.
+          <a className="underline" href="https://tradeshot.co">TradeShot</a> and Glint are customizable tools for practicing trading and developing better habits.
+          I also write about technology and satire.
         </p>
         <p className="mt-4 leading-7 text-secondary">Off the clock: surfing, which started Breakline, Swell Window and Contour Lab&apos;s surfboard mode; chess, cricket, table tennis, board games and films. These days I talk to agents, too.</p>
         <p className="mt-3 text-sm text-secondary"><a className="underline" href="/showcase/#wearover">Wearover</a>{' · '}<a className="underline" href="https://getalcor.com/breakline/">Breakline</a>{' · '}<a className="underline" href="/showcase/#studio">Glint in the studio</a>{' · '}<a className="underline" href="/showcase/">Selected work</a>{' · '}<a className="underline" href="https://humorbytes.substack.com">Humor Bytes</a>{' · '}<a className="underline" href="https://thebigtech.substack.com">Big Tech</a></p>
