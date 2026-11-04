@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ReactNode } from 'react';
 import LensSections from '@/components/lens-sections';
 import { getRecentPosts } from '@/lib/posts';
+import { curatedPhotos } from '@/lib/photos';
 
 const mono = 'font-mono text-xs uppercase tracking-[0.08em] text-tertiary';
 const panelTitle = 'text-4xl font-bold leading-none tracking-[-0.035em] sm:text-5xl';
@@ -178,7 +179,7 @@ const newsletters = [
 ];
 
 function Writing() {
-  const posts = getRecentPosts(3);
+  const posts = getRecentPosts(5);
   return (
     <section id="writing" className="scroll-mt-24 border-t border-border pb-20 pt-8">
       <div className="grid gap-9 md:grid-cols-2">
@@ -257,6 +258,23 @@ const along = (
   </section>
 );
 
+const photos = (
+  <section id="photos" className="scroll-mt-24 border-t border-border pb-20 pt-8">
+    <div className="flex flex-wrap items-baseline justify-between gap-4">
+      <h2 className="text-4xl font-bold leading-tight tracking-[-0.03em] text-primary">Photos.</h2>
+      <Link href="/photos/" className="inline-flex min-h-11 items-center text-sm font-semibold">All photos →</Link>
+    </div>
+    <p className="mt-3 text-secondary">From trips and trails, Kodaikanal to Hoi An.</p>
+    <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+      {curatedPhotos.slice(0, 6).map((photo) => (
+        <Link key={photo.src} href="/photos/" className="group block">
+          <Image src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} sizes="(max-width: 640px) 50vw, 200px" className="aspect-square w-full rounded-xl object-cover transition-opacity group-hover:opacity-90" />
+        </Link>
+      ))}
+    </div>
+  </section>
+);
+
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -292,6 +310,7 @@ export default function HomePage() {
           { id: 'demos', label: 'Demos', src: '/home/rifflet-poster.webp' },
           { id: 'writing', label: 'Writing', src: '/home/bp-preview.webp' },
           { id: 'along', label: '2015–19', src: '/gallery/mobey/02-customer-home-categories.webp' },
+          { id: 'photos', label: 'Photos', src: curatedPhotos[0].src },
         ]}
         sections={[
           { id: 'breakline', lenses: ['ios', 'product'], node: breakline },
@@ -302,6 +321,7 @@ export default function HomePage() {
           { id: 'demos', lenses: ['ios', 'product'], node: demos },
           { id: 'writing', lenses: ['writer'], node: <Writing /> },
           { id: 'along', lenses: ['android', 'product'], node: along },
+          { id: 'photos', lenses: [], node: photos },
         ]}
       />
 
