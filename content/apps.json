@@ -32,7 +32,7 @@
     "platforms": [
       "iOS"
     ],
-    "version": "1.6"
+    "version": "1.7.0"
   },
   {
     "name": "EchoHunt Music",
@@ -166,11 +166,11 @@
     "version": "1.0"
   },
   {
-    "name": "Best Face Forward",
+    "name": "Wearover: Restyle Your Outfit",
     "slug": "best-face-forward",
-    "description": "finds the strongest face frame from a live photo, then lets you tune, save, or share it.",
+    "description": "changes what you are wearing in your own photo and keeps your face exactly as photographed; it replaced Best Face Forward.",
     "status": "live",
-    "href": "https://apps.apple.com/us/app/best-face-forward/id6766553501",
+    "href": "https://apps.apple.com/us/app/wearover-restyle-your-outfit/id6766553501",
     "icon": "/app-icons/best-face-forward.jpg",
     "tags": [
       "photo",
@@ -180,7 +180,7 @@
     "platforms": [
       "iOS"
     ],
-    "version": "2.0.1"
+    "version": "3.0.0"
   },
   {
     "name": "Breakline Surf",
@@ -197,7 +197,7 @@
     "platforms": [
       "iOS"
     ],
-    "version": "1.4"
+    "version": "1.5"
   },
   {
     "name": "DocPolish",

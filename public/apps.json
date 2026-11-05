@@ -1,7 +1,7 @@
 {
   "owner": "Anupam Chugh",
   "source": "https://anupamchugh.github.io/apps/",
-  "asOf": "2026-11-03",
+  "asOf": "2026-11-06",
   "apps": [
     {
       "name": "Rifflet",
@@ -21,7 +21,7 @@
         "iOS"
       ],
       "appStoreUrl": "https://apps.apple.com/us/app/orbits-find-common-ground/id6759101340",
-      "version": "1.6"
+      "version": "1.7.0"
     },
     {
       "name": "EchoHunt Music",
@@ -97,13 +97,13 @@
       "version": "1.0"
     },
     {
-      "name": "Best Face Forward",
-      "pitch": "finds the strongest face frame from a live photo, then lets you tune, save, or share it.",
+      "name": "Wearover: Restyle Your Outfit",
+      "pitch": "changes what you are wearing in your own photo and keeps your face exactly as photographed; it replaced Best Face Forward.",
       "platforms": [
         "iOS"
       ],
-      "appStoreUrl": "https://apps.apple.com/us/app/best-face-forward/id6766553501",
-      "version": "2.0.1"
+      "appStoreUrl": "https://apps.apple.com/us/app/wearover-restyle-your-outfit/id6766553501",
+      "version": "3.0.0"
     },
     {
       "name": "Breakline Surf",
@@ -112,7 +112,7 @@
         "iOS"
       ],
       "appStoreUrl": "https://apps.apple.com/us/app/breakline-surf/id6785873182",
-      "version": "1.4"
+      "version": "1.5"
     },
     {
       "name": "DocPolish",
