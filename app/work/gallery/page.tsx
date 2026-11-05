@@ -100,6 +100,8 @@ const chapters: Chapter[] = [
     slides: [
       { kind: 'video', src: `${g}/studio/trayce-demo.mp4`, poster: `${g}/studio/trayce-01-trip.webp`, ...tall, caption: 'Trayce: newest booking copy wins, then a tray plan (open source)' },
       { kind: 'image', src: `${g}/studio/trayce-03-tray.webp`, ...tall, alt: 'Trayce tray plan', caption: 'Trayce tray plan' },
+      { kind: 'video', src: `${g}/studio/orbit-launch-hero.mp4`, poster: `${g}/studio/orbit-launch-hero.webp`, ...tall, caption: "Orbit's launch screen: a small orbit animation drawn in SwiftUI Canvas, paused under Reduce Motion (simulator, Nov 2026)" },
+      { kind: 'image', src: `${g}/studio/orbit-launch-hero.webp`, ...tall, alt: 'Orbit launch screen: an orbit drawing above "Make something happen." with Start with an idea and See your ideas buttons', caption: 'Orbit launch screen' },
       { kind: 'image', src: `${g}/studio/breakline.webp`, width: 462, height: 1000, alt: 'Breakline surf coach chat', caption: 'Breakline: an on-device surf coach' },
       { kind: 'image', src: `${g}/studio/first-contact.webp`, ...tall, alt: 'First Contact Duet reveal screen', caption: 'First Contact Duet' },
       { kind: 'image', src: `${g}/studio/quorion.webp`, ...tall, alt: 'Quorion Table cast screen', caption: 'Quorion Table' },
