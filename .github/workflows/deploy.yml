@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "17 1 * * *" # daily 06:47 IST: refresh Medium previews
   workflow_dispatch:
 
 permissions:
