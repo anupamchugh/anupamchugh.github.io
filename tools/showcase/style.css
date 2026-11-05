@@ -439,3 +439,6 @@ html.modal-open { overflow: hidden; }
 .fold-t .plate { font-weight: 500; font-stretch: 100%; }
 .fold-body { display: grid; gap: var(--bar-w); margin-top: var(--bar-w); }
 @media print { .fold > summary::after { content: none; } }
+
+/* Keep media and captions unobstructed on narrow screens; contact remains in the page. */
+@media (max-width: 600px) { .dock { display: none; } }

@@ -24,7 +24,7 @@ GLINT_NEW = HERE / "src-assets" / "glint"
 ORIGINS = json.load(open(HERE / "src-assets" / "origins.json"))
 PROV = json.load(open(HERE / "provenance.json"))["images"]
 BUILT = "25 October 2026"
-CONTACT = "mailto:anupamchugh@gmail.com?subject=Work%20with%20me"
+CONTACT = "mailto:anupamchugh@gmail.com"
 BLOG_HOME = "https://anupamchugh.github.io"
 GITHUB = "https://github.com/anupamchugh"
 NAME = "Anupam Chugh"
@@ -37,7 +37,7 @@ COLORS = {
     "pastport": "#1f6f7a", "feedloom": "#4a35d8", "flickpot": "#2f8f46", "flyleaf": "#12907c", "getnod": "#6b4bd6",
     "best-face-forward": "#1d7a9a", "breakline-surf": "#0a8fa8", "checkmate-academy": "#6a3fd1",
     "clocktower-table": "#3b3f8f", "docpolish": "#1b8cff", "lineage-mirror": "#4f8a6e", "roamproof": "#1f6f55",
-    "swell-window": "#1f7fc4", "the-match-room": "#1a7a58",
+    "swell-window": "#1f7fc4", "the-match-room": "#1a7a58", "trayce": "#2b4c7e",
 }
 REPO = {  # blog slug -> workspace repo whose history gives the first-commit plate (None = not located)
     "rifflet": "KeyMuse", "common-ground": "PlaceMatch", "playlist-hunter": "MySongs", "pastport": "Pastport",
@@ -160,6 +160,8 @@ S = {
     "brk3": webp("breakline-result.webp", max_h=1000),
     "pas1": webp("pastport-home.webp"),
     "pas2": webp("pastport-answer.webp"),
+    "trayce1": webp("trayce-trip.webp"),
+    "trayce2": webp("trayce-pack.webp"),
     "feed1": webp("feedloom-comic-library.webp"),
     "feed2": webp("feedloom-newsprint-library.webp"),
     "feed3": webp("feedloom-library.webp"),
@@ -281,7 +283,7 @@ CASES = [
          shots=[(S["pin1"], "Pinprint's Today screen: saved, visited and logged counts, a prompt to log one place, and a travelogue note box"),
                 (S["pin2"], "Pinprint's map of the sample Bali 2026 trip, with blue pins for saved places and counts of places, sources and logged"),
                 (S["pin3"], "Pinprint's Search screen with an Ask your trip box, a note that the on-device model is available, and an Ask Places box")]),
-    dict(slug="breakline-surf", flip=False, extra="The screens were captured on 28 October 2026 from the current source, on the iPhone Duo simulator, with a sample badminton smash. Body position is read on the device.",
+    dict(slug="breakline-surf", flip=False, custom_plate="iOS · v1.5 · First commit 30 Jun 2026 · 87 commits", extra="The screens were captured on 28 October 2026 from the current source, on the iPhone Duo simulator, with a sample badminton smash. Body position is read on the device.",
          body="I started Breakline for my own surfing while recovering from a broken back. Pick a clip of your surf, skate, golf, tennis or badminton move and see your body position frame by frame, with the angles that matter and nothing uploaded.",
          shots=[(S["brk1"], "Breakline home screen: sport chips for surf, skate, golf and tennis, and buttons to choose surf photos or clips, find surf media or practise a land drill"),
                 (S["brk2"], "Breakline pose overlay of a badminton smash at contact, with the elbow at 165 degrees and the front knee at 141 degrees"),
@@ -290,6 +292,13 @@ CASES = [
          body="Find pages, browsing threads, privacy clues and booking-like visits in your Safari history on Mac. The newer source adds grounded answers and a separate assistant with optional connected tools. On iPhone, the timeline uses photo activity and screenshots you add; iOS does not expose Safari history. The GitHub download is the released Mac app, which may not include every feature described here.",
          shots=[(S["pas1"], "Pastport on macOS showing what you have been into this week, a privacy check and booking pages"),
                 (S["pas2"], "Pastport on macOS answering which sites were visited most, in dark mode")], wide=True),
+    dict(slug="trayce", flip=False, wide=True, extra="",
+         body="Your trip, always the latest copy. Your trays, planned before the X-ray.",
+         shots=[(S["trayce1"], "Trayce Trip today: Bangalore to Delhi, with a warning that the date, departure and gate changed and the older copy is stale"),
+                (S["trayce2"], "Trayce Pack check: a laptop, power bank and liquid found in a sample photo, each with its tray or cabin rule")],
+         custom_name="Trayce", custom_description="Travel documents and security-tray planning in an iOS 27 MVP.",
+         custom_plate="Open source on GitHub · iOS 27 MVP, running in the Simulator",
+         custom_href="https://github.com/anupamchugh/trayce"),
     dict(slug="feedloom", flip=False, extra="All three screens are from the next version, which is not on the App Store yet.",
          body="Keep up with links and feeds in a reader with four looks: comic, newsprint, noir and default. A connection to Threadmark for following sources and research is an idea being explored, not a demonstrated integration.",
          shots=[(S["feed1"], "Feedloom's library in its comic skin, dark, with sample bookmarks"),
@@ -350,20 +359,20 @@ def hero_html():
     }
     cells = []
     cells.append(f"""<header class="pane transom">
-  <a class="mark" href="#top">{NAME}</a>
-  <nav aria-label="Sections"><a href="#work">Work</a><a href="#apps">All apps</a><a href="#assistants">Assistants</a><a href="#studio">In the studio</a><a href="#how">How it is made</a></nav>
+  <a class="mark" href="/">{NAME}</a>
+  <nav aria-label="Sections"><a href="/">Home</a><a href="/resume/">Résumé</a><a href="#work">Work</a><a href="#apps">All apps</a><a href="#assistants">Assistants</a><a href="#studio">In the studio</a><a href="#how">How it is made</a></nav>
 </header>""")
     cells.append(f"""<section class="wall hero" id="top" aria-labelledby="h1">
   <div class="pane p-head">
     <h1 id="h1">I build iOS apps with <span class="nb">on-device</span> AI, and I ship them.</h1>
-    <p class="lede">Apps from music to travel to chess. Here is the work: real screens, App Store and GitHub links, and what is still in the studio. <a href="#wearover">Explore Wearover, an in-development wardrobe experiment using Image Playground.</a></p>
+    <p class="lede">Apps from music to travel to chess. Here is the work: real screens, App Store and GitHub links, and what is still in the studio. <a href="#wearover-demo">Explore Wearover, an in-development wardrobe experiment using Image Playground.</a></p>
   </div>
-  <a class="pane note cobalt p-cta" href="{CONTACT}" onclick="openContactModal(event)" rel="noopener"><span>Work with me</span><span class="arrow">{ARROW_R}</span></a>""")
+  <a class="pane note cobalt p-cta" href="{CONTACT}" rel="noopener"><span>Get in touch</span><span class="arrow">{ARROW_R}</span></a>""")
     for k, slug in enumerate(HERO_ORDER):
         nw, alt = shots[slug]
         name = "Wearover, in development" if slug == "wearover" else DISPLAY.get(slug, app_by_slug[slug]["name"])
-        cells.append(f"""  <a class="pane lit p-shot s{k + 1}" {lit_style("#121316" if slug == "wearover" else slug, k)} href="#{slug}" aria-label="{esc(name)}: see the case">
-    {phone(nw, alt, eager=(k == 0))}
+        cells.append(f"""  <a class="pane lit p-shot s{k + 1}" {lit_style("#121316" if slug == "wearover" else slug, k)} href="#{'wearover-demo' if slug == 'wearover' else slug}" aria-label="{esc(name)}: see the case">
+    {'<div class="phone"><img src="media/diwali-before-after.jpg" width="720" height="1280" alt="Wearover before and after a festive Diwali shirt, in testing"></div>' if slug == 'wearover' else phone(nw, alt, eager=(k == 0))}
     {'<span style="position:absolute;bottom:12px;left:12px;background:#121316;color:white;padding:6px 10px;border-radius:6px">Wearover · in development</span>' if slug == "wearover" else ""}
   </a>""")
     cells.append(f"""  <div class="pane p-note"><p>{esc('The app shelf links to App Store listings and a Mac release on GitHub. Screens from development builds are labelled.')}</p></div>""")
@@ -375,33 +384,33 @@ def hero_html():
     {img(icons[slug], nm + " app icon")}<span>{esc(nm)}</span>
   </a>""")
     cells.append("</section>")
-    cells.append('''<section class="wall" id="wearover-demo" aria-label="Wearover demonstration"><div class="pane p-text" style="padding:24px"><h2>Wearover: ask for a look</h2><p>A real iPhone recording: a Diwali shirt request and suggested actions. The proposal is not a finished outfit.</p><video controls preload="metadata" playsinline style="width:min(100%,360px);border-radius:12px" src="media/wearover-diwali-demo.mp4">Your browser cannot play this video.</video><p><a href="media/wearover-diwali-demo.mp4">Download the recording</a> · <a href="#wearover">See the Wearover case</a></p><div style="display:flex;gap:12px;flex-wrap:wrap"><figure><img src="media/diwali-redraw.jpg" alt="Wearover proposes redrawing the top as a festive Diwali shirt" loading="lazy" style="max-width:160px;width:100%"><figcaption>Redraw proposal</figcaption></figure><figure><img src="media/diwali-colour.jpg" alt="Wearover proposes recolouring the top yellow" loading="lazy" style="max-width:160px;width:100%"><figcaption>Colour proposal</figcaption></figure></div></div></section>''')
+    cells.append('''<section class="wall" id="wearover-demo" aria-label="Wearover demonstration"><div class="pane p-text" style="padding:24px"><h2>Wearover: ask for a look</h2><p>A real iPhone recording: a Diwali shirt request, Image Playground redraw, and the before-and-after result. Wearover is in testing.</p><figure style="margin:0 0 20px"><img src="media/diwali-before-after.jpg" alt="Wearover before and after: a white shirt on the left and a festive red shirt on the right" style="width:min(100%,360px);border-radius:12px"><figcaption>Before and after from the iPhone recording</figcaption></figure><video controls preload="metadata" playsinline poster="media/diwali-before-after.jpg" style="width:min(100%,360px);border-radius:12px" src="media/wearover-diwali-short.mp4">Your browser cannot play this video.</video><p><a href="media/wearover-diwali-demo.mp4">Watch the full recording</a> · <a href="#wearover">See the Wearover case</a></p><div style="display:flex;gap:12px;flex-wrap:wrap"><figure><img src="media/diwali-redraw.jpg" alt="Wearover proposes redrawing the top as a festive Diwali shirt" loading="lazy" style="max-width:160px;width:100%"><figcaption>Redraw proposal</figcaption></figure><figure><img src="media/diwali-colour.jpg" alt="Wearover proposes recolouring the top yellow" loading="lazy" style="max-width:160px;width:100%"><figcaption>Colour proposal</figcaption></figure></div></div></section>''')
     return "\n".join(cells)
 
 
 def case_html(c, idx):
     slug = c["slug"]
-    a = app_by_slug[slug]
-    nm = DISPLAY.get(slug, a["name"])
-    desc = "Private Safari history search on Mac, with a newer timeline and assistant in development." if slug == "pastport" else (sentence(a["description"]) if slug != "common-ground" else "Plan your own trips and meetups.")
+    a = app_by_slug.get(slug)
+    nm = c.get("custom_name", DISPLAY.get(slug, a["name"] if a else slug))
+    desc = c.get("custom_description") or ("Private Safari history search on Mac, with a newer timeline and assistant in development." if slug == "pastport" else (sentence(a["description"]) if slug != "common-ground" else "Plan your own trips and meetups."))
     shots = c["shots"]
     n = len(shots)
     layout = "stack" if (n >= 3 or c.get("wide")) else "side"
     text = f"""<div class="pane p-text">
     <div class="t-a">
       <h3 id="{slug}-h">{esc(nm)}</h3>
-      <p class="plate">{esc('Mac release on GitHub · newer iPhone and Mac work in development' if slug == 'pastport' else fact_plate(slug))}</p>
+      <p class="plate">{esc(c.get('custom_plate') or ('Mac release on GitHub · newer iPhone and Mac work in development' if slug == 'pastport' else fact_plate(slug)))}</p>
     </div>
     <div class="t-b">
       <p class="blurb">{esc(desc)}</p>
       <p>{esc(c['body'])}{(' ' + esc(c['extra'])) if c['extra'] else ''}</p>
-      {store_link(slug)}
+      {f'<a class="go" href="{esc(c["custom_href"])}" rel="noopener">Read the code and watch the demo{ARROW_UR}</a>' if c.get('custom_href') else store_link(slug)}
     </div>
   </div>"""
     screens = []
     for k, (nw, alt) in enumerate(shots):
         frame = phone(nw, alt)
-        if c.get("wide"):
+        if c.get("wide") and slug != "trayce":
             frame = frame.replace('class="phone"', 'class="phone win"')
         screens.append(f"""<figure class="pane lit p-screen" {lit_style(slug, idx + k)}>
     {frame}
@@ -675,12 +684,12 @@ def close_html():
     <h2 id="close-h">Have an app that should exist?</h2>
     <p>Tell me what it should do and who it is for.</p>
   </div>
-  <a class="pane note cobalt p-go" href="{CONTACT}" onclick="openContactModal(event)" rel="noopener"><span>Work with me</span><span class="arrow">{ARROW_R}</span></a>
+  <a class="pane note cobalt p-go" href="{CONTACT}" rel="noopener"><span>Get in touch</span><span class="arrow">{ARROW_R}</span></a>
   <div class="pane p-links"><a href="{BLOG_HOME}" rel="noopener">Blog</a><a href="{GITHUB}" rel="noopener">GitHub</a></div>
 </section>
 <footer class="pane foot"><p>{NAME}. App list, links and descriptions come from the blog. Page built {BUILT}.</p></footer>
 </main>
-<a class="dock" href="{CONTACT}" onclick="openContactModal(event)">Work with me</a>
+<a class="dock" href="{CONTACT}">Get in touch</a>
 {MODAL}<script src="js/main.js"></script>
 </body>
 </html>

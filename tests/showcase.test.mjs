@@ -52,13 +52,10 @@ test('the page uses the App Store names and links from the app list', () => {
   }
 });
 
-test('Work with me is a mailto link that opens a dialog, and the page makes no network request of its own', () => {
+test('Get in touch is a direct mailto link, and the page makes no network request of its own', () => {
   assert.match(page, /class="dock" href="mailto:anupamchugh@gmail\.com/);
-  assert.match(page, /role="dialog" aria-modal="true"/);
-  const script = readFileSync(path.join(showcase, 'js', 'main.js'), 'utf8');
-  assert.match(script, /window\.location\.href = "mailto:/);
-  assert.match(script, /e\.key === "Escape"/);
-  for (const text of [page, script]) {
+  assert.doesNotMatch(page, /class="(?:pane note cobalt p-cta|pane note cobalt p-go|dock)"[^>]*onclick=/);
+  for (const text of [page, readFileSync(path.join(showcase, 'js', 'main.js'), 'utf8')]) {
     assert.doesNotMatch(text, /fetch\(|XMLHttpRequest|sendBeacon|api\.telegram/);
   }
 });
