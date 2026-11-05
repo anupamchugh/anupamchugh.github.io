@@ -168,7 +168,6 @@ S = {
     "tm1": webp("threadmark-board.webp"),
     "mq1": webp("maquette-tower-unit.webp"),
     "mq2": webp("maquette-send.webp"),
-    "wo1": webp("wearover-linen-fitted.webp"),
     "rp1": webp("preview-orbits-launch.webp"),
     "rp2": webp("preview-quorion-storyteller.webp"),
     "rp3": webp("preview-glint-portfolio.webp"),
@@ -307,9 +306,6 @@ CASES = [
 ]
 
 STUDIO = [
-    dict(id="wearover", name="Wearover", plate=plate_for("", "Wardrobe") + " · in development",
-         body="Change what you are wearing in a photo of yourself, on your iPhone: Apple Intelligence reads the outfit, the clothes are recoloured on the device or redrawn by Image Playground, and your face and hair stay exactly as photographed. Image Playground only ever receives the clothes, cut off below the face.",
-         shot=[(S["wo1"], "Wearover on the owner's own photo: before in a white T-shirt, after in a cream linen shirt redrawn by Image Playground with the face kept, and Apple Intelligence reading the outfit as a white t-shirt and grey shorts")], color="#121316"),
     dict(id="maquette", name="Maquette", plate=plate_for("", "Maquette") + " · in development",
          body="Photograph the scale model in a property sales office and get a 3D tower: tap a floor and the floors above lift away, tap a flat for its price and availability, then send the buyer a brochure and a site-visit slot.",
          shot=[(S["mq1"], "Maquette's sample Tower B with floor 13 lifted and flat B-1304's card: 3.5 BHK, 1,745 sq ft, available"),
@@ -352,7 +348,7 @@ def head_html():
 
 def hero_html():
     shots = {
-        "wearover": (S["wo1"], "Wearover: a clothing change shown on the owner’s photo, in development"),
+        "wearover": (None, "Wearover before and after a festive Diwali shirt"),
         "common-ground": (S["orbits1"], "Orbits plan screen asking Where to?"),
         "rifflet": (S["rifflet1"], "Rifflet's Make screen in dark mode"),
         "pinprint": (S["pin1"], "Pinprint App Store screenshot: Plan the day from your saved proof"),
@@ -365,15 +361,15 @@ def hero_html():
     cells.append(f"""<section class="wall hero" id="top" aria-labelledby="h1">
   <div class="pane p-head">
     <h1 id="h1">I build iOS apps with <span class="nb">on-device</span> AI, and I ship them.</h1>
-    <p class="lede">Apps from music to travel to chess. Here is the work: real screens, App Store and GitHub links, and what is still in the studio. <a href="#wearover-demo">Explore Wearover, an in-development wardrobe experiment using Image Playground.</a></p>
+    <p class="lede">Apps from music to travel to chess. Here is the work: real screens, App Store and GitHub links, and what is still in the studio. <a href="#wearover-demo">Explore Wearover, now on the App Store: change what you wear in your own photo.</a></p>
   </div>
   <a class="pane note cobalt p-cta" href="{CONTACT}" rel="noopener"><span>Get in touch</span><span class="arrow">{ARROW_R}</span></a>""")
     for k, slug in enumerate(HERO_ORDER):
         nw, alt = shots[slug]
-        name = "Wearover, in development" if slug == "wearover" else DISPLAY.get(slug, app_by_slug[slug]["name"])
+        name = "Wearover, on the App Store" if slug == "wearover" else DISPLAY.get(slug, app_by_slug[slug]["name"])
         cells.append(f"""  <a class="pane lit p-shot s{k + 1}" {lit_style("#121316" if slug == "wearover" else slug, k)} href="#{'wearover-demo' if slug == 'wearover' else slug}" aria-label="{esc(name)}: see the case">
-    {'<div class="phone"><img src="media/diwali-before-after.jpg" width="720" height="1280" alt="Wearover before and after a festive Diwali shirt, in testing"></div>' if slug == 'wearover' else phone(nw, alt, eager=(k == 0))}
-    {'<span style="position:absolute;bottom:12px;left:12px;background:#121316;color:white;padding:6px 10px;border-radius:6px">Wearover · in development</span>' if slug == "wearover" else ""}
+    {'<div class="phone"><img src="media/diwali-before-after.jpg" width="720" height="1280" alt="Wearover before and after a festive Diwali shirt"></div>' if slug == 'wearover' else phone(nw, alt, eager=(k == 0))}
+    {'<span style="position:absolute;bottom:12px;left:12px;background:#121316;color:white;padding:6px 10px;border-radius:6px">Wearover · on the App Store</span>' if slug == "wearover" else ""}
   </a>""")
     cells.append(f"""  <div class="pane p-note"><p>{esc('The app shelf links to App Store listings and a Mac release on GitHub. Screens from development builds are labelled.')}</p></div>""")
     strip = ["playlist-hunter", "feedloom"]
@@ -384,7 +380,7 @@ def hero_html():
     {img(icons[slug], nm + " app icon")}<span>{esc(nm)}</span>
   </a>""")
     cells.append("</section>")
-    cells.append('''<section class="wall" id="wearover-demo" aria-label="Wearover demonstration"><div class="pane p-text" style="padding:24px"><h2>Wearover: ask for a look</h2><p>A real iPhone recording: a Diwali shirt request, Image Playground redraw, and the before-and-after result. Wearover is in testing.</p><figure style="margin:0 0 20px"><img src="media/diwali-before-after.jpg" alt="Wearover before and after: a white shirt on the left and a festive red shirt on the right" style="width:min(100%,360px);border-radius:12px"><figcaption>Before and after from the iPhone recording</figcaption></figure><video controls preload="metadata" playsinline poster="media/diwali-before-after.jpg" style="width:min(100%,360px);border-radius:12px" src="media/wearover-diwali-short.mp4">Your browser cannot play this video.</video><p><a href="media/wearover-diwali-demo.mp4">Watch the full recording</a> · <a href="#wearover">See the Wearover case</a></p><div style="display:flex;gap:12px;flex-wrap:wrap"><figure><img src="media/diwali-redraw.jpg" alt="Wearover proposes redrawing the top as a festive Diwali shirt" loading="lazy" style="max-width:160px;width:100%"><figcaption>Redraw proposal</figcaption></figure><figure><img src="media/diwali-colour.jpg" alt="Wearover proposes recolouring the top yellow" loading="lazy" style="max-width:160px;width:100%"><figcaption>Colour proposal</figcaption></figure></div></div></section>''')
+    cells.append('''<section class="wall" id="wearover-demo" aria-label="Wearover demonstration"><div class="pane p-text" style="padding:24px"><h2>Wearover: ask for a look</h2><p>A real iPhone recording: a Diwali shirt request, Image Playground redraw, and the before-and-after result. Wearover 3.0.0 is on the App Store.</p><figure style="margin:0 0 20px"><img src="media/diwali-before-after.jpg" alt="Wearover before and after: a white shirt on the left and a festive red shirt on the right" style="width:min(100%,360px);border-radius:12px"><figcaption>Before and after from the iPhone recording</figcaption></figure><video controls preload="metadata" playsinline poster="media/diwali-before-after.jpg" style="width:min(100%,360px);border-radius:12px" src="media/wearover-diwali-short.mp4">Your browser cannot play this video.</video><p><a href="media/wearover-diwali-demo.mp4">Watch the full recording</a> · <a href="#wearover">See the Wearover case</a></p><div style="display:flex;gap:12px;flex-wrap:wrap"><figure><img src="media/diwali-redraw.jpg" alt="Wearover proposes redrawing the top as a festive Diwali shirt" loading="lazy" style="max-width:160px;width:100%"><figcaption>Redraw proposal</figcaption></figure><figure><img src="media/diwali-colour.jpg" alt="Wearover proposes recolouring the top yellow" loading="lazy" style="max-width:160px;width:100%"><figcaption>Colour proposal</figcaption></figure></div></div></section>''')
     return "\n".join(cells)
 
 
