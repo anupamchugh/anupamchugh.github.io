@@ -11,7 +11,7 @@ type Slide =
   | { kind: 'image'; src: string; width: number; height: number; alt: string; caption: string }
   | { kind: 'video'; src: string; poster: string; width: number; height: number; caption: string };
 
-type Chapter = { id: string; years: string; title: string; note: string; slides: Slide[] };
+type Chapter = { id: string; years: string; title: string; note: string; link?: { href: string; label: string }; slides: Slide[] };
 
 const cj = '/screenshots/career-journey';
 const g = '/gallery';
@@ -80,12 +80,16 @@ const chapters: Chapter[] = [
     id: 'writing',
     years: '2019–23',
     title: 'writing',
-    note: 'tutorials and tech essays on Medium and Substack, and three years editing Better Programming.',
+    note: 'tutorials and tech essays on Medium and Substack, and three years editing Better Programming. The writer-scouting tool from those years grew into Scout in 2026, a curation desk for any open feed.',
+    link: { href: '/posts/scout-code-ranks-apple-intelligence-explains/', label: 'how Scout works (written by Claude Code)' },
     slides: [
       { kind: 'image', src: `${cj}/hacker-news-frontpage.png`, width: 2874, height: 790, alt: 'Articles on the Hacker News front page', caption: 'On the Hacker News front page' },
       { kind: 'image', src: `${cj}/medium-stats.png`, width: 2880, height: 1800, alt: 'Medium lifetime views for several stories', caption: 'Medium, per story' },
       { kind: 'image', src: `${cj}/substack-popular-posts.png`, width: 2880, height: 1800, alt: 'Big Tech newsletter post stats on Substack', caption: 'Big Tech, the Substack' },
       { kind: 'image', src: `${cj}/better-programming-logo.png`, width: 1024, height: 1024, alt: 'Better Programming logo', caption: 'Better Programming, 2021–23' },
+      { kind: 'video', src: '/scout/scout-demo.mp4', poster: '/scout/01-today.jpg', width: 590, height: 1282, caption: 'Scout, 2026: deck, shortlist, issue drafted by agents (fictional demo writers)' },
+      { kind: 'image', src: '/scout/05-issue-agents.jpg', width: 414, height: 900, alt: 'Scout issue drafted by four on-device newsletter agents', caption: 'Scout: a newsletter issue drafted on device, checked in code' },
+      { kind: 'image', src: '/scout/mac-01-today-writers.jpg', width: 1600, height: 994, alt: 'Scout on the Mac with lanes, ranked writers and a writer card', caption: 'Scout on the Mac: code ranks, the model says why' },
     ],
   },
   {
@@ -169,7 +173,17 @@ export default function WorkGalleryPage() {
             <h2 id={`${c.id}-title`} className="text-lg font-semibold text-primary">{c.title}</h2>
             <span className="font-mono text-xs text-tertiary">{c.years}</span>
           </div>
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-secondary">{c.note}</p>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-secondary">
+            {c.note}
+            {c.link && (
+              <>
+                {' '}
+                <Link href={c.link.href} className="underline underline-offset-4 hover:text-primary">
+                  {c.link.label}
+                </Link>
+              </>
+            )}
+          </p>
           <ul
             tabIndex={0}
             aria-label={`${c.title} screens, scroll sideways`}

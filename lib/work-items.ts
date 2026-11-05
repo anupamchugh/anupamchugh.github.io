@@ -44,5 +44,6 @@ export const workItems: WorkItem[] = [
   { kind: 'client', name: 'JournalDev', status: '2015–18', image: '/screenshots/career-journey/journaldev-playstore.png', alt: 'JournalDev on the Play Store', line: 'The Android app: 4.4 stars, 10K+ downloads.', href: '/work/gallery/#journaldev', cta: 'Gallery' },
   { kind: 'client', name: 'Better Publishing', status: '2021–23', image: '/home/bp-preview.webp', alt: 'Better Publishing redrawn from its source code', line: "Zack Shapiro's editors' app, which I modified for Better Programming's writer outreach." },
   { kind: 'client', name: 'MediumRSS', status: '2023', image: '/home/mediumrss-by-tag.webp', alt: 'MediumRSS posts grouped by topic, sample data', line: 'My SwiftUI tool for Better Programming: each day\'s posts across 100+ Medium topics, grouped by topic, author or reading time, to find writers. Shown with sample data.' },
+  { kind: 'lab', name: 'Scout', status: 'iOS 27 · Mac', image: '/scout/01-today.jpg', alt: 'Scout deck of ranked writers, fictional demo data', line: 'MediumRSS grown into a curation desk for any open feed: code ranks, the on-device model writes why, and four agents draft the issue.', href: '/posts/scout-code-ranks-apple-intelligence-explains/', cta: 'Post' },
   { kind: 'client', name: 'Dourier', status: 'first app', line: 'A courier MVP built with friends.' },
 ];
