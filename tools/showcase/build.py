@@ -534,7 +534,7 @@ def assistants_html():
     <img class="bgblur" src="img/{GL_ASK_ANSWER[0]}" alt="" aria-hidden="true">
     <div class="a-copy">
       <h3>Glint</h3>
-      <p>Ask Glint calls a tool before it answers a question about a move. Ask why BTCUSDT is moving and it reads the last day of price and volume, says what it found, and lists where each number came from under the answer. It has no order tools: the first thing it says is that it never places orders.</p>
+      <p>In this captured development build, Ask Glint reads a day of price and volume for a question about BTCUSDT and lists its sources. The captured assistant had no order tools.</p>
       <p class="plate">In development · the answer is from a build that is not merged yet, captured 25 October 2026 on the iPhone Duo simulator, signed out, on the on-device model and live public Binance prices</p>
     </div>
     <div class="shots">
@@ -564,7 +564,7 @@ def chart_html():
   <div class="pane frost p-text">
     <div class="t-a">
       <h3 id="chart-h">The chart sheet</h3>
-      <p class="plate">Latest main · rendered and captured 24 October 2026 · in development</p>
+      <p class="plate">Development capture · 24 October 2026</p>
     </div>
     <div class="t-b">
       <p>Open a name in Glint and its chart starts as one price line. Pick 1M, 3M, 1Y or All, and the line is green or red by how the period went. Touch and drag along it to read the price and the time under your finger. Candles stay one tap away. Three of the four screens are Xcode previews with a fixed sample walk, and the picture says so. The fourth is the running app on live public Binance prices.</p>
@@ -606,7 +606,7 @@ def studio_html():
 {chart_html()}
 <section class="wall studio glint live" aria-labelledby="live-h">
   <figure class="pane frost p-live"><img class="bgblur" src="img/{GL_WATCH[0]}" alt="" aria-hidden="true">
-    <figcaption id="live-h"><strong>Running now.</strong> The latest build, signed out, on public Binance prices. Captured 24 October 2026 on the iPhone Duo simulator.</figcaption>
+    <figcaption id="live-h"><strong>Development capture.</strong> Signed out, using public Binance prices on the iPhone Duo simulator, 24 October 2026.</figcaption>
     <div class="shots">
       <div>{phone(GL_WELCOME, "Glint's welcome screen in the latest build")}<p>Welcome</p></div>
       <div>{phone(GL_WATCH, "Glint's watchlist with live public Binance prices for BTC, ETH and a gold contract, and a Sign in banner")}<p>Watchlist, live prices</p></div>
