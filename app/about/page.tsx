@@ -5,7 +5,7 @@ import ContactPing from '@/components/contact-ping';
 
 export const metadata: Metadata = {
   title: 'about',
-  description: 'ios and macos engineer. former editor of better programming.',
+  description: 'ios and macos engineer. editing code and words, trading with agents.',
 };
 
 export default function AboutPage() {

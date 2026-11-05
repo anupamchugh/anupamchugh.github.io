@@ -300,7 +300,7 @@ export default function HomePage() {
         <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.02] tracking-[-0.045em] text-primary sm:text-7xl">
           i build random things.
         </h1>
-        <p className="mt-7 text-xl font-medium text-[#0B62A4]">software engineer · app builder · editor</p>
+        <p className="mt-7 text-xl font-medium text-[#0B62A4]">software engineer · app builder · editing code and words · trading with agents</p>
         <div className="mt-6 max-w-2xl space-y-3 text-lg leading-relaxed text-secondary">
           <p>avg coder, above avg manager. engineered managers and managed engineers.</p>
           <p>i started on android, moved to ios, and now build apple apps through alcor. i ran better programming, help other people tell their stories, and write about technology and films.</p>
