@@ -168,7 +168,6 @@ S = {
     "tm1": webp("threadmark-board.webp"),
     "mq1": webp("maquette-tower-unit.webp"),
     "mq2": webp("maquette-send.webp"),
-    "wo1": webp("wearover-linen-fitted.webp"),
     "rp1": webp("preview-orbits-launch.webp"),
     "rp2": webp("preview-quorion-storyteller.webp"),
     "rp3": webp("preview-glint-portfolio.webp"),
@@ -283,7 +282,7 @@ CASES = [
          shots=[(S["pin1"], "Pinprint's Today screen: saved, visited and logged counts, a prompt to log one place, and a travelogue note box"),
                 (S["pin2"], "Pinprint's map of the sample Bali 2026 trip, with blue pins for saved places and counts of places, sources and logged"),
                 (S["pin3"], "Pinprint's Search screen with an Ask your trip box, a note that the on-device model is available, and an Ask Places box")]),
-    dict(slug="breakline-surf", flip=False, extra="The screens were captured on 28 October 2026 from the current source, on the iPhone Duo simulator, with a sample badminton smash. Body position is read on the device.",
+    dict(slug="breakline-surf", flip=False, custom_plate="iOS · v1.5 · First commit 30 Jun 2026 · 87 commits", extra="The screens were captured on 28 October 2026 from the current source, on the iPhone Duo simulator, with a sample badminton smash. Body position is read on the device.",
          body="I started Breakline for my own surfing while recovering from a broken back. Pick a clip of your surf, skate, golf, tennis or badminton move and see your body position frame by frame, with the angles that matter and nothing uploaded.",
          shots=[(S["brk1"], "Breakline home screen: sport chips for surf, skate, golf and tennis, and buttons to choose surf photos or clips, find surf media or practise a land drill"),
                 (S["brk2"], "Breakline pose overlay of a badminton smash at contact, with the elbow at 165 degrees and the front knee at 141 degrees"),
@@ -307,9 +306,6 @@ CASES = [
 ]
 
 STUDIO = [
-    dict(id="wearover", name="Wearover", plate=plate_for("", "Wardrobe") + " · in development",
-         body="Change what you are wearing in a photo of yourself, on your iPhone: Apple Intelligence reads the outfit, the clothes are recoloured on the device or redrawn by Image Playground, and your face and hair stay exactly as photographed. Image Playground only ever receives the clothes, cut off below the face.",
-         shot=[(S["wo1"], "Wearover on the owner's own photo: before in a white T-shirt, after in a cream linen shirt redrawn by Image Playground with the face kept, and Apple Intelligence reading the outfit as a white t-shirt and grey shorts")], color="#121316"),
     dict(id="maquette", name="Maquette", plate=plate_for("", "Maquette") + " · in development",
          body="Photograph the scale model in a property sales office and get a 3D tower: tap a floor and the floors above lift away, tap a flat for its price and availability, then send the buyer a brochure and a site-visit slot.",
          shot=[(S["mq1"], "Maquette's sample Tower B with floor 13 lifted and flat B-1304's card: 3.5 BHK, 1,745 sq ft, available"),
@@ -352,28 +348,28 @@ def head_html():
 
 def hero_html():
     shots = {
-        "wearover": (S["wo1"], "Wearover: a clothing change shown on the owner’s photo, in development"),
+        "wearover": (None, "Wearover before and after a festive Diwali shirt"),
         "common-ground": (S["orbits1"], "Orbits plan screen asking Where to?"),
         "rifflet": (S["rifflet1"], "Rifflet's Make screen in dark mode"),
         "pinprint": (S["pin1"], "Pinprint App Store screenshot: Plan the day from your saved proof"),
     }
     cells = []
     cells.append(f"""<header class="pane transom">
-  <a class="mark" href="#top">{NAME}</a>
-  <nav aria-label="Sections"><a href="#work">Work</a><a href="#apps">All apps</a><a href="#assistants">Assistants</a><a href="#studio">In the studio</a><a href="#how">How it is made</a></nav>
+  <a class="mark" href="/">{NAME}</a>
+  <nav aria-label="Sections"><a href="/">Home</a><a href="/resume/">Résumé</a><a href="#work">Work</a><a href="#apps">All apps</a><a href="#assistants">Assistants</a><a href="#studio">In the studio</a><a href="#how">How it is made</a></nav>
 </header>""")
     cells.append(f"""<section class="wall hero" id="top" aria-labelledby="h1">
   <div class="pane p-head">
     <h1 id="h1">I build iOS apps with <span class="nb">on-device</span> AI, and I ship them.</h1>
-    <p class="lede">Apps from music to travel to chess. Here is the work: real screens, App Store and GitHub links, and what is still in the studio. <a href="#wearover">Explore Wearover, an in-development wardrobe experiment using Image Playground.</a></p>
+    <p class="lede">Apps from music to travel to chess. Here is the work: real screens, App Store and GitHub links, and what is still in the studio. <a href="#wearover-demo">Explore Wearover, now on the App Store: change what you wear in your own photo.</a></p>
   </div>
   <a class="pane note cobalt p-cta" href="{CONTACT}" rel="noopener"><span>Get in touch</span><span class="arrow">{ARROW_R}</span></a>""")
     for k, slug in enumerate(HERO_ORDER):
         nw, alt = shots[slug]
-        name = "Wearover, in development" if slug == "wearover" else DISPLAY.get(slug, app_by_slug[slug]["name"])
-        cells.append(f"""  <a class="pane lit p-shot s{k + 1}" {lit_style("#121316" if slug == "wearover" else slug, k)} href="#{slug}" aria-label="{esc(name)}: see the case">
-    {phone(nw, alt, eager=(k == 0))}
-    {'<span style="position:absolute;bottom:12px;left:12px;background:#121316;color:white;padding:6px 10px;border-radius:6px">Wearover · in development</span>' if slug == "wearover" else ""}
+        name = "Wearover, on the App Store" if slug == "wearover" else DISPLAY.get(slug, app_by_slug[slug]["name"])
+        cells.append(f"""  <a class="pane lit p-shot s{k + 1}" {lit_style("#121316" if slug == "wearover" else slug, k)} href="#{'wearover-demo' if slug == 'wearover' else slug}" aria-label="{esc(name)}: see the case">
+    {'<div class="phone"><img src="media/diwali-before-after.jpg" width="720" height="1280" alt="Wearover before and after a festive Diwali shirt"></div>' if slug == 'wearover' else phone(nw, alt, eager=(k == 0))}
+    {'<span style="position:absolute;bottom:12px;left:12px;background:#121316;color:white;padding:6px 10px;border-radius:6px">Wearover · on the App Store</span>' if slug == "wearover" else ""}
   </a>""")
     cells.append(f"""  <div class="pane p-note"><p>{esc('The app shelf links to App Store listings and a Mac release on GitHub. Screens from development builds are labelled.')}</p></div>""")
     strip = ["playlist-hunter", "feedloom"]
@@ -384,7 +380,7 @@ def hero_html():
     {img(icons[slug], nm + " app icon")}<span>{esc(nm)}</span>
   </a>""")
     cells.append("</section>")
-    cells.append('''<section class="wall" id="wearover-demo" aria-label="Wearover demonstration"><div class="pane p-text" style="padding:24px"><h2>Wearover: ask for a look</h2><p>A real iPhone recording: a Diwali shirt request and suggested actions. The proposal is not a finished outfit.</p><video controls preload="metadata" playsinline style="width:min(100%,360px);border-radius:12px" src="media/wearover-diwali-demo.mp4">Your browser cannot play this video.</video><p><a href="media/wearover-diwali-demo.mp4">Download the recording</a> · <a href="#wearover">See the Wearover case</a></p><div style="display:flex;gap:12px;flex-wrap:wrap"><figure><img src="media/diwali-redraw.jpg" alt="Wearover proposes redrawing the top as a festive Diwali shirt" loading="lazy" style="max-width:160px;width:100%"><figcaption>Redraw proposal</figcaption></figure><figure><img src="media/diwali-colour.jpg" alt="Wearover proposes recolouring the top yellow" loading="lazy" style="max-width:160px;width:100%"><figcaption>Colour proposal</figcaption></figure></div></div></section>''')
+    cells.append('''<section class="wall" id="wearover-demo" aria-label="Wearover demonstration"><div class="pane p-text" style="padding:24px"><h2>Wearover: ask for a look</h2><p>A real iPhone recording: a Diwali shirt request, Image Playground redraw, and the before-and-after result. Wearover 3.0.0 is on the App Store.</p><figure style="margin:0 0 20px"><img src="media/diwali-before-after.jpg" alt="Wearover before and after: a white shirt on the left and a festive red shirt on the right" style="width:min(100%,360px);border-radius:12px"><figcaption>Before and after from the iPhone recording</figcaption></figure><video controls preload="metadata" playsinline poster="media/diwali-before-after.jpg" style="width:min(100%,360px);border-radius:12px" src="media/wearover-diwali-short.mp4">Your browser cannot play this video.</video><p><a href="media/wearover-diwali-demo.mp4">Watch the full recording</a> · <a href="https://apps.apple.com/us/app/wearover-restyle-your-outfit/id6766553501">Wearover on the App Store</a></p><div style="display:flex;gap:12px;flex-wrap:wrap"><figure><img src="media/diwali-redraw.jpg" alt="Wearover proposes redrawing the top as a festive Diwali shirt" loading="lazy" style="max-width:160px;width:100%"><figcaption>Redraw proposal</figcaption></figure><figure><img src="media/diwali-colour.jpg" alt="Wearover proposes recolouring the top yellow" loading="lazy" style="max-width:160px;width:100%"><figcaption>Colour proposal</figcaption></figure></div></div></section>''')
     return "\n".join(cells)
 
 
@@ -410,7 +406,7 @@ def case_html(c, idx):
     screens = []
     for k, (nw, alt) in enumerate(shots):
         frame = phone(nw, alt)
-        if c.get("wide"):
+        if c.get("wide") and slug != "trayce":
             frame = frame.replace('class="phone"', 'class="phone win"')
         screens.append(f"""<figure class="pane lit p-screen" {lit_style(slug, idx + k)}>
     {frame}
@@ -534,7 +530,7 @@ def assistants_html():
     <img class="bgblur" src="img/{GL_ASK_ANSWER[0]}" alt="" aria-hidden="true">
     <div class="a-copy">
       <h3>Glint</h3>
-      <p>Ask Glint calls a tool before it answers a question about a move. Ask why BTCUSDT is moving and it reads the last day of price and volume, says what it found, and lists where each number came from under the answer. It has no order tools: the first thing it says is that it never places orders.</p>
+      <p>In this captured development build, Ask Glint reads a day of price and volume for a question about BTCUSDT and lists its sources. The captured assistant had no order tools.</p>
       <p class="plate">In development · the answer is from a build that is not merged yet, captured 25 October 2026 on the iPhone Duo simulator, signed out, on the on-device model and live public Binance prices</p>
     </div>
     <div class="shots">
@@ -564,7 +560,7 @@ def chart_html():
   <div class="pane frost p-text">
     <div class="t-a">
       <h3 id="chart-h">The chart sheet</h3>
-      <p class="plate">Latest main · rendered and captured 24 October 2026 · in development</p>
+      <p class="plate">Development capture · 24 October 2026</p>
     </div>
     <div class="t-b">
       <p>Open a name in Glint and its chart starts as one price line. Pick 1M, 3M, 1Y or All, and the line is green or red by how the period went. Touch and drag along it to read the price and the time under your finger. Candles stay one tap away. Three of the four screens are Xcode previews with a fixed sample walk, and the picture says so. The fourth is the running app on live public Binance prices.</p>
@@ -606,7 +602,7 @@ def studio_html():
 {chart_html()}
 <section class="wall studio glint live" aria-labelledby="live-h">
   <figure class="pane frost p-live"><img class="bgblur" src="img/{GL_WATCH[0]}" alt="" aria-hidden="true">
-    <figcaption id="live-h"><strong>Running now.</strong> The latest build, signed out, on public Binance prices. Captured 24 October 2026 on the iPhone Duo simulator.</figcaption>
+    <figcaption id="live-h"><strong>Development capture.</strong> Signed out, using public Binance prices on the iPhone Duo simulator, 24 October 2026.</figcaption>
     <div class="shots">
       <div>{phone(GL_WELCOME, "Glint's welcome screen in the latest build")}<p>Welcome</p></div>
       <div>{phone(GL_WATCH, "Glint's watchlist with live public Binance prices for BTC, ETH and a gold contract, and a Sign in banner")}<p>Watchlist, live prices</p></div>

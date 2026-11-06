@@ -1,4 +1,48 @@
-{"source":"fixture","fetchedAt":null,"posts":[
-{"title":"Every Wave is Not Your Wave","link":"https://medium.com/@anupamchugh","date":"2026-04-14","image":"/home/bp-preview.webp","excerpt":"What surfing in Kerala taught me about picking the right projects, and letting the rest roll past."},
-{"title":"I, a Loyal Employee, Bow Before the Unrivaled Honesty and Transparency of My Startup's CEO","link":"https://medium.com/@anupamchugh","date":"2024-02-16","image":null,"excerpt":"A satire piece."},
-{"title":"Better Programming Has a New Editor","link":"https://medium.com/@anupamchugh","date":"2023-08-29","image":"/home/breakline-robot.webp","excerpt":"Handing over the publication after two years."}]}
+{
+  "source": "https://medium.com/feed/@anupamchugh",
+  "fetchedAt": "2026-11-06T17:41:28.185Z",
+  "posts": [
+    {
+      "title": "Every Wave is Not Your Wave",
+      "link": "https://anupamchugh.medium.com/every-wave-is-not-your-wave-7f0c0af104ad",
+      "date": "2026-04-14",
+      "image": "https://cdn-images-1.medium.com/max/867/1*u6cakXt6pYv3WbFkueSBHQ.png",
+      "excerpt": "Varkala, Kerala. End of the surfing season. I’ve been coming here every year since 2022 — one week of classes, same beach, same routine. The approach is the same. I’m on the…"
+    },
+    {
+      "title": "I, a Loyal Employee, Bow Before the Unrivaled Honesty and Transparency of My Startup’s CEO",
+      "link": "https://anupamchugh.medium.com/i-a-loyal-employee-bow-before-the-unrivaled-honesty-and-transparency-of-my-startups-ceo-57b510e0cd96",
+      "date": "2024-02-16",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*ZztQREVMoS1KNiK1EM7Mcg.png",
+      "excerpt": "A Tale of Transparent Illusions Continue reading on Medium »"
+    },
+    {
+      "title": "A Post-Halloween Hangover Newsletter — My Programming Picks Across Medium, August 2023",
+      "link": "https://medium.com/illuminations-mirror/a-post-halloween-hangover-newsletter-my-programming-picks-across-medium-august-2023-bbefbc135802",
+      "date": "2023-11-06",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*NQQIgpLbG53g7IibC4xSfQ.png",
+      "excerpt": "A Post-Halloween Hangover Newsletter — My Programming Picks Across Medium, August 2023 What’s scarier than Halloween? Well, for me, it was realizing, as I was casually scrolling…"
+    },
+    {
+      "title": "Medium’s ‘Productivity Gurus’ Reveal Their Time-Saving Secrets to Make Money",
+      "link": "https://medium.com/the-haven/busted-mediums-productivity-gurus-reveal-their-time-saving-secrets-to-make-money-2190843d8596",
+      "date": "2023-09-27",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*UN7UqJOGnAWA_ifYX1TIpQ.png",
+      "excerpt": "Hold on tight — your Pomodoro timer might just blast off into a whole new dimension of time-warping profits Continue reading on The Haven »"
+    },
+    {
+      "title": "Better Programming Has a New Editor",
+      "link": "https://medium.com/better-programming/better-programming-has-a-new-editor-4f4ee04fa899",
+      "date": "2023-08-29",
+      "image": "https://cdn-images-1.medium.com/max/1024/0*KVi2pdQsSsZ9s-iG",
+      "excerpt": "I’ll be moving on from my role, but please welcome Mihai Banulescu, the incoming Editor-in-Chief of Better Programming. Update on 11th Nov, 2023: Better Programming is on a hiatus…"
+    },
+    {
+      "title": "99% of Viral Medium Articles Use This Technique to Get Ahead of The Game",
+      "link": "https://medium.com/illumination/99-of-viral-medium-articles-use-this-technique-to-get-ahead-of-the-game-770310cf35cb",
+      "date": "2023-04-19",
+      "image": "https://cdn-images-1.medium.com/max/2600/0*DeTKbj6cdVQdFfjG",
+      "excerpt": "Yup, 99% is the secret to 99% of money-making articles Continue reading on ILLUMINATION »"
+    }
+  ]
+}

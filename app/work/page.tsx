@@ -12,7 +12,7 @@ export default function WorkPage() {
     <div className="mx-auto max-w-6xl px-4 pb-16 pt-28 sm:px-6">
       <h1 className="text-5xl font-bold leading-none tracking-[-0.04em] text-primary sm:text-6xl">Work.</h1>
       <p className="mt-4 max-w-2xl text-lg leading-relaxed text-secondary">
-        Apps on the App Store, code on GitHub, and the client apps from before. Every card links to where you can check it.
+        Apps on the App Store, code on GitHub, experiments in progress, and the client apps from before.
       </p>
 
       <WorkGrid />

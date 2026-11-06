@@ -35,7 +35,7 @@ const roles: Role[] = [
       ['scope', 'Nineteen live apps scoped, built, listed and supported on my own, each with a single job.'],
       ['trust', 'Privacy by default: clips, photos and documents stay on the device, and the model never decides a fact.'],
       ['flows', 'Delivery flows at MOBEY, from going online to proof of delivery and why a drop failed.'],
-      ['now', 'Wearover 3.0 in App Review; Landfall, a career app on Apple Intelligence, in build.'],
+      ['now', 'Wearover is on the App Store; Landfall, a career app on Apple Intelligence, is in development.'],
     ],
   },
   {
@@ -54,7 +54,7 @@ const roles: Role[] = [
     kicker: 'engineering · editorial lead',
     headline: 'Good at helping manage engineers, better with engineering managers.',
     points: [
-      ['outreach', "Modified Zack's Better Publishing app, and built MediumRSS, a SwiftUI app tracking each day's posts across 100+ Medium topics, to find and onboard strong writers faster."],
+      ['outreach', "Improved the editorial workflow and built MediumRSS, a SwiftUI app tracking each day's posts across 100+ Medium topics, to find and onboard writers faster."],
       ['agents', 'Today I run coding agents like a small team: briefs, reviews, and a public agent journal of what each did.'],
       ['remote', 'Built the MOBEY apps remotely for a Gold Coast company.'],
       ['standards', 'Claims checked before they ship: tests, App Review, receipts.'],

@@ -4,7 +4,6 @@ import { ReactNode } from 'react';
 import LensSections from '@/components/lens-sections';
 import MediumPreviews from '@/components/medium-previews';
 import { getRecentPosts } from '@/lib/posts';
-import { curatedPhotos } from '@/lib/photos';
 
 const mono = 'font-mono text-xs uppercase tracking-[0.08em] text-tertiary';
 const panelTitle = 'text-4xl font-bold leading-none tracking-[-0.035em] sm:text-5xl';
@@ -103,6 +102,20 @@ const contour = (
   </Chapter>
 );
 
+const wearover = (
+  <Chapter id="wearover" kicker="01 / photo-first creativity · apple platforms" status={<a href="https://apps.apple.com/us/app/wearover-restyle-your-outfit/id6766553501" className="text-[#1C7A3F] no-underline">● on the App Store</a>}>
+    <Panel className="bg-[#E9DDD5] text-[#241C1B]">
+      <div>
+        <p className={mono}>Wearover</p>
+        <h3 className={`${panelTitle} mt-3`}>A new look,<br />from one photo.</h3>
+        <p className="mt-4 max-w-md leading-relaxed text-[#51413D]">An outfit restyling app built around the photos you already have. Explore a different look and save the ones you like.</p>
+        <a href="https://apps.apple.com/us/app/wearover-restyle-your-outfit/id6766553501" className={`${button} mt-5 bg-[#241C1B] text-[#F8F4F0]`}>See Wearover on the App Store ↗</a>
+      </div>
+      <div className="flex justify-center"><Shot src="/showcase/media/diwali-before-after.jpg" alt="Wearover showing a before and after of a festive shirt" className="h-[420px] w-[200px] rounded-[26px] object-cover object-top" width={720} height={1280} /></div>
+    </Panel>
+  </Chapter>
+);
+
 const screenRoom = (
   <Chapter id="screenroom" kicker="iphone + mac" status="live · remote is open source">
     <Panel className="bg-[#2A1414] text-[#F7F2EE]">
@@ -124,7 +137,7 @@ const screenRoom = (
 
 const studioItems = [
   { src: '/home/feedloom-duo.webp', alt: 'Feedloom unfolded on iPhone Duo', name: 'Feedloom', line: 'save this, find the thread. On iPhone Duo.', w: 1200, h: 844 },
-  { src: '/showcase/img/wearover-linen-fitted.webp', alt: 'Wearover fitted linen outfit', name: 'Wearover 3.0', line: 'a new look from one photo. In App Review.', w: 506, h: 1100 },
+  { src: '/showcase/media/diwali-before-after.jpg', alt: 'Wearover before and after a festive shirt', name: 'Wearover 3.0', line: 'a new look from one photo. On the App Store.', w: 720, h: 1280 },
   { src: '/home/quorion-reveal.webp', alt: 'Quorion telling one player their role', name: 'Quorion', line: "a storyteller's table for social deduction nights.", w: 460, h: 1000 },
   { src: '/gallery/studio/trayce-01-trip.webp', alt: 'Trayce trip screen', name: 'Trayce', line: 'the newest booking copy wins. Open source.', w: 460, h: 1000 },
 ];
@@ -235,9 +248,11 @@ function Writing() {
           <p className={mono}>better programming · 2021–23</p>
           <p className="mt-2 text-3xl font-bold leading-tight tracking-[-0.03em] text-primary sm:text-4xl">Finding the writers before they find us.</p>
           <p className="mt-4 leading-relaxed text-secondary">
-            I modified Zack Shapiro&apos;s Better Publishing app when I took over in 2021, then built my own, MediumRSS: each day&apos;s posts
-            across 100+ Medium topics, grouped by topic or author, so we could find writers and reach out faster.
+            I improved the editorial workflow at Better Programming and built MediumRSS: each day&apos;s posts across 100+ Medium topics,
+            grouped by topic or author, so we could find writers and reach out faster.
           </p>
+          <p className="mt-3 leading-relaxed text-secondary">Scout takes that idea further as a curation desk for open feeds.</p>
+          <Link href="/posts/scout-code-ranks-apple-intelligence-explains/" className="mt-4 inline-block text-sm font-semibold underline underline-offset-4">Read about Scout · written by Claude Code →</Link>
         </div>
         <figure>
           <div className="flex justify-center gap-4">
@@ -246,7 +261,7 @@ function Writing() {
           </div>
           <figcaption className="mt-2 text-center text-[13px] text-secondary">MediumRSS (2023), shown with sample data: Medium now blocks the feed it read.</figcaption>
           <Shot src="/home/bp-preview.webp" alt="Better Publishing review list and article screen, redrawn from the app's source" width={700} height={595} className="mt-6 w-full rounded-2xl" />
-          <figcaption className="mt-2 text-center text-[13px] text-secondary">Better Publishing, Zack&apos;s app that I modified, redrawn from its source. Sample names.</figcaption>
+          <figcaption className="mt-2 text-center text-[13px] text-secondary">Better Publishing, Zack Shapiro&apos;s editors&apos; app, redrawn from its source. Sample names.</figcaption>
         </figure>
       </div>
     </section>
@@ -277,45 +292,27 @@ const along = (
   </section>
 );
 
-const photos = (
-  <section id="photos" className="scroll-mt-24 border-t border-border pb-20 pt-8">
-    <div className="flex flex-wrap items-baseline justify-between gap-4">
-      <h2 className="text-4xl font-bold leading-tight tracking-[-0.03em] text-primary">Photos.</h2>
-      <Link href="/photos/" className="inline-flex min-h-11 items-center text-sm font-semibold">All photos →</Link>
-    </div>
-    <p className="mt-3 text-secondary">From trips and trails, Kodaikanal to Hoi An.</p>
-    <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-      {curatedPhotos.slice(0, 6).map((photo) => (
-        <Link key={photo.src} href="/photos/" className="group block">
-          <Image src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} sizes="(max-width: 640px) 50vw, 200px" className="aspect-square w-full rounded-xl object-cover transition-opacity group-hover:opacity-90" />
-        </Link>
-      ))}
-    </div>
-  </section>
-);
-
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
-      <section className="pb-14 pt-28">
-        <p className={mono}>apps · writing · experiments</p>
-        <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.02] tracking-[-0.045em] text-primary sm:text-7xl">
-          i build random things.
+      <section className="pb-20 pt-20 sm:pb-28 sm:pt-32">
+        <p className={mono}>Independent projects · shared along the way</p>
+        <h1 className="mt-7 max-w-5xl text-6xl font-bold leading-[0.98] tracking-[-0.065em] text-primary sm:text-8xl lg:text-[7.5rem]">
+          Building things.<br /><span className="text-[#587bef]">Telling stories.</span>
         </h1>
-        <p className="mt-7 text-xl font-medium text-[#0B62A4]">software engineer · app builder · editing code and words · trading with agents</p>
-        <div className="mt-6 max-w-2xl space-y-3 text-lg leading-relaxed text-secondary">
-          <p>avg coder, above avg manager. engineered managers and managed engineers.</p>
-          <p>i started on android, moved to ios, and now build apple apps through alcor. i ran better programming, help other people tell their stories, and write about technology and films.</p>
+        <div className="mt-10 grid gap-8 md:grid-cols-2 md:gap-16">
+          <p className="max-w-md text-2xl font-medium leading-snug tracking-tight text-primary sm:text-3xl">Apps, ideas and experiments.<br />Made with curiosity.</p>
+          <div className="max-w-lg space-y-4 text-base leading-relaxed text-secondary sm:text-lg">
+            <p>I&apos;m Anupam, a product builder and engineer. I started on Android, moved to Apple platforms, and build independent apps through Alcor.</p>
+            <p>I also led Better Programming, mentored writers, and enjoy making tools that help people create and discover.</p>
+            <p className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold"><a href="#selected-work">Explore my work ↓</a><Link href="/posts/">Read my writing →</Link><Link href="/about/">More about me →</Link></p>
+          </div>
         </div>
-        <p className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
-          <Link href="/work/">see my work →</Link>
-          <Link href="/posts/">read writing →</Link>
-          <Link href="/resume/">my story →</Link>
-        </p>
       </section>
 
       <LensSections
         tiles={[
+          { id: 'wearover', label: 'Wearover', src: '/showcase/media/diwali-before-after.jpg' },
           { id: 'breakline', label: 'Breakline', src: '/home/breakline-robot.webp' },
           { id: 'glint', label: 'Glint', src: '/home/glint-island.webp' },
           { id: 'contour', label: 'Contour Lab', src: '/home/contour-3d.webp' },
@@ -324,9 +321,9 @@ export default function HomePage() {
           { id: 'demos', label: 'Demos', src: '/home/rifflet-poster.webp' },
           { id: 'writing', label: 'Writing', src: '/home/mediumrss-by-tag.webp' },
           { id: 'along', label: '2015–19', src: '/gallery/mobey/02-customer-home-categories.webp' },
-          { id: 'photos', label: 'Photos', src: curatedPhotos[0].src },
         ]}
         sections={[
+          { id: 'wearover', lenses: ['ios', 'product'], node: wearover },
           { id: 'breakline', lenses: ['ios', 'product'], node: breakline },
           { id: 'glint', lenses: ['ios'], node: glint },
           { id: 'contour', lenses: ['ios'], node: contour },
@@ -335,11 +332,10 @@ export default function HomePage() {
           { id: 'demos', lenses: ['ios', 'product'], node: demos },
           { id: 'writing', lenses: ['writer'], node: <Writing /> },
           { id: 'along', lenses: ['android', 'product'], node: along },
-          { id: 'photos', lenses: [], node: photos },
         ]}
       />
 
-      <p className="border-t border-border py-8 text-sm text-tertiary">Off the clock: surfing, chess, cricket, table tennis, board games, films.</p>
+      <p className="border-t border-border py-8 text-sm text-tertiary">Off the clock: surfing, chess, cricket, table tennis, board games, films. <Link href="/photos/" className="underline underline-offset-4">Photos →</Link></p>
     </div>
   );
 }
