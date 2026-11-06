@@ -16,7 +16,7 @@ export default function MediumPreviews() {
       </div>
       <ul className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <li key={post.link}>
+          <li key={`${post.link}-${post.title}`}>
             <a href={post.link} className="flex h-full flex-col overflow-hidden rounded-[20px] border border-border no-underline hover:border-[var(--fg-subtle)]">
               {post.image ? (
                 // eslint-disable-next-line @next/next/no-img-element

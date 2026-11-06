@@ -27,7 +27,7 @@ export default function ResumePage() {
         <h2 className="text-xl font-semibold text-primary">The editor</h2>
         <p className="mt-4 leading-7 text-secondary">
           I took over Better Programming from Zack Shapiro in 2021 and ran it until 2023, while it grew from 50 million to 150 million lifetime pageviews.
-          Zack had built Better Publishing, an editors&apos; app for our Trello review queue, and I modified it. I also built MediumRSS, my own SwiftUI app
+          I improved the editorial workflow. Zack had built Better Publishing, an editors&apos; app for our Trello review queue. I also built MediumRSS, my own SwiftUI app
           that pulled each day&apos;s posts across more than 100 Medium topics with author details, so we could track promising writers and reach out
           and onboard them faster for the publication and its newsletters.
           I found writers, helped them onboard and supported their work. Coffee Bytes grew out of the same instinct: put other people in front of readers.
@@ -49,14 +49,15 @@ export default function ResumePage() {
         <p className="mt-4 leading-7 text-secondary">
           Consumer apps with on-device AI, from idea to App Store: 19 live, 65 approved releases since December 2025.
           Breakline reads how your body moves in your own clips across seven sports; in testing, a 3D humanoid robot replays your surf pop-up or push-up.
-          Wearover changes clothes, hair, glasses and face paint in your photo on the iPhone and keeps your face as photographed; version 3.0 is in App Review.
+          Wearover explores restyling from a photo on the iPhone and is on the App Store.
         </p>
         <p className="mt-4 leading-7 text-secondary">
           <a className="underline" href="https://tradeshot.co">TradeShot</a> and Glint are customizable tools for practicing trading and developing better habits.
-          I also write about technology and satire.
+          I&apos;m also developing ChughGPT, a personal toolkit exploring how agents and connected tools can support my social media, blog and work workflows.
+          I write about technology and satire.
         </p>
         <p className="mt-4 leading-7 text-secondary">Off the clock: surfing, which started Breakline, Swell Window and Contour Lab&apos;s surfboard mode; chess, cricket, table tennis, board games and films. These days I talk to agents, too.</p>
-        <p className="mt-3 text-sm text-secondary"><a className="underline" href="/showcase/#wearover">Wearover</a>{' · '}<a className="underline" href="https://getalcor.com/breakline/">Breakline</a>{' · '}<a className="underline" href="/showcase/#studio">Glint in the studio</a>{' · '}<a className="underline" href="/showcase/">Selected work</a>{' · '}<a className="underline" href="https://humorbytes.substack.com">Humor Bytes</a>{' · '}<a className="underline" href="https://thebigtech.substack.com">Big Tech</a></p>
+        <p className="mt-3 text-sm text-secondary"><a className="underline" href="/showcase/index.html#wearover-demo">Wearover</a>{' · '}<a className="underline" href="https://getalcor.com/breakline/">Breakline</a>{' · '}<a className="underline" href="/showcase/#studio">Glint in the studio</a>{' · '}<a className="underline" href="/showcase/">Selected work</a>{' · '}<a className="underline" href="https://humorbytes.substack.com">Humor Bytes</a>{' · '}<a className="underline" href="https://thebigtech.substack.com">Big Tech</a></p>
       </section>
     </main>
   );
