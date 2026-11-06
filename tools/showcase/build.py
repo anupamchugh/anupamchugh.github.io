@@ -24,7 +24,7 @@ GLINT_NEW = HERE / "src-assets" / "glint"
 ORIGINS = json.load(open(HERE / "src-assets" / "origins.json"))
 PROV = json.load(open(HERE / "provenance.json"))["images"]
 BUILT = "25 October 2026"
-CONTACT = "mailto:anupamchugh@gmail.com?subject=Work%20with%20me"
+CONTACT = "mailto:anupamchugh@gmail.com"
 BLOG_HOME = "https://anupamchugh.github.io"
 GITHUB = "https://github.com/anupamchugh"
 NAME = "Anupam Chugh"
@@ -37,7 +37,7 @@ COLORS = {
     "pastport": "#1f6f7a", "feedloom": "#4a35d8", "flickpot": "#2f8f46", "flyleaf": "#12907c", "getnod": "#6b4bd6",
     "best-face-forward": "#1d7a9a", "breakline-surf": "#0a8fa8", "checkmate-academy": "#6a3fd1",
     "clocktower-table": "#3b3f8f", "docpolish": "#1b8cff", "lineage-mirror": "#4f8a6e", "roamproof": "#1f6f55",
-    "swell-window": "#1f7fc4", "the-match-room": "#1a7a58",
+    "swell-window": "#1f7fc4", "the-match-room": "#1a7a58", "trayce": "#2b4c7e",
 }
 REPO = {  # blog slug -> workspace repo whose history gives the first-commit plate (None = not located)
     "rifflet": "KeyMuse", "common-ground": "PlaceMatch", "playlist-hunter": "MySongs", "pastport": "Pastport",
@@ -160,6 +160,8 @@ S = {
     "brk3": webp("breakline-result.webp", max_h=1000),
     "pas1": webp("pastport-home.webp"),
     "pas2": webp("pastport-answer.webp"),
+    "trayce1": webp("trayce-trip.webp"),
+    "trayce2": webp("trayce-pack.webp"),
     "feed1": webp("feedloom-comic-library.webp"),
     "feed2": webp("feedloom-newsprint-library.webp"),
     "feed3": webp("feedloom-library.webp"),
@@ -290,6 +292,13 @@ CASES = [
          body="Find pages, browsing threads, privacy clues and booking-like visits in your Safari history on Mac. The newer source adds grounded answers and a separate assistant with optional connected tools. On iPhone, the timeline uses photo activity and screenshots you add; iOS does not expose Safari history. The GitHub download is the released Mac app, which may not include every feature described here.",
          shots=[(S["pas1"], "Pastport on macOS showing what you have been into this week, a privacy check and booking pages"),
                 (S["pas2"], "Pastport on macOS answering which sites were visited most, in dark mode")], wide=True),
+    dict(slug="trayce", flip=False, wide=True, extra="",
+         body="Trayce brings together the booking PDFs and screenshots you get from travel sites, airlines and WhatsApp, works out which copy is current and flags what changed. It plans your security trays from a photo of what you packed, with Vision finding the items and Apple Intelligence labelling them, all on the device. The screens use a sample trip; the camera, boarding barcode and LiDAR need a real iPhone.",
+         shots=[(S["trayce1"], "Trayce Trip today: Bangalore to Delhi, with a warning that the date, departure and gate changed and the older copy is stale"),
+                (S["trayce2"], "Trayce Pack check: a laptop, power bank and liquid found in a sample photo, each with its tray or cabin rule")],
+         custom_name="Trayce", custom_description="Your trip, always the latest copy. Your trays, planned before the X-ray.",
+         custom_plate="Open source on GitHub · iOS 27 MVP, running in the Simulator",
+         custom_href="https://github.com/anupamchugh/trayce"),
     dict(slug="feedloom", flip=False, extra="All three screens are from the next version, which is not on the App Store yet.",
          body="Keep up with links and feeds in a reader with four looks: comic, newsprint, noir and default. A connection to Threadmark for following sources and research is an idea being explored, not a demonstrated integration.",
          shots=[(S["feed1"], "Feedloom's library in its comic skin, dark, with sample bookmarks"),
@@ -358,7 +367,7 @@ def hero_html():
     <h1 id="h1">I build iOS apps with <span class="nb">on-device</span> AI, and I ship them.</h1>
     <p class="lede">Apps from music to travel to chess. Here is the work: real screens, App Store and GitHub links, and what is still in the studio. <a href="#wearover">Explore Wearover, an in-development wardrobe experiment using Image Playground.</a></p>
   </div>
-  <a class="pane note cobalt p-cta" href="{CONTACT}" onclick="openContactModal(event)" rel="noopener"><span>Work with me</span><span class="arrow">{ARROW_R}</span></a>""")
+  <a class="pane note cobalt p-cta" href="{CONTACT}" rel="noopener"><span>Get in touch</span><span class="arrow">{ARROW_R}</span></a>""")
     for k, slug in enumerate(HERO_ORDER):
         nw, alt = shots[slug]
         name = "Wearover, in development" if slug == "wearover" else DISPLAY.get(slug, app_by_slug[slug]["name"])
@@ -381,21 +390,21 @@ def hero_html():
 
 def case_html(c, idx):
     slug = c["slug"]
-    a = app_by_slug[slug]
-    nm = DISPLAY.get(slug, a["name"])
-    desc = "Private Safari history search on Mac, with a newer timeline and assistant in development." if slug == "pastport" else (sentence(a["description"]) if slug != "common-ground" else "Plan your own trips and meetups.")
+    a = app_by_slug.get(slug)
+    nm = c.get("custom_name", DISPLAY.get(slug, a["name"] if a else slug))
+    desc = c.get("custom_description") or ("Private Safari history search on Mac, with a newer timeline and assistant in development." if slug == "pastport" else (sentence(a["description"]) if slug != "common-ground" else "Plan your own trips and meetups."))
     shots = c["shots"]
     n = len(shots)
     layout = "stack" if (n >= 3 or c.get("wide")) else "side"
     text = f"""<div class="pane p-text">
     <div class="t-a">
       <h3 id="{slug}-h">{esc(nm)}</h3>
-      <p class="plate">{esc('Mac release on GitHub · newer iPhone and Mac work in development' if slug == 'pastport' else fact_plate(slug))}</p>
+      <p class="plate">{esc(c.get('custom_plate') or ('Mac release on GitHub · newer iPhone and Mac work in development' if slug == 'pastport' else fact_plate(slug)))}</p>
     </div>
     <div class="t-b">
       <p class="blurb">{esc(desc)}</p>
       <p>{esc(c['body'])}{(' ' + esc(c['extra'])) if c['extra'] else ''}</p>
-      {store_link(slug)}
+      {f'<a class="go" href="{esc(c["custom_href"])}" rel="noopener">Read the code and watch the demo{ARROW_UR}</a>' if c.get('custom_href') else store_link(slug)}
     </div>
   </div>"""
     screens = []
@@ -675,12 +684,12 @@ def close_html():
     <h2 id="close-h">Have an app that should exist?</h2>
     <p>Tell me what it should do and who it is for.</p>
   </div>
-  <a class="pane note cobalt p-go" href="{CONTACT}" onclick="openContactModal(event)" rel="noopener"><span>Work with me</span><span class="arrow">{ARROW_R}</span></a>
+  <a class="pane note cobalt p-go" href="{CONTACT}" rel="noopener"><span>Get in touch</span><span class="arrow">{ARROW_R}</span></a>
   <div class="pane p-links"><a href="{BLOG_HOME}" rel="noopener">Blog</a><a href="{GITHUB}" rel="noopener">GitHub</a></div>
 </section>
 <footer class="pane foot"><p>{NAME}. App list, links and descriptions come from the blog. Page built {BUILT}.</p></footer>
 </main>
-<a class="dock" href="{CONTACT}" onclick="openContactModal(event)">Work with me</a>
+<a class="dock" href="{CONTACT}">Get in touch</a>
 {MODAL}<script src="js/main.js"></script>
 </body>
 </html>
