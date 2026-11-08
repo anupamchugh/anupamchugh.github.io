@@ -23,7 +23,7 @@ gold embroidery."**
   part of the photo below my chin and drew a kurta for it. Wearover put that kurta back onto my
   original photo.
 
-[Watch the 18-second comparison (MP4)](/wearover/meta-vs-wearover-reel.mp4)
+[Watch the 13-second comparison (MP4)](/wearover/meta-vs-wearover-reel.mp4)
 
 ## What each one got right
 
