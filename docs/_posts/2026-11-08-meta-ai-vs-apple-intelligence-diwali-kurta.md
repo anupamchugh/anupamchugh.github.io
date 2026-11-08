@@ -88,6 +88,38 @@ flight, black line-art"), and Wearover places it on the arm it found in your pho
 
 ![A swallow tattoo drawn by Image Playground](/wearover/swallow-tattoo.png)
 
+## Sharing it
+
+A look is only fun once someone sees it, so sharing got simpler. The share screen shows one big
+preview of exactly the picture you'll send, three thumbnails to pick the format, and one Share
+button:
+
+- **Look**: the new look on its own.
+- **Before · after**: side by side, or half and half in one photo.
+- **Story**: a tall 9:16 card for Instagram and WhatsApp stories. The new look fills it, the
+  original sits small in the corner, and the bottom line says where to get the app.
+
+Every share carries the App Store link in its message.
+
+![The share screen: a big preview, three format thumbnails, and one Share button](/wearover/share-screen.jpg)
+
+## Image Playground, under the hood
+
+Image Playground is Apple's image generator. An app can open it as a system sheet, where you
+tap ✓ to accept a drawing, or ask for images in code. These are the parts of the API Wearover leans on:
+
+- **Concepts**: short text pieces ("top in cream", "made of silk", "with gold embroidery"),
+  plus an optional starting image. Wearover sends the clothing crop as that image, never the face
+  unless you allow a makeover.
+- **Creation strategy**: `editExisting` asks the model to stay close to the starting image and
+  change only what the words ask for. That's what keeps your pose and your body the same.
+- **Size**: `sizeSpecification` asks for a picture the shape of the crop, so it fits back without
+  stretching.
+- **Personalization off**: the model uses only the crop and the words, not your Photos library.
+- **Styles**: a photo-like default, plus Animation, Illustration and Sketch. Clothes default to the
+  photo look so they fit your photo. Tattoos and masks open as Illustration, and Sketch makes a
+  good fine-line tattoo.
+
 ## Which wins?
 
 For a picture you'll post as *you*, Apple Intelligence through Wearover wins: your face is your
