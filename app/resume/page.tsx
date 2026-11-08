@@ -17,11 +17,18 @@ export default function ResumePage() {
         That has taken me from delivery apps and crop cameras to running an engineering publication, and now to building with AI agents.
       </p>
       <p className="mt-5 text-sm leading-7 text-secondary">
-        <a className="underline" href="/resume-product.pdf">Download product résumé (PDF)</a>{' · '}
         <a className="underline" href="/posts/ten-years-of-doing-stuff/">Read the longer career story</a>{' · '}
         <a className="underline" href="/showcase/">Explore the app showcase</a>{' · '}
         <a className="underline" href="/posts/Moving-On-From-BP/">Editorial story</a>
       </p>
+      <section className="mt-8" aria-labelledby="resume-downloads">
+        <h2 id="resume-downloads" className="text-xl font-semibold text-primary">Download a résumé</h2>
+        <ul className="mt-3 space-y-2 text-sm text-secondary">
+          <li><a className="underline" href="/anupam-chugh-main-resume.pdf">Main résumé (PDF)</a></li>
+          <li><a className="underline" href="/anupam-chugh-apple-work-writing.pdf">Apple work and writing (PDF)</a></li>
+          <li><a className="underline" href="/anupam-chugh-product-ai-builder.pdf">Product and AI builder (PDF)</a></li>
+        </ul>
+      </section>
       <RoleLens />
       <section className="mt-12 border-t border-border pt-8">
         <h2 className="text-xl font-semibold text-primary">The editor</h2>
