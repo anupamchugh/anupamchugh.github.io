@@ -17,11 +17,42 @@ export default function ResumePage() {
         That has taken me from delivery apps and crop cameras to running an engineering publication, and now to building with AI agents.
       </p>
       <p className="mt-5 text-sm leading-7 text-secondary">
-        <a className="underline" href="/resume-product.pdf">Download product résumé (PDF)</a>{' · '}
+        <a className="underline" href="/anupam-chugh-resume.pdf" download>Download résumé (PDF)</a>{' · '}
         <a className="underline" href="/posts/ten-years-of-doing-stuff/">Read the longer career story</a>{' · '}
         <a className="underline" href="/showcase/">Explore the app showcase</a>{' · '}
         <a className="underline" href="/posts/Moving-On-From-BP/">Editorial story</a>
       </p>
+      <section id="resume-preview" className="mt-10 border-t border-border pt-8">
+        <div className="flex flex-wrap items-baseline justify-between gap-3">
+          <h2 className="text-xl font-semibold text-primary">Résumé</h2>
+          <p className="text-sm text-secondary">
+            <a className="underline" href="/anupam-chugh-resume.pdf" download>Download PDF</a>{' · '}
+            <a className="underline" href="/anupam-chugh-resume.pdf" target="_blank" rel="noopener">Open in a new tab</a>
+          </p>
+        </div>
+        <p className="mt-2 text-sm text-secondary">Two pages, updated November 2026. Tap a page to open the full PDF.</p>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          {[1, 2].map((page) => (
+            <a
+              key={page}
+              href="/anupam-chugh-resume.pdf"
+              target="_blank"
+              rel="noopener"
+              className="block overflow-hidden rounded-lg border border-border bg-white shadow-sm transition hover:shadow-md"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/resume-preview/page-${page}.webp`}
+                alt={`Page ${page} of Anupam Chugh's résumé`}
+                width={910}
+                height={1287}
+                loading={page === 1 ? 'eager' : 'lazy'}
+                className="h-auto w-full"
+              />
+            </a>
+          ))}
+        </div>
+      </section>
       <RoleLens />
       <section className="mt-12 border-t border-border pt-8">
         <h2 className="text-xl font-semibold text-primary">The editor</h2>
@@ -47,7 +78,7 @@ export default function ResumePage() {
       <section className="mt-12 border-t border-border pt-8">
         <h2 className="text-xl font-semibold text-primary">What I&apos;m building now</h2>
         <p className="mt-4 leading-7 text-secondary">
-          Consumer apps with on-device AI, from idea to App Store: 19 live, 65 approved releases since December 2025.
+          Consumer apps with on-device AI, from idea to App Store: 19 live across iPhone, iPad, Mac and Apple Watch.
           Breakline reads how your body moves in your own clips across seven sports; in testing, a 3D humanoid robot replays your surf pop-up or push-up.
           Wearover explores restyling from a photo on the iPhone and is on the App Store.
         </p>
