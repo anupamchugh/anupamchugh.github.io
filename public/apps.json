@@ -1,7 +1,7 @@
 {
   "owner": "Anupam Chugh",
   "source": "https://anupamchugh.github.io/apps/",
-  "asOf": "2026-11-06",
+  "asOf": "2026-11-08",
   "apps": [
     {
       "name": "Rifflet",
@@ -103,7 +103,7 @@
         "iOS"
       ],
       "appStoreUrl": "https://apps.apple.com/us/app/wearover-restyle-your-outfit/id6766553501",
-      "version": "3.0.0"
+      "version": "3.0.1"
     },
     {
       "name": "Breakline Surf",
