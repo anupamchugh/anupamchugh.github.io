@@ -23,7 +23,7 @@ gold embroidery."**
   part of the photo below my chin and drew a kurta for it. Wearover put that kurta back onto my
   original photo.
 
-[Watch the 14-second comparison (MP4)](/wearover/meta-vs-wearover-reel.mp4)
+[Watch the 18-second comparison (MP4)](/wearover/meta-vs-wearover-reel.mp4)
 
 ## What each one got right
 
@@ -73,10 +73,25 @@ Two bugs this test turned up are already fixed in the next build:
   Playground. Details like embroidery, zari and mirror work are now a fixed list the model picks
   from. They show up as a chip on the card, and Image Playground gets them as their own instruction.
 
+## Halloween, and tattoos
+
+Same photo, one more ask: **"Halloween Joker makeup."** This one is different on purpose. A makeover
+has to change your face, so Wearover asks first ("Send your face to Image Playground?") and only
+then sends a crop of your face. Image Playground paints the makeup onto *you*, and Wearover blends
+it back into the photo with a soft edge. Undo puts your original face back, and Settings can turn
+makeovers off.
+
+![Joker makeover: Image Playground's drawing, and the drawing fitted back into the photo](/wearover/joker-makeover.png)
+
+Tattoos work like the clothes: Image Playground draws the design from words ("delicate swallow in
+flight, black line-art"), and Wearover places it on the arm it found in your photo.
+
+![A swallow tattoo drawn by Image Playground](/wearover/swallow-tattoo.png)
+
 ## Which wins?
 
 For a picture you'll post as *you*, Apple Intelligence through Wearover wins: your face is your
-face, and your photo stays on your phone. For pure garment drama, Meta's longer kurta is ahead
+face, your photo stays on your phone, and when you *want* your face changed, it asks first. For pure garment drama, Meta's longer kurta is ahead
 today, and that's the gap I'm closing next.
 
 Wearover is on the App Store for iPhone and Mac.
