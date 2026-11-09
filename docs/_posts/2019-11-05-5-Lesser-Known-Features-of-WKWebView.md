@@ -6,6 +6,49 @@ keywords: []
 slug: /lesser-known-ios-wkwebview-features
 ---
 
+## WKWebView, then and now
+
+*Updated November 2026. The original 2019 article follows this update.*
+
+In 2019, embedding a website in a SwiftUI app meant wrapping `WKWebView` in `UIViewRepresentable`. Today, WebKit has a SwiftUI view of its own. `WKWebView` is still here, and the questions below still matter: where can a page navigate, how are dialogs presented, and which session owns its cookies?
+
+### A native SwiftUI web view
+
+On iOS 26 and later, import WebKit and display a URL directly:
+
+```swift
+import SwiftUI
+import WebKit
+
+struct ArticleView: View {
+    private let url = URL(string: "https://example.com")!
+
+    var body: some View {
+        WebView(url: url)
+    }
+}
+```
+
+For more control, create a `WebPage` and pass it to `WebView`. The page exposes observable state such as the URL, title, and loading progress. Its `NavigationDeciding` and `DialogPresenting` protocols let you customize navigation and JavaScript dialogs. Apple's [cross-platform browser sample](https://developer.apple.com/documentation/webkit/building-a-cross-platform-web-browser) shows how these pieces fit together.
+
+Supporting older iOS versions? A `UIViewRepresentable` wrapper around `WKWebView` is still an option. On macOS, the corresponding bridge is `NSViewRepresentable`. Pick the implementation that fits your deployment target and the behavior you need.
+
+### The five features, revisited
+
+1. **Navigation.** `WKNavigationDelegate` remains useful for a `WKWebView`. With SwiftUI WebKit, look at [`WebPage.NavigationDeciding`](https://developer.apple.com/documentation/webkit/webpage/navigationdeciding). Match a callback by its expected scheme, host, path, and relevant state. A substring check can match an unrelated URL. The original delegate snippets below also omit a decision on some paths. A real delegate must complete every navigation decision exactly once.
+2. **JavaScript dialogs.** `WKUIDelegate` can handle alerts, confirmations, and prompts in `WKWebView`. SwiftUI WebKit offers [`WebPage.DialogPresenting`](https://developer.apple.com/documentation/webkit/webpage/dialogpresenting). Decide how to present, cancel, and complete each dialog. Don't silently assume every website needs custom dialog handling.
+3. **Links out of the app.** Decide which HTTPS destinations can remain in the view and how user-initiated `tel:`, `sms:`, and `mailto:` links should open. Handle unsupported schemes and failed opens explicitly. The 2019 sample is a sketch, not a complete navigation policy.
+4. **Authentication.** A `URLAuthenticationChallenge` handles a specific web or server authentication challenge. It isn't a general replacement for an OAuth redirect. For a browser-based sign-in, consider Apple's [`WebAuthenticationSession`](https://developer.apple.com/documentation/authenticationservices/webauthenticationsession) where it fits the provider's flow. If the provider requires an embedded web view, validate the redirect and let the user complete sign-in. Never bypass a server-trust challenge or put an app secret in client code.
+5. **Cookies.** The old claim that every `WKWebView` has its own cookie storage is too broad. By default, `WKWebViewConfiguration` uses the default persistent [`WKWebsiteDataStore`](https://developer.apple.com/documentation/webkit/wkwebsitedatastore). You can choose a nonpersistent store for an in-memory session or use a separate identified store for a profile. WebKit's cookie store and `HTTPCookieStorage` are distinct APIs. Copy cookies only when your design requires it, and test the sign-in and logout behavior you actually need.
+
+For example, [Kite Connect's mobile guidance](https://kite.trade/docs/connect/v3/apps/) describes a web-view login and a registered redirect. It also says a distributed app must keep its API secret on a backend. A browser view can show a login page. It doesn't by itself prove that the callback, token exchange, session, or subsequent data request succeeded.
+
+The original snippets below are preserved as a 2019 snapshot. They're illustrative and need the corrections above before use in an app. The old description of `WKWebView` as running outside the app's main thread also needs care: web content uses a separate process, while the view and its UI-facing APIs still belong on the main actor.
+
+---
+
+## Original article — November 2019
+
 _Recently, I worked on a freelance project (Aged Care Decisions) where I was asked to build a PoC set of white-label apps that uses web views throughout. Below are the things I discovered while implementing WKWebView in the iOS apps._
 
 iOS and Web have a long history. Their history can be defined in two eras: the shaky rule of `UIWebView` followed by the savior, `WKWebView`. `UIWebView` has been deprecated since iOS 12. Apple won’t even accept app submissions if there’s even a trace of it. Why would they, when its successor performs twice as well?
