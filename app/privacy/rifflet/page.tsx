@@ -13,8 +13,10 @@ export default function RiffletPrivacyPage() {
         <p className="text-sm opacity-60">Last updated: November 10, 2026</p>
         <p>
           Rifflet, built by Anupam Chugh, turns a short music idea into a riff you can learn on
-          piano, guitar or ukulele. Rifflet makes no network requests of its own, and the developer
-          receives none of your data.
+          piano, guitar or ukulele. Rifflet sends nothing on its own. If you give an Ask Coach
+          answer a thumbs down and choose to send a report, the conversation you keep in it (your
+          question, the coach&apos;s instructions and answer) goes by email to
+          chughdeveloper@gmail.com, or wherever you share it. Thumbs counts stay on your device.
         </p>
 
         <h2>On your device</h2>
@@ -32,15 +34,8 @@ export default function RiffletPrivacyPage() {
 
         <h2>Camera</h2>
         <p>
-          On iPhone and iPad, the camera is used only when you turn on Hand page turns or the Hand
-          Piano. Your hand position is read on the device with Apple Vision. Video is not recorded
-          or sent anywhere.
-        </p>
-
-        <h2>Photos</h2>
-        <p>
-          If you tap Save video, Rifflet asks to add that video to your Photos library. It never
-          reads your photos.
+          On iPhone and iPad, the camera is used only when you turn on Hand page turns. Your hand
+          position is read on the device with Apple Vision. Video is not recorded or sent anywhere.
         </p>
 
         <h2>Apple Vision Pro</h2>
