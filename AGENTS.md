@@ -28,7 +28,7 @@ The owner's personal site and blog at https://anupamchugh.github.io: a Next.js 1
 
 ## Tasks
 
-- `.beads/` exists, but on 10 Nov 2026 the ledger had no issue prefix and no issues, so there is no beads loop here. Do not create beads or set a prefix without the owner.
+- `.beads/` is a local ledger, git-ignored since 10 Nov 2026 (it was tracked from `b1e0887` until then). On 10 Nov 2026 it had no issue prefix and no issues, so there is no beads loop here. Do not create beads or set a prefix without the owner.
 
 ## Commit
 

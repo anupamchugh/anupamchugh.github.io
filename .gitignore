@@ -48,3 +48,7 @@ private-notes/
 *.db
 .beads-credential-key
 .beads/proxieddb/
+
+# Beads ledger (local only)
+.beads/
+.beads.gate.lock
