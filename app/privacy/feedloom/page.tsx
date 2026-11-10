@@ -2,87 +2,89 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — Feedloom',
-  description: 'Privacy policy for the Feedloom iOS, macOS, and visionOS app.',
+  description: 'Privacy policy for the Feedloom app on iPhone, iPad and Mac.',
 };
 
 export default function FeedloomPrivacyPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 pb-16 pt-32 sm:px-6">
       <div className="prose">
-        <h1>Privacy Policy</h1>
-        <p className="text-sm opacity-60">Last updated: April 5, 2026</p>
+        <h1>Privacy Policy — Feedloom</h1>
+        <p className="text-sm opacity-60">Last updated: November 10, 2026</p>
         <p>
-          This privacy policy describes how <strong>Feedloom</strong> ("the App"), built by Anupam
-          Chugh, handles your information.
+          Feedloom, built by Anupam Chugh, saves links and follows RSS feeds, with tagging, search
+          and summaries written on your device. The developer runs no server for Feedloom and does
+          not receive your library.
         </p>
 
-        <h2>Data Storage</h2>
+        <h2>Your library and iCloud</h2>
         <p>
-          All your data — bookmarks, RSS feed subscriptions, tags, notes, and preferences — is
-          stored locally on your device using Apple SwiftData. Nothing is stored on external servers.
+          Bookmarks, feeds, tags, notes and summaries are stored on your device and synced through
+          your own private iCloud database, so they appear on your other devices. Only you can see
+          that data; the developer cannot.
         </p>
 
-        <h2>iCloud Sync</h2>
+        <h2>On your device</h2>
+        <ul>
+          <li>
+            Tagging, search, digests, summaries and Ask your feed use Apple&apos;s on-device model.
+            Feedloom calls no cloud AI service.
+          </li>
+          <li>A photo you attach in Ask is read on your device.</li>
+          <li>
+            Thumbs up and down in Reading uses the front camera only while you have it turned on.
+            Your hand is read on the device and video stays there.
+          </li>
+          <li>Saved links are added to Spotlight on your device so you can search for them.</li>
+          <li>
+            The share extension passes the link you share to Feedloom on the same device.
+          </li>
+          <li>
+            On Mac, Feedloom watches the clipboard for a link so the save shortcut can pick it up.
+            It saves a link only when you press the shortcut. It can also import Threadmark files
+            from a folder on your Mac.
+          </li>
+        </ul>
+
+        <h2>What Feedloom fetches</h2>
+        <ul>
+          <li>
+            <strong>Feeds:</strong> each feed you follow is fetched directly from its site,
+            including in the background on iPhone and iPad so it stays fresh.
+          </li>
+          <li>
+            <strong>Saved links:</strong> when you save a link, Feedloom fetches that page for its
+            title and preview, and asks the site for its icon.
+          </li>
+        </ul>
         <p>
-          The App uses Apple CloudKit to sync your data across your devices via your personal iCloud
-          account. This data is stored in your <strong>private iCloud database</strong> and is
-          accessible only to you. We have no access to your iCloud data.
+          Those sites see ordinary requests. Feedloom versions up to 1.0.4 asked Google&apos;s icon
+          service for a site&apos;s icon when the site had none, which sends that site&apos;s domain
+          to Google. Newer versions ask only the site.
         </p>
 
-        <h2>On-Device Intelligence</h2>
+        <h2>Web search in Ask (off unless you turn it on)</h2>
         <p>
-          AI features — including auto-tagging, smart search, and summaries — run entirely on-device
-          using Apple Foundation Models. <strong>No data is sent to any AI service or cloud
-          API.</strong> All processing happens on your iPhone, iPad, or Mac.
+          If you turn on Search the web in Ask, Feedloom can look things up on Hacker News, GitHub,
+          Reddit, Bluesky, Product Hunt, DuckDuckGo and any page you name. It sends the words of
+          your question, and links you give or tap, to those public services, with no account and
+          no cookies. Each source has its own switch. If you add a Product Hunt token, it is stored
+          in your device&apos;s Keychain and sent only to Product Hunt.
         </p>
 
-        <h2>RSS Feeds</h2>
+        <h2>What Feedloom does not do</h2>
         <p>
-          When you subscribe to RSS feeds, the App fetches publicly available feed content directly
-          from the feed URL. No intermediary server is used. Feed URLs you subscribe to are stored
-          locally and synced via iCloud.
-        </p>
-
-        <h2>Metadata Fetching</h2>
-        <p>
-          When you save a bookmark, the App fetches the page title, favicon, and Open Graph metadata
-          directly from the URL. This is a standard HTTP request to the bookmarked website. No
-          third-party service is involved.
-        </p>
-
-        <h2>No Account Required</h2>
-        <p>
-          The App does not require sign-in or account creation. There is no authentication system and
-          no user accounts.
-        </p>
-
-        <h2>No Analytics or Advertising</h2>
-        <p>
-          The App does not include any analytics SDKs, advertising frameworks, or third-party
-          tracking. We do not collect usage data.
-        </p>
-
-        <h2>In-App Purchases</h2>
-        <p>
-          Feedloom Pro is available as an auto-renewable subscription processed entirely through
-          Apple's App Store. We do not collect or store any payment information.
-        </p>
-
-        <h2>Children's Privacy</h2>
-        <p>
-          The App does not knowingly collect information from children under 13.
+          Feedloom has no account, no in-app purchases or subscriptions, no advertising and no
+          analytics or tracking SDKs, and it does not sell your data.
         </p>
 
         <h2>Changes</h2>
-        <p>
-          We may update this policy from time to time. Changes will be posted on this page with an
-          updated date.
-        </p>
+        <p>Changes to this policy will be posted on this page with a new date.</p>
 
         <h2>Contact</h2>
         <p>
-          Questions about this policy? Email{' '}
-          <a href="mailto:anupam.chugh@gmail.com">anupam.chugh@gmail.com</a>.
+          Questions about Feedloom&apos;s privacy:{' '}
+          <a href="mailto:chughdeveloper@gmail.com">chughdeveloper@gmail.com</a>.
         </p>
       </div>
     </div>

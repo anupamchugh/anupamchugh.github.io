@@ -16,6 +16,19 @@ export default function PrivacyPage() {
           information. Some apps have app-specific sections below.
         </p>
 
+        <h2>App-specific policies</h2>
+        <p>These apps have their own privacy policy page:</p>
+        <ul>
+          <li><a href="/privacy/checkmate-academy/">Checkmate Academy</a></li>
+          <li><a href="/privacy/docpolish/">DocPolish</a></li>
+          <li><a href="/privacy/feedloom/">Feedloom</a></li>
+          <li><a href="/privacy/flyleaf/">Flyleaf Notes</a></li>
+          <li><a href="/privacy/orbits/">Orbits: Find Common Ground</a></li>
+          <li><a href="/privacy/quorion-table/">Quorion Table</a></li>
+          <li><a href="/privacy/rifflet/">Rifflet</a></li>
+          <li><a href="/privacy/ticknote/">Ticknote</a></li>
+        </ul>
+
         <h2>Best Face Forward</h2>
         <p>
           Best Face Forward helps you pick a clearer still frame from a Live Photo.
