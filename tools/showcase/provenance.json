@@ -625,6 +625,22 @@
    "date": "2026-11-03",
    "date_basis": "source commit date",
    "frozen": true
+  },
+  "meami-ask-light.webp": {
+   "source": "tools/showcase/src-assets/apps/meami-ask-light.png",
+   "kind": "capture",
+   "date": "2026-11-10",
+   "date_basis": "taken in the Guestway Ask fix session, 10 Nov 2026 (status bar 6:35 and 6:36 pm IST); the answer calls Fri 13 to Sun 15 Nov this weekend",
+   "frozen": false,
+   "note": "iPhone 17 Pro simulator (iOS 27.3), light. The MeAmi Stays client app, unreleased, built on 10 Nov from its private repo (AlcorKit 0.8.1, wrapping chips), against MeAmi Stays' live public MCP at meamistays.com/mcp, no fixtures. Prompt: \"Is Rock House free this weekend in Meami Stays?\" The on-device model answered and the answer passed the check against the tools' results (\"On-device AI, checked against the site\"). The model's wording varies between runs."
+  },
+  "meami-ask-dark.webp": {
+   "source": "tools/showcase/src-assets/apps/meami-ask-dark.png",
+   "kind": "capture",
+   "date": "2026-11-10",
+   "date_basis": "taken in the Guestway Ask fix session, 10 Nov 2026 (status bar 6:35 and 6:36 pm IST); the answer calls Fri 13 to Sun 15 Nov this weekend",
+   "frozen": false,
+   "note": "iPhone 17 Pro simulator (iOS 27.3), dark. The MeAmi Stays client app, unreleased, built on 10 Nov from its private repo (AlcorKit 0.8.1, wrapping chips), against MeAmi Stays' live public MCP at meamistays.com/mcp, no fixtures. Prompt: \"Is Rock House free this weekend in Meami Stays?\" The on-device model answered and the answer passed the check against the tools' results (\"On-device AI, checked against the site\"). The model's wording varies between runs."
   }
  }
 }

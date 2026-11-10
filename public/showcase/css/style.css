@@ -373,13 +373,13 @@ h3 { font-size: clamp(1.9rem, 3.2vw, 3rem); font-stretch: 114%; line-height: 1.0
 .a-quorion { grid-column: 8 / 13; flex-direction: column; }
 .a-quorion .a-copy { max-width: none; }
 .a-quorion .a-tools { flex: none; width: 100%; }
-.a-glint { grid-column: 1 / -1; }
-.a-glint .shots { display: flex; justify-content: flex-end; gap: clamp(12px, 2vw, 28px); flex: 1.2 1 0; min-width: 0; }
-.a-glint .shots > div { flex: 1 1 0; max-width: 260px; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
-.a-glint .shots .phone { flex: none; width: min(100%, var(--w)); margin-inline: auto; }
-.a-glint .shots p { font-size: 0.88rem; text-align: center; color: var(--ink); }
+.a-glint, .a-meami { grid-column: 1 / -1; }
+.a-glint .shots, .a-meami .shots { display: flex; justify-content: flex-end; gap: clamp(12px, 2vw, 28px); flex: 1.2 1 0; min-width: 0; }
+.a-glint .shots > div, .a-meami .shots > div { flex: 1 1 0; max-width: 260px; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+.a-glint .shots .phone, .a-meami .shots .phone { flex: none; width: min(100%, var(--w)); margin-inline: auto; }
+.a-glint .shots p, .a-meami .shots p { font-size: 0.88rem; text-align: center; color: var(--ink); }
 @media (max-width: 1100px) { .a-quorion { grid-column: 1 / -1; } }
-@media (max-width: 880px) { .a-glint .shots { width: 100%; justify-content: center; } .a-glint .shots .phone { --w: 160px; } }
+@media (max-width: 880px) { .a-glint .shots, .a-meami .shots { width: 100%; justify-content: center; } .a-glint .shots .phone, .a-meami .shots .phone { --w: 160px; } }
 
 /* ---- Work with me: a floating action pane and the dialog, both on the wall's own grammar (added 25 Oct 2026) ---- */
 .dock { position: fixed; right: var(--bar-w); bottom: var(--bar-w); z-index: 20; display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; background: var(--cobalt); color: #fff; font-weight: 620; font-stretch: 114%; text-decoration: none; box-shadow: 0 0 0 var(--bar-w) var(--bar); transition: opacity 0.3s var(--ease), transform 0.3s var(--ease); }

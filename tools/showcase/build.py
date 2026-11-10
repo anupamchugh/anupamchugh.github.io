@@ -183,6 +183,8 @@ GL_LINE_DOWN = webp("glint-line-falling-dark.webp", max_h=1000)
 GL_LINE_SCRUB = webp("glint-line-scrubbing.webp", max_h=1000)
 GL_LINE_LIVE = webp("glint-live-line.webp", max_h=1000)
 GL_CANDLES = webp("glint-candles-native.webp", max_h=1000)
+MEAMI_LIGHT = webp("meami-ask-light.webp", max_h=1000)
+MEAMI_DARK = webp("meami-ask-dark.webp", max_h=1000)
 MORE_IMG = {k: webp(f"{k}.webp", max_h=1000) for k in ("lineage-mirror-pattern", "lineage-mirror-journal", "flickpot-table", "flickpot-how-to-play")}
 
 
@@ -505,7 +507,7 @@ def apps_html():
 def assistants_html():
     ph = "".join(phone(ORB[k][0], ORB[k][1], width=170) for k in ("tools-on", "tools-off", "refused"))
     return f"""<section class="wall assist" id="assistants" aria-labelledby="assist-h">
-  <div class="pane p-title"><h2 id="assist-h">Assistants that run on the phone</h2><p>Three of the apps have one. Each can only use the few tools it is given, and the limits are part of the screen.</p></div>
+  <div class="pane p-title"><h2 id="assist-h">Assistants that run on the phone</h2><p>Three of my apps and one client app have one. Each can only use the few tools it is given, and the limits are part of the screen.</p></div>
   <article class="pane frost p-assist a-orbits">
     <div class="a-copy">
       <h3>Orbits</h3>
@@ -536,6 +538,19 @@ def assistants_html():
     <div class="shots">
       <div>{phone(GL_ASK, "Ask Glint on the phone: a ticker strip of live BTC and ETH prices, the line that it never places orders, and suggested questions", width=230)}<p>Before you ask. Captured 24 October.</p></div>
       <div>{phone(GL_ASK_ANSWER, "Ask Glint answering why BTCUSDT is moving: the day's change and range, the biggest hourly bar and its volume, with a Sources list under the answer", width=230)}<p>An answer, with its sources. 25 October.</p></div>
+    </div>
+  </article>
+  <article class="pane frost p-assist a-meami" id="meami-stays">
+    <img class="bgblur" src="img/{MEAMI_LIGHT[0]}" alt="" aria-hidden="true">
+    <div class="a-copy">
+      <h3>MeAmi Stays: Ask</h3>
+      <p>Ask about a home and your dates in plain words. The answer comes only from MeAmi Stays' public MCP server and its four tools: list_stays, check_availability, quote_stay and start_booking. The on-device model calls them. When it cannot answer, guided rules do, and the answer is labelled "Quick match, no AI".</p>
+      <p>An answer with a price, a date or a number of nights the tools never returned is refused. Book asks first, with a plain "Not now", then opens meamistays.com. Nothing is booked or paid in the app.</p>
+      <p class="plate">Client work for <a href="https://meamistays.com" rel="noopener">meamistays.com</a> · not released · captured 10 November 2026 on the iPhone simulator, against the live public MCP. In both screens the on-device model answered and the answer passed the check, so it is labelled "On-device AI, checked against the site". The model words it differently each time. Whether it answers on a real phone is not tested yet.</p>
+    </div>
+    <div class="shots">
+      <div>{phone(MEAMI_LIGHT, "MeAmi Stays Ask, light: the question Is Rock House free this weekend, steps for looking up the homes and getting the booking link, the answer that Rock House is free for 13 to 15 Nov at 15,120 rupees for two guests, a card with 2 nights at 7,200 rupees, 720 rupees GST and the total, an On-device AI, checked against the site label, and Book this stay and Next weekend buttons", width=230)}<p>"Is Rock House free this weekend?" Light.</p></div>
+      <div>{phone(MEAMI_DARK, "The same MeAmi Stays answer in dark mode: Rock House free Fri 13 to Sun 15 Nov, 15,120 rupees for two guests including 720 rupees GST, with Book this stay and Next weekend buttons", width=230)}<p>The same answer, dark.</p></div>
     </div>
   </article>
 </section>"""
