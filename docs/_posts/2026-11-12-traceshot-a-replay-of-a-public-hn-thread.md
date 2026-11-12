@@ -29,8 +29,8 @@ the [showcase](/showcase/index.html#traceshot-demo) and at [getalcor.com/tracesh
 
 ## What it is not
 
-- It is not a live run. I wrote the 14 steps of the trace by hand from public pages (the Hacker News API,
-  the GitHub API and the repository's README), and the app played them back.
+- It is not a live run. The 14 steps were built by a script from public pages (the Hacker News API, the
+  GitHub API and the repository's README), and the app played them back.
 - It was recorded in the iPhone simulator. Traceshot has not been run on a real iPhone yet. The view is a
   plain SwiftUI `Canvas`, so it should run on one, but I have not checked.
 - It reads public pages only and never writes anywhere. The repositories named in the web are public
