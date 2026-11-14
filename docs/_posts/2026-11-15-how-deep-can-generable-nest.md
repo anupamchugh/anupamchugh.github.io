@@ -56,6 +56,12 @@ There is a difference between a response fitting its type and the values inside 
 
 ## The outfit demo was a different check
 
+Here is the original four-card Mac demo. The recording shows the earlier design, not the newer side-by-side prototype described above.
+
+![Original Mac demo showing four outfit cards comparing schema arrangements](/generable/original-demo.jpg)
+
+[Play the original Generable depth demo](/generable/original-demo.mp4)
+
 The Mac demo asked for a creative outfit and compared 14 fields across four schema arrangements. A creative outfit has no single correct answer. Its five checks looked for things code could check, such as missing fields, word limits and whether a requested quote appeared. Those green badges were not a verdict on the outfit's quality.
 
 The earlier run recorded three real on-device comparisons and light and dark screenshots. The test target checks the grading functions without calling the model. I haven't rerun the app or those model sessions for this article.

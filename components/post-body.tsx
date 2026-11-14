@@ -13,6 +13,9 @@ export default function PostBody({ content }: PostBodyProps) {
       rehypePlugins={[rehypeHighlight]}
       components={{
         a: ({ href, children, ...props }) => {
+          if (href?.startsWith('/generable/') && href.endsWith('.mp4')) {
+            return <video src={href} controls playsInline preload="metadata" className="my-6 w-full rounded-lg" aria-label={typeof children === 'string' ? children : 'Demo video'} />;
+          }
           const match = href?.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/);
           if (match) {
             return (
