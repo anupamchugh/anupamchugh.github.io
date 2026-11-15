@@ -56,6 +56,26 @@ A domain-specific language (DSL) takes the idea further: it gives people a vocab
 
 The next useful comparison is to keep the task and answer key fixed, then test meaningful groupings against flat and less meaningful groupings. Compare errors by field and input, repeat across a broader set of examples, and check the effect of names and guides separately. That would tell us more than the fact that both shapes can return a valid Swift value.
 
+## A new test: flat, meaningful and mixed
+
+On 15 November I ran a separate, small comparison using six fictional outfit requests with known answers. Each asks for six fields: a top's color and style, shoes' color and style, and a tattoo's design and placement. The same requests and answer keys went to all three schemas, three times each, using a fresh session and default sampling. I rotated the order of the calls.
+
+- **Flat:** all six fields at the top level.
+- **Meaningful:** top color and style together, shoe color and style together, and tattoo design and placement together.
+- **Mixed:** top color with tattoo design, shoe color with tattoo placement, and top style with shoe style.
+
+| Schema | Completely correct | Fields correct | Parsed |
+| --- | ---: | ---: | ---: |
+| Flat | 15/18 | 105/108 | 18/18 |
+| Meaningful | 14/18 | 104/108 | 18/18 |
+| Mixed | 12/18 | 102/108 | 18/18 |
+
+All 54 calls returned a structured value. A valid value could still be wrong: for one request, the meaningful schema returned `tshirt` instead of `hoodie` in all three runs; for another, the mixed schema returned `tshirt` instead of `blouse` in all three runs. A request for a bird tattoo on the hand also produced incorrect placements across the schemas. These repeated errors show why looking at the individual cases matters.
+
+This run used the default on-device model on an Apple M4 Pro, macOS 27.0.1 (build 26A434). It gives us a first observation, not evidence that flat is generally best or that meaningful grouping reliably beats mixed grouping. There are only six distinct inputs; repetitions do not create new independent inputs. The mixed schema also changes group names and field order, so the comparison cannot isolate meaning alone. All fields were closed-choice enums, and this test did not vary guides or measure open-ended writing.
+
+The updated Depth Explained prototype displays these recorded results separately from its creative outfit demonstration. The [evaluation source and answer keys](/generable/grouping-eval/GroupingEval.swift) and [individual results](/generable/grouping-eval/results.jsonl) are available to inspect. The next experiment should add more varied inputs, counterbalance or hold field order and names constant where possible, and repeat across devices and model versions.
+
 ## What the experiment actually measured
 
 The original evaluation used a fictional desk note with known answers. It compared six variants of a 16-field result on one Mac and one on-device model: flat, two, three and four levels, four with guides, and a split across two calls. Five notes ran five times per variant. The article draft recorded a 100% parse rate across those variants; complete field accuracy differed by variant.
