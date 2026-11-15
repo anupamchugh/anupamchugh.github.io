@@ -46,6 +46,16 @@ struct Clothing {
 
 Both describe an outfit. The second has another layer. This example explains the shapes; it is not the exact input or schema used for the recorded evaluation.
 
+## Group by meaning, then test the model
+
+There is another reason to group fields besides asking how deep a model can go: the structure can express the way we think about the problem. In Depth Explained, `jacket` and `shoes` belong to `Clothing`; the `reason` explains the whole outfit. A reader can see that relationship in the type, and the generated response has the same grouping.
+
+That is domain modeling: choosing names and relationships that reflect the concepts in the problem. It can help the app and its developer discuss the same thing. It does not automatically make the model more accurate. Grouping changes the schema the model sees, including its field paths and names; our small evaluation did not isolate the benefit of grouping semantically related fields.
+
+A domain-specific language (DSL) takes the idea further: it gives people a vocabulary for describing operations in a particular domain. A Wearover DSL might let us describe a look as a clothing change and a tattoo placement. A `@Generable` type can provide structured values that such a workflow consumes, but the type alone is not a complete DSL or an agent. The app still decides which actions are valid and when to ask the person to apply them.
+
+The next useful comparison is to keep the task and answer key fixed, then test meaningful groupings against flat and less meaningful groupings. Compare errors by field and input, repeat across a broader set of examples, and check the effect of names and guides separately. That would tell us more than the fact that both shapes can return a valid Swift value.
+
 ## What the experiment actually measured
 
 The original evaluation used a fictional desk note with known answers. It compared six variants of a 16-field result on one Mac and one on-device model: flat, two, three and four levels, four with guides, and a split across two calls. Five notes ran five times per variant. The article draft recorded a 100% parse rate across those variants; complete field accuracy differed by variant.
