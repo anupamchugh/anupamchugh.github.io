@@ -457,3 +457,49 @@ html.modal-open { overflow: hidden; }
 
 /* Keep media and captions unobstructed on narrow screens; contact remains in the page. */
 @media (max-width: 600px) { .dock { display: none; } }
+
+/* Wearover: give the actual result room to be read. */
+.wearover-story .p-text { background: #e9ddd5; color: #51413d; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); }
+.wearover-story h2 { color: #241c1b; font-size: clamp(2.5rem, 4.5vw, 5rem); line-height: 1; letter-spacing: -.04em; }
+.wearover-kicker { color: #51413d; font-size: .8rem; letter-spacing: .1em; font-weight: 700; }
+.wearover-steps { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; padding: 0; margin: .5rem 0; }
+.wearover-steps li { flex: 1 1 7rem; border-top: 1px solid #aa9690; padding-top: .7rem; }
+.wearover-steps strong { display: block; color: #241c1b; }
+.wearover-visual { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1rem; align-items: start; }
+.wearover-visual figure { margin: 0; }
+.wearover-visual img, .wearover-visual video { display: block; width: 100%; border-radius: 18px; }
+.wearover-visual figcaption, .wearover-visual p { margin-top: .6rem; font-size: .875rem; }
+@media (max-width: 880px) { .wearover-story .p-text { grid-template-columns: 1fr; } .wearover-visual { max-width: 650px; } }
+@media (max-width: 480px) { .wearover-visual { grid-template-columns: 1fr 1fr; } }
+
+/* Breakline movement and meal work */
+.breakline-extra-inner { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 64px); padding: clamp(24px, 4vw, 56px); background: #e0eaf3; }
+.breakline-extra h2 { font-size: clamp(2.4rem, 4vw, 4.2rem); line-height: 1.05; letter-spacing: -.04em; margin: .5rem 0 1rem; }
+.breakline-extra h3 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin: .5rem 0 1rem; }
+.breakline-label { font-size: .8rem; font-weight: 700; letter-spacing: .09em; }
+.breakline-note { margin-top: 1rem; font-size: .875rem; }
+.breakline-shots { display: flex; gap: 1rem; margin-top: 1.5rem; }
+.breakline-shots figure { margin: 0; flex: 1; min-width: 0; }
+.breakline-shots .phone { --w: 210px; }
+.breakline-shots figcaption { margin-top: .5rem; font-size: .875rem; }
+.meal-story { background: #f8faf3; border-radius: 22px; padding: clamp(20px, 3vw, 36px); align-self: center; }
+.meal-story ol { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; gap: .75rem; }
+.meal-story li { display: grid; grid-template-columns: 8rem 1fr; gap: .75rem; padding: .9rem; background: #e8efdc; border-radius: 12px; }
+.meal-integration { border-top: 1px solid #aebba8; padding-top: 1rem; font-size: .9rem; }
+@media (max-width: 880px) { .breakline-extra-inner { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .meal-story li { grid-template-columns: 1fr; gap: .2rem; } }
+
+.meal-demo { margin: 1.5rem 0; padding: 1.2rem; border: 1px solid #b6c6af; border-radius: 16px; background: #fff; }
+.meal-demo h3 { font-size: 1.5rem; margin: .4rem 0; }
+.meal-demo p { font-size: .95rem; }
+.demo-buttons { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+.demo-buttons button { min-height: 44px; border: 1px solid #687a5d; border-radius: 9px; background: white; color: #24331e; padding: .5rem .7rem; font: inherit; cursor: pointer; }
+.demo-buttons button[aria-pressed="true"] { background: #293d22; color: white; }
+.demo-buttons button:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }
+.demo-result { padding: 1rem; border-radius: 10px; background: #e8efdc; }
+.demo-result p { margin-top: .4rem; }
+
+.doc-preview-shots { display: grid; gap: 1rem; align-content: center; }
+.doc-preview-shots figure { margin: 0; }
+.doc-preview-shots img { width: 100%; border-radius: 12px; }
+.doc-preview-shots figcaption { font-size: .875rem; margin-top: .3rem; }

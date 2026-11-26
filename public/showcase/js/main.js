@@ -86,3 +86,23 @@
   });
   document.querySelectorAll(".p-cta, .p-go").forEach(function (el) { io.observe(el); });
 })();
+
+// A local, scripted example: no model, account, network request or cart write.
+(function () {
+  var demo = document.getElementById("meal-demo");
+  if (!demo) return;
+  var steps = [
+    ["Plan reader", "Sample plan: lunch has rice, tofu and vegetables. The assistant organizes it into a meal slot for review."],
+    ["Plate check", "Sample plate: rice and tofu are marked as seen; vegetables need a closer look. The person reviews the result."],
+    ["Shopping-list assistant", "Example request: swap tofu for paneer. The sample list now reads rice, paneer and vegetables; the change can be reviewed."],
+    ["Swiggy handoff", "Illustrated handoff: choose products and review a cart in Swiggy. This demo opens no account, changes no cart and places no order."]
+  ];
+  demo.querySelectorAll("[data-meal-step]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var step = steps[Number(button.dataset.mealStep)];
+      demo.querySelectorAll("[data-meal-step]").forEach(function (item) { item.setAttribute("aria-pressed", String(item === button)); });
+      document.getElementById("meal-demo-title").textContent = step[0];
+      document.getElementById("meal-demo-copy").textContent = step[1];
+    });
+  });
+})();

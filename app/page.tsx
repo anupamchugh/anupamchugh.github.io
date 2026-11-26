@@ -37,16 +37,17 @@ function Clip({ src, poster, label }: { src: string; poster: string; label: stri
 const breakline = (
   <Chapter
     id="breakline"
-    kicker="vision · realitykit"
-    status={<a href="https://apps.apple.com/us/app/breakline-surf/id6785873182" className="text-[#1C7A3F] no-underline">● on the app store · 1.6 in build</a>}
+    kicker="movement · gym · meals"
+    status={<a href="https://apps.apple.com/us/app/breakline-surf/id6785873182" className="text-[#1C7A3F] no-underline">● on the app store</a>}
   >
     <Panel className="bg-[#DDE8F2] text-[#16161A]">
       <div>
-        <p className={panelTitle}>Your pop-up,<br />on a robot.</p>
-        <p className="mt-4 max-w-md leading-relaxed text-[#34404D]">
-          Breakline reads your pose from a surf or gym clip, then a humanoid built in RealityKit replays it beside you. Measurements only,
-          never a score. The clip never leaves the phone.
-        </p>
+        <p className="font-mono text-xs uppercase tracking-widest text-[#34404D]">Breakline</p>
+        <p className={`${panelTitle} mt-3`}>From the surf<br />to the gym.</p>
+        <p className="mt-4 max-w-md text-lg leading-relaxed text-[#34404D]">I started Breakline for my own surfing while recovering from a broken back. It reads movement from a clip and can replay it on a robot, turning a fleeting moment into something you can study.</p>
+        <p className="mt-4 max-w-md leading-relaxed text-[#34404D]">The Gym work also explores meals and an on-device assistant: a trainer&apos;s plan, a photo of a plate, and questions about what comes next. Meal preparation and recipe ideas are part of the continuing exploration.</p>
+        <p className="mt-3 text-sm text-[#34404D]">Movement capture shown here uses a drawn sample. Meal and assistant capabilities vary by build.</p>
+        <a href="/showcase/#breakline-surf" className={`${button} mt-5 bg-[#16161A] text-white`}>Explore Breakline</a>
       </div>
       <div className="flex flex-wrap justify-center gap-4">
         <Clip src="/home/breakline-robot.mp4" poster="/home/breakline-robot.webp" label="Breakline robot replay of a surf pop-up" />
@@ -66,8 +67,7 @@ const glint = (
       <div>
         <p className={panelTitle}>Rules first,<br />then the trade.</p>
         <p className="mt-4 max-w-md leading-relaxed text-[#C8C8D0]">
-          I trade by following algorithms that have worked for me, unless I end up gambling manually. TradeShot and Glint are my
-          customizable tools for practicing trading and building better habits, and Glint keeps the trade on your Lock Screen.
+          TradeShot and Glint are my customizable tools for practising trading and building better habits: a gym for trading, with space to learn through reps. I&apos;m also exploring a TradeShot Space game, where a spaceship and market targets turn the market into a world to explore. The game is in development.
         </p>
         <a href="https://tradeshot.co/" className={`${button} mt-5 bg-[#F7F7F4] text-[#16161A]`}>tradeshot.co ↗</a>
       </div>
@@ -103,15 +103,17 @@ const contour = (
 );
 
 const wearover = (
-  <Chapter id="wearover" kicker="01 / photo-first creativity · apple platforms" status={<a href="https://apps.apple.com/us/app/wearover-restyle-your-outfit/id6766553501" className="text-[#1C7A3F] no-underline">● on the App Store</a>}>
+  <Chapter id="wearover" kicker="photo-first creativity · apple platforms" status={<a href="https://apps.apple.com/us/app/wearover-restyle-your-outfit/id6766553501" className="text-[#1C7A3F] no-underline">● on the App Store</a>}>
     <Panel className="bg-[#E9DDD5] text-[#241C1B]">
       <div>
         <p className={mono}>Wearover</p>
         <h3 className={`${panelTitle} mt-3`}>A new look,<br />from one photo.</h3>
-        <p className="mt-4 max-w-md leading-relaxed text-[#51413D]">An outfit restyling app built around the photos you already have. Explore a different look and save the ones you like.</p>
+        <p className="mt-4 max-w-md text-lg leading-relaxed text-[#51413D]">What if you could try a different outfit without losing the photo that made you like it? Wearover starts with a picture you already have.</p>
+        <ol className="mt-6 grid gap-3 text-sm leading-relaxed text-[#51413D] sm:grid-cols-3"><li><strong className="block text-[#241C1B]">01 · Choose</strong>Start with your photo.</li><li><strong className="block text-[#241C1B]">02 · Imagine</strong>Describe a new look.</li><li><strong className="block text-[#241C1B]">03 · Keep</strong>Save the result you like.</li></ol>
         <a href="https://apps.apple.com/us/app/wearover-restyle-your-outfit/id6766553501" className={`${button} mt-5 bg-[#241C1B] text-[#F8F4F0]`}>See Wearover on the App Store ↗</a>
+        <p className="mt-4 text-sm"><a href="/showcase/index.html#wearover-demo" className="underline underline-offset-4">See the Wearover story →</a></p>
       </div>
-      <div className="flex justify-center"><Shot src="/showcase/media/diwali-before-after.jpg" alt="Wearover showing a before and after of a festive shirt" className="h-[420px] w-[200px] rounded-[26px] object-cover object-top" width={720} height={1280} /></div>
+      <figure className="mx-auto w-full max-w-[360px]"><Shot src="/showcase/media/wearover-kurta-candidate.webp" alt="Wearover candidate build showing a street photo beside a cream kurta redraw" className="w-full rounded-[24px] shadow-xl" width={720} height={1280} /><figcaption className="mt-3 text-sm text-[#51413D]">iPhone capture from the 3.0.8 candidate. Source photo: RDNE Stock project / Pexels.</figcaption></figure>
     </Panel>
   </Chapter>
 );
@@ -308,6 +310,11 @@ export default function HomePage() {
             <p className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold"><a href="#selected-work">Explore my work ↓</a><Link href="/posts/">Read my writing →</Link><Link href="/about/">More about me →</Link></p>
           </div>
         </div>
+      </section>
+
+      <section className="mb-16 grid gap-4 border-t border-border pt-8 md:grid-cols-2" aria-label="More from my studio">
+        <div className="rounded-[24px] bg-[var(--bg-tertiary)] p-7 sm:p-9"><p className={mono}>The studio</p><h2 className="mt-3 text-3xl font-bold tracking-tight text-primary">A home for curious apps.</h2><p className="mt-3 max-w-md leading-relaxed text-secondary">Alcor brings together the apps, games and experiments I make for creating, exploring and playing.</p><a href="https://getalcor.com/" className="mt-5 inline-block font-semibold">Explore Alcor →</a></div>
+        <div className="rounded-[24px] bg-[#e1e8fc] p-7 text-[#202945] sm:p-9"><p className="font-mono text-xs uppercase tracking-widest">A project to watch · MacItWork</p><h2 className="mt-3 text-3xl font-bold tracking-tight">What if your Macs worked together?</h2><p className="mt-3 max-w-md leading-relaxed">MacItWork explores a team of Macs that can share work. The current app focuses on approved build and test jobs between paired Macs; a more conversational team is the bigger idea.</p><a href="https://macit.work/" className="mt-5 inline-block font-semibold">Meet MacItWork →</a></div>
       </section>
 
       <LensSections
