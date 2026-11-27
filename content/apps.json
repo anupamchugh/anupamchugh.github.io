@@ -16,7 +16,7 @@
       "macOS",
       "watchOS"
     ],
-    "version": "1.5"
+    "version": "1.6"
   },
   {
     "name": "Orbits: Find Common Ground",
@@ -32,7 +32,7 @@
     "platforms": [
       "iOS"
     ],
-    "version": "1.7.0"
+    "version": "1.7.1"
   },
   {
     "name": "EchoHunt Music",
@@ -48,7 +48,7 @@
     "platforms": [
       "iOS"
     ],
-    "version": "1.7"
+    "version": "1.8"
   },
   {
     "name": "Pastport",
@@ -115,7 +115,7 @@
     "platforms": [
       "iOS"
     ],
-    "version": "1.3.0"
+    "version": "1.4.0"
   },
   {
     "name": "Checkmate Academy",
@@ -131,7 +131,7 @@
     "platforms": [
       "iOS"
     ],
-    "version": "1.1.1"
+    "version": "1.2.1"
   },
   {
     "name": "Feedloom",
@@ -147,7 +147,7 @@
     "platforms": [
       "iOS"
     ],
-    "version": "1.0.4"
+    "version": "1.3"
   },
   {
     "name": "getNod",
@@ -180,24 +180,25 @@
     "platforms": [
       "iOS"
     ],
-    "version": "3.0.1"
+    "version": "3.0.9"
   },
   {
     "name": "Breakline Surf",
     "slug": "breakline-surf",
-    "description": "compares visible surfing body position in your own photos and videos, privately on device.",
+    "description": "reads body position in your sports, dance and gym photos and clips on device, with tripod ball paths, robot replay and on-device meal planning.",
     "status": "live",
     "href": "https://apps.apple.com/us/app/breakline-surf/id6785873182",
     "icon": "/app-icons/breakline-surf.jpg",
     "tags": [
-      "surfing",
+      "sports",
       "vision",
-      "on-device"
+      "on-device",
+      "apple-intelligence"
     ],
     "platforms": [
       "iOS"
     ],
-    "version": "1.5"
+    "version": "1.7"
   },
   {
     "name": "DocPolish",
@@ -214,7 +215,7 @@
     "platforms": [
       "iOS"
     ],
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   {
     "name": "Lineage Mirror",

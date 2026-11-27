@@ -19,6 +19,7 @@ export default function PrivacyPage() {
         <h2>App-specific policies</h2>
         <p>These apps have their own privacy policy page:</p>
         <ul>
+          <li><a href="/privacy/breakline/">Breakline</a></li>
           <li><a href="/privacy/checkmate-academy/">Checkmate Academy</a></li>
           <li><a href="/privacy/docpolish/">DocPolish</a></li>
           <li><a href="/privacy/feedloom/">Feedloom</a></li>
