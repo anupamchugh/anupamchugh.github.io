@@ -17,6 +17,8 @@ In Agent Hand, each finger has a job. The thumb coordinates. The index researche
 
 [Try the demos](/showcase/agent-hand/index.html). Start with **Salon release evidence** and step through the run. The ring finger tracks Feature Lens finding the screen's source. The little finger tracks Xcode's test result. The visual responds to recorded tool events.
 
+[Open Agent Hand](https://github.com/anupamchugh/openagenthand#readme) is the open-source macOS and iOS demo. Its offline Hello World run lets you inspect an exact message and reply. For the idea behind joining source and screenshots, see [A key for every screen](/posts/a-key-for-every-screen/).
+
 ## From camera to motion
 
 In Mirror Hand, Vision reads joints from a camera frame and the app calculates how much each finger bends. RealityKit applies those bends to the robot. First Contact uses the same input to let a visitor react to gestures. A wave can start the interaction, and a thumbs-up can signal agreement.
