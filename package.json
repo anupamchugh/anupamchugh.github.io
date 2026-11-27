@@ -9,7 +9,8 @@
     "test": "node --test tests/*.test.mjs",
     "check:store": "node script/check-store-listings.mjs",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint app components lib",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "clsx": "^2.1.1",

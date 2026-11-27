@@ -1,7 +1,7 @@
 #!/bin/bash
-# Owner-run. Builds the static site and pushes out/ to the gh-pages branch.
-# Run it when you want the site updated. It is not scheduled and it does not start a launchd agent.
-# GitHub Pages for this repo serves gh-pages at /docs (recorded 2026-10-23). Actions is not used.
+# Legacy owner-run fallback. Builds the static site and pushes out/ to the gh-pages branch.
+# GitHub Pages currently uses build_type=workflow (.github/workflows/deploy.yml on push to main,
+# confirmed 2026-11-27). Only run this script if Pages is switched back to branch publishing.
 set -euo pipefail
 
 root="$(cd "$(dirname "$0")/.." && pwd -P)"

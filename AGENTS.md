@@ -15,7 +15,7 @@ The owner's personal site and blog at https://anupamchugh.github.io: a Next.js 1
 - `npm ci`, then `npm run build`: it runs `script/fetch-medium.mjs` (Medium RSS into `content/medium.json`, keeps the committed snapshot when offline), `script/sync-public-json.mjs` (App Store version lookup, writes `public/apps.json` and `public/resume.json`, may update versions in `content/apps.json`), then `next build --webpack` into `out/`. Passing: the build exits 0 and `out/` exists.
 - After a build, `git diff` shows refreshed `content/medium.json`, `content/apps.json` and `public/*.json`; commit them only when the change is meant to ship them.
 - `npm test` runs `node --test tests/*.test.mjs`. Several tests read `out/`, so build first. Passing: the `# fail 0` summary line; quote the `# pass` count.
-- `npm run check:store` checks App Store listings against `content/apps.json` (unverified on 10 Nov 2026). `npm run lint` calls `next lint`, which Next 16 removed (unverified); CI does not lint.
+- `npm run check:store` checks App Store listings against `content/apps.json` (unverified on 10 Nov 2026). `npm run lint` runs `eslint app components lib` and `npm run typecheck` runs `tsc --noEmit` (Next 16 removed `next lint`).
 - `npm run dev` serves on port 3000 (also `.claude/launch.json`); dev mode shows drafts, production hides them.
 - Pull requests to `main` run `.github/workflows/pr-checks.yml`: `npm ci`, `npm run build`, `npm test` on Node 20.
 
